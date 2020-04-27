@@ -3,5 +3,7 @@ module.exports = {
     variants: {
         gap: ['responsive', 'hover'],
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/ui'),
+    ],
 };

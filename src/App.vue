@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <TwButton color="red">
+        <TwButton theme="yellow">
             Button
         </TwButton>
     </div>
