@@ -65,16 +65,13 @@
             },
 
             getTextSize() {
-                switch (this.size) {
-                    case 'sm':
-                        return 'text-sm leading-4';
-                    case 'md':
-                        return 'text-sm leading-5';
-                    case 'lg':
-                        return 'text-base leading-6';
-                    default:
-                        return '';
-                }
+                const sizes = {
+                    sm: 'text-sm leading-4',
+                    md: 'text-sm leading-5',
+                    lg: 'text-base leading-6',
+                };
+
+                return sizes[this.size];
             },
 
             getBorderClass() {
@@ -82,16 +79,13 @@
             },
 
             getPaddingClass() {
-                switch (this.size) {
-                    case 'sm':
-                        return 'px-3 py-2 leading-4';
-                    case 'md':
-                        return 'px-4 py-2 leading-5';
-                    case 'lg':
-                        return 'py-3 px-5 leading-6';
-                    default:
-                        return '';
-                }
+                const sizes = {
+                    sm: 'px-3 py-2 leading-4',
+                    md: 'px-4 py-2 leading-5',
+                    lg: 'py-3 px-5 leading-6',
+                };
+
+                return sizes[this.size];
             },
 
             inputListeners() {

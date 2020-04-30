@@ -40,7 +40,7 @@
 <script>
     import { TW_COLORS } from '@/utils/variants';
 
-    const BADGE_SIZES = ['sm', 'lg'];
+    const BADGE_SIZES = ['sm', 'md', 'lg'];
 
     export default {
         name: 'TwBadge',
@@ -48,13 +48,19 @@
         props: {
             theme: {
                 type: String,
+                default: 'light',
+                validator: value => ['light', 'dark'].includes(value),
+            },
+
+            color: {
+                type: String,
                 default: 'gray',
                 validator: value => TW_COLORS.includes(value),
             },
 
             size: {
                 type: String,
-                default: 'sm',
+                default: 'md',
                 validator: value => BADGE_SIZES.includes(value),
             },
 
@@ -83,19 +89,18 @@
                     this.getTextSizeClass,
                     this.getTextColorClass,
                     this.getLeadingClass,
-                    this.getBgClass,
+                    this.getBgColorClass,
                 ];
             },
 
             getPaddingClass() {
-                switch (this.size) {
-                    case 'sm':
-                        return 'px-2.5 py-0.5';
-                    case 'lg':
-                        return 'px-3 py-0.5';
-                    default:
-                        return '';
-                }
+                const sizes = {
+                    sm: 'px-1.5 py-0.5',
+                    md: 'px-2.5 py-0.5',
+                    lg: 'px-3 py-0.5',
+                };
+
+                return sizes[this.size];
             },
 
             getRoundedClass() {
@@ -103,44 +108,52 @@
             },
 
             getTextSizeClass() {
-                switch (this.size) {
-                    case 'sm':
-                        return 'text-xs';
-                    case 'lg':
-                        return 'text-sm';
-                    default:
-                        return '';
-                }
+                const sizes = {
+                    sm: 'text-xxs',
+                    md: 'text-xs',
+                    lg: 'text-sm',
+                };
+
+                return sizes[this.size];
             },
 
             getTextColorClass() {
-                return `text-${this.theme}-800`;
+                const themes = {
+                    light: `text-${this.color}-800`,
+                    dark: `text-${this.color}-800`,
+                };
+
+                return themes[this.theme];
             },
 
-            getBgClass() {
-                return `bg-${this.theme}-100`;
+            getBgColorClass() {
+                const themes = {
+                    light: `bg-${this.color}-100`,
+                    dark: `bg-${this.color}-300`,
+                };
+
+                return themes[this.theme];
             },
 
             getLeadingClass() {
-                switch (this.size) {
-                    case 'sm':
-                        return 'leading-4';
-                    case 'lg':
-                        return 'leading-5';
-                    default:
-                        return '';
-                }
+                const sizes = {
+                    sm: 'leading-3',
+                    md: 'leading-4',
+                    lg: 'leading-5',
+                };
+
+                return sizes[this.size];
             },
 
             svgClassList() {
                 return [
-                    `-ml-0.5 mr-1.5 h-2 w-2 text-${this.theme}-400`,
+                    `-ml-0.5 mr-1.5 h-2 w-2 text-${this.color}-400`,
                 ];
             },
 
             xButtonClassList() {
                 return [
-                    `flex-shrink-0 ml-1.5 inline-flex text-${this.theme}-500 focus:outline-none focus:text-${this.theme}-700`,
+                    `flex-shrink-0 ml-1.5 inline-flex text-${this.color}-500 focus:outline-none focus:text-${this.color}-700`,
                 ];
             },
         },

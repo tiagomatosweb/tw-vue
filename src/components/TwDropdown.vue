@@ -5,14 +5,16 @@
             :class="buttonClassList"
             @click.stop.prevent="isOpen = !isOpen"
         >
-            <slot name="buttonText" />
+            <slot name="button-content">
+                {{ text }}
+            </slot>
 
             <slot
-                v-if="$slots.default && !clean"
-                name="buttonArrow"
+                v-if="!noIcon"
+                name="button-icon"
             >
                 <svg
-                    class="-mr-1 ml-2 h-5 w-5"
+                    :class="iconClassList"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                 >
@@ -35,10 +37,21 @@
         >
             <div
                 v-show="isOpen"
-                class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-200"
+                class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50"
             >
                 <div class="py-1 rounded-md bg-white shadow-xs">
-                    <slot />
+                    <slot>
+                        <ul>
+                            <li
+                                v-for="(opt, index) in options"
+                                :key="`option_${opt[labelKey]}_${index}`"
+                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+                                @click="select(opt)"
+                            >
+                                {{ opt[label] }}
+                            </li>
+                        </ul>
+                    </slot>
                 </div>
             </div>
         </Transition>
@@ -50,14 +63,35 @@
         name: 'TwDropdown',
 
         props: {
-            clean: {
+            naked: {
                 type: Boolean,
                 default: false,
             },
 
-            btnExtraClasses: {
+            noPadding: {
+                type: Boolean,
+                default: false,
+            },
+
+            noIcon: {
+                type: Boolean,
+                default: false,
+            },
+
+            btnClass: {
                 type: String,
                 default: '',
+            },
+
+            iconClass: {
+                type: String,
+                default: '',
+            },
+
+            size: {
+                type: String,
+                default: 'md',
+                validator: value => ['sm', 'md'].includes(value),
             },
 
             rounded: {
@@ -65,38 +99,73 @@
                 default: undefined,
                 validator: value => ['', 'sm', 'md', 'lg', 'full'].includes(value),
             },
+
+            text: {
+                type: String,
+                default: '',
+            },
+
+            options: {
+                type: Array,
+                default: () => [],
+            },
+
+            label: {
+                type: String,
+                default: 'label',
+            },
+
+            labelKey: {
+                type: String,
+                default: 'id',
+            },
         },
 
         data() {
             return {
                 isOpen: false,
+                id: this._uid,
             };
         },
 
         computed: {
             buttonClassList() {
                 return [
-                    'inline-flex justify-center w-full text-sm leading-5 font-medium focus:shadow-outline-blue active:bg-gray-50 active:text-cool-gray-700 transition ease-in-out duration-150',
+                    'flex items-center justify-center leading-5 transition ease-in-out duration-150 z-50',
+                    this.getTextSizeClass,
+                    this.getTextColorClass,
                     this.getPaddingClass,
-                    this.getBackgroundClass,
+                    this.getBgClass,
                     this.getBtnExtraClasses,
                     this.getBorderRoundedClass,
                     this.getBorderClass,
-                    this.getTextColorClass,
                     this.getShadowClass,
                 ];
             },
 
+            getTextSizeClass() {
+                const sizes = {
+                    sm: 'text-xs font-medium',
+                    md: 'text-sm font-medium',
+                };
+
+                return sizes[this.size];
+            },
+
+            getTextColorClass() {
+                return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-400';
+            },
+
             getShadowClass() {
-                return !this.clean ? 'shadow-sm' : '';
+                return !this.naked ? 'shadow-sm' : '';
             },
 
             getBorderClass() {
-                return !this.clean ? 'border border-cool-gray-300 focus:border-blue-300 focus:outline-none' : '';
+                return !this.naked ? 'border border-cool-gray-300 focus:border-blue-300 focus:outline-none focus:shadow-outline-blue' : 'focus:outline-none';
             },
 
             getBorderRoundedClass() {
-                if (this.clear) {
+                if (this.naked) {
                     return '';
                 }
 
@@ -107,19 +176,53 @@
             },
 
             getPaddingClass() {
-                return this.$slots.buttonText && !this.clean ? 'px-4 py-2' : '';
+                if (this.noPadding) {
+                    return '';
+                }
+
+                const sizes = {
+                    sm: 'px-2 py-1',
+                    md: 'px-4 py-2',
+                };
+
+                return sizes[this.size];
             },
 
-            getBackgroundClass() {
-                return !this.clean ? 'bg-white' : '';
-            },
-
-            getTextColorClass() {
-                return !this.clean ? 'text-cool-gray-700 hover:text-cool-gray-500' : 'text-cool-gray-400';
+            getBgClass() {
+                return !this.naked ? 'bg-white active:bg-gray-50' : '';
             },
 
             getBtnExtraClasses() {
-                return this.btnExtraClasses;
+                return this.btnClass;
+            },
+
+            iconClassList() {
+                if (this.iconClass) {
+                    return this.iconClass;
+                }
+
+                return [
+                    this.getIconDimensionClass,
+                    this.getIconMarginClass,
+                ];
+            },
+
+            getIconDimensionClass() {
+                const sizes = {
+                    sm: 'h-3 w-4',
+                    md: 'h-4 w-4',
+                };
+
+                return sizes[this.size];
+            },
+
+            getIconMarginClass() {
+                const sizes = {
+                    sm: `${!this.naked ? '-mr-1' : ''} ml-1`,
+                    md: `${!this.naked ? '-mr-1' : ''} ml-2`,
+                };
+
+                return sizes[this.size];
             },
         },
 
@@ -163,6 +266,11 @@
 
             close() {
                 this.isOpen = false;
+            },
+
+            select(opt) {
+                this.close();
+                this.$emit('select', opt);
             },
         },
     };

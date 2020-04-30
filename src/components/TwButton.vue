@@ -86,7 +86,7 @@
                 }
 
                 return [
-                    'inline-flex items-center font-medium rounded transition ease-in-out duration-150',
+                    'inline-flex items-center justify-center font-medium rounded transition ease-in-out duration-150',
                     this.getTextColorClass,
                     this.getBgColorClass,
                     this.getBlockClass,
