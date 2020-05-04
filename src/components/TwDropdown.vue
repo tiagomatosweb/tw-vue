@@ -44,11 +44,11 @@
                         <ul>
                             <li
                                 v-for="(opt, index) in options"
-                                :key="`option_${opt[labelKey]}_${index}`"
+                                :key="`option_${index}`"
                                 class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
                                 @click="select(opt)"
                             >
-                                {{ opt[label] }}
+                                {{ label ? opt[label] : opt }}
                             </li>
                         </ul>
                     </slot>
@@ -112,12 +112,7 @@
 
             label: {
                 type: String,
-                default: 'label',
-            },
-
-            labelKey: {
-                type: String,
-                default: 'id',
+                default: '',
             },
         },
 
@@ -153,7 +148,7 @@
             },
 
             getTextColorClass() {
-                return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-400';
+                return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-700';
             },
 
             getShadowClass() {
@@ -165,20 +160,15 @@
             },
 
             getBorderRoundedClass() {
-                if (this.naked) {
-                    return '';
-                }
+                if (this.naked) { return ''; }
 
-                if (this.rounded === '') {
-                    return 'rounded';
-                }
+                if (this.rounded === '') { return 'rounded'; }
+
                 return this.rounded ? `rounded-${this.rounded}` : '';
             },
 
             getPaddingClass() {
-                if (this.noPadding) {
-                    return '';
-                }
+                if (this.noPadding) { return ''; }
 
                 const sizes = {
                     sm: 'px-2 py-1',
