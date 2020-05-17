@@ -107,8 +107,6 @@
                 </TwDropdown>
             </div>
         </div>
-
-        {{ selectedOption }}
     </div>
 </template>
 

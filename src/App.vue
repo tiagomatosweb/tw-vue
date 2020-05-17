@@ -6,6 +6,8 @@
         <div class="grid gap-8">
             <Dropdowns />
 
+            <Paginators />
+
             <Badges />
 
             <Buttons />
@@ -17,11 +19,13 @@
     import Dropdowns from '@/Dropdowns';
     import Buttons from '@/Buttons';
     import Badges from '@/Badges';
+    import Paginators from '@/Paginators';
 
     export default {
         name: 'App',
 
         components: {
+            Paginators,
             Dropdowns,
             Badges,
             Buttons,
