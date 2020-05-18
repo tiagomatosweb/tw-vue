@@ -89,6 +89,18 @@
                 </TwDropdown>
 
                 <TwDropdown
+                    rounded
+                    label="label"
+                    text="Custom menu"
+                    class="mx-1"
+                    @select="onDropdownSelect"
+                >
+                    <TwDropdownItem>Item 1</TwDropdownItem>
+                    <TwDropdownItem>Item 2</TwDropdownItem>
+                    <TwDropdownItem>Item 3</TwDropdownItem>
+                </TwDropdown>
+
+                <TwDropdown
                     :options="options"
                     no-padding
                     naked
@@ -112,11 +124,13 @@
 
 <script>
     import TwDropdown from '@/components/TwDropdown';
+    import TwDropdownItem from '@/components/TwDropdownItem';
 
     export default {
         name: 'Dropdowns',
 
         components: {
+            TwDropdownItem,
             TwDropdown,
         },
 

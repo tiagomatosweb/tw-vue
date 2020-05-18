@@ -3,7 +3,7 @@
         <button
             type="button"
             :class="buttonClassList"
-            @click.stop.prevent="isOpen = !isOpen"
+            @click.stop.prevent="toggleDropdown()"
         >
             <slot name="button-content">
                 {{ text }}
@@ -38,18 +38,21 @@
             <div
                 v-show="isOpen"
                 class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50"
+                :style="{ width: `${menuWidth}px` }"
             >
                 <div class="py-1 rounded-md bg-white shadow-xs">
-                    <ul>
-                        <li
-                            v-for="(opt, index) in options"
-                            :key="`option_${index}`"
-                            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
-                            @click="select(opt)"
-                        >
-                            {{ label ? opt[label] : opt }}
-                        </li>
-                    </ul>
+                    <slot>
+                        <ul>
+                            <li
+                                v-for="(opt, index) in options"
+                                :key="`option_${index}`"
+                                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+                                @click="select(opt)"
+                            >
+                                {{ label ? opt[label] : opt }}
+                            </li>
+                        </ul>
+                    </slot>
                 </div>
             </div>
         </Transition>
@@ -110,7 +113,17 @@
 
             label: {
                 type: String,
-                default: '',
+                default: undefined,
+            },
+
+            labelKey: {
+                type: String,
+                default: undefined,
+            },
+
+            menuWidth: {
+                type: [String, Number],
+                default: undefined,
             },
         },
 
@@ -252,7 +265,21 @@
                 }
             },
 
+            toggleDropdown() {
+                if (this.isOpen) {
+                    this.close();
+                } else {
+                    this.open();
+                }
+            },
+
+            open() {
+                this.$emit('open');
+                this.isOpen = true;
+            },
+
             close() {
+                this.$emit('close');
                 this.isOpen = false;
             },
 
