@@ -2713,12 +2713,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var TwAlert = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=template&id=5572ea13&
-var TwButtonvue_type_template_id_5572ea13_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.isBusy || _vm.disabled}},_vm.inputListeners),[(_vm.isBusy)?_c('TwSpinner',{staticClass:"mr-2"}):_vm._e(),_vm._t("default")],2)}
-var TwButtonvue_type_template_id_5572ea13_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=template&id=35d67fee&
+var TwButtonvue_type_template_id_35d67fee_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.isBusy || _vm.disabled}},_vm.inputListeners),[(_vm.isBusy)?_c('TwSpinner',{staticClass:"mr-2"}):_vm._e(),_vm._t("default")],2)}
+var TwButtonvue_type_template_id_35d67fee_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=template&id=5572ea13&
+// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=template&id=35d67fee&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
 var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner-border spinner-border-sm"})}
@@ -2799,6 +2799,13 @@ var TwSpinner_component = normalizeComponent(
     },
     theme: {
       type: String,
+      default: 'light',
+      validator: function validator(value) {
+        return ['light', 'dark', 'darker'].includes(value);
+      }
+    },
+    color: {
+      type: String,
       default: 'gray',
       validator: function validator(value) {
         return TW_COLORS.includes(value);
@@ -2814,6 +2821,14 @@ var TwSpinner_component = normalizeComponent(
       validator: function validator(value) {
         return ['xs', 'sm', 'md', 'lg', 'xl'].includes(value);
       }
+    },
+    pill: {
+      type: Boolean,
+      default: false
+    },
+    outline: {
+      type: Boolean,
+      default: false
     },
     shadow: {
       type: String,
@@ -2834,7 +2849,7 @@ var TwSpinner_component = normalizeComponent(
       type: Boolean,
       default: false
     },
-    clean: {
+    naked: {
       type: Boolean,
       default: false
     }
@@ -2848,76 +2863,72 @@ var TwSpinner_component = normalizeComponent(
         return this.btnClass;
       }
 
-      return ['inline-flex items-center justify-center font-medium rounded transition ease-in-out duration-150', this.getTextColorClass, this.getBgColorClass, this.getBlockClass, this.getDisabledClass, this.getTextSizeClass, this.getPaddingClass, this.getBorderClass, this.getShadowClass];
+      return ['inline-flex items-center justify-center font-medium transition ease-in-out duration-150', this.getTextColorClass, this.getBgColorClass, this.getBlockClass, this.getDisabledClass, this.getTextSizeClass, this.getPaddingClass, this.getBorderColorClass, this.getBorderRoundedClass, this.getShadowClass];
     },
     getTextSizeClass: function getTextSizeClass() {
-      switch (this.size) {
-        case 'xs':
-          return 'text-xs leading-4';
-
-        case 'sm':
-          return 'text-sm leading-4';
-
-        case 'md':
-          return 'text-sm leading-5';
-
-        case 'lg':
-          return 'text-base leading-6';
-
-        case 'xl':
-          return 'text-base leading-6';
-
-        default:
-          return '';
-      }
+      var sizes = {
+        xs: 'text-xs leading-4',
+        sm: 'text-sm leading-4',
+        md: 'text-sm leading-5',
+        lg: 'text-base leading-6',
+        xl: 'text-base leading-6'
+      };
+      return sizes[this.size];
     },
     getTextColorClass: function getTextColorClass() {
-      if (this.clean) {
-        return "text-".concat(this.theme, "-800");
+      if (this.naked) {
+        return "text-".concat(this.color, "-800");
       }
 
-      return "text-".concat(this.theme, "-100");
+      var themes = {
+        light: "".concat(this.outline ? "text-".concat(this.color, "-400 hover:text-").concat(this.color, "-500 active:text-").concat(this.color, "-400") : "text-".concat(this.color, "-800 hover:text-").concat(this.color, "-900")),
+        dark: "".concat(this.outline ? "text-".concat(this.color, "-400 hover:text-").concat(this.color, "-500 active:text-").concat(this.color, "-500") : "text-".concat(this.color, "-800 hover:text-").concat(this.color, "-900")),
+        darker: "".concat(this.outline ? "text-".concat(this.color, "-500 hover:text-").concat(this.color, "-600 active:text-").concat(this.color, "-600") : "text-".concat(this.color, "-50 hover:text-").concat(this.color, "-100"))
+      };
+      return themes[this.theme];
     },
     getBgColorClass: function getBgColorClass() {
-      if (this.clean) {
+      if (this.naked || this.outline) {
         return false;
       }
 
-      return "bg-".concat(this.theme, "-600 ").concat(!this.isBusy ? "hover:bg-".concat(this.theme, "-500 active:bg-").concat(this.theme, "-700 focus:shadow-outline-").concat(this.theme) : '');
+      var themes = {
+        light: "bg-".concat(this.color, "-100 hover:bg-").concat(this.color, "-200 active:bg-").concat(this.color, "-200"),
+        dark: "bg-".concat(this.color, "-300 hover:bg-").concat(this.color, "-400 active:bg-").concat(this.color, "-400"),
+        darker: "bg-".concat(this.color, "-500 hover:bg-").concat(this.color, "-600 active:bg-").concat(this.color, "-600")
+      };
+      return themes[this.theme];
+    },
+    getBorderColorClass: function getBorderColorClass() {
+      var themes = {
+        light: "border ".concat(this.outline ? "border-".concat(this.color, "-300 hover:border-").concat(this.color, "-400 active:border-").concat(this.color, "-400") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none"),
+        dark: "border ".concat(this.outline ? "border-".concat(this.color, "-400 hover:border-").concat(this.color, "-500 active:border-").concat(this.color, "-500") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none"),
+        darker: "border ".concat(this.outline ? "border-".concat(this.color, "-500 hover:border-").concat(this.color, "-600 active:border-").concat(this.color, "-600") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none")
+      };
+      return themes[this.theme];
+    },
+    getBorderRoundedClass: function getBorderRoundedClass() {
+      return this.pill ? 'rounded-full' : 'rounded';
     },
     getPaddingClass: function getPaddingClass() {
-      if (this.clean) {
+      if (this.naked) {
         return '';
       }
 
-      switch (this.size) {
-        case 'xs':
-          return 'px-2.5 py-1.5';
-
-        case 'sm':
-          return 'px-3 py-2';
-
-        case 'md':
-          return 'px-4 py-2';
-
-        case 'lg':
-          return 'px-4 py-2';
-
-        case 'xl':
-          return 'px-6 py-3';
-
-        default:
-          return '';
-      }
+      var sizes = {
+        xs: 'px-2.5 py-1.5',
+        sm: 'px-3 py-2',
+        md: 'px-4 py-2',
+        lg: 'px-4 py-2',
+        xl: 'px-6 py-3'
+      };
+      return sizes[this.size];
     },
     getBlockClass: function getBlockClass() {
       return this.block ? 'w-full justify-center' : '';
     },
     getDisabledClass: function getDisabledClass() {
       return this.isBusy ? 'opacity-75' : '';
-    },
-    getBorderClass: function getBorderClass() {
-      return 'border border-transparent focus:outline-none';
     },
     getShadowClass: function getShadowClass() {
       return this.shadow ? "shadow-".concat(this.shadow) : '';
@@ -2939,8 +2950,8 @@ var TwSpinner_component = normalizeComponent(
 
 var TwButton_component = normalizeComponent(
   components_TwButtonvue_type_script_lang_js_,
-  TwButtonvue_type_template_id_5572ea13_render,
-  TwButtonvue_type_template_id_5572ea13_staticRenderFns,
+  TwButtonvue_type_template_id_35d67fee_render,
+  TwButtonvue_type_template_id_35d67fee_staticRenderFns,
   false,
   null,
   null,
@@ -3302,15 +3313,17 @@ var TwFormInput_component = normalizeComponent(
 )
 
 /* harmony default export */ var TwFormInput = (TwFormInput_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdown.vue?vue&type=template&id=869ffb3e&
-var TwDropdownvue_type_template_id_869ffb3e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative inline-block text-left"},[_c('button',{class:_vm.buttonClassList,attrs:{"type":"button"},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();_vm.isOpen = !_vm.isOpen}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noIcon)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"fill":"currentColor","viewBox":"0 0 20 20"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('Transition',{attrs:{"enter-active-class":"transition ease-out duration-100","enter-class":"transform opacity-0 scale-95","enter-to-class":"transform opacity-100 scale-100","leave-active-class":"transition ease-in duration-75","leave-class":"transform opacity-100 scale-100","leave-to-class":"transform opacity-0 scale-95"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen),expression:"isOpen"}],staticClass:"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50"},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default",[_c('ul',_vm._l((_vm.options),function(opt,index){return _c('li',{key:("option_" + (opt[_vm.labelKey]) + "_" + index),staticClass:"block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer",on:{"click":function($event){return _vm.select(opt)}}},[_vm._v(" "+_vm._s(opt[_vm.label])+" ")])}),0)])],2)])])],1)}
-var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdown.vue?vue&type=template&id=5c98c873&
+var TwDropdownvue_type_template_id_5c98c873_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative inline-block text-left"},[_c('button',{class:_vm.buttonClassList,attrs:{"type":"button"},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noIcon)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"fill":"currentColor","viewBox":"0 0 20 20"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('Transition',{attrs:{"enter-active-class":"transition ease-out duration-100","enter-class":"transform opacity-0 scale-95","enter-to-class":"transform opacity-100 scale-100","leave-active-class":"transition ease-in duration-75","leave-class":"transform opacity-100 scale-100","leave-to-class":"transform opacity-0 scale-95"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen),expression:"isOpen"}],staticClass:"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50",style:({ width: (_vm.menuWidth + "px") })},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default",[_c('ul',_vm._l((_vm.options),function(opt,index){return _c('li',{key:("option_" + index),staticClass:"block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer",on:{"click":function($event){return _vm.select(opt)}}},[_vm._v(" "+_vm._s(_vm.label ? opt[_vm.label] : opt)+" ")])}),0)])],2)])])],1)}
+var TwDropdownvue_type_template_id_5c98c873_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TwDropdown.vue?vue&type=template&id=869ffb3e&
+// CONCATENATED MODULE: ./src/components/TwDropdown.vue?vue&type=template&id=5c98c873&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdown.vue?vue&type=script&lang=js&
 
+
+//
 //
 //
 //
@@ -3420,11 +3433,15 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
     },
     label: {
       type: String,
-      default: 'label'
+      default: undefined
     },
     labelKey: {
       type: String,
-      default: 'id'
+      default: undefined
+    },
+    menuWidth: {
+      type: [String, Number],
+      default: undefined
     }
   },
   data: function data() {
@@ -3437,27 +3454,6 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
     buttonClassList: function buttonClassList() {
       return ['flex items-center justify-center leading-5 transition ease-in-out duration-150 z-50', this.getTextSizeClass, this.getTextColorClass, this.getPaddingClass, this.getBgClass, this.getBtnExtraClasses, this.getBorderRoundedClass, this.getBorderClass, this.getShadowClass];
     },
-    iconClassList: function iconClassList() {
-      if (this.iconClass) {
-        return this.iconClass;
-      }
-
-      return [this.getIconDimensionClass, this.getIconMarginClass];
-    },
-    getIconDimensionClass: function getIconDimensionClass() {
-      var sizes = {
-        sm: 'h-3 w-4',
-        md: 'h-4 w-4'
-      };
-      return sizes[this.size];
-    },
-    getIconMarginClass: function getIconMarginClass() {
-      var sizes = {
-        sm: "".concat(!this.naked ? '-mr-1' : '', " ml-1"),
-        md: "".concat(!this.naked ? '-mr-1' : '', " ml-2")
-      };
-      return sizes[this.size];
-    },
     getTextSizeClass: function getTextSizeClass() {
       var sizes = {
         sm: 'text-xs font-medium',
@@ -3466,7 +3462,7 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
       return sizes[this.size];
     },
     getTextColorClass: function getTextColorClass() {
-      return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-400';
+      return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-700';
     },
     getShadowClass: function getShadowClass() {
       return !this.naked ? 'shadow-sm' : '';
@@ -3501,6 +3497,27 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
     },
     getBtnExtraClasses: function getBtnExtraClasses() {
       return this.btnClass;
+    },
+    iconClassList: function iconClassList() {
+      if (this.iconClass) {
+        return this.iconClass;
+      }
+
+      return [this.getIconDimensionClass, this.getIconMarginClass];
+    },
+    getIconDimensionClass: function getIconDimensionClass() {
+      var sizes = {
+        sm: 'h-3 w-4',
+        md: 'h-4 w-4'
+      };
+      return sizes[this.size];
+    },
+    getIconMarginClass: function getIconMarginClass() {
+      var sizes = {
+        sm: "".concat(!this.naked ? '-mr-1' : '', " ml-1"),
+        md: "".concat(!this.naked ? '-mr-1' : '', " ml-2")
+      };
+      return sizes[this.size];
     }
   },
   watch: {
@@ -3535,7 +3552,19 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
         this.close();
       }
     },
+    toggleDropdown: function toggleDropdown() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
+    open: function open() {
+      this.$emit('open');
+      this.isOpen = true;
+    },
     close: function close() {
+      this.$emit('close');
       this.isOpen = false;
     },
     select: function select(opt) {
@@ -3556,8 +3585,8 @@ var TwDropdownvue_type_template_id_869ffb3e_staticRenderFns = []
 
 var TwDropdown_component = normalizeComponent(
   components_TwDropdownvue_type_script_lang_js_,
-  TwDropdownvue_type_template_id_869ffb3e_render,
-  TwDropdownvue_type_template_id_869ffb3e_staticRenderFns,
+  TwDropdownvue_type_template_id_5c98c873_render,
+  TwDropdownvue_type_template_id_5c98c873_staticRenderFns,
   false,
   null,
   null,
