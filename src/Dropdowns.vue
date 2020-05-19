@@ -195,6 +195,10 @@
             onDropdownSelect(opt) {
                 this.selectedOption = opt;
             },
+
+            click() {
+                alert('here');
+            },
         },
     };
 </script>

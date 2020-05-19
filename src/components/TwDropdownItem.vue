@@ -4,6 +4,7 @@
         :to="to"
         :is="is"
         :class="classList"
+        @click="onClick"
     >
         <slot />
     </Component>
@@ -13,10 +14,12 @@
     export default {
         name: 'TwDropdownItem',
 
+        inject: ['TwDropdown'],
+
         props: {
             href: {
                 type: String,
-                default: '#',
+                default: undefined,
             },
 
             to: {
@@ -25,16 +28,11 @@
             },
         },
 
-        data() {
-            return {
-            };
-        },
-
         computed: {
             classList() {
                 return [
                     'group flex items-center',
-                    'block px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
+                    'block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
                     'focus:outline-none focus:bg-gray-100 focus:text-gray-900',
                 ];
             },
@@ -52,10 +50,23 @@
                     return 'RouterLink';
                 }
 
-                return 'a';
+                if (typeof this.href !== 'undefined') {
+                    return 'a';
+                }
+
+                return 'button';
             },
         },
 
-        methods: {},
+        methods: {
+            onClick(evt) {
+                this.$emit('click', evt);
+                this.closeDropdown();
+            },
+
+            closeDropdown() {
+                this.TwDropdown.close();
+            },
+        },
     };
 </script>

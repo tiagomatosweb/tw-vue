@@ -127,6 +127,12 @@
             },
         },
 
+        provide() {
+            return {
+                TwDropdown: this,
+            };
+        },
+
         data() {
             return {
                 isOpen: false,
