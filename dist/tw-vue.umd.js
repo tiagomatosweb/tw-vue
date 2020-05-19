@@ -2494,6 +2494,8 @@ __webpack_require__.d(__webpack_exports__, "TwButton", function() { return /* re
 __webpack_require__.d(__webpack_exports__, "TwCard", function() { return /* reexport */ TwCard; });
 __webpack_require__.d(__webpack_exports__, "TwFormInput", function() { return /* reexport */ TwFormInput; });
 __webpack_require__.d(__webpack_exports__, "TwDropdown", function() { return /* reexport */ TwDropdown; });
+__webpack_require__.d(__webpack_exports__, "TwDropdownItem", function() { return /* reexport */ TwDropdownItem; });
+__webpack_require__.d(__webpack_exports__, "TwDropdownDivider", function() { return /* reexport */ TwDropdownDivider; });
 __webpack_require__.d(__webpack_exports__, "TwHelpText", function() { return /* reexport */ TwHelpText; });
 __webpack_require__.d(__webpack_exports__, "TwLabel", function() { return /* reexport */ TwLabel; });
 __webpack_require__.d(__webpack_exports__, "TwSpinner", function() { return /* reexport */ TwSpinner; });
@@ -3608,6 +3610,124 @@ var TwDropdown_component = normalizeComponent(
 )
 
 /* harmony default export */ var TwDropdown = (TwDropdown_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownItem.vue?vue&type=template&id=5e6ac570&
+var TwDropdownItemvue_type_template_id_5e6ac570_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.is,{tag:"Component",class:_vm.classList,attrs:{"href":_vm.localHref,"to":_vm.to}},[_vm._t("default")],2)}
+var TwDropdownItemvue_type_template_id_5e6ac570_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue?vue&type=template&id=5e6ac570&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownItem.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TwDropdownItemvue_type_script_lang_js_ = ({
+  name: 'TwDropdownItem',
+  props: {
+    href: {
+      type: String,
+      default: '#'
+    },
+    to: {
+      type: [String, Object],
+      default: undefined
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {
+    classList: function classList() {
+      return ['group flex items-center', 'block px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100', 'focus:outline-none focus:bg-gray-100 focus:text-gray-900'];
+    },
+    localHref: function localHref() {
+      if (typeof this.to !== 'undefined') {
+        return undefined;
+      }
+
+      return this.href;
+    },
+    is: function is() {
+      if (typeof this.to !== 'undefined') {
+        return 'RouterLink';
+      }
+
+      return 'a';
+    }
+  },
+  methods: {}
+});
+// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TwDropdownItemvue_type_script_lang_js_ = (TwDropdownItemvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue
+
+
+
+
+
+/* normalize component */
+
+var TwDropdownItem_component = normalizeComponent(
+  components_TwDropdownItemvue_type_script_lang_js_,
+  TwDropdownItemvue_type_template_id_5e6ac570_render,
+  TwDropdownItemvue_type_template_id_5e6ac570_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TwDropdownItem = (TwDropdownItem_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownDivider.vue?vue&type=template&id=2f15b6f5&
+var TwDropdownDividervue_type_template_id_2f15b6f5_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"border-t my-1 border-cool-gray-100"})}
+var TwDropdownDividervue_type_template_id_2f15b6f5_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue?vue&type=template&id=2f15b6f5&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownDivider.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+/* harmony default export */ var TwDropdownDividervue_type_script_lang_js_ = ({
+  name: 'TwDropdownDivider',
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
+// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TwDropdownDividervue_type_script_lang_js_ = (TwDropdownDividervue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue
+
+
+
+
+
+/* normalize component */
+
+var TwDropdownDivider_component = normalizeComponent(
+  components_TwDropdownDividervue_type_script_lang_js_,
+  TwDropdownDividervue_type_template_id_2f15b6f5_render,
+  TwDropdownDividervue_type_template_id_2f15b6f5_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TwDropdownDivider = (TwDropdownDivider_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwHelpText.vue?vue&type=template&id=7d5079f3&
 var TwHelpTextvue_type_template_id_7d5079f3_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('small',{class:_vm.classList},[_vm._t("default")],2)}
 var TwHelpTextvue_type_template_id_7d5079f3_staticRenderFns = []
@@ -3888,6 +4008,8 @@ var TwBadge_component = normalizeComponent(
 
 /* harmony default export */ var TwBadge = (TwBadge_component.exports);
 // CONCATENATED MODULE: ./src/index.js
+
+
 
 
 
