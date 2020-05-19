@@ -59,11 +59,11 @@
                     class="mx-1"
                     @select="onDropdownSelect"
                 >
-                    <template slot="button-content">
+                    <template v-slot:button-content>
                         Custom icon
                     </template>
 
-                    <template slot="button-icon">
+                    <template v-slot:button-icon>
                         <svg
                             class="h-4 w-4 -mr-1 ml-2"
                             fill="none"
@@ -149,7 +149,7 @@
                     class="mx-1"
                     @select="onDropdownSelect"
                 >
-                    <template slot="button-icon">
+                    <template v-slot:button-icon>
                         <svg
                             class="h-4 w-4 -mr-1 ml-2"
                             fill="currentColor"
