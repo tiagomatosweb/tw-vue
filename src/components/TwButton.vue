@@ -89,6 +89,11 @@
                 type: Boolean,
                 default: false,
             },
+
+            noPadding: {
+                type: Boolean,
+                default: false,
+            },
         },
 
         data() {
@@ -171,7 +176,7 @@
             },
 
             getPaddingClass() {
-                if (this.naked) { return ''; }
+                if (this.noPadding) { return ''; }
 
                 const sizes = {
                     xs: 'px-2.5 py-1.5',
