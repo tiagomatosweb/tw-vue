@@ -1,36 +1,26 @@
 <template>
     <div>
         <h3 class="text-lg font-bold mb-2">
-            Badges
+            TwToggle
         </h3>
-
         <div class="grid gap-4">
-            <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
-            <span
-                role="checkbox"
-                tabindex="0"
-                :aria-checked="isActive"
-                :class="classList"
-                @click="changeActive()"
-            >
-                <!-- On: "translate-x-5", Off: "translate-x-0" -->
-                <span
-                    aria-hidden="true"
-                    :class="bodyClassList"
-                />
-            </span>
+            <TwToggle /> 
+     
+            <TwToggle 
+                short
+            />     
         </div>
     </div>
 </template>
 
 <script>
-    // import TwBadge from '@/components/TwBadge';
+    import TwToggle from '@/components/TwToggle';
 
     export default {
         name: 'TwToggles',
 
         components: {
-            // TwBadge,
+            TwToggle,
         },
 
         data() {
