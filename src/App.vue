@@ -11,6 +11,8 @@
             <Badges />
 
             <Buttons />
+
+            <TwToggles />
         </div>
     </div>
 </template>
@@ -20,6 +22,7 @@
     import Buttons from '@/Buttons';
     import Badges from '@/Badges';
     import Paginators from '@/Paginators';
+    import TwToggles from '@/TwToggles';
 
     export default {
         name: 'App',
@@ -29,6 +32,7 @@
             Dropdowns,
             Badges,
             Buttons,
+            TwToggles,
         },
 
         data() {
