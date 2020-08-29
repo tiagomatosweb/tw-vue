@@ -10,7 +10,11 @@
      
             <TwToggle 
                 short
-            />     
+            />
+
+            <TwToggle 
+                icon
+            />      
         </div>
     </div>
 </template>
