@@ -236,13 +236,13 @@
         watch: {
             isOpen(value) {
                 if (value) {
-                    this.$root.$emit('tw::dropdown::shown', this);
+                    this.$root.$emit('tw-dropdown-shown', this);
                 }
             },
         },
 
         created() {
-            this.$root.$on('tw::dropdown::shown', this.rootCloseListener);
+            this.$root.$on('tw-dropdown-shown', this.rootCloseListener);
         },
 
         mounted() {

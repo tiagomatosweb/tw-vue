@@ -1,10 +1,10 @@
 module.exports = {
     root: true,
     env: {
-        node: true
+        node: true,
     },
     parserOptions: {
-        parser: 'babel-eslint'
+        parser: 'babel-eslint',
     },
     settings: {
         'import/resolver': 'webpack',
@@ -16,8 +16,8 @@ module.exports = {
         'plugin:import/warnings',
     ],
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'indent': 'off',
         'comma-dangle': ['error', 'always-multiline'],
         'semi': ['error', 'always'],
@@ -34,10 +34,10 @@ module.exports = {
         }],
         'vue/match-component-file-name': ['error', {
             'extensions': ['vue'],
-            'shouldMatchCase': false
+            'shouldMatchCase': false,
         }],
         'import/no-absolute-path': 'error',
         'import/newline-after-import': 'error',
-        'import/no-unresolved': ['error']
-    }
+        'import/no-unresolved': ['error'],
+    },
 };

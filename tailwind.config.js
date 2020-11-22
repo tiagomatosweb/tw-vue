@@ -1,15 +1,20 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     theme: {
-        extend: {
-            fontSize: {
-                xxs: '0.625rem',
-            },
+        colors: {
+            black: '#000',
+            white: '#fff',
+            blue: colors.blue,
+            'blue-gray': colors.blueGray,
+            green: colors.green,
+            red: colors.rose,
+            yellow: colors.yellow,
+            cyan: colors.cyan,
         },
+        borderColor: theme => ({
+            ...theme('colors'),
+            transparent: 'transparent',
+        }),
     },
-    variants: {
-        gap: ['responsive', 'hover'],
-    },
-    plugins: [
-        require('@tailwindcss/ui'),
-    ],
 };

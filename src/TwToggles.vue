@@ -4,17 +4,18 @@
             TwToggle
         </h3>
         <div class="grid gap-4">
-            <TwToggle 
-                simple
-            /> 
-     
-            <TwToggle 
-                short
+            <TwToggle
+                sort
             />
 
-            <TwToggle 
+            <TwToggle
+                simple
+            />
+
+            <TwToggle
+                short
                 icon
-            />      
+            />
         </div>
     </div>
 </template>

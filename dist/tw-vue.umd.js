@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "fae3");
+/******/ 	return __webpack_require__(__webpack_require__.s = "fb15");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -401,28 +401,6 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 /***/ }),
 
-/***/ "2532":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $ = __webpack_require__("23e7");
-var notARegExp = __webpack_require__("5a34");
-var requireObjectCoercible = __webpack_require__("1d80");
-var correctIsRegExpLogic = __webpack_require__("ab13");
-
-// `String.prototype.includes` method
-// https://tc39.github.io/ecma262/#sec-string.prototype.includes
-$({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, {
-  includes: function includes(searchString /* , position = 0 */) {
-    return !!~String(requireObjectCoercible(this))
-      .indexOf(notARegExp(searchString), arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-
-/***/ }),
-
 /***/ "294b":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -430,7 +408,7 @@ $({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, 
 /* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwSpinner_vue_vue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("69bf");
 /* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwSpinner_vue_vue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwSpinner_vue_vue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwSpinner_vue_vue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
 
 /***/ }),
 
@@ -489,20 +467,6 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
   var key;
   while (length > index) definePropertyModule.f(O, key = keys[index++], Properties[key]);
   return O;
-};
-
-
-/***/ }),
-
-/***/ "3bbe":
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__("861d");
-
-module.exports = function (it) {
-  if (!isObject(it) && it !== null) {
-    throw TypeError("Can't set " + String(it) + ' as a prototype');
-  } return it;
 };
 
 
@@ -577,25 +541,6 @@ if (ArrayPrototype[UNSCOPABLES] == undefined) {
 // add a key to Array.prototype[@@unscopables]
 module.exports = function (key) {
   ArrayPrototype[UNSCOPABLES][key] = true;
-};
-
-
-/***/ }),
-
-/***/ "44e7":
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__("861d");
-var classof = __webpack_require__("c6b6");
-var wellKnownSymbol = __webpack_require__("b622");
-
-var MATCH = wellKnownSymbol('match');
-
-// `IsRegExp` abstract operation
-// https://tc39.github.io/ecma262/#sec-isregexp
-module.exports = function (it) {
-  var isRegExp;
-  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : classof(it) == 'RegExp');
 };
 
 
@@ -717,7 +662,7 @@ var store = __webpack_require__("c6cd");
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.6.5',
+  version: '3.7.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
@@ -738,65 +683,6 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   var keys = getOwnPropertyNamesModule.f(anObject(it));
   var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
   return getOwnPropertySymbols ? keys.concat(getOwnPropertySymbols(it)) : keys;
-};
-
-
-/***/ }),
-
-/***/ "5899":
-/***/ (function(module, exports) {
-
-// a string of all valid unicode whitespaces
-// eslint-disable-next-line max-len
-module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-
-
-/***/ }),
-
-/***/ "58a8":
-/***/ (function(module, exports, __webpack_require__) {
-
-var requireObjectCoercible = __webpack_require__("1d80");
-var whitespaces = __webpack_require__("5899");
-
-var whitespace = '[' + whitespaces + ']';
-var ltrim = RegExp('^' + whitespace + whitespace + '*');
-var rtrim = RegExp(whitespace + whitespace + '*$');
-
-// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
-var createMethod = function (TYPE) {
-  return function ($this) {
-    var string = String(requireObjectCoercible($this));
-    if (TYPE & 1) string = string.replace(ltrim, '');
-    if (TYPE & 2) string = string.replace(rtrim, '');
-    return string;
-  };
-};
-
-module.exports = {
-  // `String.prototype.{ trimLeft, trimStart }` methods
-  // https://tc39.github.io/ecma262/#sec-string.prototype.trimstart
-  start: createMethod(1),
-  // `String.prototype.{ trimRight, trimEnd }` methods
-  // https://tc39.github.io/ecma262/#sec-string.prototype.trimend
-  end: createMethod(2),
-  // `String.prototype.trim` method
-  // https://tc39.github.io/ecma262/#sec-string.prototype.trim
-  trim: createMethod(3)
-};
-
-
-/***/ }),
-
-/***/ "5a34":
-/***/ (function(module, exports, __webpack_require__) {
-
-var isRegExp = __webpack_require__("44e7");
-
-module.exports = function (it) {
-  if (isRegExp(it)) {
-    throw TypeError("The method doesn't accept regular expressions");
-  } return it;
 };
 
 
@@ -859,6 +745,7 @@ var global = __webpack_require__("da84");
 var isObject = __webpack_require__("861d");
 var createNonEnumerableProperty = __webpack_require__("9112");
 var objectHas = __webpack_require__("5135");
+var shared = __webpack_require__("c6cd");
 var sharedKey = __webpack_require__("f772");
 var hiddenKeys = __webpack_require__("d012");
 
@@ -879,11 +766,12 @@ var getterFor = function (TYPE) {
 };
 
 if (NATIVE_WEAK_MAP) {
-  var store = new WeakMap();
+  var store = shared.state || (shared.state = new WeakMap());
   var wmget = store.get;
   var wmhas = store.has;
   var wmset = store.set;
   set = function (it, metadata) {
+    metadata.facade = it;
     wmset.call(store, it, metadata);
     return metadata;
   };
@@ -897,6 +785,7 @@ if (NATIVE_WEAK_MAP) {
   var STATE = sharedKey('state');
   hiddenKeys[STATE] = true;
   set = function (it, metadata) {
+    metadata.facade = it;
     createNonEnumerableProperty(it, STATE, metadata);
     return metadata;
   };
@@ -937,9 +826,15 @@ var TEMPLATE = String(String).split('String');
   var unsafe = options ? !!options.unsafe : false;
   var simple = options ? !!options.enumerable : false;
   var noTargetGet = options ? !!options.noTargetGet : false;
+  var state;
   if (typeof value == 'function') {
-    if (typeof key == 'string' && !has(value, 'name')) createNonEnumerableProperty(value, 'name', key);
-    enforceInternalState(value).source = TEMPLATE.join(typeof key == 'string' ? key : '');
+    if (typeof key == 'string' && !has(value, 'name')) {
+      createNonEnumerableProperty(value, 'name', key);
+    }
+    state = enforceInternalState(value);
+    if (!state.source) {
+      state.source = TEMPLATE.join(typeof key == 'string' ? key : '');
+    }
   }
   if (O === global) {
     if (simple) O[key] = value;
@@ -956,30 +851,6 @@ var TEMPLATE = String(String).split('String');
 })(Function.prototype, 'toString', function toString() {
   return typeof this == 'function' && getInternalState(this).source || inspectSource(this);
 });
-
-
-/***/ }),
-
-/***/ "7156":
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__("861d");
-var setPrototypeOf = __webpack_require__("d2bb");
-
-// makes subclassing work correct for wrapped built-ins
-module.exports = function ($this, dummy, Wrapper) {
-  var NewTarget, NewTargetPrototype;
-  if (
-    // it can work only with native `setPrototypeOf`
-    setPrototypeOf &&
-    // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
-    typeof (NewTarget = dummy.constructor) == 'function' &&
-    NewTarget !== Wrapper &&
-    isObject(NewTargetPrototype = NewTarget.prototype) &&
-    NewTargetPrototype !== Wrapper.prototype
-  ) setPrototypeOf($this, NewTargetPrototype);
-  return $this;
-};
 
 
 /***/ }),
@@ -1212,7 +1083,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   } else {}
 }(typeof self !== 'undefined' ? self : this, function () {
   function getCurrentScript () {
-    if (document.currentScript) {
+    var descriptor = Object.getOwnPropertyDescriptor(document, 'currentScript')
+    // for chrome
+    if (!descriptor && 'currentScript' in document && document.currentScript) {
+      return document.currentScript
+    }
+
+    // for other browsers with native support for currentScript
+    if (descriptor && descriptor.get !== getCurrentScript && document.currentScript) {
       return document.currentScript
     }
   
@@ -1349,74 +1227,6 @@ module.exports = isForced;
 
 /***/ }),
 
-/***/ "99af":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $ = __webpack_require__("23e7");
-var fails = __webpack_require__("d039");
-var isArray = __webpack_require__("e8b5");
-var isObject = __webpack_require__("861d");
-var toObject = __webpack_require__("7b0b");
-var toLength = __webpack_require__("50c4");
-var createProperty = __webpack_require__("8418");
-var arraySpeciesCreate = __webpack_require__("65f0");
-var arrayMethodHasSpeciesSupport = __webpack_require__("1dde");
-var wellKnownSymbol = __webpack_require__("b622");
-var V8_VERSION = __webpack_require__("2d00");
-
-var IS_CONCAT_SPREADABLE = wellKnownSymbol('isConcatSpreadable');
-var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
-var MAXIMUM_ALLOWED_INDEX_EXCEEDED = 'Maximum allowed index exceeded';
-
-// We can't use this feature detection in V8 since it causes
-// deoptimization and serious performance degradation
-// https://github.com/zloirock/core-js/issues/679
-var IS_CONCAT_SPREADABLE_SUPPORT = V8_VERSION >= 51 || !fails(function () {
-  var array = [];
-  array[IS_CONCAT_SPREADABLE] = false;
-  return array.concat()[0] !== array;
-});
-
-var SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('concat');
-
-var isConcatSpreadable = function (O) {
-  if (!isObject(O)) return false;
-  var spreadable = O[IS_CONCAT_SPREADABLE];
-  return spreadable !== undefined ? !!spreadable : isArray(O);
-};
-
-var FORCED = !IS_CONCAT_SPREADABLE_SUPPORT || !SPECIES_SUPPORT;
-
-// `Array.prototype.concat` method
-// https://tc39.github.io/ecma262/#sec-array.prototype.concat
-// with adding support of @@isConcatSpreadable and @@species
-$({ target: 'Array', proto: true, forced: FORCED }, {
-  concat: function concat(arg) { // eslint-disable-line no-unused-vars
-    var O = toObject(this);
-    var A = arraySpeciesCreate(O, 0);
-    var n = 0;
-    var i, k, length, len, E;
-    for (i = -1, length = arguments.length; i < length; i++) {
-      E = i === -1 ? O : arguments[i];
-      if (isConcatSpreadable(E)) {
-        len = toLength(E.length);
-        if (n + len > MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
-        for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
-      } else {
-        if (n >= MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
-        createProperty(A, n++, E);
-      }
-    }
-    A.length = n;
-    return A;
-  }
-});
-
-
-/***/ }),
-
 /***/ "9bf2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1440,6 +1250,32 @@ exports.f = DESCRIPTORS ? nativeDefineProperty : function defineProperty(O, P, A
   if ('value' in Attributes) O[P] = Attributes.value;
   return O;
 };
+
+
+/***/ }),
+
+/***/ "a15b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__("23e7");
+var IndexedObject = __webpack_require__("44ad");
+var toIndexedObject = __webpack_require__("fc6a");
+var arrayMethodIsStrict = __webpack_require__("a640");
+
+var nativeJoin = [].join;
+
+var ES3_STRINGS = IndexedObject != Object;
+var STRICT_METHOD = arrayMethodIsStrict('join', ',');
+
+// `Array.prototype.join` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.join
+$({ target: 'Array', proto: true, forced: ES3_STRINGS || !STRICT_METHOD }, {
+  join: function join(separator) {
+    return nativeJoin.call(toIndexedObject(this), separator === undefined ? ',' : separator);
+  }
+});
 
 
 /***/ }),
@@ -1791,114 +1627,6 @@ var floor = Math.floor;
 // https://tc39.github.io/ecma262/#sec-tointeger
 module.exports = function (argument) {
   return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
-};
-
-
-/***/ }),
-
-/***/ "a9e3":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var DESCRIPTORS = __webpack_require__("83ab");
-var global = __webpack_require__("da84");
-var isForced = __webpack_require__("94ca");
-var redefine = __webpack_require__("6eeb");
-var has = __webpack_require__("5135");
-var classof = __webpack_require__("c6b6");
-var inheritIfRequired = __webpack_require__("7156");
-var toPrimitive = __webpack_require__("c04e");
-var fails = __webpack_require__("d039");
-var create = __webpack_require__("7c73");
-var getOwnPropertyNames = __webpack_require__("241c").f;
-var getOwnPropertyDescriptor = __webpack_require__("06cf").f;
-var defineProperty = __webpack_require__("9bf2").f;
-var trim = __webpack_require__("58a8").trim;
-
-var NUMBER = 'Number';
-var NativeNumber = global[NUMBER];
-var NumberPrototype = NativeNumber.prototype;
-
-// Opera ~12 has broken Object#toString
-var BROKEN_CLASSOF = classof(create(NumberPrototype)) == NUMBER;
-
-// `ToNumber` abstract operation
-// https://tc39.github.io/ecma262/#sec-tonumber
-var toNumber = function (argument) {
-  var it = toPrimitive(argument, false);
-  var first, third, radix, maxCode, digits, length, index, code;
-  if (typeof it == 'string' && it.length > 2) {
-    it = trim(it);
-    first = it.charCodeAt(0);
-    if (first === 43 || first === 45) {
-      third = it.charCodeAt(2);
-      if (third === 88 || third === 120) return NaN; // Number('+0x1') should be NaN, old V8 fix
-    } else if (first === 48) {
-      switch (it.charCodeAt(1)) {
-        case 66: case 98: radix = 2; maxCode = 49; break; // fast equal of /^0b[01]+$/i
-        case 79: case 111: radix = 8; maxCode = 55; break; // fast equal of /^0o[0-7]+$/i
-        default: return +it;
-      }
-      digits = it.slice(2);
-      length = digits.length;
-      for (index = 0; index < length; index++) {
-        code = digits.charCodeAt(index);
-        // parseInt parses a string to a first unavailable symbol
-        // but ToNumber should return NaN if a string contains unavailable symbols
-        if (code < 48 || code > maxCode) return NaN;
-      } return parseInt(digits, radix);
-    }
-  } return +it;
-};
-
-// `Number` constructor
-// https://tc39.github.io/ecma262/#sec-number-constructor
-if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumber('+0x1'))) {
-  var NumberWrapper = function Number(value) {
-    var it = arguments.length < 1 ? 0 : value;
-    var dummy = this;
-    return dummy instanceof NumberWrapper
-      // check on 1..constructor(foo) case
-      && (BROKEN_CLASSOF ? fails(function () { NumberPrototype.valueOf.call(dummy); }) : classof(dummy) != NUMBER)
-        ? inheritIfRequired(new NativeNumber(toNumber(it)), dummy, NumberWrapper) : toNumber(it);
-  };
-  for (var keys = DESCRIPTORS ? getOwnPropertyNames(NativeNumber) : (
-    // ES3:
-    'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' +
-    // ES2015 (in case, if modules with ES2015 Number statics required before):
-    'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' +
-    'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger'
-  ).split(','), j = 0, key; keys.length > j; j++) {
-    if (has(NativeNumber, key = keys[j]) && !has(NumberWrapper, key)) {
-      defineProperty(NumberWrapper, key, getOwnPropertyDescriptor(NativeNumber, key));
-    }
-  }
-  NumberWrapper.prototype = NumberPrototype;
-  NumberPrototype.constructor = NumberWrapper;
-  redefine(global, NUMBER, NumberWrapper);
-}
-
-
-/***/ }),
-
-/***/ "ab13":
-/***/ (function(module, exports, __webpack_require__) {
-
-var wellKnownSymbol = __webpack_require__("b622");
-
-var MATCH = wellKnownSymbol('match');
-
-module.exports = function (METHOD_NAME) {
-  var regexp = /./;
-  try {
-    '/./'[METHOD_NAME](regexp);
-  } catch (e) {
-    try {
-      regexp[MATCH] = false;
-      return '/./'[METHOD_NAME](regexp);
-    } catch (f) { /* empty */ }
-  } return false;
 };
 
 
@@ -2282,37 +2010,6 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
 
 /***/ }),
 
-/***/ "d2bb":
-/***/ (function(module, exports, __webpack_require__) {
-
-var anObject = __webpack_require__("825a");
-var aPossiblePrototype = __webpack_require__("3bbe");
-
-// `Object.setPrototypeOf` method
-// https://tc39.github.io/ecma262/#sec-object.setprototypeof
-// Works with __proto__ only. Old v8 can't work with null proto objects.
-/* eslint-disable no-proto */
-module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
-  var CORRECT_SETTER = false;
-  var test = {};
-  var setter;
-  try {
-    setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;
-    setter.call(test, []);
-    CORRECT_SETTER = test instanceof Array;
-  } catch (error) { /* empty */ }
-  return function setPrototypeOf(O, proto) {
-    anObject(O);
-    aPossiblePrototype(proto);
-    if (CORRECT_SETTER) setter.call(O, proto);
-    else O.__proto__ = proto;
-    return O;
-  };
-}() : undefined);
-
-
-/***/ }),
-
 /***/ "d44e":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2346,7 +2043,7 @@ module.exports =
   check(typeof self == 'object' && self) ||
   check(typeof global == 'object' && global) ||
   // eslint-disable-next-line no-new-func
-  Function('return this')();
+  (function () { return this; })() || Function('return this')();
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("c8ba")))
 
@@ -2481,25 +2178,12 @@ module.exports = function (key) {
 
 /***/ }),
 
-/***/ "fae3":
+/***/ "fb15":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "TwAlert", function() { return /* reexport */ TwAlert; });
-__webpack_require__.d(__webpack_exports__, "TwButton", function() { return /* reexport */ TwButton; });
-__webpack_require__.d(__webpack_exports__, "TwCard", function() { return /* reexport */ TwCard; });
-__webpack_require__.d(__webpack_exports__, "TwFormInput", function() { return /* reexport */ TwFormInput; });
-__webpack_require__.d(__webpack_exports__, "TwDropdown", function() { return /* reexport */ TwDropdown; });
-__webpack_require__.d(__webpack_exports__, "TwDropdownItem", function() { return /* reexport */ TwDropdownItem; });
-__webpack_require__.d(__webpack_exports__, "TwDropdownDivider", function() { return /* reexport */ TwDropdownDivider; });
-__webpack_require__.d(__webpack_exports__, "TwHelpText", function() { return /* reexport */ TwHelpText; });
-__webpack_require__.d(__webpack_exports__, "TwLabel", function() { return /* reexport */ TwLabel; });
-__webpack_require__.d(__webpack_exports__, "TwSpinner", function() { return /* reexport */ TwSpinner; });
-__webpack_require__.d(__webpack_exports__, "TwBadge", function() { return /* reexport */ TwBadge; });
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -2524,613 +2208,6 @@ if (typeof window !== 'undefined') {
 
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwAlert.vue?vue&type=template&id=46aa0b83&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.classList},[(_vm.dismissible)?_c('button',{staticClass:"absolute top-0 right-0 px-2 py-1 text-2xl font-bold leading-none opacity-75",staticStyle:{"font-family":"'Times New Roman', sans-serif"},attrs:{"type":"button"},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.onClose()}}},[_c('span',[_vm._v("×")])]):_vm._e(),_c('p',[_vm._t("default")],2)])}
-var staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwAlert.vue?vue&type=template&id=46aa0b83&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
-var es_array_concat = __webpack_require__("99af");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
-var es_array_includes = __webpack_require__("caad");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
-var es_string_includes = __webpack_require__("2532");
-
-// CONCATENATED MODULE: ./src/utils/variants.js
-var TW_COLORS = ['white', 'black', 'gray', 'cool-gray', 'red', 'orange', 'yellow', 'green', 'teal', 'blue', 'indigo', 'purple', 'pink'];
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwAlert.vue?vue&type=script&lang=js&
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var TwAlertvue_type_script_lang_js_ = ({
-  name: 'TwAlert',
-  props: {
-    theme: {
-      type: String,
-      default: 'gray',
-      validator: function validator(value) {
-        return TW_COLORS.includes(value);
-      }
-    },
-    dismissible: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function data() {
-    return {};
-  },
-  computed: {
-    classList: function classList() {
-      return ['relative border-l-4', this.getTextColorClass, this.getBgColorClass, this.getPaddingClass, this.getMarginClass];
-    },
-    getTextColorClass: function getTextColorClass() {
-      return "text-".concat(this.theme, "-700");
-    },
-    getBgColorClass: function getBgColorClass() {
-      return "bg-".concat(this.theme, "-100 border-").concat(this.theme, "-400");
-    },
-    getPaddingClass: function getPaddingClass() {
-      return 'py-3 pr-6 pl-4';
-    },
-    getMarginClass: function getMarginClass() {
-      return 'mb-4';
-    }
-  },
-  methods: {
-    onClose: function onClose() {
-      if (this.dismissible) {
-        this.$emit('close');
-      }
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/TwAlert.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwAlertvue_type_script_lang_js_ = (TwAlertvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-// CONCATENATED MODULE: ./src/components/TwAlert.vue
-
-
-
-
-
-/* normalize component */
-
-var component = normalizeComponent(
-  components_TwAlertvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwAlert = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=template&id=3eb0e074&
-var TwButtonvue_type_template_id_3eb0e074_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.isBusy || _vm.disabled}},_vm.inputListeners),[(_vm.isBusy)?_c('TwSpinner',{staticClass:"mr-2"}):_vm._e(),_vm._t("default")],2)}
-var TwButtonvue_type_template_id_3eb0e074_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=template&id=3eb0e074&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
-var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner-border spinner-border-sm"})}
-var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-/* harmony default export */ var TwSpinnervue_type_script_lang_js_ = ({
-  name: 'TwSpinner',
-  data: function data() {
-    return {};
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./src/components/TwSpinner.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwSpinnervue_type_script_lang_js_ = (TwSpinnervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/TwSpinner.vue?vue&type=style&index=0&id=ed9f3b96&lang=scss&scoped=true&
-var TwSpinnervue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true_ = __webpack_require__("294b");
-
-// CONCATENATED MODULE: ./src/components/TwSpinner.vue
-
-
-
-
-
-
-/* normalize component */
-
-var TwSpinner_component = normalizeComponent(
-  components_TwSpinnervue_type_script_lang_js_,
-  TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render,
-  TwSpinnervue_type_template_id_ed9f3b96_scoped_true_staticRenderFns,
-  false,
-  null,
-  "ed9f3b96",
-  null
-  
-)
-
-/* harmony default export */ var TwSpinner = (TwSpinner_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=script&lang=js&
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ var TwButtonvue_type_script_lang_js_ = ({
-  name: 'TwButton',
-  components: {
-    TwSpinner: TwSpinner
-  },
-  props: {
-    type: {
-      type: String,
-      default: 'button'
-    },
-    theme: {
-      type: String,
-      default: 'light',
-      validator: function validator(value) {
-        return ['light', 'dark', 'darker'].includes(value);
-      }
-    },
-    color: {
-      type: String,
-      default: 'gray',
-      validator: function validator(value) {
-        return TW_COLORS.includes(value);
-      }
-    },
-    btnClass: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: function validator(value) {
-        return ['xs', 'sm', 'md', 'lg', 'xl'].includes(value);
-      }
-    },
-    pill: {
-      type: Boolean,
-      default: false
-    },
-    outline: {
-      type: Boolean,
-      default: false
-    },
-    shadow: {
-      type: String,
-      default: null,
-      validator: function validator(value) {
-        return [null, 'md', 'lg', 'xl', '2xl', 'inner', 'outline', 'none'].includes(value);
-      }
-    },
-    block: {
-      type: Boolean,
-      default: false
-    },
-    isBusy: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    naked: {
-      type: Boolean,
-      default: false
-    },
-    noPadding: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function data() {
-    return {};
-  },
-  computed: {
-    classList: function classList() {
-      if (this.btnClass) {
-        return this.btnClass;
-      }
-
-      return ['inline-flex items-center justify-center font-medium transition ease-in-out duration-150', this.getTextColorClass, this.getBgColorClass, this.getBlockClass, this.getDisabledClass, this.getTextSizeClass, this.getPaddingClass, this.getBorderColorClass, this.getBorderRoundedClass, this.getShadowClass];
-    },
-    getTextSizeClass: function getTextSizeClass() {
-      var sizes = {
-        xs: 'text-xs leading-4',
-        sm: 'text-sm leading-4',
-        md: 'text-sm leading-5',
-        lg: 'text-base leading-6',
-        xl: 'text-base leading-6'
-      };
-      return sizes[this.size];
-    },
-    getTextColorClass: function getTextColorClass() {
-      if (this.naked) {
-        return "text-".concat(this.color, "-800");
-      }
-
-      var themes = {
-        light: "".concat(this.outline ? "text-".concat(this.color, "-400 hover:text-").concat(this.color, "-500 active:text-").concat(this.color, "-400") : "text-".concat(this.color, "-800 hover:text-").concat(this.color, "-900")),
-        dark: "".concat(this.outline ? "text-".concat(this.color, "-400 hover:text-").concat(this.color, "-500 active:text-").concat(this.color, "-500") : "text-".concat(this.color, "-800 hover:text-").concat(this.color, "-900")),
-        darker: "".concat(this.outline ? "text-".concat(this.color, "-500 hover:text-").concat(this.color, "-600 active:text-").concat(this.color, "-600") : "text-".concat(this.color, "-50 hover:text-").concat(this.color, "-100"))
-      };
-      return themes[this.theme];
-    },
-    getBgColorClass: function getBgColorClass() {
-      if (this.naked || this.outline) {
-        return false;
-      }
-
-      var themes = {
-        light: "bg-".concat(this.color, "-100 hover:bg-").concat(this.color, "-200 active:bg-").concat(this.color, "-200"),
-        dark: "bg-".concat(this.color, "-300 hover:bg-").concat(this.color, "-400 active:bg-").concat(this.color, "-400"),
-        darker: "bg-".concat(this.color, "-500 hover:bg-").concat(this.color, "-600 active:bg-").concat(this.color, "-600")
-      };
-      return themes[this.theme];
-    },
-    getBorderColorClass: function getBorderColorClass() {
-      var themes = {
-        light: "border ".concat(this.outline ? "border-".concat(this.color, "-300 hover:border-").concat(this.color, "-400 active:border-").concat(this.color, "-400") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none"),
-        dark: "border ".concat(this.outline ? "border-".concat(this.color, "-400 hover:border-").concat(this.color, "-500 active:border-").concat(this.color, "-500") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none"),
-        darker: "border ".concat(this.outline ? "border-".concat(this.color, "-500 hover:border-").concat(this.color, "-600 active:border-").concat(this.color, "-600") : 'border-transparent', " focus:shadow-outline-").concat(this.color, " focus:outline-none")
-      };
-      return themes[this.theme];
-    },
-    getBorderRoundedClass: function getBorderRoundedClass() {
-      return this.pill ? 'rounded-full' : 'rounded';
-    },
-    getPaddingClass: function getPaddingClass() {
-      if (this.noPadding) {
-        return '';
-      }
-
-      var sizes = {
-        xs: 'px-2.5 py-1.5',
-        sm: 'px-3 py-2',
-        md: 'px-4 py-2',
-        lg: 'px-4 py-2',
-        xl: 'px-6 py-3'
-      };
-      return sizes[this.size];
-    },
-    getBlockClass: function getBlockClass() {
-      return this.block ? 'w-full justify-center' : '';
-    },
-    getDisabledClass: function getDisabledClass() {
-      return this.isBusy ? 'opacity-75' : '';
-    },
-    getShadowClass: function getShadowClass() {
-      return this.shadow ? "shadow-".concat(this.shadow) : '';
-    },
-    inputListeners: function inputListeners() {
-      return this.$listeners;
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwButtonvue_type_script_lang_js_ = (TwButtonvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwButton.vue
-
-
-
-
-
-/* normalize component */
-
-var TwButton_component = normalizeComponent(
-  components_TwButtonvue_type_script_lang_js_,
-  TwButtonvue_type_template_id_3eb0e074_render,
-  TwButtonvue_type_template_id_3eb0e074_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwButton = (TwButton_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwCard.vue?vue&type=template&id=d9f089ea&
-var TwCardvue_type_template_id_d9f089ea_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.classList,on:{"mouseover":function($event){_vm.isElevatedActive = true},"mouseout":function($event){_vm.isElevatedActive = false}}},[_c('div',{class:_vm.bodyClassList},[_vm._t("default")],2)])}
-var TwCardvue_type_template_id_d9f089ea_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwCard.vue?vue&type=template&id=d9f089ea&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwCard.vue?vue&type=script&lang=js&
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var TwCardvue_type_script_lang_js_ = ({
-  name: 'TwCard',
-  props: {
-    theme: {
-      type: String,
-      default: 'white',
-      validator: function validator(value) {
-        return TW_COLORS.includes(value);
-      }
-    },
-    shadow: {
-      type: [String, Boolean],
-      default: undefined,
-      validator: function validator(value) {
-        return ['', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner', 'outline'].includes(value);
-      }
-    },
-    elevated: {
-      type: String,
-      default: '',
-      validator: function validator(value) {
-        return ['', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'].includes(value);
-      }
-    },
-    rounded: {
-      type: [String, Boolean],
-      default: undefined,
-      validator: function validator(value) {
-        return ['', 'sm', 'md', 'lg', 'full'].includes(value);
-      }
-    },
-    bordered: {
-      type: Boolean,
-      default: false
-    },
-    borderStyle: {
-      type: String,
-      default: 'none',
-      validator: function validator(value) {
-        return ['solid', 'dashed', 'dotted', 'double', 'none'].includes(value);
-      }
-    },
-    noBody: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function data() {
-    return {
-      isElevatedActive: false
-    };
-  },
-  computed: {
-    classList: function classList() {
-      return ['rounded-sm transition duration-300 ease-in-out', this.getBgColorClass, this.getBorderClass, this.getBorderColorClass, this.getBorderStyleClass, this.getShadowClass, this.getShadowElevatedClass, this.getBorderRoundedClass];
-    },
-    bodyClassList: function bodyClassList() {
-      return !this.noBody ? 'px-4 py-4 sm:px-6' : '';
-    },
-    getBgColorClass: function getBgColorClass() {
-      if (this.theme === 'white') {
-        return 'bg-white';
-      }
-
-      return "bg-".concat(this.theme, "-100");
-    },
-    getBorderClass: function getBorderClass() {
-      return this.bordered ? 'border' : '';
-    },
-    getBorderColorClass: function getBorderColorClass() {
-      if (this.theme === 'white') {
-        return false;
-      }
-
-      return this.bordered ? "border-".concat(this.theme, "-300") : '';
-    },
-    getBorderStyleClass: function getBorderStyleClass() {
-      return this.bordered ? "border-".concat(this.borderStyle) : '';
-    },
-    getShadowClass: function getShadowClass() {
-      if (this.shadow === '') {
-        return 'shadow';
-      }
-
-      return this.shadow ? "shadow-".concat(this.shadow) : '';
-    },
-    getShadowElevatedClass: function getShadowElevatedClass() {
-      if (!this.isElevatedActive) {
-        return false;
-      }
-
-      return this.elevated ? "transform shadow-".concat(this.elevated, " -translate-y-px") : '';
-    },
-    getBorderRoundedClass: function getBorderRoundedClass() {
-      if (this.rounded === '') {
-        return 'rounded';
-      }
-
-      return this.rounded ? "rounded-".concat(this.rounded) : '';
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/TwCard.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwCardvue_type_script_lang_js_ = (TwCardvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwCard.vue
-
-
-
-
-
-/* normalize component */
-
-var TwCard_component = normalizeComponent(
-  components_TwCardvue_type_script_lang_js_,
-  TwCardvue_type_template_id_d9f089ea_render,
-  TwCardvue_type_template_id_d9f089ea_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwCard = (TwCard_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwFormInput.vue?vue&type=template&id=4d976dcb&
-var TwFormInputvue_type_template_id_4d976dcb_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative rounded-md shadow-sm"},[_c('input',_vm._g({class:_vm.classList,attrs:{"id":_vm.id,"type":_vm.type,"name":_vm.name,"placeholder":_vm.placeholder},domProps:{"value":_vm.value}},_vm.inputListeners))])}
-var TwFormInputvue_type_template_id_4d976dcb_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwFormInput.vue?vue&type=template&id=4d976dcb&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
-var es_number_constructor = __webpack_require__("a9e3");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
 var es_symbol = __webpack_require__("a4d3");
@@ -3211,391 +2288,265 @@ function _objectSpread2(target) {
 
   return target;
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwFormInput.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ba00aba-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=template&id=71cc9165&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled}},_vm.inputListeners),[(_vm.busy)?_c('TwSpinner',{staticClass:"mr-2"}):_vm._e(),_vm._t("default")],2)}
+var staticRenderFns = []
 
 
+// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=template&id=71cc9165&
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
+var es_array_includes = __webpack_require__("caad");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
+var es_array_join = __webpack_require__("a15b");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ba00aba-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
+var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner-border spinner-border-sm"})}
+var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=script&lang=js&
 //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var TwFormInputvue_type_script_lang_js_ = ({
-  name: 'TwFormInput',
-  props: {
-    value: {
-      type: [String, Number],
-      default: ''
-    },
-    id: {
-      type: String,
-      default: undefined
-    },
-    type: {
-      type: String,
-      default: 'text',
-      validator: function validator(value) {
-        return ['text', 'password', 'email'].includes(value);
-      }
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    name: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: function validator(value) {
-        return ['sm', 'md', 'lg'].includes(value);
-      }
-    }
-  },
+/* harmony default export */ var TwSpinnervue_type_script_lang_js_ = ({
+  name: 'TwSpinner',
   data: function data() {
     return {};
   },
+  methods: {}
+});
+// CONCATENATED MODULE: ./src/components/TwSpinner.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TwSpinnervue_type_script_lang_js_ = (TwSpinnervue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/components/TwSpinner.vue?vue&type=style&index=0&id=ed9f3b96&lang=scss&scoped=true&
+var TwSpinnervue_type_style_index_0_id_ed9f3b96_lang_scss_scoped_true_ = __webpack_require__("294b");
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functional component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+// CONCATENATED MODULE: ./src/components/TwSpinner.vue
+
+
+
+
+
+
+/* normalize component */
+
+var component = normalizeComponent(
+  components_TwSpinnervue_type_script_lang_js_,
+  TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render,
+  TwSpinnervue_type_template_id_ed9f3b96_scoped_true_staticRenderFns,
+  false,
+  null,
+  "ed9f3b96",
+  null
+  
+)
+
+/* harmony default export */ var TwSpinner = (component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=script&lang=js&
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var TwButtonvue_type_script_lang_js_ = ({
+  name: 'TwButton',
+  components: {
+    TwSpinner: TwSpinner
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'button',
+      validator: function validator(value) {
+        return ['button', 'submit'].includes(value);
+      }
+    },
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'md'
+    },
+    block: {
+      type: Boolean,
+      default: false
+    },
+    busy: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      localBase: '',
+      localVariants: {},
+      localSizes: {}
+    };
+  },
   computed: {
     classList: function classList() {
-      return ['appearance-none placeholder-cool-gray-400 rounded w-full text-cool-gray-800 transition duration-150 ease-in-out', this.getTextSize, this.getPaddingClass, this.getBorderClass];
+      var base = [this.localBase];
+
+      if (this.block) {
+        base.push('w-full justify-center');
+      }
+
+      if (this.busy) {
+        base.push('opacity-75');
+      }
+
+      return [base.join(' '), this.getVariants, this.getSizes];
     },
-    getTextSize: function getTextSize() {
-      var sizes = {
-        sm: 'text-sm leading-4',
-        md: 'text-sm leading-5',
-        lg: 'text-base leading-6'
-      };
-      return sizes[this.size];
+    getVariants: function getVariants() {
+      var variants = _objectSpread2({}, this.localVariants);
+
+      return variants[this.variant];
     },
-    getBorderClass: function getBorderClass() {
-      return 'border border-cool-gray-300 focus:outline-none focus:border-blue-600';
-    },
-    getPaddingClass: function getPaddingClass() {
-      var sizes = {
-        sm: 'px-3 py-2 leading-4',
-        md: 'px-4 py-2 leading-5',
-        lg: 'py-3 px-5 leading-6'
-      };
+    getSizes: function getSizes() {
+      var sizes = _objectSpread2({}, this.localSizes);
+
       return sizes[this.size];
     },
     inputListeners: function inputListeners() {
-      var vm = this;
-      return _objectSpread2({}, this.$listeners, {
-        input: function input(event) {
-          vm.$emit('input', event.target.value);
-        },
-        change: function change(event) {
-          vm.$emit('change', event.target.value);
-        },
-        blur: function blur(event) {
-          vm.$emit('blur', event);
-        }
-      });
-    }
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./src/components/TwFormInput.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwFormInputvue_type_script_lang_js_ = (TwFormInputvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwFormInput.vue
-
-
-
-
-
-/* normalize component */
-
-var TwFormInput_component = normalizeComponent(
-  components_TwFormInputvue_type_script_lang_js_,
-  TwFormInputvue_type_template_id_4d976dcb_render,
-  TwFormInputvue_type_template_id_4d976dcb_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwFormInput = (TwFormInput_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdown.vue?vue&type=template&id=e80fac40&
-var TwDropdownvue_type_template_id_e80fac40_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative inline-block text-left"},[_c('button',{class:_vm.buttonClassList,attrs:{"type":"button"},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noIcon)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"fill":"currentColor","viewBox":"0 0 20 20"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('Transition',{attrs:{"enter-active-class":"transition ease-out duration-100","enter-class":"transform opacity-0 scale-95","enter-to-class":"transform opacity-100 scale-100","leave-active-class":"transition ease-in duration-75","leave-class":"transform opacity-100 scale-100","leave-to-class":"transform opacity-0 scale-95"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen),expression:"isOpen"}],staticClass:"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-50",style:({ width: (_vm.menuWidth + "px") })},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default",[_c('ul',_vm._l((_vm.options),function(opt,index){return _c('li',{key:("option_" + index),staticClass:"block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer",on:{"click":function($event){return _vm.select(opt)}}},[_vm._v(" "+_vm._s(_vm.label ? opt[_vm.label] : opt)+" ")])}),0)])],2)])])],1)}
-var TwDropdownvue_type_template_id_e80fac40_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwDropdown.vue?vue&type=template&id=e80fac40&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdown.vue?vue&type=script&lang=js&
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var TwDropdownvue_type_script_lang_js_ = ({
-  name: 'TwDropdown',
-  props: {
-    naked: {
-      type: Boolean,
-      default: false
-    },
-    noPadding: {
-      type: Boolean,
-      default: false
-    },
-    noIcon: {
-      type: Boolean,
-      default: false
-    },
-    btnClass: {
-      type: String,
-      default: ''
-    },
-    iconClass: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: function validator(value) {
-        return ['sm', 'md'].includes(value);
-      }
-    },
-    rounded: {
-      type: [String, Boolean],
-      default: undefined,
-      validator: function validator(value) {
-        return ['', 'sm', 'md', 'lg', 'full'].includes(value);
-      }
-    },
-    text: {
-      type: String,
-      default: ''
-    },
-    options: {
-      type: Array,
-      default: function _default() {
-        return [];
-      }
-    },
-    label: {
-      type: String,
-      default: undefined
-    },
-    labelKey: {
-      type: String,
-      default: undefined
-    },
-    menuWidth: {
-      type: [String, Number],
-      default: undefined
-    }
-  },
-  provide: function provide() {
-    return {
-      TwDropdown: this
-    };
-  },
-  data: function data() {
-    return {
-      isOpen: false,
-      id: this._uid
-    };
-  },
-  computed: {
-    buttonClassList: function buttonClassList() {
-      return ['flex items-center justify-center leading-5 transition ease-in-out duration-150 z-50', this.getTextSizeClass, this.getTextColorClass, this.getPaddingClass, this.getBgClass, this.getBtnExtraClasses, this.getBorderRoundedClass, this.getBorderClass, this.getShadowClass];
-    },
-    getTextSizeClass: function getTextSizeClass() {
-      var sizes = {
-        sm: 'text-xs font-medium',
-        md: 'text-sm font-medium'
-      };
-      return sizes[this.size];
-    },
-    getTextColorClass: function getTextColorClass() {
-      return !this.naked ? 'text-cool-gray-700 hover:text-cool-gray-500 active:text-cool-gray-700' : 'text-cool-gray-700';
-    },
-    getShadowClass: function getShadowClass() {
-      return !this.naked ? 'shadow-sm' : '';
-    },
-    getBorderClass: function getBorderClass() {
-      return !this.naked ? 'border border-cool-gray-300 focus:border-blue-300 focus:outline-none focus:shadow-outline-blue' : 'focus:outline-none';
-    },
-    getBorderRoundedClass: function getBorderRoundedClass() {
-      if (this.naked) {
-        return '';
-      }
-
-      if (this.rounded === '') {
-        return 'rounded';
-      }
-
-      return this.rounded ? "rounded-".concat(this.rounded) : '';
-    },
-    getPaddingClass: function getPaddingClass() {
-      if (this.noPadding) {
-        return '';
-      }
-
-      var sizes = {
-        sm: 'px-2 py-1',
-        md: 'px-4 py-2'
-      };
-      return sizes[this.size];
-    },
-    getBgClass: function getBgClass() {
-      return !this.naked ? 'bg-white active:bg-gray-50' : '';
-    },
-    getBtnExtraClasses: function getBtnExtraClasses() {
-      return this.btnClass;
-    },
-    iconClassList: function iconClassList() {
-      if (this.iconClass) {
-        return this.iconClass;
-      }
-
-      return [this.getIconDimensionClass, this.getIconMarginClass];
-    },
-    getIconDimensionClass: function getIconDimensionClass() {
-      var sizes = {
-        sm: 'h-3 w-4',
-        md: 'h-4 w-4'
-      };
-      return sizes[this.size];
-    },
-    getIconMarginClass: function getIconMarginClass() {
-      var sizes = {
-        sm: "".concat(!this.naked ? '-mr-1' : '', " ml-1"),
-        md: "".concat(!this.naked ? '-mr-1' : '', " ml-2")
-      };
-      return sizes[this.size];
-    }
-  },
-  watch: {
-    isOpen: function isOpen(value) {
-      if (value) {
-        this.$root.$emit('tw::dropdown::shown', this);
-      }
+      return this.$listeners;
     }
   },
   created: function created() {
-    this.$root.$on('tw::dropdown::shown', this.rootCloseListener);
-  },
-  mounted: function mounted() {
-    if (typeof document !== 'undefined') {
-      document.addEventListener('click', this.clickOutListener);
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (typeof document !== 'undefined') {
-      document.removeEventListener('click', this.clickOutListener);
-    }
-  },
-  methods: {
-    rootCloseListener: function rootCloseListener(vm) {
-      if (vm !== this) {
-        this.close();
-      }
-    },
-    clickOutListener: function clickOutListener(e) {
-      // TODO Refactor as it should close only the current scope
-      if (!this.$el.contains(e.target)) {
-        this.close();
-      }
-    },
-    toggleDropdown: function toggleDropdown() {
-      if (this.isOpen) {
-        this.close();
-      } else {
-        this.open();
-      }
-    },
-    open: function open() {
-      this.$emit('open');
-      this.isOpen = true;
-    },
-    close: function close() {
-      this.$emit('close');
-      this.isOpen = false;
-    },
-    select: function select(opt) {
-      this.close();
-      this.$emit('select', opt);
-    }
+    var _this$$TWVue, _this$$TWVue$TWButton, _this$$TWVue2, _this$$TWVue2$TWButto, _this$$TWVue3, _this$$TWVue3$TWButto;
+
+    this.localBase = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : (_this$$TWVue$TWButton = _this$$TWVue.TWButton) === null || _this$$TWVue$TWButton === void 0 ? void 0 : _this$$TWVue$TWButton.base) || '';
+    this.localVariants = (this === null || this === void 0 ? void 0 : (_this$$TWVue2 = this.$TWVue) === null || _this$$TWVue2 === void 0 ? void 0 : (_this$$TWVue2$TWButto = _this$$TWVue2.TWButton) === null || _this$$TWVue2$TWButto === void 0 ? void 0 : _this$$TWVue2$TWButto.variants) || {};
+    this.localSizes = (this === null || this === void 0 ? void 0 : (_this$$TWVue3 = this.$TWVue) === null || _this$$TWVue3 === void 0 ? void 0 : (_this$$TWVue3$TWButto = _this$$TWVue3.TWButton) === null || _this$$TWVue3$TWButto === void 0 ? void 0 : _this$$TWVue3$TWButto.sizes) || {};
   }
 });
-// CONCATENATED MODULE: ./src/components/TwDropdown.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwDropdownvue_type_script_lang_js_ = (TwDropdownvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwDropdown.vue
+// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TwButtonvue_type_script_lang_js_ = (TwButtonvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TwButton.vue
 
 
 
@@ -3603,10 +2554,10 @@ var TwDropdownvue_type_template_id_e80fac40_staticRenderFns = []
 
 /* normalize component */
 
-var TwDropdown_component = normalizeComponent(
-  components_TwDropdownvue_type_script_lang_js_,
-  TwDropdownvue_type_template_id_e80fac40_render,
-  TwDropdownvue_type_template_id_e80fac40_staticRenderFns,
+var TwButton_component = normalizeComponent(
+  components_TwButtonvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
   false,
   null,
   null,
@@ -3614,430 +2565,75 @@ var TwDropdown_component = normalizeComponent(
   
 )
 
-/* harmony default export */ var TwDropdown = (TwDropdown_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownItem.vue?vue&type=template&id=3167e802&
-var TwDropdownItemvue_type_template_id_3167e802_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.is,{tag:"Component",class:_vm.classList,attrs:{"href":_vm.localHref,"to":_vm.to},on:{"click":_vm.onClick}},[_vm._t("default")],2)}
-var TwDropdownItemvue_type_template_id_3167e802_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue?vue&type=template&id=3167e802&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownItem.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var TwDropdownItemvue_type_script_lang_js_ = ({
-  name: 'TwDropdownItem',
-  inject: ['TwDropdown'],
-  props: {
-    href: {
-      type: String,
-      default: undefined
-    },
-    to: {
-      type: [String, Object],
-      default: undefined
-    }
-  },
-  computed: {
-    classList: function classList() {
-      return ['group flex items-center', 'block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100', 'focus:outline-none focus:bg-gray-100 focus:text-gray-900'];
-    },
-    localHref: function localHref() {
-      if (typeof this.to !== 'undefined') {
-        return undefined;
-      }
-
-      return this.href;
-    },
-    is: function is() {
-      if (typeof this.to !== 'undefined') {
-        return 'RouterLink';
-      }
-
-      if (typeof this.href !== 'undefined') {
-        return 'a';
-      }
-
-      return 'button';
-    }
-  },
-  methods: {
-    onClick: function onClick(evt) {
-      this.$emit('click', evt);
-      this.closeDropdown();
-    },
-    closeDropdown: function closeDropdown() {
-      this.TwDropdown.close();
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwDropdownItemvue_type_script_lang_js_ = (TwDropdownItemvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwDropdownItem.vue
-
-
-
-
-
-/* normalize component */
-
-var TwDropdownItem_component = normalizeComponent(
-  components_TwDropdownItemvue_type_script_lang_js_,
-  TwDropdownItemvue_type_template_id_3167e802_render,
-  TwDropdownItemvue_type_template_id_3167e802_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwDropdownItem = (TwDropdownItem_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownDivider.vue?vue&type=template&id=2f15b6f5&
-var TwDropdownDividervue_type_template_id_2f15b6f5_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"border-t my-1 border-cool-gray-100"})}
-var TwDropdownDividervue_type_template_id_2f15b6f5_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue?vue&type=template&id=2f15b6f5&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwDropdownDivider.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-/* harmony default export */ var TwDropdownDividervue_type_script_lang_js_ = ({
-  name: 'TwDropdownDivider',
-  data: function data() {
-    return {};
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwDropdownDividervue_type_script_lang_js_ = (TwDropdownDividervue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwDropdownDivider.vue
-
-
-
-
-
-/* normalize component */
-
-var TwDropdownDivider_component = normalizeComponent(
-  components_TwDropdownDividervue_type_script_lang_js_,
-  TwDropdownDividervue_type_template_id_2f15b6f5_render,
-  TwDropdownDividervue_type_template_id_2f15b6f5_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwDropdownDivider = (TwDropdownDivider_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwHelpText.vue?vue&type=template&id=7d5079f3&
-var TwHelpTextvue_type_template_id_7d5079f3_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('small',{class:_vm.classList},[_vm._t("default")],2)}
-var TwHelpTextvue_type_template_id_7d5079f3_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwHelpText.vue?vue&type=template&id=7d5079f3&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwHelpText.vue?vue&type=script&lang=js&
-
-
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var TwHelpTextvue_type_script_lang_js_ = ({
-  name: 'TwHelpText',
-  props: {
-    theme: {
-      type: String,
-      default: 'gray',
-      validator: function validator(value) {
-        return TW_COLORS.includes(value);
-      }
-    }
-  },
-  data: function data() {
-    return {};
-  },
-  computed: {
-    classList: function classList() {
-      return ['text-xs m-0 py-1', this.getColorClass];
-    },
-    getColorClass: function getColorClass() {
-      return "text-".concat(this.theme, "-400");
-    }
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./src/components/TwHelpText.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwHelpTextvue_type_script_lang_js_ = (TwHelpTextvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwHelpText.vue
-
-
-
-
-
-/* normalize component */
-
-var TwHelpText_component = normalizeComponent(
-  components_TwHelpTextvue_type_script_lang_js_,
-  TwHelpTextvue_type_template_id_7d5079f3_render,
-  TwHelpTextvue_type_template_id_7d5079f3_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwHelpText = (TwHelpText_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwLabel.vue?vue&type=template&id=4d893880&
-var TwLabelvue_type_template_id_4d893880_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{staticClass:"block text-cool-gray-700 text-sm font-bold mb-2 tracking-wide",attrs:{"for":_vm.labelFor}},[_vm._t("default")],2)}
-var TwLabelvue_type_template_id_4d893880_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwLabel.vue?vue&type=template&id=4d893880&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwLabel.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var TwLabelvue_type_script_lang_js_ = ({
-  name: 'TwLabel',
-  props: {
-    labelFor: {
-      type: String,
-      default: ''
-    }
-  },
-  data: function data() {
-    return {};
-  },
-  methods: {}
-});
-// CONCATENATED MODULE: ./src/components/TwLabel.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwLabelvue_type_script_lang_js_ = (TwLabelvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwLabel.vue
-
-
-
-
-
-/* normalize component */
-
-var TwLabel_component = normalizeComponent(
-  components_TwLabelvue_type_script_lang_js_,
-  TwLabelvue_type_template_id_4d893880_render,
-  TwLabelvue_type_template_id_4d893880_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwLabel = (TwLabel_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a34ba0f2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwBadge.vue?vue&type=template&id=eefc1db8&
-var TwBadgevue_type_template_id_eefc1db8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{class:_vm.classList},[(_vm.dot)?_c('svg',{class:_vm.svgClassList,attrs:{"fill":"currentColor","viewBox":"0 0 8 8"}},[_c('circle',{attrs:{"cx":"4","cy":"4","r":"3"}})]):_vm._e(),_vm._t("default"),(_vm.removable)?_c('button',{class:_vm.xButtonClassList,attrs:{"type":"button"},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.$emit('remove')}}},[_c('svg',{staticClass:"h-2 w-2",attrs:{"stroke":"currentColor","fill":"none","viewBox":"0 0 8 8"}},[_c('path',{attrs:{"stroke-linecap":"round","stroke-width":"1.5","d":"M1 1l6 6m0-6L1 7"}})])]):_vm._e()],2)}
-var TwBadgevue_type_template_id_eefc1db8_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/TwBadge.vue?vue&type=template&id=eefc1db8&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwBadge.vue?vue&type=script&lang=js&
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var BADGE_SIZES = ['sm', 'md', 'lg'];
-/* harmony default export */ var TwBadgevue_type_script_lang_js_ = ({
-  name: 'TwBadge',
-  props: {
-    theme: {
-      type: String,
-      default: 'light',
-      validator: function validator(value) {
-        return ['light', 'dark'].includes(value);
-      }
-    },
-    color: {
-      type: String,
-      default: 'gray',
-      validator: function validator(value) {
-        return TW_COLORS.includes(value);
-      }
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: function validator(value) {
-        return BADGE_SIZES.includes(value);
-      }
-    },
-    pill: {
-      type: Boolean,
-      default: false
-    },
-    removable: {
-      type: Boolean,
-      default: false
-    },
-    dot: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    classList: function classList() {
-      return ['inline-flex items-center font-medium', this.getPaddingClass, this.getRoundedClass, this.getTextSizeClass, this.getTextColorClass, this.getLeadingClass, this.getBgColorClass];
-    },
-    getPaddingClass: function getPaddingClass() {
-      var sizes = {
-        sm: 'px-1.5 py-0.5',
-        md: 'px-2.5 py-0.5',
-        lg: 'px-3 py-0.5'
-      };
-      return sizes[this.size];
-    },
-    getRoundedClass: function getRoundedClass() {
-      return this.pill ? 'rounded-full' : 'rounded';
-    },
-    getTextSizeClass: function getTextSizeClass() {
-      var sizes = {
-        sm: 'text-xxs',
-        md: 'text-xs',
-        lg: 'text-sm'
-      };
-      return sizes[this.size];
-    },
-    getTextColorClass: function getTextColorClass() {
-      var themes = {
-        light: "text-".concat(this.color, "-800"),
-        dark: "text-".concat(this.color, "-800")
-      };
-      return themes[this.theme];
-    },
-    getBgColorClass: function getBgColorClass() {
-      var themes = {
-        light: "bg-".concat(this.color, "-100"),
-        dark: "bg-".concat(this.color, "-300")
-      };
-      return themes[this.theme];
-    },
-    getLeadingClass: function getLeadingClass() {
-      var sizes = {
-        sm: 'leading-3',
-        md: 'leading-4',
-        lg: 'leading-5'
-      };
-      return sizes[this.size];
-    },
-    svgClassList: function svgClassList() {
-      return ["-ml-0.5 mr-1.5 h-2 w-2 text-".concat(this.color, "-400")];
-    },
-    xButtonClassList: function xButtonClassList() {
-      return ["flex-shrink-0 ml-1.5 inline-flex text-".concat(this.color, "-500 focus:outline-none focus:text-").concat(this.color, "-700")];
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/TwBadge.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwBadgevue_type_script_lang_js_ = (TwBadgevue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwBadge.vue
-
-
-
-
-
-/* normalize component */
-
-var TwBadge_component = normalizeComponent(
-  components_TwBadgevue_type_script_lang_js_,
-  TwBadgevue_type_template_id_eefc1db8_render,
-  TwBadgevue_type_template_id_eefc1db8_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var TwBadge = (TwBadge_component.exports);
+/* harmony default export */ var TwButton = (TwButton_component.exports);
+// CONCATENATED MODULE: ./src/utils/buttons.js
+var BASE_CSS = 'inline-flex items-center border border-transparent font-medium focus:outline-none transition ease-in-out duration-150';
+var VARIANTS_CLASS = {
+  default: 'text-blue-gray-700 bg-blue-gray-100 hover:bg-blue-gray-200',
+  naked: 'text-blue-gray-700',
+  primary: 'text-white bg-blue-500 hover:bg-blue-600',
+  secondary: 'text-white bg-blue-gray-500 hover:bg-blue-gray-600',
+  success: 'text-white bg-green-600 hover:bg-green-700',
+  danger: 'text-white bg-red-500 hover:bg-red-600',
+  warning: 'text-white bg-yellow-500 hover:bg-yellow-600',
+  info: 'text-white bg-cyan-500 hover:bg-cyan-600',
+  light: 'text-blue-gray-400 bg-blue-gray-50 hover:bg-blue-gray-50 border-blue-gray-300',
+  dark: 'text-white bg-blue-gray-800 hover:bg-blue-gray-900'
+};
+var SIZES_CLASS = {
+  xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
+  sm: 'px-3 py-2 text-sm leading-4 rounded-md',
+  md: 'px-4 py-2 text-sm rounded-md',
+  lg: 'px-4 py-2 text-base rounded-md',
+  xl: 'px-6 py-3 text-base rounded-md',
+  '2xl': 'px-12 py-3 text-xl rounded-md'
+};
 // CONCATENATED MODULE: ./src/index.js
 
+// import TwAlert from '@/components/TwAlert';
+ // import TwCard from '@/components/TwCard';
+// import TwFormInput from '@/components/TwFormInput';
+// import TwDropdown from '@/components/TwDropdown';
+// import TwDropdownItem from '@/components/TwDropdownItem';
+// import TwDropdownDivider from '@/components/TwDropdownDivider';
+// import TwHelpText from '@/components/TwHelpText';
+// import TwLabel from '@/components/TwLabel';
+// import TwSpinner from '@/components/TwSpinner';
+// import TwBadge from '@/components/TwBadge';
 
 
+/* harmony default export */ var src_0 = ({
+  install: function install(Vue, options) {
+    var _options$TWButton, _options$TWButton$ext, _options$TWButton2, _options$TWButton2$ex;
+
+    if (this.installed) {
+      return;
+    }
+
+    this.installed = true;
+    Vue.prototype.$TWVue = {
+      TWButton: {
+        base: BASE_CSS,
+        variants: _objectSpread2(_objectSpread2({}, VARIANTS_CLASS), options === null || options === void 0 ? void 0 : (_options$TWButton = options.TWButton) === null || _options$TWButton === void 0 ? void 0 : (_options$TWButton$ext = _options$TWButton.extend) === null || _options$TWButton$ext === void 0 ? void 0 : _options$TWButton$ext.variants),
+        sizes: _objectSpread2(_objectSpread2({}, SIZES_CLASS), options === null || options === void 0 ? void 0 : (_options$TWButton2 = options.TWButton) === null || _options$TWButton2 === void 0 ? void 0 : (_options$TWButton2$ex = _options$TWButton2.extend) === null || _options$TWButton2$ex === void 0 ? void 0 : _options$TWButton2$ex.sizes)
+      }
+    };
+    Vue.component('TwButton', TwButton); // Vue.component('TwAlert', TwAlert);
+    // Vue.component('TwCard', TwCard);
+    // Vue.component('TwFormInput', TwFormInput);
+    // Vue.component('TwDropdown', TwDropdown);
+    // Vue.component('TwDropdownItem', TwDropdownItem);
+    // Vue.component('TwDropdownDivider', TwDropdownDivider);
+    // Vue.component('TwHelpText', TwHelpText);
+    // Vue.component('TwLabel', TwLabel);
+    // Vue.component('TwSpinner', TwSpinner);
+    // Vue.component('TwBadge', TwBadge);
+  }
+});
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-
-
-
-
-
-
-
-// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
-
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_0);
 
 
 
