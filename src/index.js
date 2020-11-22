@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 // import TwAlert from '@/components/TwAlert';
 import TWButton from '@/components/TWButton';
 // import TwCard from '@/components/TwCard';
@@ -21,16 +22,8 @@ export default {
         this.installed = true;
 
         Vue.prototype.$TWVue = {
-            TWButton: {
-                base: buttonConfig.base,
-                variants: { ...buttonConfig.variants, ...options?.TWButton?.extend?.variants },
-                sizes: { ...buttonConfig.sizes, ...options?.TWButton?.extend?.sizes },
-            },
-            TWFormInput: {
-                base: inputConfig.base,
-                variants: { ...inputConfig.variants, ...options?.TWFormInput?.extend?.variants },
-                sizes: { ...inputConfig.sizes, ...options?.TWFormInput?.extend?.sizes },
-            },
+            TWButton: merge(buttonConfig, options?.TWButton?.extend),
+            TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
         };
 
         Vue.component('TWButton', TWButton);

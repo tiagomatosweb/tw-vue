@@ -53,16 +53,14 @@
 
         data() {
             return {
-                localBase: '',
-                localVariants: {},
-                localSizes: {},
+                options: {},
             };
         },
 
         computed: {
             classList() {
                 const base = [
-                    this.localBase,
+                    this.options.base,
                 ];
 
                 if (this.block) {
@@ -81,12 +79,12 @@
             },
 
             getVariants() {
-                const variants = { ...this.localVariants };
+                const variants = this.options.variants;
                 return variants[this.variant];
             },
 
             getSizes() {
-                const sizes = { ...this.localSizes };
+                const sizes = this.options.sizes;
                 return sizes[this.size];
             },
 
@@ -96,9 +94,7 @@
         },
 
         created() {
-            this.localBase = this?.$TWVue?.TWButton?.base || '';
-            this.localVariants = this?.$TWVue?.TWButton?.variants || {};
-            this.localSizes = this?.$TWVue?.TWButton?.sizes || {};
+            this.options = this?.$TWVue?.TWButton || {};
         },
     };
 </script>

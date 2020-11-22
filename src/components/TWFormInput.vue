@@ -1,12 +1,22 @@
 <template>
     <div class="relative">
         <input
-            :id="id"
+            :autocomplete="autocomplete"
+            :autofocus="autofocus"
             :class="classList"
-            :type="type"
+            :disabled="disabled"
+            :id="id"
+            :max="max"
+            :maxlength="maxlength"
+            :min="min"
+            :minlength="minlength"
             :name="name"
-            :value="value"
+            :pattern="pattern"
             :placeholder="placeholder"
+            :readonly="readonly"
+            :required="required"
+            :type="type"
+            :value="value"
             v-on="inputListeners"
         >
     </div>
@@ -49,8 +59,36 @@
                 type: [String, Number],
                 default: undefined,
             },
+            maxlength: {
+                type: [String, Number],
+                default: undefined,
+            },
             min: {
                 type: [String, Number],
+                default: undefined,
+            },
+            minlength: {
+                type: [String, Number],
+                default: undefined,
+            },
+            disabled: {
+                type: Boolean,
+                default: undefined,
+            },
+            readonly: {
+                type: Boolean,
+                default: undefined,
+            },
+            required: {
+                type: Boolean,
+                default: undefined,
+            },
+            pattern: {
+                type: Boolean,
+                default: undefined,
+            },
+            autofocus: {
+                type: Boolean,
                 default: undefined,
             },
             size: {
@@ -62,9 +100,7 @@
         data() {
             return {
                 localValue: this.value,
-                localBase: '',
-                localVariants: {},
-                localSizes: {},
+                options: {},
             };
         },
 
@@ -77,19 +113,27 @@
         computed: {
             classList() {
                 return [
-                    this.localBase,
+                    this.options.base,
                     this.getVariants,
                     this.getSizes,
                 ];
             },
 
             getVariants() {
-                const variants = { ...this.localVariants };
+                if (this.disabled) {
+                    return this.options.disabled;
+                }
+
+                if (this.readonly) {
+                    return this.options.readonly;
+                }
+
+                const variants = this.options.variants;
                 return variants[this.variant];
             },
 
             getSizes() {
-                const sizes = { ...this.localSizes };
+                const sizes = this.options.sizes;
                 return sizes[this.size];
             },
 
@@ -111,9 +155,7 @@
         },
 
         created() {
-            this.localBase = this?.$TWVue?.TWFormInput?.base || '';
-            this.localVariants = this?.$TWVue?.TWFormInput?.variants || {};
-            this.localSizes = this?.$TWVue?.TWFormInput?.sizes || {};
+            this.options = this?.$TWVue?.TWFormInput || {};
         },
     };
 </script>

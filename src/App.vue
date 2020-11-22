@@ -5,6 +5,8 @@
     >
         <Buttons />
 
+        <hr class="border-2 border-blue-gray-100 my-10">
+
         <Inputs />
     </div>
 </template>

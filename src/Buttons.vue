@@ -1,103 +1,104 @@
 <template>
     <div>
-        <input
-            type="text"
-            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        >
-
-        <input type="text" class="border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm">
-
-        <h3 class="text-lg font-bold mb-2">
+        <h3 class="text-xl font-medium mb-3">
             Buttons
         </h3>
 
-        <div class="">
+        <div class="grid grid-flow-col auto-cols-max gap-1">
             <TwButton>
-                Button
+                Default
             </TwButton>
 
             <TwButton variant="naked">
-                Button
+                Naked
             </TwButton>
 
             <TwButton variant="primary">
-                Button
+                Primary
             </TwButton>
 
             <TwButton variant="secondary">
-                Button
+                Secondary
             </TwButton>
 
             <TwButton variant="success">
-                Button
+                Success
             </TwButton>
 
             <TwButton variant="danger">
-                Button
+                Danger
             </TwButton>
 
             <TwButton variant="warning">
-                Button
+                Warning
             </TwButton>
 
             <TwButton variant="info">
-                Button
+                Info
             </TwButton>
 
             <TwButton variant="light">
-                Button
+                Light
             </TwButton>
 
             <TwButton variant="dark">
-                Button
+                Dark
             </TwButton>
         </div>
 
-        <h3 class="text-lg font-bold mb-2">
-            Buttons sizes
-        </h3>
+        <hr class="border-blue-gray-200 my-8">
 
-        <div class="">
+        <h4 class="text-base mb-2">
+            Sizes
+        </h4>
+
+        <div>
             <TwButton
                 variant="primary"
                 size="xs"
+                class="mr-1"
             >
-                Button
+                Extra small
             </TwButton>
 
             <TwButton
                 variant="primary"
                 size="sm"
+                class="mx-1"
             >
-                Button
+                Small
             </TwButton>
 
             <TwButton
                 variant="primary"
                 size="md"
+                class="mx-1"
             >
-                Button
+                Medium
             </TwButton>
 
             <TwButton
                 variant="primary"
                 size="lg"
+                class="mx-1"
             >
-                Button
+                Large
             </TwButton>
 
             <TwButton
                 variant="primary"
                 size="xl"
+                class="mx-1"
             >
-                Button
+                Extra large
             </TwButton>
 
             <TwButton
                 variant="primary"
                 size="2xl"
+                class="ml-1"
             >
-                Button
+                2x large
             </TwButton>
         </div>
     </div>
