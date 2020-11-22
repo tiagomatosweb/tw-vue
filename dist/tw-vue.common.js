@@ -463,6 +463,20 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 
 /***/ }),
 
+/***/ "3bbe":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("861d");
+
+module.exports = function (it) {
+  if (!isObject(it) && it !== null) {
+    throw TypeError("Can't set " + String(it) + ' as a prototype');
+  } return it;
+};
+
+
+/***/ }),
+
 /***/ "4160":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -506,33 +520,6 @@ module.exports = fails(function () {
 }) ? function (it) {
   return classof(it) == 'String' ? split.call(it, '') : Object(it);
 } : Object;
-
-
-/***/ }),
-
-/***/ "44d2":
-/***/ (function(module, exports, __webpack_require__) {
-
-var wellKnownSymbol = __webpack_require__("b622");
-var create = __webpack_require__("7c73");
-var definePropertyModule = __webpack_require__("9bf2");
-
-var UNSCOPABLES = wellKnownSymbol('unscopables');
-var ArrayPrototype = Array.prototype;
-
-// Array.prototype[@@unscopables]
-// https://tc39.github.io/ecma262/#sec-array.prototype-@@unscopables
-if (ArrayPrototype[UNSCOPABLES] == undefined) {
-  definePropertyModule.f(ArrayPrototype, UNSCOPABLES, {
-    configurable: true,
-    value: create(null)
-  });
-}
-
-// add a key to Array.prototype[@@unscopables]
-module.exports = function (key) {
-  ArrayPrototype[UNSCOPABLES][key] = true;
-};
 
 
 /***/ }),
@@ -674,6 +661,51 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   var keys = getOwnPropertyNamesModule.f(anObject(it));
   var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
   return getOwnPropertySymbols ? keys.concat(getOwnPropertySymbols(it)) : keys;
+};
+
+
+/***/ }),
+
+/***/ "5899":
+/***/ (function(module, exports) {
+
+// a string of all valid unicode whitespaces
+// eslint-disable-next-line max-len
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
+/***/ "58a8":
+/***/ (function(module, exports, __webpack_require__) {
+
+var requireObjectCoercible = __webpack_require__("1d80");
+var whitespaces = __webpack_require__("5899");
+
+var whitespace = '[' + whitespaces + ']';
+var ltrim = RegExp('^' + whitespace + whitespace + '*');
+var rtrim = RegExp(whitespace + whitespace + '*$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = String(requireObjectCoercible($this));
+    if (TYPE & 1) string = string.replace(ltrim, '');
+    if (TYPE & 2) string = string.replace(rtrim, '');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
 };
 
 
@@ -842,6 +874,30 @@ var TEMPLATE = String(String).split('String');
 })(Function.prototype, 'toString', function toString() {
   return typeof this == 'function' && getInternalState(this).source || inspectSource(this);
 });
+
+
+/***/ }),
+
+/***/ "7156":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("861d");
+var setPrototypeOf = __webpack_require__("d2bb");
+
+// makes subclassing work correct for wrapped built-ins
+module.exports = function ($this, dummy, Wrapper) {
+  var NewTarget, NewTargetPrototype;
+  if (
+    // it can work only with native `setPrototypeOf`
+    setPrototypeOf &&
+    // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
+    typeof (NewTarget = dummy.constructor) == 'function' &&
+    NewTarget !== Wrapper &&
+    isObject(NewTargetPrototype = NewTarget.prototype) &&
+    NewTargetPrototype !== Wrapper.prototype
+  ) setPrototypeOf($this, NewTargetPrototype);
+  return $this;
+};
 
 
 /***/ }),
@@ -1623,6 +1679,92 @@ module.exports = function (argument) {
 
 /***/ }),
 
+/***/ "a9e3":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__("83ab");
+var global = __webpack_require__("da84");
+var isForced = __webpack_require__("94ca");
+var redefine = __webpack_require__("6eeb");
+var has = __webpack_require__("5135");
+var classof = __webpack_require__("c6b6");
+var inheritIfRequired = __webpack_require__("7156");
+var toPrimitive = __webpack_require__("c04e");
+var fails = __webpack_require__("d039");
+var create = __webpack_require__("7c73");
+var getOwnPropertyNames = __webpack_require__("241c").f;
+var getOwnPropertyDescriptor = __webpack_require__("06cf").f;
+var defineProperty = __webpack_require__("9bf2").f;
+var trim = __webpack_require__("58a8").trim;
+
+var NUMBER = 'Number';
+var NativeNumber = global[NUMBER];
+var NumberPrototype = NativeNumber.prototype;
+
+// Opera ~12 has broken Object#toString
+var BROKEN_CLASSOF = classof(create(NumberPrototype)) == NUMBER;
+
+// `ToNumber` abstract operation
+// https://tc39.github.io/ecma262/#sec-tonumber
+var toNumber = function (argument) {
+  var it = toPrimitive(argument, false);
+  var first, third, radix, maxCode, digits, length, index, code;
+  if (typeof it == 'string' && it.length > 2) {
+    it = trim(it);
+    first = it.charCodeAt(0);
+    if (first === 43 || first === 45) {
+      third = it.charCodeAt(2);
+      if (third === 88 || third === 120) return NaN; // Number('+0x1') should be NaN, old V8 fix
+    } else if (first === 48) {
+      switch (it.charCodeAt(1)) {
+        case 66: case 98: radix = 2; maxCode = 49; break; // fast equal of /^0b[01]+$/i
+        case 79: case 111: radix = 8; maxCode = 55; break; // fast equal of /^0o[0-7]+$/i
+        default: return +it;
+      }
+      digits = it.slice(2);
+      length = digits.length;
+      for (index = 0; index < length; index++) {
+        code = digits.charCodeAt(index);
+        // parseInt parses a string to a first unavailable symbol
+        // but ToNumber should return NaN if a string contains unavailable symbols
+        if (code < 48 || code > maxCode) return NaN;
+      } return parseInt(digits, radix);
+    }
+  } return +it;
+};
+
+// `Number` constructor
+// https://tc39.github.io/ecma262/#sec-number-constructor
+if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumber('+0x1'))) {
+  var NumberWrapper = function Number(value) {
+    var it = arguments.length < 1 ? 0 : value;
+    var dummy = this;
+    return dummy instanceof NumberWrapper
+      // check on 1..constructor(foo) case
+      && (BROKEN_CLASSOF ? fails(function () { NumberPrototype.valueOf.call(dummy); }) : classof(dummy) != NUMBER)
+        ? inheritIfRequired(new NativeNumber(toNumber(it)), dummy, NumberWrapper) : toNumber(it);
+  };
+  for (var keys = DESCRIPTORS ? getOwnPropertyNames(NativeNumber) : (
+    // ES3:
+    'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' +
+    // ES2015 (in case, if modules with ES2015 Number statics required before):
+    'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' +
+    'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger'
+  ).split(','), j = 0, key; keys.length > j; j++) {
+    if (has(NativeNumber, key = keys[j]) && !has(NumberWrapper, key)) {
+      defineProperty(NumberWrapper, key, getOwnPropertyDescriptor(NativeNumber, key));
+    }
+  }
+  NumberWrapper.prototype = NumberPrototype;
+  NumberPrototype.constructor = NumberWrapper;
+  redefine(global, NUMBER, NumberWrapper);
+}
+
+
+/***/ }),
+
 /***/ "ae40":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1880,32 +2022,6 @@ module.exports = function (object, names) {
 
 /***/ }),
 
-/***/ "caad":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $ = __webpack_require__("23e7");
-var $includes = __webpack_require__("4d64").includes;
-var addToUnscopables = __webpack_require__("44d2");
-var arrayMethodUsesToLength = __webpack_require__("ae40");
-
-var USES_TO_LENGTH = arrayMethodUsesToLength('indexOf', { ACCESSORS: true, 1: 0 });
-
-// `Array.prototype.includes` method
-// https://tc39.github.io/ecma262/#sec-array.prototype.includes
-$({ target: 'Array', proto: true, forced: !USES_TO_LENGTH }, {
-  includes: function includes(el /* , fromIndex = 0 */) {
-    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-// https://tc39.github.io/ecma262/#sec-array.prototype-@@unscopables
-addToUnscopables('includes');
-
-
-/***/ }),
-
 /***/ "cc12":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1997,6 +2113,37 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
   var descriptor = getOwnPropertyDescriptor(this, V);
   return !!descriptor && descriptor.enumerable;
 } : nativePropertyIsEnumerable;
+
+
+/***/ }),
+
+/***/ "d2bb":
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__("825a");
+var aPossiblePrototype = __webpack_require__("3bbe");
+
+// `Object.setPrototypeOf` method
+// https://tc39.github.io/ecma262/#sec-object.setprototypeof
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+/* eslint-disable no-proto */
+module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
+  var CORRECT_SETTER = false;
+  var test = {};
+  var setter;
+  try {
+    setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;
+    setter.call(test, []);
+    CORRECT_SETTER = test instanceof Array;
+  } catch (error) { /* empty */ }
+  return function setPrototypeOf(O, proto) {
+    anObject(O);
+    aPossiblePrototype(proto);
+    if (CORRECT_SETTER) setter.call(O, proto);
+    else O.__proto__ = proto;
+    return O;
+  };
+}() : undefined);
 
 
 /***/ }),
@@ -2279,20 +2426,17 @@ function _objectSpread2(target) {
 
   return target;
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ba00aba-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=template&id=71cc9165&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWButton.vue?vue&type=template&id=51980000&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled}},_vm.inputListeners),[(_vm.busy)?_c('TwSpinner',{staticClass:"mr-2"}):_vm._e(),_vm._t("default")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=template&id=71cc9165&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
-var es_array_includes = __webpack_require__("caad");
+// CONCATENATED MODULE: ./src/components/TWButton.vue?vue&type=template&id=51980000&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
 var es_array_join = __webpack_require__("a15b");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ba00aba-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwSpinner.vue?vue&type=template&id=ed9f3b96&scoped=true&
 var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner-border spinner-border-sm"})}
 var TwSpinnervue_type_template_id_ed9f3b96_scoped_true_staticRenderFns = []
 
@@ -2437,10 +2581,9 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var TwSpinner = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TwButton.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWButton.vue?vue&type=script&lang=js&
 
 
-
 //
 //
 //
@@ -2458,18 +2601,15 @@ var component = normalizeComponent(
 //
 //
 
-/* harmony default export */ var TwButtonvue_type_script_lang_js_ = ({
-  name: 'TwButton',
+/* harmony default export */ var TWButtonvue_type_script_lang_js_ = ({
+  name: 'TWButton',
   components: {
     TwSpinner: TwSpinner
   },
   props: {
     type: {
       type: String,
-      default: 'button',
-      validator: function validator(value) {
-        return ['button', 'submit'].includes(value);
-      }
+      default: 'button'
     },
     variant: {
       type: String,
@@ -2535,9 +2675,9 @@ var component = normalizeComponent(
     this.localSizes = (this === null || this === void 0 ? void 0 : (_this$$TWVue3 = this.$TWVue) === null || _this$$TWVue3 === void 0 ? void 0 : (_this$$TWVue3$TWButto = _this$$TWVue3.TWButton) === null || _this$$TWVue3$TWButto === void 0 ? void 0 : _this$$TWVue3$TWButto.sizes) || {};
   }
 });
-// CONCATENATED MODULE: ./src/components/TwButton.vue?vue&type=script&lang=js&
- /* harmony default export */ var components_TwButtonvue_type_script_lang_js_ = (TwButtonvue_type_script_lang_js_); 
-// CONCATENATED MODULE: ./src/components/TwButton.vue
+// CONCATENATED MODULE: ./src/components/TWButton.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TWButtonvue_type_script_lang_js_ = (TWButtonvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TWButton.vue
 
 
 
@@ -2545,8 +2685,8 @@ var component = normalizeComponent(
 
 /* normalize component */
 
-var TwButton_component = normalizeComponent(
-  components_TwButtonvue_type_script_lang_js_,
+var TWButton_component = normalizeComponent(
+  components_TWButtonvue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
@@ -2556,35 +2696,192 @@ var TwButton_component = normalizeComponent(
   
 )
 
-/* harmony default export */ var TwButton = (TwButton_component.exports);
+/* harmony default export */ var TWButton = (TWButton_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWFormInput.vue?vue&type=template&id=0fdee564&
+var TWFormInputvue_type_template_id_0fdee564_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('input',_vm._g({class:_vm.classList,attrs:{"id":_vm.id,"type":_vm.type,"name":_vm.name,"placeholder":_vm.placeholder},domProps:{"value":_vm.value}},_vm.inputListeners))])}
+var TWFormInputvue_type_template_id_0fdee564_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TWFormInput.vue?vue&type=template&id=0fdee564&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
+var es_number_constructor = __webpack_require__("a9e3");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWFormInput.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWFormInputvue_type_script_lang_js_ = ({
+  name: 'TWFormInput',
+  props: {
+    value: {
+      type: [String, Number],
+      default: undefined
+    },
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    id: {
+      type: String,
+      default: undefined
+    },
+    type: {
+      type: String,
+      default: 'text'
+    },
+    autocomplete: {
+      type: String,
+      default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: undefined
+    },
+    name: {
+      type: String,
+      default: undefined
+    },
+    max: {
+      type: [String, Number],
+      default: undefined
+    },
+    min: {
+      type: [String, Number],
+      default: undefined
+    },
+    size: {
+      type: String,
+      default: 'md'
+    }
+  },
+  data: function data() {
+    return {
+      localValue: this.value,
+      localBase: '',
+      localVariants: {},
+      localSizes: {}
+    };
+  },
+  watch: {
+    value: function value(_value) {
+      this.localValue = _value;
+    }
+  },
+  computed: {
+    classList: function classList() {
+      return [this.localBase, this.getVariants, this.getSizes];
+    },
+    getVariants: function getVariants() {
+      var variants = _objectSpread2({}, this.localVariants);
+
+      return variants[this.variant];
+    },
+    getSizes: function getSizes() {
+      var sizes = _objectSpread2({}, this.localSizes);
+
+      return sizes[this.size];
+    },
+    inputListeners: function inputListeners() {
+      var vm = this;
+      return _objectSpread2(_objectSpread2({}, this.$listeners), {}, {
+        input: function input(event) {
+          vm.$emit('input', event.target.value);
+        },
+        change: function change(event) {
+          vm.$emit('change', event.target.value);
+        },
+        blur: function blur(event) {
+          vm.$emit('blur', event);
+        }
+      });
+    }
+  },
+  created: function created() {
+    var _this$$TWVue, _this$$TWVue$TWFormIn, _this$$TWVue2, _this$$TWVue2$TWFormI, _this$$TWVue3, _this$$TWVue3$TWFormI;
+
+    this.localBase = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : (_this$$TWVue$TWFormIn = _this$$TWVue.TWFormInput) === null || _this$$TWVue$TWFormIn === void 0 ? void 0 : _this$$TWVue$TWFormIn.base) || '';
+    this.localVariants = (this === null || this === void 0 ? void 0 : (_this$$TWVue2 = this.$TWVue) === null || _this$$TWVue2 === void 0 ? void 0 : (_this$$TWVue2$TWFormI = _this$$TWVue2.TWFormInput) === null || _this$$TWVue2$TWFormI === void 0 ? void 0 : _this$$TWVue2$TWFormI.variants) || {};
+    this.localSizes = (this === null || this === void 0 ? void 0 : (_this$$TWVue3 = this.$TWVue) === null || _this$$TWVue3 === void 0 ? void 0 : (_this$$TWVue3$TWFormI = _this$$TWVue3.TWFormInput) === null || _this$$TWVue3$TWFormI === void 0 ? void 0 : _this$$TWVue3$TWFormI.sizes) || {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/TWFormInput.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TWFormInputvue_type_script_lang_js_ = (TWFormInputvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TWFormInput.vue
+
+
+
+
+
+/* normalize component */
+
+var TWFormInput_component = normalizeComponent(
+  components_TWFormInputvue_type_script_lang_js_,
+  TWFormInputvue_type_template_id_0fdee564_render,
+  TWFormInputvue_type_template_id_0fdee564_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWFormInput = (TWFormInput_component.exports);
 // CONCATENATED MODULE: ./src/utils/buttons.js
-var BASE_CSS = 'inline-flex items-center border border-transparent font-medium focus:outline-none transition ease-in-out duration-150';
-var VARIANTS_CLASS = {
-  default: 'text-blue-gray-700 bg-blue-gray-100 hover:bg-blue-gray-200',
-  naked: 'text-blue-gray-700',
-  primary: 'text-white bg-blue-500 hover:bg-blue-600',
-  secondary: 'text-white bg-blue-gray-500 hover:bg-blue-gray-600',
-  success: 'text-white bg-green-600 hover:bg-green-700',
-  danger: 'text-white bg-red-500 hover:bg-red-600',
-  warning: 'text-white bg-yellow-500 hover:bg-yellow-600',
-  info: 'text-white bg-cyan-500 hover:bg-cyan-600',
-  light: 'text-blue-gray-400 bg-blue-gray-50 hover:bg-blue-gray-50 border-blue-gray-300',
-  dark: 'text-white bg-blue-gray-800 hover:bg-blue-gray-900'
-};
-var SIZES_CLASS = {
-  xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
-  sm: 'px-3 py-2 text-sm leading-4 rounded-md',
-  md: 'px-4 py-2 text-sm rounded-md',
-  lg: 'px-4 py-2 text-base rounded-md',
-  xl: 'px-6 py-3 text-base rounded-md',
-  '2xl': 'px-12 py-3 text-xl rounded-md'
-};
+/* harmony default export */ var buttons = ({
+  base: 'inline-flex items-center border border-transparent font-medium focus:outline-none transition ease-in-out duration-150',
+  variants: {
+    default: 'text-blue-gray-700 bg-blue-gray-100 hover:bg-blue-gray-200',
+    naked: 'text-blue-gray-700',
+    primary: 'text-white bg-blue-500 hover:bg-blue-600',
+    secondary: 'text-white bg-blue-gray-500 hover:bg-blue-gray-600',
+    success: 'text-white bg-green-600 hover:bg-green-700',
+    danger: 'text-white bg-red-500 hover:bg-red-600',
+    warning: 'text-white bg-yellow-500 hover:bg-yellow-600',
+    info: 'text-white bg-cyan-500 hover:bg-cyan-600',
+    light: 'text-blue-gray-400 bg-blue-gray-50 hover:bg-blue-gray-50 border-blue-gray-300',
+    dark: 'text-white bg-blue-gray-800 hover:bg-blue-gray-900'
+  },
+  sizes: {
+    xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
+    sm: 'px-3 py-2 text-sm leading-4 rounded-md',
+    md: 'px-4 py-2 text-sm rounded-md',
+    lg: 'px-4 py-2 text-base rounded-md',
+    xl: 'px-6 py-3 text-base rounded-md',
+    '2xl': 'px-12 py-3 text-xl rounded-md'
+  }
+});
+// CONCATENATED MODULE: ./src/utils/inputs.js
+/* harmony default export */ var inputs = ({
+  base: 'block w-full text-blue-gray-800 rounded-md shadow-sm focus:ring focus:ring-opacity-50',
+  variants: {
+    default: 'border-blue-gray-300 focus:border-blue-300 focus:ring-blue-200'
+  },
+  sizes: {
+    sm: 'text-sm px-3 py-2 leading-4',
+    md: 'text-sm px-4 py-2 leading-5',
+    lg: 'text-base py-3 px-5 leading-6'
+  }
+});
 // CONCATENATED MODULE: ./src/index.js
 
 // import TwAlert from '@/components/TwAlert';
  // import TwCard from '@/components/TwCard';
-// import TwFormInput from '@/components/TwFormInput';
-// import TwDropdown from '@/components/TwDropdown';
+
+ // import TwDropdown from '@/components/TwDropdown';
 // import TwDropdownItem from '@/components/TwDropdownItem';
 // import TwDropdownDivider from '@/components/TwDropdownDivider';
 // import TwHelpText from '@/components/TwHelpText';
@@ -2593,9 +2890,10 @@ var SIZES_CLASS = {
 // import TwBadge from '@/components/TwBadge';
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
-    var _options$TWButton, _options$TWButton$ext, _options$TWButton2, _options$TWButton2$ex;
+    var _options$TWButton, _options$TWButton$ext, _options$TWButton2, _options$TWButton2$ex, _options$TWFormInput, _options$TWFormInput$, _options$TWFormInput2, _options$TWFormInput3;
 
     if (this.installed) {
       return;
@@ -2604,14 +2902,20 @@ var SIZES_CLASS = {
     this.installed = true;
     Vue.prototype.$TWVue = {
       TWButton: {
-        base: BASE_CSS,
-        variants: _objectSpread2(_objectSpread2({}, VARIANTS_CLASS), options === null || options === void 0 ? void 0 : (_options$TWButton = options.TWButton) === null || _options$TWButton === void 0 ? void 0 : (_options$TWButton$ext = _options$TWButton.extend) === null || _options$TWButton$ext === void 0 ? void 0 : _options$TWButton$ext.variants),
-        sizes: _objectSpread2(_objectSpread2({}, SIZES_CLASS), options === null || options === void 0 ? void 0 : (_options$TWButton2 = options.TWButton) === null || _options$TWButton2 === void 0 ? void 0 : (_options$TWButton2$ex = _options$TWButton2.extend) === null || _options$TWButton2$ex === void 0 ? void 0 : _options$TWButton2$ex.sizes)
+        base: buttons.base,
+        variants: _objectSpread2(_objectSpread2({}, buttons.variants), options === null || options === void 0 ? void 0 : (_options$TWButton = options.TWButton) === null || _options$TWButton === void 0 ? void 0 : (_options$TWButton$ext = _options$TWButton.extend) === null || _options$TWButton$ext === void 0 ? void 0 : _options$TWButton$ext.variants),
+        sizes: _objectSpread2(_objectSpread2({}, buttons.sizes), options === null || options === void 0 ? void 0 : (_options$TWButton2 = options.TWButton) === null || _options$TWButton2 === void 0 ? void 0 : (_options$TWButton2$ex = _options$TWButton2.extend) === null || _options$TWButton2$ex === void 0 ? void 0 : _options$TWButton2$ex.sizes)
+      },
+      TWFormInput: {
+        base: inputs.base,
+        variants: _objectSpread2(_objectSpread2({}, inputs.variants), options === null || options === void 0 ? void 0 : (_options$TWFormInput = options.TWFormInput) === null || _options$TWFormInput === void 0 ? void 0 : (_options$TWFormInput$ = _options$TWFormInput.extend) === null || _options$TWFormInput$ === void 0 ? void 0 : _options$TWFormInput$.variants),
+        sizes: _objectSpread2(_objectSpread2({}, inputs.sizes), options === null || options === void 0 ? void 0 : (_options$TWFormInput2 = options.TWFormInput) === null || _options$TWFormInput2 === void 0 ? void 0 : (_options$TWFormInput3 = _options$TWFormInput2.extend) === null || _options$TWFormInput3 === void 0 ? void 0 : _options$TWFormInput3.sizes)
       }
     };
-    Vue.component('TwButton', TwButton); // Vue.component('TwAlert', TwAlert);
+    Vue.component('TWButton', TWButton);
+    Vue.component('TWFormInput', TWFormInput); // Vue.component('TwAlert', TwAlert);
     // Vue.component('TwCard', TwCard);
-    // Vue.component('TwFormInput', TwFormInput);
+    // Vue.component('TWFormInput', TWFormInput);
     // Vue.component('TwDropdown', TwDropdown);
     // Vue.component('TwDropdownItem', TwDropdownItem);
     // Vue.component('TwDropdownDivider', TwDropdownDivider);

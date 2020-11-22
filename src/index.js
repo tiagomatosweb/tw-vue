@@ -1,7 +1,7 @@
 // import TwAlert from '@/components/TwAlert';
-import TwButton from '@/components/TwButton';
+import TWButton from '@/components/TWButton';
 // import TwCard from '@/components/TwCard';
-// import TwFormInput from '@/components/TwFormInput';
+import TWFormInput from '@/components/TWFormInput';
 // import TwDropdown from '@/components/TwDropdown';
 // import TwDropdownItem from '@/components/TwDropdownItem';
 // import TwDropdownDivider from '@/components/TwDropdownDivider';
@@ -9,7 +9,8 @@ import TwButton from '@/components/TwButton';
 // import TwLabel from '@/components/TwLabel';
 // import TwSpinner from '@/components/TwSpinner';
 // import TwBadge from '@/components/TwBadge';
-import { VARIANTS_CLASS, SIZES_CLASS, BASE_CSS } from '@/utils/buttons';
+import buttonConfig from '@/utils/buttons';
+import inputConfig from '@/utils/inputs';
 
 export default {
     install(Vue, options) {
@@ -21,16 +22,22 @@ export default {
 
         Vue.prototype.$TWVue = {
             TWButton: {
-                base: BASE_CSS,
-                variants: { ...VARIANTS_CLASS, ...options?.TWButton?.extend?.variants },
-                sizes: { ...SIZES_CLASS, ...options?.TWButton?.extend?.sizes },
+                base: buttonConfig.base,
+                variants: { ...buttonConfig.variants, ...options?.TWButton?.extend?.variants },
+                sizes: { ...buttonConfig.sizes, ...options?.TWButton?.extend?.sizes },
+            },
+            TWFormInput: {
+                base: inputConfig.base,
+                variants: { ...inputConfig.variants, ...options?.TWFormInput?.extend?.variants },
+                sizes: { ...inputConfig.sizes, ...options?.TWFormInput?.extend?.sizes },
             },
         };
 
-        Vue.component('TwButton', TwButton);
+        Vue.component('TWButton', TWButton);
+        Vue.component('TWFormInput', TWFormInput);
         // Vue.component('TwAlert', TwAlert);
         // Vue.component('TwCard', TwCard);
-        // Vue.component('TwFormInput', TwFormInput);
+        // Vue.component('TWFormInput', TWFormInput);
         // Vue.component('TwDropdown', TwDropdown);
         // Vue.component('TwDropdownItem', TwDropdownItem);
         // Vue.component('TwDropdownDivider', TwDropdownDivider);

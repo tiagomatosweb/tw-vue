@@ -11,10 +11,16 @@ module.exports = {
             red: colors.rose,
             yellow: colors.yellow,
             cyan: colors.cyan,
+            indigo: colors.indigo,
         },
         borderColor: theme => ({
             ...theme('colors'),
             transparent: 'transparent',
         }),
     },
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/typography'),
+    ],
 };

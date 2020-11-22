@@ -1,5 +1,5 @@
 <template>
-    <div class="relative rounded-md shadow-sm">
+    <div class="relative">
         <input
             :id="id"
             :class="classList"
@@ -14,77 +14,82 @@
 
 <script>
     export default {
-        name: 'TwFormInput',
+        name: 'TWFormInput',
 
         props: {
             value: {
                 type: [String, Number],
-                default: '',
+                default: undefined,
             },
-
+            variant: {
+                type: String,
+                default: 'default',
+            },
             id: {
                 type: String,
                 default: undefined,
             },
-
             type: {
                 type: String,
                 default: 'text',
-                validator: value => ['text', 'password', 'email'].includes(value),
             },
-
+            autocomplete: {
+                type: String,
+                default: undefined,
+            },
             placeholder: {
                 type: String,
-                default: '',
+                default: undefined,
             },
-
             name: {
                 type: String,
-                default: '',
+                default: undefined,
             },
-
+            max: {
+                type: [String, Number],
+                default: undefined,
+            },
+            min: {
+                type: [String, Number],
+                default: undefined,
+            },
             size: {
                 type: String,
                 default: 'md',
-                validator: value => ['sm', 'md', 'lg'].includes(value),
             },
         },
 
         data() {
-            return {};
+            return {
+                localValue: this.value,
+                localBase: '',
+                localVariants: {},
+                localSizes: {},
+            };
+        },
+
+        watch: {
+            value(value) {
+                this.localValue = value;
+            },
         },
 
         computed: {
             classList() {
                 return [
-                    'appearance-none placeholder-cool-gray-400 rounded w-full text-cool-gray-800 transition duration-150 ease-in-out',
-                    this.getTextSize,
-                    this.getPaddingClass,
-                    this.getBorderClass,
+                    this.localBase,
+                    this.getVariants,
+                    this.getSizes,
                 ];
             },
 
-            getTextSize() {
-                const sizes = {
-                    sm: 'text-sm leading-4',
-                    md: 'text-sm leading-5',
-                    lg: 'text-base leading-6',
-                };
-
-                return sizes[this.size];
+            getVariants() {
+                const variants = { ...this.localVariants };
+                return variants[this.variant];
             },
 
-            getBorderClass() {
-                return 'border border-cool-gray-300 focus:outline-none focus:border-blue-600';
-            },
-
-            getPaddingClass() {
-                const sizes = {
-                    sm: 'px-3 py-2 leading-4',
-                    md: 'px-4 py-2 leading-5',
-                    lg: 'py-3 px-5 leading-6',
-                };
-
+            getSizes() {
+                const sizes = { ...this.localSizes };
                 return sizes[this.size];
             },
 
@@ -105,6 +110,10 @@
             },
         },
 
-        methods: {},
+        created() {
+            this.localBase = this?.$TWVue?.TWFormInput?.base || '';
+            this.localVariants = this?.$TWVue?.TWFormInput?.variants || {};
+            this.localSizes = this?.$TWVue?.TWFormInput?.sizes || {};
+        },
     };
 </script>

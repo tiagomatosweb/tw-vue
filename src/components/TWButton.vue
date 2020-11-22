@@ -18,7 +18,7 @@
     import TwSpinner from '@/components/TwSpinner';
 
     export default {
-        name: 'TwButton',
+        name: 'TWButton',
 
         components: {
             TwSpinner,
@@ -28,29 +28,23 @@
             type: {
                 type: String,
                 default: 'button',
-                validator: value => ['button', 'submit'].includes(value),
             },
-
             variant: {
                 type: String,
                 default: 'default',
             },
-
             size: {
                 type: String,
                 default: 'md',
             },
-
             block: {
                 type: Boolean,
                 default: false,
             },
-
             busy: {
                 type: Boolean,
                 default: false,
             },
-
             disabled: {
                 type: Boolean,
                 default: false,

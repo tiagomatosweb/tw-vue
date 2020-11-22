@@ -2,7 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 
 import '@/assets/css/tailwind.css';
-import { BASE_CSS, SIZES_CLASS, VARIANTS_CLASS } from '@/utils/buttons';
+import buttonConfig from '@/utils/buttons';
+import inputConfig from '@/utils/inputs';
 
 Vue.config.productionTip = false;
 
@@ -22,9 +23,14 @@ const options = {
 
 Vue.prototype.$TWVue = {
     TWButton: {
-        base: BASE_CSS,
-        variants: { ...VARIANTS_CLASS, ...options?.TWButton?.extend?.variants },
-        sizes: { ...SIZES_CLASS, ...options?.TWButton?.extend?.sizes },
+        base: buttonConfig.base,
+        variants: { ...buttonConfig.variants, ...options?.TWButton?.extend?.variants },
+        sizes: { ...buttonConfig.sizes, ...options?.TWButton?.extend?.sizes },
+    },
+    TWFormInput: {
+        base: inputConfig.base,
+        variants: { ...inputConfig.variants, ...options?.TWFormInput?.extend?.variants },
+        sizes: { ...inputConfig.sizes, ...options?.TWFormInput?.extend?.sizes },
     },
 };
 

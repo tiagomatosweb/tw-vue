@@ -1,5 +1,12 @@
 <template>
     <div>
+        <input
+            type="text"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        >
+
+        <input type="text" class="border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm">
+
         <h3 class="text-lg font-bold mb-2">
             Buttons
         </h3>
@@ -97,7 +104,7 @@
 </template>
 
 <script>
-    import TwButton from '@/components/TwButton';
+    import TwButton from '@/components/TWButton';
 
     export default {
         name: 'Buttons',
