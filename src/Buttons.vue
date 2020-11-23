@@ -101,6 +101,18 @@
                 2x large
             </TwButton>
         </div>
+
+        <h4 class="text-base mb-2">
+            Busy
+        </h4>
+
+        <TwButton
+            variant="primary"
+            busy
+            size="xs"
+        >
+            Busy
+        </TwButton>
     </div>
 </template>
 

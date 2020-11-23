@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        name: 'TwLabel',
+        name: 'TWLabel',
 
         props: {
             labelFor: {

@@ -5,9 +5,9 @@
         :class="classList"
         v-on="inputListeners"
     >
-        <TwSpinner
+        <TWSpinner
             v-if="busy"
-            class="mr-2"
+            :class="$slots['default'] ? '-ml-1 mr-3 h-5 w-5' : undefined"
         />
 
         <slot />
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-    import TwSpinner from '@/components/TwSpinner';
+    import TWSpinner from './TWSpinner';
 
     export default {
         name: 'TWButton',
 
         components: {
-            TwSpinner,
+            TWSpinner,
         },
 
         props: {
