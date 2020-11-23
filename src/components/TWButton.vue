@@ -73,12 +73,12 @@
 
                 return [
                     base.join(' '),
-                    this.getVariants,
+                    this.getVariant,
                     this.getSizes,
                 ];
             },
 
-            getVariants() {
+            getVariant() {
                 const variants = this.options.variants;
                 return variants[this.variant];
             },

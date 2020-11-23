@@ -3,6 +3,10 @@
         id="app"
         class="container mx-auto my-5"
     >
+        <HelpTexts />
+
+        <hr class="border-2 border-blue-gray-100 my-10">
+
         <Labels />
 
         <hr class="border-2 border-blue-gray-100 my-10">
@@ -24,11 +28,13 @@
     import Buttons from '@/Buttons';
     import Inputs from '@/Inputs';
     import Labels from '@/Labels';
+    import HelpTexts from '@/HelpTexts';
 
     export default {
         name: 'App',
 
         components: {
+            HelpTexts,
             Labels,
             Alerts,
             Inputs,

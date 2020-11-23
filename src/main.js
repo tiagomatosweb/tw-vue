@@ -7,6 +7,7 @@ import buttonConfig from '@/utils/buttons';
 import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alerts';
 import labelConfig from '@/utils/label';
+import helpTextConfig from '@/utils/helpText';
 
 Vue.config.productionTip = false;
 
@@ -17,6 +18,7 @@ Vue.prototype.$TWVue = {
     TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
     TWAlert: merge(alertConfig, options?.TWAlert?.extend),
     TWLabel: merge(labelConfig, options?.TWLabel?.extend),
+    TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
 };
 
 new Vue({
