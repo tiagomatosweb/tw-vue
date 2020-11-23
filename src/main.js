@@ -6,6 +6,7 @@ import '@/assets/css/tailwind.css';
 import buttonConfig from '@/utils/buttons';
 import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alerts';
+import labelConfig from '@/utils/label';
 
 Vue.config.productionTip = false;
 
@@ -15,6 +16,7 @@ Vue.prototype.$TWVue = {
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
     TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
     TWAlert: merge(alertConfig, options?.TWAlert?.extend),
+    TWLabel: merge(labelConfig, options?.TWLabel?.extend),
 };
 
 new Vue({

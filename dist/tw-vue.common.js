@@ -19732,12 +19732,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var TWAlert = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWButton.vue?vue&type=template&id=84e8c624&
-var TWButtonvue_type_template_id_84e8c624_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled}},_vm.inputListeners),[(_vm.busy)?_c('TWSpinner',{class:_vm.$slots['default'] ? '-ml-1 mr-3' : undefined}):_vm._e(),_vm._t("default")],2)}
-var TWButtonvue_type_template_id_84e8c624_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWButton.vue?vue&type=template&id=015998dd&
+var TWButtonvue_type_template_id_015998dd_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled}},_vm.inputListeners),[(_vm.busy)?_c('TWSpinner',{class:_vm.$slots['default'] ? '-ml-1 mr-3 h-5 w-5' : undefined}):_vm._e(),_vm._t("default")],2)}
+var TWButtonvue_type_template_id_015998dd_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TWButton.vue?vue&type=template&id=84e8c624&
+// CONCATENATED MODULE: ./src/components/TWButton.vue?vue&type=template&id=015998dd&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
 var es_array_join = __webpack_require__("a15b");
@@ -19897,8 +19897,8 @@ var TWSpinner_component = normalizeComponent(
 
 var TWButton_component = normalizeComponent(
   components_TWButtonvue_type_script_lang_js_,
-  TWButtonvue_type_template_id_84e8c624_render,
-  TWButtonvue_type_template_id_84e8c624_staticRenderFns,
+  TWButtonvue_type_template_id_015998dd_render,
+  TWButtonvue_type_template_id_015998dd_staticRenderFns,
   false,
   null,
   null,
@@ -20169,6 +20169,59 @@ var TWFormInput_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormInput = (TWFormInput_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWLabel.vue?vue&type=template&id=b56b0234&
+var TWLabelvue_type_template_id_b56b0234_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{class:_vm.options.base,attrs:{"for":_vm.labelFor}},[_vm._t("default")],2)}
+var TWLabelvue_type_template_id_b56b0234_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TWLabel.vue?vue&type=template&id=b56b0234&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWLabel.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWLabelvue_type_script_lang_js_ = ({
+  name: 'TWLabel',
+  props: {
+    labelFor: {
+      type: String,
+      default: undefined
+    }
+  },
+  created: function created() {
+    var _this$$TWVue;
+
+    this.options = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWLabel) || {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/TWLabel.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TWLabelvue_type_script_lang_js_ = (TWLabelvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TWLabel.vue
+
+
+
+
+
+/* normalize component */
+
+var TWLabel_component = normalizeComponent(
+  components_TWLabelvue_type_script_lang_js_,
+  TWLabelvue_type_template_id_b56b0234_render,
+  TWLabelvue_type_template_id_b56b0234_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWLabel = (TWLabel_component.exports);
 // CONCATENATED MODULE: ./src/utils/buttons.js
 /* harmony default export */ var buttons = ({
   base: 'inline-flex items-center border border-transparent focus:outline-none transition ease-in-out duration-150',
@@ -20273,25 +20326,30 @@ var TWFormInput_component = normalizeComponent(
     }
   }
 });
+// CONCATENATED MODULE: ./src/utils/label.js
+/* harmony default export */ var label = ({
+  base: 'block text-blue-gray-800 text-sm font-bold mb-2 tracking-wide'
+});
 // CONCATENATED MODULE: ./src/index.js
 
 
  // import TwCard from '@/components/TwCard';
 
+
  // import TwDropdown from '@/components/TwDropdown';
 // import TwDropdownItem from '@/components/TwDropdownItem';
 // import TwDropdownDivider from '@/components/TwDropdownDivider';
 // import TwHelpText from '@/components/TwHelpText';
-// import TwLabel from '@/components/TwLabel';
 // import TwSpinner from '@/components/TwSpinner';
 // import TwBadge from '@/components/TwBadge';
 
 
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
-    var _options$TWButton, _options$TWFormInput, _options$TWAlert;
+    var _options$TWButton, _options$TWFormInput, _options$TWAlert, _options$TWLabel;
 
     if (this.installed) {
       return;
@@ -20301,17 +20359,18 @@ var TWFormInput_component = normalizeComponent(
     Vue.prototype.$TWVue = {
       TWButton: Object(lodash["merge"])(buttons, options === null || options === void 0 ? void 0 : (_options$TWButton = options.TWButton) === null || _options$TWButton === void 0 ? void 0 : _options$TWButton.extend),
       TWFormInput: Object(lodash["merge"])(inputs, options === null || options === void 0 ? void 0 : (_options$TWFormInput = options.TWFormInput) === null || _options$TWFormInput === void 0 ? void 0 : _options$TWFormInput.extend),
-      TWAlert: Object(lodash["merge"])(alerts, options === null || options === void 0 ? void 0 : (_options$TWAlert = options.TWAlert) === null || _options$TWAlert === void 0 ? void 0 : _options$TWAlert.extend)
+      TWAlert: Object(lodash["merge"])(alerts, options === null || options === void 0 ? void 0 : (_options$TWAlert = options.TWAlert) === null || _options$TWAlert === void 0 ? void 0 : _options$TWAlert.extend),
+      TWLabel: Object(lodash["merge"])(label, options === null || options === void 0 ? void 0 : (_options$TWLabel = options.TWLabel) === null || _options$TWLabel === void 0 ? void 0 : _options$TWLabel.extend)
     };
     Vue.component('TWButton', TWButton);
     Vue.component('TWFormInput', TWFormInput);
-    Vue.component('TWAlert', TWAlert); // Vue.component('TwCard', TwCard);
+    Vue.component('TWAlert', TWAlert);
+    Vue.component('TWLabel', TWLabel); // Vue.component('TwCard', TwCard);
     // Vue.component('TWFormInput', TWFormInput);
     // Vue.component('TwDropdown', TwDropdown);
     // Vue.component('TwDropdownItem', TwDropdownItem);
     // Vue.component('TwDropdownDivider', TwDropdownDivider);
     // Vue.component('TwHelpText', TwHelpText);
-    // Vue.component('TwLabel', TwLabel);
     // Vue.component('TwSpinner', TwSpinner);
     // Vue.component('TwBadge', TwBadge);
   }

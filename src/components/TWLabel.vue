@@ -1,6 +1,6 @@
 <template>
     <label
-        class="block text-cool-gray-700 text-sm font-bold mb-2 tracking-wide"
+        :class="options.base"
         :for="labelFor"
     >
         <slot />
@@ -14,14 +14,12 @@
         props: {
             labelFor: {
                 type: String,
-                default: '',
+                default: undefined,
             },
         },
 
-        data() {
-            return {};
+        created() {
+            this.options = this?.$TWVue?.TWLabel || {};
         },
-
-        methods: {},
     };
 </script>
