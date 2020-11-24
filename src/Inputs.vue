@@ -70,16 +70,48 @@
             v-model="input"
             readonly
         />
+
+        <h4 class="text-base mb-2">
+            Group
+        </h4>
+
+        <div class="grid gap-4">
+            <TWFormGroup
+                label="Form group"
+                label-for="formGroup"
+                invalid-feedback="This is an error message"
+            >
+                <TWFormInput
+                    id="formGroup"
+                    variant="danger"
+                    placeholder="This in part of form group"
+                />
+            </TWFormGroup>
+
+            <TWFormGroup
+                label="Form group"
+                label-for="formGroup"
+                invalid-feedback="This is an error message"
+            >
+                <TWFormInput
+                    id="formGroup"
+                    variant="danger"
+                    placeholder="This in part of form group"
+                />
+            </TWFormGroup>
+        </div>
     </div>
 </template>
 
 <script>
     import TWFormInput from '@/components/TWFormInput';
+    import TWFormGroup from '@/components/TWFormGroup';
 
     export default {
         name: 'Inputs',
 
         components: {
+            TWFormGroup,
             TWFormInput,
         },
 

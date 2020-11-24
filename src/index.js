@@ -4,6 +4,7 @@ import TWButton from '@/components/TWButton';
 import TWAvatar from '@/components/TWAvatar';
 // import TwCard from '@/components/TwCard';
 import TWFormInput from '@/components/TWFormInput';
+import TWFormGroup from '@/components/TWFormGroup';
 import TWLabel from '@/components/TWLabel';
 import TWSpinner from '@/components/TWSpinner';
 // import TwDropdown from '@/components/TwDropdown';
@@ -37,6 +38,7 @@ export default {
 
         Vue.component('TWButton', TWButton);
         Vue.component('TWFormInput', TWFormInput);
+        Vue.component('TWFormGroup', TWFormGroup);
         Vue.component('TWAlert', TWAlert);
         Vue.component('TWLabel', TWLabel);
         Vue.component('TWSpinner', TWSpinner);

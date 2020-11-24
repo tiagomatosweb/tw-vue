@@ -20266,6 +20266,13 @@ var TWFormInput_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormInput = (TWFormInput_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWFormGroup.vue?vue&type=template&id=515f71d4&
+var TWFormGroupvue_type_template_id_515f71d4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('TWLabel',{attrs:{"label-for":_vm.labelFor}},[_vm._v(" "+_vm._s(_vm.label)+" ")]),_vm._t("default"),(_vm.invalidFeedback)?_c('TWHelpText',{attrs:{"variant":"danger"}},[_vm._v(" "+_vm._s(_vm.invalidFeedback)+" ")]):_vm._e()],2)}
+var TWFormGroupvue_type_template_id_515f71d4_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/TWFormGroup.vue?vue&type=template&id=515f71d4&
+
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ecb0bb3e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWLabel.vue?vue&type=template&id=b56b0234&
 var TWLabelvue_type_template_id_b56b0234_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{class:_vm.options.base,attrs:{"for":_vm.labelFor}},[_vm._t("default")],2)}
 var TWLabelvue_type_template_id_b56b0234_staticRenderFns = []
@@ -20383,6 +20390,75 @@ var TWHelpText_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWHelpText = (TWHelpText_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TWFormGroup.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ var TWFormGroupvue_type_script_lang_js_ = ({
+  name: 'TWFormGroup',
+  props: {
+    label: {
+      type: String,
+      default: undefined
+    },
+    labelFor: {
+      type: String,
+      default: undefined
+    },
+    invalidFeedback: {
+      type: String,
+      default: undefined
+    }
+  },
+  components: {
+    TWLabel: TWLabel,
+    TWHelpText: TWHelpText
+  },
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
+// CONCATENATED MODULE: ./src/components/TWFormGroup.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_TWFormGroupvue_type_script_lang_js_ = (TWFormGroupvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/TWFormGroup.vue
+
+
+
+
+
+/* normalize component */
+
+var TWFormGroup_component = normalizeComponent(
+  components_TWFormGroupvue_type_script_lang_js_,
+  TWFormGroupvue_type_template_id_515f71d4_render,
+  TWFormGroupvue_type_template_id_515f71d4_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWFormGroup = (TWFormGroup_component.exports);
 // CONCATENATED MODULE: ./src/utils/buttons.js
 /* harmony default export */ var buttons = ({
   base: 'inline-flex items-center border border-transparent focus:outline-none transition ease-in-out duration-150',
@@ -20524,6 +20600,7 @@ var TWHelpText_component = normalizeComponent(
 
 
 
+
  // import TwDropdown from '@/components/TwDropdown';
 // import TwDropdownItem from '@/components/TwDropdownItem';
 // import TwDropdownDivider from '@/components/TwDropdownDivider';
@@ -20555,6 +20632,7 @@ var TWHelpText_component = normalizeComponent(
     };
     Vue.component('TWButton', TWButton);
     Vue.component('TWFormInput', TWFormInput);
+    Vue.component('TWFormGroup', TWFormGroup);
     Vue.component('TWAlert', TWAlert);
     Vue.component('TWLabel', TWLabel);
     Vue.component('TWSpinner', TWSpinner);
