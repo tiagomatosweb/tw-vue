@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 import TWAlert from '@/components/TWAlert';
 import TWButton from '@/components/TWButton';
+import TWAvatar from '@/components/TWAvatar';
 // import TwCard from '@/components/TwCard';
 import TWFormInput from '@/components/TWFormInput';
 import TWLabel from '@/components/TWLabel';
@@ -15,6 +16,7 @@ import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alerts';
 import labelConfig from '@/utils/label';
 import helpTextConfig from '@/utils/helpText';
+import avatarConfig from '@/utils/avatar';
 
 export default {
     install(Vue, options) {
@@ -30,6 +32,7 @@ export default {
             TWAlert: merge(alertConfig, options?.TWAlert?.extend),
             TWLabel: merge(labelConfig, options?.TWLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
+            TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
         };
 
         Vue.component('TWButton', TWButton);
@@ -38,6 +41,7 @@ export default {
         Vue.component('TWLabel', TWLabel);
         Vue.component('TWSpinner', TWSpinner);
         Vue.component('TWHelpText', TWHelpText);
+        Vue.component('TWAvatar', TWAvatar);
         // Vue.component('TwCard', TwCard);
         // Vue.component('TWFormInput', TWFormInput);
         // Vue.component('TwDropdown', TwDropdown);

@@ -1,5 +1,5 @@
 export default {
-    base: 'block w-full shadow-sm',
+    base: 'block w-full shadow-sm transition ease-in-out duration-150',
     variants: {
         default: 'text-blue-gray-800 border-blue-gray-300 focus:border-blue-300 focus:ring focus:ring-opacity-50 focus:ring-blue-200',
         success: 'text-blue-gray-800 border-green-500 focus:border-green-500 focus:ring focus:ring-opacity-50 focus:ring-green-200',

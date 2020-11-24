@@ -8,6 +8,7 @@ import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alerts';
 import labelConfig from '@/utils/label';
 import helpTextConfig from '@/utils/helpText';
+import avatarConfig from '@/utils/avatar';
 
 Vue.config.productionTip = false;
 
@@ -19,6 +20,7 @@ Vue.prototype.$TWVue = {
     TWAlert: merge(alertConfig, options?.TWAlert?.extend),
     TWLabel: merge(labelConfig, options?.TWLabel?.extend),
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
+    TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
 };
 
 new Vue({
