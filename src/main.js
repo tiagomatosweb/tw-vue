@@ -17,6 +17,7 @@ const options = {};
 Vue.prototype.$TWVue = {
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
     TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
+    TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
     TWAlert: merge(alertConfig, options?.TWAlert?.extend),
     TWLabel: merge(labelConfig, options?.TWLabel?.extend),
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),

@@ -65,13 +65,13 @@
 
         computed: {
             localVariant() {
-                const variants = this.options.variants;
+                const variants = this.TWOptions.variants;
                 return variants[this.variant];
             },
         },
 
         created() {
-            this.options = this?.$TWVue?.TWAlert || {};
+            this.TWOptions = this?.$TWVue?.TWAlert || {};
         },
 
         methods: {

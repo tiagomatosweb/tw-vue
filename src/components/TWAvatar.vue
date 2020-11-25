@@ -52,7 +52,7 @@
             },
 
             getSize() {
-                return this.options.sizes[this.size];
+                return this.TWOptions.sizes[this.size];
             },
 
             textClassList() {
@@ -76,7 +76,7 @@
         },
 
         created() {
-            this.options = this?.$TWVue?.TWAvatar || {};
+            this.TWOptions = this?.$TWVue?.TWAvatar || {};
         },
     };
 </script>

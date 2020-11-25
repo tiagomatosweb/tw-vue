@@ -3,8 +3,10 @@ import TWAlert from '@/components/TWAlert';
 import TWButton from '@/components/TWButton';
 import TWAvatar from '@/components/TWAvatar';
 // import TwCard from '@/components/TwCard';
-import TWFormInput from '@/components/TWFormInput';
 import TWFormGroup from '@/components/TWFormGroup';
+import TWFormInput from '@/components/form-input/TWFormInput';
+import TWFormSelect from '@/components/form-select/TWFormSelect';
+import TWFormSelectOption from '@/components/form-select/TWFormSelectOption';
 import TWLabel from '@/components/TWLabel';
 import TWSpinner from '@/components/TWSpinner';
 // import TwDropdown from '@/components/TwDropdown';
@@ -30,6 +32,7 @@ export default {
         Vue.prototype.$TWVue = {
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
+            TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
             TWAlert: merge(alertConfig, options?.TWAlert?.extend),
             TWLabel: merge(labelConfig, options?.TWLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
@@ -37,8 +40,10 @@ export default {
         };
 
         Vue.component('TWButton', TWButton);
-        Vue.component('TWFormInput', TWFormInput);
         Vue.component('TWFormGroup', TWFormGroup);
+        Vue.component('TWFormInput', TWFormInput);
+        Vue.component('TWFormSelect', TWFormSelect);
+        Vue.component('TWFormSelectOption', TWFormSelectOption);
         Vue.component('TWAlert', TWAlert);
         Vue.component('TWLabel', TWLabel);
         Vue.component('TWSpinner', TWSpinner);

@@ -73,15 +73,15 @@
             },
             disabled: {
                 type: Boolean,
-                default: undefined,
+                default: false,
             },
             readonly: {
                 type: Boolean,
-                default: undefined,
+                default: false,
             },
             required: {
                 type: Boolean,
-                default: undefined,
+                default: false,
             },
             pattern: {
                 type: Boolean,
@@ -89,7 +89,7 @@
             },
             autofocus: {
                 type: Boolean,
-                default: undefined,
+                default: false,
             },
             size: {
                 type: String,
@@ -100,7 +100,7 @@
         data() {
             return {
                 localValue: this.value,
-                options: {},
+                TWOptions: {},
             };
         },
 
@@ -113,7 +113,7 @@
         computed: {
             classList() {
                 return [
-                    this.options.base,
+                    this.TWOptions.base,
                     this.getVariants,
                     this.getSizes,
                 ];
@@ -121,19 +121,19 @@
 
             getVariants() {
                 if (this.disabled) {
-                    return this.options.disabled;
+                    return this.TWOptions.disabled;
                 }
 
                 if (this.readonly) {
-                    return this.options.readonly;
+                    return this.TWOptions.readonly;
                 }
 
-                const variants = this.options.variants;
+                const variants = this.TWOptions.variants;
                 return variants[this.variant];
             },
 
             getSizes() {
-                const sizes = this.options.sizes;
+                const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
             },
 
@@ -155,7 +155,7 @@
         },
 
         created() {
-            this.options = this?.$TWVue?.TWFormInput || {};
+            this.TWOptions = this?.$TWVue?.TWFormInput || {};
         },
     };
 </script>

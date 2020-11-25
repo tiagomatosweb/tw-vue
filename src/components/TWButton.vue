@@ -1,7 +1,10 @@
 <template>
-    <button
+    <Component
+        :is="is"
         :type="type"
         :disabled="busy || disabled"
+        :href="localHref"
+        :to="to"
         :class="classList"
         v-on="inputListeners"
     >
@@ -11,7 +14,7 @@
         />
 
         <slot />
-    </button>
+    </Component>
 </template>
 
 <script>
@@ -49,18 +52,27 @@
                 type: Boolean,
                 default: false,
             },
+            href: {
+                type: String,
+                default: undefined,
+            },
+
+            to: {
+                type: [String, Object],
+                default: undefined,
+            },
         },
 
         data() {
             return {
-                options: {},
+                TWOptions: {},
             };
         },
 
         computed: {
             classList() {
                 const base = [
-                    this.options.base,
+                    this.TWOptions.base,
                 ];
 
                 if (this.block) {
@@ -79,13 +91,33 @@
             },
 
             getVariant() {
-                const variants = this.options.variants;
+                const variants = this.TWOptions.variants;
                 return variants[this.variant];
             },
 
             getSizes() {
-                const sizes = this.options.sizes;
+                const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
+            },
+
+            localHref() {
+                if (typeof this.to !== 'undefined') {
+                    return undefined;
+                }
+
+                return this.href;
+            },
+
+            is() {
+                if (typeof this.to !== 'undefined') {
+                    return 'RouterLink';
+                }
+
+                if (typeof this.href !== 'undefined') {
+                    return 'a';
+                }
+
+                return 'button';
             },
 
             inputListeners() {
@@ -94,7 +126,7 @@
         },
 
         created() {
-            this.options = this?.$TWVue?.TWButton || {};
+            this.TWOptions = this?.$TWVue?.TWButton || {};
         },
     };
 </script>

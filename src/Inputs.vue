@@ -82,7 +82,7 @@
                 invalid-feedback="This is an error message"
             >
                 <TWFormInput
-                    id="formGroup"
+                    id="formGroup1"
                     variant="danger"
                     placeholder="This in part of form group"
                 />
@@ -90,7 +90,7 @@
 
             <TWFormGroup
                 label="Form group"
-                label-for="formGroup"
+                label-for="formGroup2"
                 invalid-feedback="This is an error message"
             >
                 <TWFormInput
@@ -100,17 +100,29 @@
                 />
             </TWFormGroup>
         </div>
+
+        <h4 class="text-base mb-2">
+            Select
+        </h4>
+
+        <FormSelect
+            v-model="select"
+            :options="[{ text: 'Select', value: null }, { text: 'Game of Thrones', value: { id: 1, name: 'game'} }, { text: 'Transformers', value: { id: 2, name: 'trans'} }]"
+            @change="selected"
+        />
     </div>
 </template>
 
 <script>
-    import TWFormInput from '@/components/TWFormInput';
+    import TWFormInput from '@/components/form-input/TWFormInput';
     import TWFormGroup from '@/components/TWFormGroup';
+    import FormSelect from '@/components/form-select/TWFormSelect';
 
     export default {
         name: 'Inputs',
 
         components: {
+            FormSelect,
             TWFormGroup,
             TWFormInput,
         },
@@ -118,9 +130,14 @@
         data() {
             return {
                 input: 'Text input',
+                select: { id: 1, name: 'game'},
             };
         },
 
-        methods: {},
+        methods: {
+            selected(vl) {
+                console.log(vl);
+            },
+        },
     };
 </script>
