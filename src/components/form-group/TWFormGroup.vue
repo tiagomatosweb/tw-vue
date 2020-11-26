@@ -1,10 +1,10 @@
 <template>
     <div>
-        <TWLabel
+        <TWFormLabel
             :label-for="labelFor"
         >
             {{ label }}
-        </TWLabel>
+        </TWFormLabel>
 
         <slot />
 
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-    import TWLabel from '@/components/TWLabel';
-    import TWHelpText from '@/components/TWHelpText';
+    import TWFormLabel from '@/components/form-label/TWFormLabel';
+    import TWHelpText from '@/components/help-text/TWHelpText';
 
     export default {
         name: 'TWFormGroup',
@@ -39,7 +39,7 @@
             },
         },
         components: {
-            TWLabel,
+            TWFormLabel,
             TWHelpText,
         },
 

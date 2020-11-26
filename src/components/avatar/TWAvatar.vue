@@ -1,5 +1,8 @@
 <template>
-    <div :class="classList">
+    <div
+        :class="classList"
+        @click.stop.prevent="onClick()"
+    >
         <img
             v-if="src"
             :src="src"
@@ -77,6 +80,12 @@
 
         created() {
             this.TWOptions = this?.$TWVue?.TWAvatar || {};
+        },
+
+        methods: {
+            onClick() {
+                this.$emit('click');
+            },
         },
     };
 </script>

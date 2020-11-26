@@ -20,6 +20,7 @@
         }
     },
     "dependencies": {
+        "@popperjs/core": "^2.5.4",
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.1",

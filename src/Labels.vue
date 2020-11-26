@@ -4,20 +4,20 @@
             Labels
         </h3>
 
-        <TWLabel>
+        <TWFormLabel>
             I'm a label
-        </TWLabel>
+        </TWFormLabel>
     </div>
 </template>
 
 <script>
-    import TWLabel from '@/components/TWLabel';
+    import TWFormLabel from '@/components/form-label/TWFormLabel';
 
     export default {
         name: 'Labels',
 
         components: {
-            TWLabel,
+            TWFormLabel,
         },
     };
 </script>

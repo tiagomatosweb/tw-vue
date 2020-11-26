@@ -117,7 +117,7 @@
 </template>
 
 <script>
-    import TwButton from '@/components/TWButton';
+    import TwButton from '@/components/button/TWButton';
 
     export default {
         name: 'Buttons',

@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import { TW_COLORS } from '@/utils/variants';
+    import { TW_COLORS } from '@/utils/variant';
 
     const BADGE_SIZES = ['sm', 'md', 'lg'];
 

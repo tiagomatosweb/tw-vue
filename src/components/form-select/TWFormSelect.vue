@@ -80,13 +80,13 @@
                 type: Array,
                 default: () => [],
             },
-            valueField: {
-                type: String,
-                default: 'value',
-            },
             textField: {
                 type: String,
                 default: 'text',
+            },
+            valueField: {
+                type: String,
+                default: 'value',
             },
         },
 

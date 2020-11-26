@@ -43,7 +43,7 @@
 </template>
 
 <script>
-    import TWHelpText from '@/components/TWHelpText';
+    import TWHelpText from '@/components/help-text/TWHelpText';
 
     export default {
         name: 'HelpTexts',

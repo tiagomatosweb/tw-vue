@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import { TW_COLORS } from '@/utils/variants';
+    import { TW_COLORS } from '@/utils/variant';
 
     export default {
         name: 'TwCard',

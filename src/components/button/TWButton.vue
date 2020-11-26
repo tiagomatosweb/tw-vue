@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import TWSpinner from './TWSpinner';
+    import TWSpinner from '../spinner/TWSpinner';
 
     export default {
         name: 'TWButton',

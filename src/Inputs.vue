@@ -115,7 +115,7 @@
 
 <script>
     import TWFormInput from '@/components/form-input/TWFormInput';
-    import TWFormGroup from '@/components/TWFormGroup';
+    import TWFormGroup from '@/components/form-group/TWFormGroup';
     import FormSelect from '@/components/form-select/TWFormSelect';
 
     export default {

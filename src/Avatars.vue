@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import TWAvatar from '@/components/TWAvatar';
+    import TWAvatar from '@/components/avatar/TWAvatar';
 
     export default {
         name: 'Avatars',

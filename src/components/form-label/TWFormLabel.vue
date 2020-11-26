@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        name: 'TWLabel',
+        name: 'TWFormLabel',
 
         props: {
             labelFor: {
@@ -19,7 +19,7 @@
         },
 
         created() {
-            this.options = this?.$TWVue?.TWLabel || {};
+            this.options = this?.$TWVue?.TWFormLabel || {};
         },
     };
 </script>

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import TWAlert from '@/components/TWAlert';
+    import TWAlert from '@/components/alert/TWAlert';
 
     export default {
         name: 'Alerts',
