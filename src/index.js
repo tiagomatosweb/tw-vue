@@ -2,9 +2,11 @@ import { merge } from 'lodash';
 import TWAlert from '@/components/alert/TWAlert';
 import TWButton from '@/components/button/TWButton';
 import TWAvatar from '@/components/avatar/TWAvatar';
-// import TwCard from '@/components/TwCard';
+import TWCard from '@/components/card/TWCard';
+import TWCardBody from '@/components/card/TWCardBody';
 import TWFormGroup from '@/components/form-group/TWFormGroup';
 import TWFormInput from '@/components/form-input/TWFormInput';
+import TWFormTextarea from '@/components/form-textarea/TWFormTextarea';
 import TWFormSelect from '@/components/form-select/TWFormSelect';
 import TWFormSelectOption from '@/components/form-select/TWFormSelectOption';
 import TWFormLabel from '@/components/form-label/TWFormLabel';
@@ -23,6 +25,7 @@ import labelConfig from '@/utils/label';
 import helpTextConfig from '@/utils/helpText';
 import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
+import cardConfig from '@/utils/card';
 
 export default {
     install(Vue, options) {
@@ -41,11 +44,13 @@ export default {
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
             TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
+            TWCard: merge(cardConfig, options?.TWCard?.extend),
         };
 
         Vue.component('TWButton', TWButton);
         Vue.component('TWFormGroup', TWFormGroup);
         Vue.component('TWFormInput', TWFormInput);
+        Vue.component('TWFormTextarea', TWFormTextarea);
         Vue.component('TWFormSelect', TWFormSelect);
         Vue.component('TWFormSelectOption', TWFormSelectOption);
         Vue.component('TWAlert', TWAlert);
@@ -56,7 +61,8 @@ export default {
         Vue.component('TWDropdown', TWDropdown);
         Vue.component('TWDropdownItem', TWDropdownItem);
         Vue.component('TWDropdownDivider', TWDropdownDivider);
-        // Vue.component('TwCard', TwCard);
+        Vue.component('TWCard', TWCard);
+        Vue.component('TWCardBody', TWCardBody);
         // Vue.component('TWFormInput', TWFormInput);
         // Vue.component('TwDropdown', TwDropdown);
         // Vue.component('TwDropdownItem', TwDropdownItem);

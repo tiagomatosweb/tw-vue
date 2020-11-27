@@ -6,6 +6,7 @@
 
         <div class="grid gap-2">
             <TWFormInput />
+            <TWFormInput variant="naked" />
             <TWFormInput variant="success" />
             <TWFormInput variant="danger" />
             <TWFormInput variant="warning" />
@@ -105,26 +106,34 @@
             Select
         </h4>
 
-        <FormSelect
+        <TWFormSelect
             v-model="select"
             :options="[{ text: 'Select', value: null }, { text: 'Game of Thrones', value: { id: 1, name: 'game'} }, { text: 'Transformers', value: { id: 2, name: 'trans'} }]"
             @change="selected"
         />
+
+        <h4 class="text-base mb-2">
+            Textarea
+        </h4>
+
+        <TWFormTextarea />
     </div>
 </template>
 
 <script>
     import TWFormInput from '@/components/form-input/TWFormInput';
     import TWFormGroup from '@/components/form-group/TWFormGroup';
-    import FormSelect from '@/components/form-select/TWFormSelect';
+    import TWFormSelect from '@/components/form-select/TWFormSelect';
+    import TWFormTextarea from '@/components/form-textarea/TWFormTextarea';
 
     export default {
         name: 'Inputs',
 
         components: {
-            FormSelect,
+            TWFormSelect,
             TWFormGroup,
             TWFormInput,
+            TWFormTextarea,
         },
 
         data() {

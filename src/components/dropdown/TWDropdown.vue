@@ -15,7 +15,7 @@
             </slot>
 
             <slot
-                v-if="!hideIcon"
+                v-if="!noCaret"
                 name="button-icon"
             >
                 <svg
@@ -71,7 +71,7 @@
                 type: Boolean,
                 default: false,
             },
-            hideIcon: {
+            noCaret: {
                 type: Boolean,
                 default: false,
             },

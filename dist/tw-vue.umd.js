@@ -20592,6 +20592,129 @@ var TWAvatar_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWAvatar = (TWAvatar_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCard.vue?vue&type=template&id=803b1d06&
+var TWCardvue_type_template_id_803b1d06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.classList},[_c(_vm.noBody ? 'div' : 'TWCardBody',{tag:"Component"},[_vm._t("default")],2)],1)}
+var TWCardvue_type_template_id_803b1d06_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/card/TWCard.vue?vue&type=template&id=803b1d06&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCardBody.vue?vue&type=template&id=5fc9635a&
+var TWCardBodyvue_type_template_id_5fc9635a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.TWOptions.body},[_vm._t("default")],2)}
+var TWCardBodyvue_type_template_id_5fc9635a_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/card/TWCardBody.vue?vue&type=template&id=5fc9635a&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCardBody.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWCardBodyvue_type_script_lang_js_ = ({
+  name: 'TWCardBody',
+  data: function data() {
+    return {
+      TWOptions: {}
+    };
+  },
+  created: function created() {
+    var _this$$TWVue;
+
+    this.TWOptions = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWCard) || {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/card/TWCardBody.vue?vue&type=script&lang=js&
+ /* harmony default export */ var card_TWCardBodyvue_type_script_lang_js_ = (TWCardBodyvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/card/TWCardBody.vue
+
+
+
+
+
+/* normalize component */
+
+var TWCardBody_component = normalizeComponent(
+  card_TWCardBodyvue_type_script_lang_js_,
+  TWCardBodyvue_type_template_id_5fc9635a_render,
+  TWCardBodyvue_type_template_id_5fc9635a_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWCardBody = (TWCardBody_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCard.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var TWCardvue_type_script_lang_js_ = ({
+  name: 'TWCard',
+  props: {
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    noBody: {
+      type: Boolean,
+      default: false
+    }
+  },
+  components: {
+    TWCardBody: TWCardBody
+  },
+  data: function data() {
+    return {
+      TWOptions: {}
+    };
+  },
+  computed: {
+    classList: function classList() {
+      return [this.getVariant];
+    },
+    getVariant: function getVariant() {
+      var variants = this.TWOptions.variants;
+      return variants[this.variant];
+    }
+  },
+  created: function created() {
+    var _this$$TWVue;
+
+    this.TWOptions = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWCard) || {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/card/TWCard.vue?vue&type=script&lang=js&
+ /* harmony default export */ var card_TWCardvue_type_script_lang_js_ = (TWCardvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/card/TWCard.vue
+
+
+
+
+
+/* normalize component */
+
+var TWCard_component = normalizeComponent(
+  card_TWCardvue_type_script_lang_js_,
+  TWCardvue_type_template_id_803b1d06_render,
+  TWCardvue_type_template_id_803b1d06_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWCard = (TWCard_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-group/TWFormGroup.vue?vue&type=template&id=ca3498fe&
 var TWFormGroupvue_type_template_id_ca3498fe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('TWFormLabel',{attrs:{"label-for":_vm.labelFor}},[_vm._v(" "+_vm._s(_vm.label)+" ")]),_vm._t("default"),(_vm.invalidFeedback)?_c('TWHelpText',{attrs:{"variant":"danger"}},[_vm._v(" "+_vm._s(_vm.invalidFeedback)+" ")]):_vm._e()],2)}
 var TWFormGroupvue_type_template_id_ca3498fe_staticRenderFns = []
@@ -21047,6 +21170,169 @@ var TWFormInput_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormInput = (TWFormInput_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-textarea/TWFormTextarea.vue?vue&type=template&id=0ae13c9a&
+var TWFormTextareavue_type_template_id_0ae13c9a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('textarea',_vm._g({class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"name":_vm.name,"placeholder":_vm.placeholder,"readonly":_vm.readonly,"required":_vm.required,"rows":_vm.rows,"maxlength":_vm.maxLength,"cols":_vm.cols,"wrap":_vm.wrap},domProps:{"value":_vm.value}},_vm.inputListeners))}
+var TWFormTextareavue_type_template_id_0ae13c9a_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/form-textarea/TWFormTextarea.vue?vue&type=template&id=0ae13c9a&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-textarea/TWFormTextarea.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWFormTextareavue_type_script_lang_js_ = ({
+  name: 'TWFormTextarea',
+  props: {
+    value: {
+      type: [String, Number],
+      default: undefined
+    },
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    id: {
+      type: String,
+      default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: undefined
+    },
+    name: {
+      type: String,
+      default: undefined
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: 'md'
+    },
+    cols: {
+      type: [Number, String],
+      default: undefined
+    },
+    rows: {
+      type: [Number, String],
+      default: 2
+    },
+    maxLength: {
+      type: [Number, String],
+      default: undefined
+    },
+    wrap: {
+      type: String,
+      default: 'soft'
+    }
+  },
+  data: function data() {
+    return {
+      localValue: this.value,
+      TWOptions: {}
+    };
+  },
+  watch: {
+    value: function value(_value) {
+      this.localValue = _value;
+    }
+  },
+  computed: {
+    classList: function classList() {
+      return [this.TWOptions.base, this.getVariants, this.getSizes];
+    },
+    getVariants: function getVariants() {
+      if (this.disabled) {
+        return this.TWOptions.disabled;
+      }
+
+      if (this.readonly) {
+        return this.TWOptions.readonly;
+      }
+
+      var variants = this.TWOptions.variants;
+      return variants[this.variant];
+    },
+    getSizes: function getSizes() {
+      var sizes = this.TWOptions.sizes;
+      return sizes[this.size];
+    },
+    inputListeners: function inputListeners() {
+      var vm = this;
+      return _objectSpread2(_objectSpread2({}, this.$listeners), {}, {
+        input: function input(event) {
+          vm.$emit('input', event.target.value);
+        },
+        change: function change(event) {
+          vm.$emit('change', event.target.value);
+        },
+        blur: function blur(event) {
+          vm.$emit('blur', event);
+        }
+      });
+    }
+  },
+  created: function created() {
+    var _this$$TWVue;
+
+    this.TWOptions = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWFormInput) || {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/form-textarea/TWFormTextarea.vue?vue&type=script&lang=js&
+ /* harmony default export */ var form_textarea_TWFormTextareavue_type_script_lang_js_ = (TWFormTextareavue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/form-textarea/TWFormTextarea.vue
+
+
+
+
+
+/* normalize component */
+
+var TWFormTextarea_component = normalizeComponent(
+  form_textarea_TWFormTextareavue_type_script_lang_js_,
+  TWFormTextareavue_type_template_id_0ae13c9a_render,
+  TWFormTextareavue_type_template_id_0ae13c9a_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWFormTextarea = (TWFormTextarea_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelect.vue?vue&type=template&id=08c84cfc&
 var TWFormSelectvue_type_template_id_08c84cfc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.localValue),expression:"localValue"}],class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"multiple":_vm.multiple,"name":_vm.name,"readonly":_vm.readonly,"required":_vm.required},on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.localValue=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.onChange]}},[_vm._t("first"),_vm._l((_vm.options),function(option,index){return _c('FormSelectOption',{key:("option_" + index),attrs:{"value":option[_vm.valueField]}},[_vm._v(" "+_vm._s(option[_vm.textField])+" ")])})],2)])}
 var TWFormSelectvue_type_template_id_08c84cfc_staticRenderFns = []
@@ -21283,12 +21569,12 @@ var TWFormSelect_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormSelect = (TWFormSelect_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/dropdown/TWDropdown.vue?vue&type=template&id=a0cf8b26&
-var TWDropdownvue_type_template_id_a0cf8b26_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"component",staticClass:"inline-block text-left"},[_c('TWButton',{ref:"button",attrs:{"type":"button","variant":_vm.variant,"size":_vm.size},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.hideIcon)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen),expression:"isOpen"}],ref:"dropdown",staticClass:"w-56 rounded-md shadow-lg"},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default")],2)])],1)}
-var TWDropdownvue_type_template_id_a0cf8b26_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e18162c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/dropdown/TWDropdown.vue?vue&type=template&id=543dc84b&
+var TWDropdownvue_type_template_id_543dc84b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"component",staticClass:"inline-block text-left"},[_c('TWButton',{ref:"button",attrs:{"type":"button","variant":_vm.variant,"size":_vm.size},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noCaret)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isOpen),expression:"isOpen"}],ref:"dropdown",staticClass:"w-56 rounded-md shadow-lg"},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default")],2)])],1)}
+var TWDropdownvue_type_template_id_543dc84b_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/dropdown/TWDropdown.vue?vue&type=template&id=a0cf8b26&
+// CONCATENATED MODULE: ./src/components/dropdown/TWDropdown.vue?vue&type=template&id=543dc84b&
 
 // CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 function getBoundingClientRect(element) {
@@ -22388,7 +22674,7 @@ var popper_lite_createPopper = /*#__PURE__*/popperGenerator({
       type: Boolean,
       default: false
     },
-    hideIcon: {
+    noCaret: {
       type: Boolean,
       default: false
     },
@@ -22507,8 +22793,8 @@ var popper_lite_createPopper = /*#__PURE__*/popperGenerator({
 
 var TWDropdown_component = normalizeComponent(
   dropdown_TWDropdownvue_type_script_lang_js_,
-  TWDropdownvue_type_template_id_a0cf8b26_render,
-  TWDropdownvue_type_template_id_a0cf8b26_staticRenderFns,
+  TWDropdownvue_type_template_id_543dc84b_render,
+  TWDropdownvue_type_template_id_543dc84b_staticRenderFns,
   false,
   null,
   null,
@@ -22659,32 +22945,33 @@ var TWDropdownDivider_component = normalizeComponent(
   },
   sizes: {
     xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
-    sm: 'text-sm px-3 py-2 leading-4 rounded-md',
-    md: 'text-sm px-4 py-2 rounded-md',
-    lg: 'text-base px-4 py-2 rounded-md',
-    xl: 'text-base px-6 py-3 rounded-md',
-    '2xl': 'text-xl px-8 py-3 rounded-md'
+    sm: 'text-sm px-3 py-2 leading-4 rounded',
+    md: 'text-sm px-4 py-2 rounded',
+    lg: 'text-base px-4 py-2 rounded',
+    xl: 'text-base px-6 py-3 rounded',
+    '2xl': 'text-xl px-8 py-3 rounded'
   }
 });
 // CONCATENATED MODULE: ./src/utils/inputs.js
 /* harmony default export */ var inputs = ({
-  base: 'block w-full shadow-sm transition ease-in-out duration-150',
+  base: 'block w-full transition ease-in-out duration-150',
   variants: {
-    default: 'text-blue-gray-800 border-blue-gray-300 focus:border-blue-300 focus:ring focus:ring-opacity-50 focus:ring-blue-200',
-    success: 'text-blue-gray-800 border-green-500 focus:border-green-500 focus:ring focus:ring-opacity-50 focus:ring-green-200',
-    danger: 'text-blue-gray-800 border-red-500 focus:border-red-500 focus:ring focus:ring-opacity-50 focus:ring-red-200',
-    warning: 'text-blue-gray-800 border-yellow-500 focus:border-yellow-500 focus:ring focus:ring-opacity-50 focus:ring-yellow-200',
-    info: 'text-blue-gray-800 border-cyan-500 focus:border-cyan-500 focus:ring focus:ring-opacity-50 focus:ring-cyan-200'
+    default: 'text-blue-gray-800 placeholder-blue-gray-300 border-blue-gray-300 focus:border-blue-300 focus:ring focus:ring-opacity-50 focus:ring-blue-200 shadow-sm ',
+    naked: 'text-blue-gray-800 placeholder-blue-gray-300 border-transparent bg-transparent focus:outline-none focus:border-transparent focus:ring-0',
+    success: 'text-blue-gray-800 placeholder-blue-gray-300 border-green-500 focus:border-green-500 focus:ring focus:ring-opacity-50 focus:ring-green-200 shadow-sm ',
+    danger: 'text-blue-gray-800 placeholder-blue-gray-300 border-red-500 focus:border-red-500 focus:ring focus:ring-opacity-50 focus:ring-red-200 shadow-sm ',
+    warning: 'text-blue-gray-800 placeholder-blue-gray-300 border-yellow-500 focus:border-yellow-500 focus:ring focus:ring-opacity-50 focus:ring-yellow-200 shadow-sm ',
+    info: 'text-blue-gray-800 placeholder-blue-gray-300 border-cyan-500 focus:border-cyan-500 focus:ring focus:ring-opacity-50 focus:ring-cyan-200 shadow-sm '
   },
-  disabled: 'text-blue-gray-400 border-blue-gray-200 focus:border-blue-gray-200 bg-blue-gray-100',
-  readonly: 'text-blue-gray-800 border-blue-gray-300 focus:border-blue-gray-300',
+  disabled: 'text-blue-gray-400 border-blue-gray-200 focus:border-blue-gray-200 bg-blue-gray-100 shadow-sm ',
+  readonly: 'text-blue-gray-800 border-blue-gray-300 focus:border-blue-gray-300 shadow-sm ',
   sizes: {
     xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
-    sm: 'text-sm px-3 py-2 leading-4 rounded-md',
-    md: 'text-sm px-4 py-2 rounded-md',
-    lg: 'text-base px-4 py-2 rounded-md',
-    xl: 'text-base px-4 py-3 rounded-md',
-    '2xl': 'text-2xl px-4 py-3 rounded-md'
+    sm: 'text-sm px-3 py-2 leading-4 rounded',
+    md: 'text-sm px-4 py-2 rounded',
+    lg: 'text-base px-4 py-2 rounded',
+    xl: 'text-base px-4 py-3 rounded',
+    '2xl': 'text-2xl px-4 py-3 rounded'
   }
 });
 // CONCATENATED MODULE: ./src/utils/alert.js
@@ -22813,11 +23100,29 @@ var TWDropdownDivider_component = normalizeComponent(
     }
   }
 });
+// CONCATENATED MODULE: ./src/utils/card.js
+/* harmony default export */ var card = ({
+  body: 'px-5 py-4',
+  variants: {
+    default: 'bg-white border border-blue-gray-50 shadow rounded',
+    naked: 'text-blue-gray-700',
+    primary: 'text-white bg-blue-500 shadow rounded',
+    secondary: 'text-white bg-blue-gray-500 shadow rounded',
+    success: 'text-white bg-green-600 shadow rounded',
+    danger: 'text-white bg-red-500 shadow rounded',
+    warning: 'text-yellow-900 bg-yellow-400 shadow rounded',
+    info: 'text-white bg-cyan-500 shadow rounded',
+    light: 'text-blue-gray-400 bg-blue-gray-50 border-blue-gray-300  shadow rounded',
+    dark: 'text-white bg-blue-gray-700  shadow rounded'
+  }
+});
 // CONCATENATED MODULE: ./src/index.js
 
 
 
- // import TwCard from '@/components/TwCard';
+
+
+
 
 
 
@@ -22839,9 +23144,10 @@ var TWDropdownDivider_component = normalizeComponent(
 
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
-    var _options$TWButton, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWDropdown;
+    var _options$TWButton, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWDropdown, _options$TWCard;
 
     if (this.installed) {
       return;
@@ -22856,11 +23162,13 @@ var TWDropdownDivider_component = normalizeComponent(
       TWFormLabel: Object(lodash["merge"])(label, options === null || options === void 0 ? void 0 : (_options$TWFormLabel = options.TWFormLabel) === null || _options$TWFormLabel === void 0 ? void 0 : _options$TWFormLabel.extend),
       TWHelpText: Object(lodash["merge"])(helpText, options === null || options === void 0 ? void 0 : (_options$TWHelpText = options.TWHelpText) === null || _options$TWHelpText === void 0 ? void 0 : _options$TWHelpText.extend),
       TWAvatar: Object(lodash["merge"])(avatar, options === null || options === void 0 ? void 0 : (_options$TWAvatar = options.TWAvatar) === null || _options$TWAvatar === void 0 ? void 0 : _options$TWAvatar.extend),
-      TWDropdown: Object(lodash["merge"])(dropdown, options === null || options === void 0 ? void 0 : (_options$TWDropdown = options.TWDropdown) === null || _options$TWDropdown === void 0 ? void 0 : _options$TWDropdown.extend)
+      TWDropdown: Object(lodash["merge"])(dropdown, options === null || options === void 0 ? void 0 : (_options$TWDropdown = options.TWDropdown) === null || _options$TWDropdown === void 0 ? void 0 : _options$TWDropdown.extend),
+      TWCard: Object(lodash["merge"])(card, options === null || options === void 0 ? void 0 : (_options$TWCard = options.TWCard) === null || _options$TWCard === void 0 ? void 0 : _options$TWCard.extend)
     };
     Vue.component('TWButton', TWButton);
     Vue.component('TWFormGroup', TWFormGroup);
     Vue.component('TWFormInput', TWFormInput);
+    Vue.component('TWFormTextarea', TWFormTextarea);
     Vue.component('TWFormSelect', TWFormSelect);
     Vue.component('TWFormSelectOption', TWFormSelectOption);
     Vue.component('TWAlert', TWAlert);
@@ -22870,8 +23178,9 @@ var TWDropdownDivider_component = normalizeComponent(
     Vue.component('TWAvatar', TWAvatar);
     Vue.component('TWDropdown', TWDropdown);
     Vue.component('TWDropdownItem', TWDropdownItem);
-    Vue.component('TWDropdownDivider', TWDropdownDivider); // Vue.component('TwCard', TwCard);
-    // Vue.component('TWFormInput', TWFormInput);
+    Vue.component('TWDropdownDivider', TWDropdownDivider);
+    Vue.component('TWCard', TWCard);
+    Vue.component('TWCardBody', TWCardBody); // Vue.component('TWFormInput', TWFormInput);
     // Vue.component('TwDropdown', TwDropdown);
     // Vue.component('TwDropdownItem', TwDropdownItem);
     // Vue.component('TwDropdownDivider', TwDropdownDivider);

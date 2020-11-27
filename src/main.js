@@ -10,6 +10,7 @@ import labelConfig from '@/utils/label';
 import helpTextConfig from '@/utils/helpText';
 import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
+import cardConfig from '@/utils/card';
 
 Vue.config.productionTip = false;
 
@@ -24,6 +25,7 @@ Vue.prototype.$TWVue = {
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
     TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
+    TWCard: merge(cardConfig, options?.TWCard?.extend),
 };
 
 new Vue({

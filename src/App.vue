@@ -3,6 +3,10 @@
         id="app"
         class="container mx-auto my-5"
     >
+        <Cards />
+
+        <hr class="border-2 border-blue-gray-100 my-10">
+
         <Dropdowns />
 
         <hr class="border-2 border-blue-gray-100 my-10">
@@ -39,11 +43,13 @@
     import HelpTexts from '@/HelpTexts';
     import Avatars from '@/Avatars';
     import Dropdowns from '@/Dropdowns';
+    import Cards from '@/Cards';
 
     export default {
         name: 'App',
 
         components: {
+            Cards,
             Dropdowns,
             Avatars,
             HelpTexts,
