@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-xl font-medium mb-3">
-            Labels
+            Help text
         </h3>
 
         <TWHelpText>

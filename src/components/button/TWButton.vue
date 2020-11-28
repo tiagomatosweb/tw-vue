@@ -56,7 +56,6 @@
                 type: String,
                 default: undefined,
             },
-
             to: {
                 type: [String, Object],
                 default: undefined,

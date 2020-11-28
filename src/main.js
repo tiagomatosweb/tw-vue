@@ -11,6 +11,7 @@ import helpTextConfig from '@/utils/helpText';
 import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
 import cardConfig from '@/utils/card';
+import badgeConfig from '@/utils/badge';
 
 Vue.config.productionTip = false;
 
@@ -26,6 +27,7 @@ Vue.prototype.$TWVue = {
     TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     TWCard: merge(cardConfig, options?.TWCard?.extend),
+    TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
 };
 
 new Vue({

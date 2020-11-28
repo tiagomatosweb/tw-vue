@@ -18,7 +18,7 @@ import TWHelpText from '@/components/help-text/TWHelpText';
 import TWPagination from '@/components/pagination/TWPagination';
 import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
-// import TwBadge from '@/components/TwBadge';
+import TWBadge from '@/components/badge/TWBadge';
 import buttonConfig from '@/utils/button';
 import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alert';
@@ -27,6 +27,7 @@ import helpTextConfig from '@/utils/helpText';
 import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
 import cardConfig from '@/utils/card';
+import badgeConfig from '@/utils/badge';
 
 export default {
     install(Vue, options) {
@@ -46,6 +47,7 @@ export default {
             TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
             TWCard: merge(cardConfig, options?.TWCard?.extend),
+            TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
         };
 
         Vue.component('TWButton', TWButton);
@@ -67,11 +69,7 @@ export default {
         Vue.component('TWPagination', TWPagination);
         Vue.component('TWTabs', TWTabs);
         Vue.component('TWTab', TWTab);
-        // Vue.component('TWFormInput', TWFormInput);
-        // Vue.component('TwDropdown', TwDropdown);
-        // Vue.component('TwDropdownItem', TwDropdownItem);
-        // Vue.component('TwDropdownDivider', TwDropdownDivider);
-        // Vue.component('TwBadge', TwBadge);
+        Vue.component('TWBadge', TWBadge);
     },
 };
 

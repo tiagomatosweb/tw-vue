@@ -3,6 +3,10 @@
         id="app"
         class="container mx-auto my-5"
     >
+        <Badges />
+
+        <hr class="border-2 border-blue-gray-100 my-10">
+
         <Tabs />
 
         <hr class="border-2 border-blue-gray-100 my-10">
@@ -54,11 +58,13 @@
     import Cards from '@/Cards';
     import Paginations from '@/Paginations';
     import Tabs from '@/Tabs';
+    import Badges from '@/Badges';
 
     export default {
         name: 'App',
 
         components: {
+            Badges,
             Tabs,
             Paginations,
             Cards,
