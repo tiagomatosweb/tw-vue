@@ -3,6 +3,10 @@
         id="app"
         class="container mx-auto my-5"
     >
+        <Paginations />
+
+        <hr class="border-2 border-blue-gray-100 my-10">
+
         <Cards />
 
         <hr class="border-2 border-blue-gray-100 my-10">
@@ -44,11 +48,13 @@
     import Avatars from '@/Avatars';
     import Dropdowns from '@/Dropdowns';
     import Cards from '@/Cards';
+    import Paginations from '@/Paginations';
 
     export default {
         name: 'App',
 
         components: {
+            Paginations,
             Cards,
             Dropdowns,
             Avatars,

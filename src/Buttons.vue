@@ -109,7 +109,12 @@
         <TwButton
             variant="primary"
             busy
-            size="xs"
+        >
+            Button
+        </TwButton>
+
+        <TwButton
+            variant="primary"
         >
             Busy
         </TwButton>

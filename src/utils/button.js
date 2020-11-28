@@ -13,7 +13,7 @@ export default {
         dark: 'text-white bg-blue-gray-700 hover:bg-blue-gray-900',
     },
     sizes: {
-        xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
+        xs: 'text-xs px-2.5 py-1.5 rounded',
         sm: 'text-sm px-3 py-2 leading-4 rounded',
         md: 'text-sm px-4 py-2 rounded',
         lg: 'text-base px-4 py-2 rounded',

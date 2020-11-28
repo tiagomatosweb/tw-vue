@@ -1,17 +1,20 @@
 <template>
     <div>
-        <TwPaginator />
+        <TWPagination
+            :total="20"
+            :per-page="5"
+        />
     </div>
 </template>
 
 <script>
-    import TwPaginator from '@/components/TwPaginator';
+    import TWPagination from '@/components/pagination/TWPagination';
 
     export default {
-        name: 'Paginators',
+        name: 'Paginations',
 
         components: {
-            TwPaginator,
+            TWPagination,
         },
 
         data() {
