@@ -36,8 +36,8 @@
 
         <div
             ref="dropdown"
-            v-show="isOpen"
-            class="w-56 rounded-md shadow-lg"
+            :data-show="isOpen"
+            class="dropdown w-56 rounded-md shadow-lg"
         >
             <div class="py-1 rounded-md bg-white shadow-xs">
                 <slot />
@@ -85,7 +85,7 @@
             },
             placement: {
                 type: String,
-                default: 'bottom-start',
+                default: 'bottom-end',
             },
         },
 
@@ -103,6 +103,7 @@
             return {
                 TWOptions: {},
                 isOpen: false,
+                popper: null,
                 id: this._uid,
             };
         },
@@ -139,6 +140,8 @@
             if (typeof document !== 'undefined') {
                 document.removeEventListener('click', this.clickOutListener);
             }
+
+            this.popper.destroy();
         },
 
         methods: {
@@ -180,14 +183,24 @@
 
             initPopper() {
                 const button = this.$refs.component;
-                const tooltip = this.$refs.dropdown;
+                const dropdown = this.$refs.dropdown;
 
-                this.$nextTick(() => {
-                    createPopper(button, tooltip, {
-                        placement: this.placement,
-                    });
+                this.popper = createPopper(button, dropdown, {
+                    placement: this.placement,
                 });
             },
         },
     };
 </script>
+
+<style>
+    .dropdown {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .dropdown[data-show] {
+        pointer-events: auto;
+        visibility: visible;
+    }
+</style>

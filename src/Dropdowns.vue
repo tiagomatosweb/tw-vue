@@ -4,6 +4,23 @@
             Dropdowns
         </h3>
 
+        <div class="flex justify-center">
+            <TWDropdown
+                variant="primary"
+                text="Dropdown"
+            >
+                <TWDropdownItem>Option 1</TWDropdownItem>
+                <TWDropdownItem>Option 2</TWDropdownItem>
+                <TWDropdownDivider />
+                <TWDropdownItem>Option 3</TWDropdownItem>
+                <TWDropdownItem>Option 4</TWDropdownItem>
+            </TWDropdown>
+        </div>
+
+
+
+        <br><br><br><br>
+
         <div>
             <TWDropdown
                 text="Dropdown"

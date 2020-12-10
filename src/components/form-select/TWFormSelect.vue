@@ -144,6 +144,7 @@
 
                 this.localValue = this.multiple ? selectedValue : selectedValue[0];
 
+                this.$emit('input', this.localValue);
                 this.$emit('change', this.localValue);
             },
         },

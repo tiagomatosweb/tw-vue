@@ -1,12 +1,13 @@
 <template>
-    <div>
+    <div class="bg-blue-gray-50">
         <h3 class="text-lg font-bold mb-2">
             Cards
         </h3>
 
-        <TWCard>
+        <TWCard class="hover:shadow-lg transform transition-all ease-in-out hover:-translate-y-px">
             This is a card
         </TWCard>
+        <br><br><br>
 
         <TWCard no-body>
             This is a card

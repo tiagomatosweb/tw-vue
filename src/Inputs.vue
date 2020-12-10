@@ -106,6 +106,8 @@
             Select
         </h4>
 
+        {{ select }}
+
         <TWFormSelect
             v-model="select"
             :options="[{ text: 'Select', value: null }, { text: 'Game of Thrones', value: { id: 1, name: 'game'} }, { text: 'Transformers', value: { id: 2, name: 'trans'} }]"
@@ -139,7 +141,7 @@
         data() {
             return {
                 input: 'Text input',
-                select: { id: 1, name: 'game'},
+                select: null,
             };
         },
 
