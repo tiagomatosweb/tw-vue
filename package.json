@@ -1,54 +1,56 @@
 {
-    "name": "tw-vue",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "vue-cli-service serve",
-        "build": "vue-cli-service build --target lib --name tw-vue ./src/index.js",
-        "lint:eslint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
-        "lint:fix": "yarn run lint:eslint --fix && yarn run lint:stylelint --fix",
-        "lint:stylelint": "stylelint './**/*.{css,scss,vue}'"
-    },
-    "main": "dist/tw-vue.umd.js",
-    "lint-staged": {
-        "*.{js,vue}": "yarn lint:eslint",
-        "*.{css,vue}": "yarn lint:stylelint"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "dependencies": {
-        "@popperjs/core": "^2.5.4",
-        "@tailwindcss/aspect-ratio": "^0.2.0",
-        "@tailwindcss/forms": "^0.2.1",
-        "@tailwindcss/typography": "^0.3.1",
-        "core-js": "^3.6.5",
-        "lodash": "^4.17.20",
-        "tailwindcss": "^2.0.1-compat",
-        "vue": "^2.6.10"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.3.1",
-        "@vue/cli-plugin-eslint": "^4.3.1",
-        "@vue/cli-service": "^4.3.1",
-        "@vue/eslint-config-prettier": "^6.0.0",
-        "babel-eslint": "^10.0.1",
-        "eslint": "^7.14.0",
-        "eslint-import-resolver-webpack": "^0.13.0",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-prettier": "^3.1.0",
-        "eslint-plugin-vue": "^7.1.0",
-        "husky": "^4.0.0",
-        "lint-staged": "^10.0.0",
-        "node-sass": "^5.0.0",
-        "sass-loader": "^10.1.0",
-        "stylelint": "^13.3.2",
-        "stylelint-config-recommended-scss": "^4.2.0",
-        "stylelint-config-standard": "^20.0.0",
-        "stylelint-order": "^4.0.0",
-        "stylelint-scss": "^3.16.0",
-        "vue-template-compiler": "^2.6.10"
+  "name": "tw-vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name tw-vue ./src/index.js",
+    "dev": "vue-cli-service serve",
+    "lint:eslint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
+    "lint:fix": "yarn run lint:eslint --fix && yarn run lint:stylelint --fix",
+    "lint:stylelint": "stylelint './**/*.{css,scss,vue}'"
+  },
+  "main": "dist/tw-vue.umd.js",
+  "dependencies": {
+    "@popperjs/core": "^2.5.4",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.3.1",
+    "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
+    "tailwindcss": "^2.0.1-compat",
+    "vue": "^2.6.10",
+    "vue-router": "^3.4.9"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "^4.3.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^7.14.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.0.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
+    "stylelint": "^13.3.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.16.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,vue}": "yarn lint:eslint",
+    "*.{css,vue}": "yarn lint:stylelint"
+  }
 }

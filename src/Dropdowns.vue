@@ -7,9 +7,11 @@
         <div class="flex justify-center">
             <TWDropdown
                 variant="primary"
-                text="Dropdown"
+                text="Dropdown1"
             >
-                <TWDropdownItem>Option 1</TWDropdownItem>
+                <TWDropdownItem :to="{ name: 'About' }">
+                    Option 1
+                </TWDropdownItem>
                 <TWDropdownItem>Option 2</TWDropdownItem>
                 <TWDropdownDivider />
                 <TWDropdownItem>Option 3</TWDropdownItem>

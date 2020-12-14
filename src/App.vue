@@ -1,89 +1,13 @@
 <template>
-    <div
-        id="app"
-        class="container mx-auto my-5"
-    >
-        <Badges />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Tabs />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Paginations />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Cards />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Dropdowns />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Avatars />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <HelpTexts />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Labels />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Alerts />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Buttons />
-
-        <hr class="border-2 border-blue-gray-100 my-10">
-
-        <Inputs />
+    <div id="app">
+        <div id="nav">
+            <RouterLink to="/">
+                Home
+            </RouterLink> |
+            <RouterLink to="/about">
+                About
+            </RouterLink>
+        </div>
+        <RouterView />
     </div>
 </template>
-
-<script>
-    import Alerts from '@/Alerts';
-    import Buttons from '@/Buttons';
-    import Inputs from '@/Inputs';
-    import Labels from '@/Labels';
-    import HelpTexts from '@/HelpTexts';
-    import Avatars from '@/Avatars';
-    import Dropdowns from '@/Dropdowns';
-    import Cards from '@/Cards';
-    import Paginations from '@/Paginations';
-    import Tabs from '@/Tabs';
-    import Badges from '@/Badges';
-
-    export default {
-        name: 'App',
-
-        components: {
-            Badges,
-            Tabs,
-            Paginations,
-            Cards,
-            Dropdowns,
-            Avatars,
-            HelpTexts,
-            Labels,
-            Alerts,
-            Inputs,
-            Buttons,
-        },
-
-        data() {
-            return {
-            };
-        },
-
-        methods: {
-
-        },
-    };
-</script>

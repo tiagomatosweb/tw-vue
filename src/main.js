@@ -12,6 +12,7 @@ import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
 import cardConfig from '@/utils/card';
 import badgeConfig from '@/utils/badge';
+import router from './router';
 
 Vue.config.productionTip = false;
 
@@ -31,5 +32,6 @@ Vue.prototype.$TWVue = {
 };
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount("#app");
