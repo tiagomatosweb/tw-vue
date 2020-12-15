@@ -4,6 +4,11 @@
             Buttons
         </h3>
 
+        <TWButtonClose size="xs" />
+        <TWButtonClose size="sm" />
+        <TWButtonClose size="md" />
+        <TWButtonClose size="lg" />
+
         <div class="grid grid-flow-col auto-cols-max gap-1">
             <TwButton>
                 Default
@@ -123,11 +128,13 @@
 
 <script>
     import TwButton from '@/components/button/TWButton';
+    import TWButtonClose from '@/components/button-close/TWButtonClose';
 
     export default {
         name: 'Buttons',
 
         components: {
+            TWButtonClose,
             TwButton,
         },
 
@@ -136,6 +143,10 @@
             };
         },
 
-        methods: {},
+        methods: {
+            test() {
+                console.log('test');
+            },
+        },
     };
 </script>

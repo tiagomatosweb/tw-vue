@@ -4,6 +4,7 @@ import { merge } from 'lodash';
 
 import '@/assets/css/tailwind.css';
 import buttonConfig from '@/utils/button';
+import buttonCloseConfig from '@/utils/buttonClose';
 import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alert';
 import labelConfig from '@/utils/label';
@@ -20,6 +21,7 @@ const options = {};
 
 Vue.prototype.$TWVue = {
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
+    TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
     TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
     TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
     TWAlert: merge(alertConfig, options?.TWAlert?.extend),

@@ -1,7 +1,7 @@
 <template>
     <div
         ref="component"
-        class="inline-block text-left"
+        class="relative inline-block text-left"
     >
         <TWButton
             ref="button"
@@ -37,21 +37,12 @@
         <div
             ref="dropdown"
             :data-show="isOpen"
-            class="dropdown w-56 rounded-md shadow-lg"
+            class="absolute dropdown w-56 rounded-md shadow-lg"
         >
             <div class="py-1 rounded-md bg-white shadow-xs">
                 <slot />
             </div>
         </div>
-        <!--        <Transition-->
-        <!--            enter-active-class="transition ease-out duration-100"-->
-        <!--            enter-class="transform opacity-0 scale-95"-->
-        <!--            enter-to-class="transform opacity-100 scale-100"-->
-        <!--            leave-active-class="transition ease-in duration-75"-->
-        <!--            leave-class="transform opacity-100 scale-100"-->
-        <!--            leave-to-class="transform opacity-0 scale-95"-->
-        <!--        >-->
-        <!--        </Transition>-->
     </div>
 </template>
 
@@ -129,19 +120,19 @@
         },
 
         mounted() {
+            this.initPopper();
+
             if (typeof document !== 'undefined') {
                 document.addEventListener('click', this.clickOutListener);
             }
-
-            this.initPopper();
         },
 
         beforeDestroy() {
+            this.popper.destroy();
+
             if (typeof document !== 'undefined') {
                 document.removeEventListener('click', this.clickOutListener);
             }
-
-            this.popper.destroy();
         },
 
         methods: {

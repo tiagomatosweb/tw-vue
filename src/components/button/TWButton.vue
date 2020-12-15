@@ -85,7 +85,7 @@
                 return [
                     base.join(' '),
                     this.getVariant,
-                    this.getSizes,
+                    this.getSize,
                 ];
             },
 
@@ -94,7 +94,7 @@
                 return variants[this.variant];
             },
 
-            getSizes() {
+            getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
             },

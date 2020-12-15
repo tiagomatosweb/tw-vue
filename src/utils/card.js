@@ -9,7 +9,7 @@ export default {
         danger: 'text-white bg-red-500 shadow rounded',
         warning: 'text-yellow-900 bg-yellow-400 shadow rounded',
         info: 'text-white bg-cyan-500 shadow rounded',
-        light: 'text-blue-gray-400 bg-blue-gray-50 border-blue-gray-300  shadow rounded',
-        dark: 'text-white bg-blue-gray-700  shadow rounded',
+        light: 'text-blue-gray-400 bg-blue-gray-50 border-blue-gray-300 shadow rounded',
+        dark: 'text-white bg-blue-gray-700 shadow rounded',
     },
 };

@@ -98,7 +98,7 @@
                 return [
                     this.TWOptions.base,
                     this.getVariants,
-                    this.getSizes,
+                    this.getSize,
                 ];
             },
 
@@ -115,7 +115,7 @@
                 return variants[this.variant];
             },
 
-            getSizes() {
+            getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
             },

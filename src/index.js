@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 import TWAlert from '@/components/alert/TWAlert';
 import TWButton from '@/components/button/TWButton';
+import TWButtonClose from '@/components/button-close/TWButtonClose';
 import TWAvatar from '@/components/avatar/TWAvatar';
 import TWCard from '@/components/card/TWCard';
 import TWCardBody from '@/components/card/TWCardBody';
@@ -20,6 +21,7 @@ import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
 import TWBadge from '@/components/badge/TWBadge';
 import buttonConfig from '@/utils/button';
+import buttonCloseConfig from '@/utils/buttonClose';
 import inputConfig from '@/utils/inputs';
 import alertConfig from '@/utils/alert';
 import labelConfig from '@/utils/label';
@@ -39,6 +41,7 @@ export default {
 
         Vue.prototype.$TWVue = {
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
+            TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
             TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
             TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
             TWAlert: merge(alertConfig, options?.TWAlert?.extend),
@@ -50,6 +53,8 @@ export default {
             TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
         };
 
+        Vue.component('TWButton', TWButton);
+        Vue.component('TWButtonClose', TWButtonClose);
         Vue.component('TWButton', TWButton);
         Vue.component('TWFormGroup', TWFormGroup);
         Vue.component('TWFormInput', TWFormInput);

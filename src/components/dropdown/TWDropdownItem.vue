@@ -14,7 +14,11 @@
     export default {
         name: 'TWDropdownItem',
 
-        inject: ['TWDropdown'],
+        inject: {
+            'TWDropdown': {
+                default: undefined,
+            },
+        },
 
         props: {
             href: {
@@ -61,10 +65,19 @@
         methods: {
             onClick(evt) {
                 this.$emit('click', evt);
+
+                if (!this.TWDropdown) {
+                    return;
+                }
+
                 this.closeDropdown();
             },
 
             closeDropdown() {
+                if (!this.TWDropdown) {
+                    return;
+                }
+
                 this.TWDropdown.close();
             },
         },
