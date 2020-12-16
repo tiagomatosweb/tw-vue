@@ -26,9 +26,12 @@
                     >
                         <slot name="header">
                             <slot name="header-title">
-                                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                    {{ headerTitle }}
-                                </h3>
+                                <Component
+                                    :is="titleTag"
+                                    :class="titleClassList"
+                                >
+                                    {{ title }}
+                                </Component>
                             </slot>
 
                             <div
@@ -90,9 +93,13 @@
                 type: String,
                 default: 'md',
             },
-            headerTitle: {
+            title: {
                 type: String,
-                default: undefined,
+                default: 'Modal title',
+            },
+            titleTag: {
+                type: String,
+                default: 'h5',
             },
             hideHeader: {
                 type: Boolean,
@@ -155,36 +162,16 @@
                 TWOptions: {},
                 isOpen: this.value,
                 isInDOM: this.value, // TODO: this is required for transition to be added later on.
+                backdropClassList: [],
+                wrapClassList: [],
+                titleClassList: [],
+                headerClassList: [],
+                bodyClassList: [],
+                footerClassList: [],
             };
         },
 
         computed: {
-            backdropClassList() {
-                return [
-                    this.TWOptions.backdrop,
-                    this.TWOptions.backdropOpacity,
-                ];
-            },
-
-            wrapClassList() {
-                return [
-                    this.TWOptions.wrap,
-                    this.getSize,
-                ];
-            },
-
-            headerClassList() {
-                return this.TWOptions.header;
-            },
-
-            bodyClassList() {
-                return this.TWOptions.body;
-            },
-
-            footerClassList() {
-                return this.TWOptions.footer;
-            },
-
             getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
@@ -209,11 +196,20 @@
 
         created() {
             this.TWOptions = this?.$TWVue?.TWModal || {};
+            this.initClasses();
 
             window.addEventListener('keydown', this.onEsc);
         },
 
         methods: {
+            initClasses() {
+                this.backdropClassList = [this.TWOptions.backdrop, this.TWOptions.backdropOpacity];
+                this.wrapClassList = [this.TWOptions.wrap, this.getSize];
+                this.titleClassList = this.TWOptions.title;
+                this.headerClassList = this.TWOptions.header;
+                this.bodyClassList = this.TWOptions.body;
+                this.footerClassList = this.TWOptions.footer;
+            },
             onBackdropClick() {
                 if (!this.noCloseOnBackdrop) {
                     this.close();

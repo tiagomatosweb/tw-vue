@@ -1,5 +1,5 @@
 export default {
-    base: 'inline-flex items-center border border-transparent focus:outline-none transition ease-in-out duration-150',
+    base: 'inline-flex items-center justify-center border border-transparent focus:outline-none transition ease-in-out duration-150',
     variants: {
         default: 'text-blue-gray-700 bg-blue-gray-100 hover:bg-blue-gray-200',
         naked: 'text-blue-gray-700',
