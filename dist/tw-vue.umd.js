@@ -20582,14 +20582,15 @@ var TWButton_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWButton = (TWButton_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"79e4539c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button-close/TWButtonClose.vue?vue&type=template&id=51db24c2&
-var TWButtonClosevue_type_template_id_51db24c2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList},_vm.inputListeners),[_vm._t("default",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z","clip-rule":"evenodd"}})])])],2)}
-var TWButtonClosevue_type_template_id_51db24c2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"79e4539c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button-close/TWButtonClose.vue?vue&type=template&id=8e641590&
+var TWButtonClosevue_type_template_id_8e641590_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g({class:_vm.classList,attrs:{"type":"button"}},_vm.inputListeners),[_vm._t("default",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z","clip-rule":"evenodd"}})])])],2)}
+var TWButtonClosevue_type_template_id_8e641590_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/button-close/TWButtonClose.vue?vue&type=template&id=51db24c2&
+// CONCATENATED MODULE: ./src/components/button-close/TWButtonClose.vue?vue&type=template&id=8e641590&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button-close/TWButtonClose.vue?vue&type=script&lang=js&
+//
 //
 //
 //
@@ -20667,8 +20668,8 @@ var TWButtonClosevue_type_template_id_51db24c2_staticRenderFns = []
 
 var TWButtonClose_component = normalizeComponent(
   button_close_TWButtonClosevue_type_script_lang_js_,
-  TWButtonClosevue_type_template_id_51db24c2_render,
-  TWButtonClosevue_type_template_id_51db24c2_staticRenderFns,
+  TWButtonClosevue_type_template_id_8e641590_render,
+  TWButtonClosevue_type_template_id_8e641590_staticRenderFns,
   false,
   null,
   null,
@@ -21760,12 +21761,12 @@ var TWFormSelect_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormSelect = (TWFormSelect_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"79e4539c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/dropdown/TWDropdown.vue?vue&type=template&id=45cb3c82&
-var TWDropdownvue_type_template_id_45cb3c82_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"component",staticClass:"relative inline-block text-left"},[_c('TWButton',{ref:"button",attrs:{"type":"button","variant":_vm.variant,"size":_vm.size},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noCaret)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('div',{ref:"dropdown",staticClass:"absolute dropdown w-56 rounded-md shadow-lg",attrs:{"data-show":_vm.isOpen}},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default")],2)])],1)}
-var TWDropdownvue_type_template_id_45cb3c82_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"79e4539c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/dropdown/TWDropdown.vue?vue&type=template&id=77e24d8b&
+var TWDropdownvue_type_template_id_77e24d8b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"component",staticClass:"relative inline-block text-left"},[_c('TWButton',{ref:"button",attrs:{"type":"button","variant":_vm.variant,"size":_vm.size},on:{"click":function($event){$event.stopPropagation();$event.preventDefault();return _vm.toggleDropdown()}}},[_vm._t("button-content",[_vm._v(" "+_vm._s(_vm.text)+" ")]),(!_vm.noCaret)?_vm._t("button-icon",[_c('svg',{class:_vm.iconClassList,attrs:{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 20 20","fill":"currentColor","aria-hidden":"true"}},[_c('path',{attrs:{"fill-rule":"evenodd","d":"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z","clip-rule":"evenodd"}})])]):_vm._e()],2),_c('div',{ref:"dropdown",staticClass:"absolute dropdown w-56 rounded-md shadow-lg z-10",attrs:{"data-show":_vm.isOpen}},[_c('div',{staticClass:"py-1 rounded-md bg-white shadow-xs"},[_vm._t("default")],2)])],1)}
+var TWDropdownvue_type_template_id_77e24d8b_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/dropdown/TWDropdown.vue?vue&type=template&id=45cb3c82&
+// CONCATENATED MODULE: ./src/components/dropdown/TWDropdown.vue?vue&type=template&id=77e24d8b&
 
 // CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 function getBoundingClientRect(element) {
@@ -22978,8 +22979,8 @@ var TWDropdownvue_type_style_index_0_lang_css_ = __webpack_require__("9c7c");
 
 var TWDropdown_component = normalizeComponent(
   dropdown_TWDropdownvue_type_script_lang_js_,
-  TWDropdownvue_type_template_id_45cb3c82_render,
-  TWDropdownvue_type_template_id_45cb3c82_staticRenderFns,
+  TWDropdownvue_type_template_id_77e24d8b_render,
+  TWDropdownvue_type_template_id_77e24d8b_staticRenderFns,
   false,
   null,
   null,

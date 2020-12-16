@@ -20,6 +20,7 @@ import TWPagination from '@/components/pagination/TWPagination';
 import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
 import TWBadge from '@/components/badge/TWBadge';
+import TWModal from '@/components/modal/TWModal';
 import buttonConfig from '@/utils/button';
 import buttonCloseConfig from '@/utils/buttonClose';
 import inputConfig from '@/utils/inputs';
@@ -30,6 +31,7 @@ import avatarConfig from '@/utils/avatar';
 import dropdownConfig from '@/utils/dropdown';
 import cardConfig from '@/utils/card';
 import badgeConfig from '@/utils/badge';
+import modalConfig from '@/utils/modal';
 
 export default {
     install(Vue, options) {
@@ -51,6 +53,7 @@ export default {
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
             TWCard: merge(cardConfig, options?.TWCard?.extend),
             TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
+            TWModal: merge(modalConfig, options?.TWModal?.extend),
         };
 
         Vue.component('TWButton', TWButton);
@@ -75,6 +78,7 @@ export default {
         Vue.component('TWTabs', TWTabs);
         Vue.component('TWTab', TWTab);
         Vue.component('TWBadge', TWBadge);
+        Vue.component('TWModal', TWModal);
     },
 };
 

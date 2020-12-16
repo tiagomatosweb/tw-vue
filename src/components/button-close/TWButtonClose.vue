@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         :class="classList"
         v-on="inputListeners"
     >

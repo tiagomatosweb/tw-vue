@@ -14,6 +14,7 @@ import dropdownConfig from '@/utils/dropdown';
 import cardConfig from '@/utils/card';
 import badgeConfig from '@/utils/badge';
 import router from './router';
+import modalConfig from '@/utils/modal';
 
 Vue.config.productionTip = false;
 
@@ -31,6 +32,7 @@ Vue.prototype.$TWVue = {
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     TWCard: merge(cardConfig, options?.TWCard?.extend),
     TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
+    TWModal: merge(modalConfig, options?.TWModal?.extend),
 };
 
 new Vue({

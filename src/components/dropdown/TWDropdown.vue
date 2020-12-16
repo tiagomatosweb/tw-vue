@@ -37,7 +37,7 @@
         <div
             ref="dropdown"
             :data-show="isOpen"
-            class="absolute dropdown w-56 rounded-md shadow-lg"
+            class="absolute dropdown w-56 rounded-md shadow-lg z-10"
         >
             <div class="py-1 rounded-md bg-white shadow-xs">
                 <slot />
