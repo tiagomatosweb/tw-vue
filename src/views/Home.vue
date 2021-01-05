@@ -40,6 +40,15 @@
                             Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
                         </p>
                     </div>
+
+                    <div class="mt-5 flex items-center justify-center sm:justify-start space-x-3">
+                        <TWButton
+                            variant="primary"
+                            @click="ok()"
+                        >
+                            Sim
+                        </TWButton>
+                    </div>
                 </div>
             </div>
         </TWModal>
@@ -57,6 +66,7 @@
     import Cards from '@/Cards';
     import Buttons from '@/Buttons';
     import TWModal from '@/components/modal/TWModal';
+    import TWButton from '@/components/button/TWButton';
 
     export default {
         name: 'Home',
@@ -66,12 +76,16 @@
             Buttons,
             Cards,
             Dropdowns,
+            TWButton,
         },
 
         data() {
             return {
-                openModal: true,
+                openModal: false,
             };
+        },
+
+        methods: {
         },
     };
 </script>

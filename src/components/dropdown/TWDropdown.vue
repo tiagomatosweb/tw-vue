@@ -128,11 +128,15 @@
         },
 
         beforeDestroy() {
-            this.popper.destroy();
+            this.close();
 
             if (typeof document !== 'undefined') {
                 document.removeEventListener('click', this.clickOutListener);
             }
+        },
+
+        destroyed() {
+            this.popper.destroy();
         },
 
         methods: {
@@ -158,13 +162,13 @@
             },
 
             open() {
-                this.$emit('open');
                 this.isOpen = true;
+                this.$emit('open');
             },
 
             close() {
-                this.$emit('close');
                 this.isOpen = false;
+                this.$emit('close');
             },
 
             select(opt) {

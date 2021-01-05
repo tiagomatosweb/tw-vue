@@ -1,5 +1,5 @@
 export default {
-    body: 'px-5 py-4',
+    body: 'p-6',
     variants: {
         default: 'bg-white border border-blue-gray-50 shadow rounded',
         naked: 'text-blue-gray-700',

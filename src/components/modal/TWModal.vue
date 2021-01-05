@@ -8,7 +8,7 @@
             v-show="isOpen"
             class="fixed z-10 inset-0 overflow-y-auto"
         >
-            <div class="flex items-center justify-center min-h-screen p-4 text-center">
+            <div class="flex items-center justify-center min-h-screen p-4 sm:p-0 text-center">
                 <div
                     v-if="!hideBackdrop"
                     class="fixed inset-0 transition-opacity"

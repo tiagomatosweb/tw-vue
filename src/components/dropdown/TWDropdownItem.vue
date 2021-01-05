@@ -64,13 +64,8 @@
 
         methods: {
             onClick(evt) {
-                this.$emit('click', evt);
-
-                if (!this.TWDropdown) {
-                    return;
-                }
-
                 this.closeDropdown();
+                this.$emit('click', evt);
             },
 
             closeDropdown() {
