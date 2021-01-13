@@ -3,10 +3,14 @@
         <div id="nav">
             <RouterLink to="/">
                 Home
-            </RouterLink> |
+            </RouterLink>
 
-            <RouterLink to="/about">
-                About
+            <RouterLink :to="{ name: 'pagination' }">
+                Pagination
+            </RouterLink>
+
+            <RouterLink :to="{ name: 'form' }">
+                Form
             </RouterLink>
         </div>
 

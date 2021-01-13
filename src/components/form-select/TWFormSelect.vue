@@ -15,11 +15,11 @@
             <slot name="first" />
 
             <FormSelectOption
-                v-for="(option, index) in options"
+                v-for="(option, index) in standardOptions"
                 :key="`option_${index}`"
-                :value="option[valueField]"
+                :value="option.value"
             >
-                {{ option[textField] }}
+                {{ option.text }}
             </FormSelectOption>
         </select>
     </div>
@@ -128,6 +128,27 @@
             getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
+            },
+
+            standardOptions() {
+                const options = this.options;
+                let output = null;
+
+                if (Array.isArray(options)) {
+                    output = options.map((opt) => {
+                        let value = opt;
+                        let text = opt;
+
+                        if (typeof opt === 'object') {
+                            value = opt[this.valueField];
+                            text = opt[this.textField];
+                        }
+
+                        return { value, text };
+                    });
+                }
+
+                return output;
             },
         },
 

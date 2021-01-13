@@ -21405,12 +21405,12 @@ var TWAvatar_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWAvatar = (TWAvatar_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCard.vue?vue&type=template&id=803b1d06&
-var TWCardvue_type_template_id_803b1d06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.classList},[_c(_vm.noBody ? 'div' : 'TWCardBody',{tag:"Component"},[_vm._t("default")],2)],1)}
-var TWCardvue_type_template_id_803b1d06_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCard.vue?vue&type=template&id=70c15e5b&
+var TWCardvue_type_template_id_70c15e5b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.classList},[_c(_vm.noBody ? 'div' : 'TWCardBody',{tag:"Component"},[_vm._t("default")],2)],1)}
+var TWCardvue_type_template_id_70c15e5b_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/card/TWCard.vue?vue&type=template&id=803b1d06&
+// CONCATENATED MODULE: ./src/components/card/TWCard.vue?vue&type=template&id=70c15e5b&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/card/TWCardBody.vue?vue&type=template&id=5fc9635a&
 var TWCardBodyvue_type_template_id_5fc9635a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.TWOptions.body},[_vm._t("default")],2)}
@@ -21493,7 +21493,7 @@ var TWCardBody_component = normalizeComponent(
   },
   computed: {
     classList: function classList() {
-      return [this.getVariant];
+      return [this.TWOptions.base, this.getVariant];
     },
     getVariant: function getVariant() {
       var variants = this.TWOptions.variants;
@@ -21518,8 +21518,8 @@ var TWCardBody_component = normalizeComponent(
 
 var TWCard_component = normalizeComponent(
   card_TWCardvue_type_script_lang_js_,
-  TWCardvue_type_template_id_803b1d06_render,
-  TWCardvue_type_template_id_803b1d06_staticRenderFns,
+  TWCardvue_type_template_id_70c15e5b_render,
+  TWCardvue_type_template_id_70c15e5b_staticRenderFns,
   false,
   null,
   null,
@@ -24801,18 +24801,19 @@ var TWModal_component = normalizeComponent(
 });
 // CONCATENATED MODULE: ./src/utils/card.js
 /* harmony default export */ var card = ({
+  base: 'w-full shadow rounded',
   body: 'p-6',
   variants: {
-    default: 'bg-white border border-blue-gray-50 shadow rounded',
+    default: 'bg-white border border-blue-gray-50',
     naked: 'text-blue-gray-700',
-    primary: 'text-white bg-blue-500 shadow rounded',
-    secondary: 'text-white bg-blue-gray-500 shadow rounded',
-    success: 'text-white bg-green-600 shadow rounded',
-    danger: 'text-white bg-red-500 shadow rounded',
-    warning: 'text-yellow-900 bg-yellow-400 shadow rounded',
-    info: 'text-white bg-cyan-500 shadow rounded',
-    light: 'text-blue-gray-400 bg-blue-gray-50 border-blue-gray-300 shadow rounded',
-    dark: 'text-white bg-blue-gray-700 shadow rounded'
+    primary: 'text-white bg-blue-500',
+    secondary: 'text-white bg-blue-gray-500',
+    success: 'text-white bg-green-600',
+    danger: 'text-white bg-red-500',
+    warning: 'text-yellow-900 bg-yellow-400',
+    info: 'text-white bg-cyan-500',
+    light: 'text-blue-gray-400 bg-blue-gray-50 border-blue-gray-300',
+    dark: 'text-white bg-blue-gray-700'
   }
 });
 // CONCATENATED MODULE: ./src/utils/badge.js

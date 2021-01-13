@@ -36,6 +36,7 @@
         computed: {
             classList() {
                 return [
+                    this.TWOptions.base,
                     this.getVariant,
                 ];
             },
