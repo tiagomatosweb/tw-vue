@@ -6,7 +6,7 @@
     >
         <div
             v-show="isOpen"
-            class="fixed inset-0 overflow-y-auto"
+            class="fixed z-50 inset-0 overflow-y-auto"
         >
             <div class="flex items-center justify-center min-h-screen p-4 sm:p-0 text-center">
                 <div
@@ -214,9 +214,6 @@
                 if (!this.noCloseOnBackdrop) {
                     this.close();
                 }
-            },
-            onButtonCloseClick() {
-                this.close();
             },
             onCancelClick() {
                 this.close();
