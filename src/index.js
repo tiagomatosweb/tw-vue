@@ -21,17 +21,17 @@ import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
 import TWBadge from '@/components/badge/TWBadge';
 import TWModal from '@/components/modal/TWModal';
-import buttonConfig from '@/utils/button';
-import buttonCloseConfig from '@/utils/buttonClose';
-import inputConfig from '@/utils/inputs';
-import alertConfig from '@/utils/alert';
-import labelConfig from '@/utils/label';
-import helpTextConfig from '@/utils/helpText';
-import avatarConfig from '@/utils/avatar';
-import dropdownConfig from '@/utils/dropdown';
-import cardConfig from '@/utils/card';
-import badgeConfig from '@/utils/badge';
-import modalConfig from '@/utils/modal';
+import buttonConfig from '@/components/button/config';
+import buttonCloseConfig from '@/components/button-close/config';
+import inputConfig from '@/components/form-input/config';
+import alertConfig from '@/components/alert/config';
+import labelConfig from '@/components/form-label/config';
+import helpTextConfig from '@/components/help-text/config';
+import avatarConfig from '@/components/avatar/config';
+import dropdownConfig from '@/components/dropdown/config';
+import cardConfig from '@/components/card/config';
+import badgeConfig from '@/components/badge/config';
+import modalConfig from '@/components/modal/config';
 
 export default {
     install(Vue, options) {

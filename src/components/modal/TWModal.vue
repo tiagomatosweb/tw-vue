@@ -162,7 +162,6 @@
                 TWOptions: {},
                 isOpen: this.value,
                 isInDOM: this.value, // TODO: this is required for transition to be added later on.
-                backdropClassList: [],
                 wrapClassList: [],
                 titleClassList: [],
                 headerClassList: [],
@@ -172,6 +171,14 @@
         },
 
         computed: {
+            backdropClassList() {
+                return [
+                    'absolute inset-0',
+                    this.TWOptions.backdropBackground,
+                    this.TWOptions.backdropOpacity,
+                ];
+            },
+
             getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
@@ -203,7 +210,6 @@
 
         methods: {
             initClasses() {
-                this.backdropClassList = [this.TWOptions.backdrop, this.TWOptions.backdropOpacity];
                 this.wrapClassList = [this.TWOptions.wrap, this.getSize];
                 this.titleClassList = this.TWOptions.title;
                 this.headerClassList = this.TWOptions.header;
