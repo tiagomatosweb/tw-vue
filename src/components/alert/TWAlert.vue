@@ -19,7 +19,7 @@
                 <div class="-mx-1.5 -my-1.5">
                     <button
                         :class="localVariant.buttonClose"
-                        @click.stop.prevent="closeHandler()"
+                        @click.stop.prevent="onClose()"
                     >
                         <span class="sr-only">Dismiss</span>
                         <svg
@@ -57,25 +57,15 @@
             },
         },
 
-        data() {
-            return {
-                options: {},
-            };
-        },
-
         computed: {
             localVariant() {
-                const variants = this.TWOptions.variants;
+                const variants = this?.$TWVue?.TWAlert.variants;
                 return variants[this.variant];
             },
         },
 
-        created() {
-            this.TWOptions = this?.$TWVue?.TWAlert || {};
-        },
-
         methods: {
-            closeHandler() {
+            onClose() {
                 if (this.dismissible) {
                     this.$emit('close');
                 }

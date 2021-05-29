@@ -45,7 +45,7 @@
                     return `text-white`;
                 }
 
-                return `text-blue-blue-graygray-400 ${!this.disabled ? 'hover:text-blue-500 active:text-white' : ''}`;
+                return `text-blue-graygray-400 ${!this.disabled ? 'hover:text-blue-500 active:text-white' : ''}`;
             },
 
             getBorderColorClass() {
@@ -53,7 +53,7 @@
                     return '';
                 }
 
-                return this.disabled ? 'border-blue-blue-graygray-100' : 'border-blue-blue-graygray-100 hover:border-blue-400';
+                return this.disabled ? 'border-blue-graygray-100' : 'border-blue-graygray-100 hover:border-blue-400';
             },
 
             getBgColorClass() {

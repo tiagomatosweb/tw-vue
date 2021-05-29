@@ -26,6 +26,16 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/Form.vue'),
     },
+    {
+        path: '/alert',
+        name: 'alert',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Alert.vue'),
+    },
+    {
+        path: '/avatar',
+        name: 'avatar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Avatar.vue'),
+    },
 ];
 
 const router = new VueRouter({

@@ -36,8 +36,8 @@
             classList() {
                 return [
                     'group flex items-center',
-                    'block w-full px-4 py-2 text-sm leading-5 text-blue-gray-700 hover:text-blue-gray-900 hover:bg-blue-gray-100',
-                    'focus:outline-none focus:bg-blue-gray-100 focus:text-blue-gray-900',
+                    'block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
+                    'focus:outline-none focus:bg-gray-100 focus:text-gray-900',
                 ];
             },
 

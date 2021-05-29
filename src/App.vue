@@ -12,6 +12,14 @@
             <RouterLink :to="{ name: 'form' }">
                 Form
             </RouterLink>
+
+            <RouterLink :to="{ name: 'alert' }">
+                Alert
+            </RouterLink>
+
+            <RouterLink :to="{ name: 'avatar' }">
+                Avatar
+            </RouterLink>
         </div>
 
         <RouterView />

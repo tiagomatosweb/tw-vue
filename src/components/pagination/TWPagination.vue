@@ -3,7 +3,7 @@
         <div class="flex-1 flex justify-between sm:hidden">
             <button
                 type="button"
-                class="relative inline-flex items-center px-4 py-2 border border-blue-blue-gray300 text-sm leading-5 font-medium rounded-md text-blue-blue-gray700 bg-white hover:text-blue-blue-gray500 focus:outline-none  focus:border-blue-300 active:bg-blue-blue-gray100 active:text-blue-blue-gray700 transition ease-in-out duration-150"
+                class="relative inline-flex items-center px-4 py-2 border border-blue-gray300 text-sm leading-5 font-medium rounded-md text-blue-gray700 bg-white hover:text-blue-gray500 focus:outline-none  focus:border-blue-300 active:bg-blue-gray100 active:text-blue-gray700 transition ease-in-out duration-150"
                 @click.stop.prevent="prev()"
             >
                 Previous
@@ -11,7 +11,7 @@
 
             <button
                 type="button"
-                class="ml-3 relative inline-flex items-center px-4 py-2 border border-blue-blue-gray300 text-sm leading-5 font-medium rounded-md text-blue-blue-gray700 bg-white hover:text-blue-blue-gray500 focus:outline-none  focus:border-blue-300 active:bg-blue-blue-gray100 active:text-blue-blue-gray700 transition ease-in-out duration-150"
+                class="ml-3 relative inline-flex items-center px-4 py-2 border border-blue-gray300 text-sm leading-5 font-medium rounded-md text-blue-gray700 bg-white hover:text-blue-gray500 focus:outline-none  focus:border-blue-300 active:bg-blue-gray100 active:text-blue-gray700 transition ease-in-out duration-150"
                 @click.stop.prevent="next()"
             >
                 Next

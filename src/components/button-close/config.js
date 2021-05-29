@@ -1,7 +1,7 @@
 export default {
     base: 'inline-flex p-1.5 focus:outline-none transition ease-in-out duration-150',
     variants: {
-        default: 'text-blue-gray-400 hover:text-blue-gray-500',
+        default: 'text-gray-400 hover:text-gray-500',
         primary: 'text-blue-400 hover:text-blue-500',
     },
     sizes: {

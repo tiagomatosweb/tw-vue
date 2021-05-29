@@ -49,7 +49,7 @@
         computed: {
             classList() {
                 return [
-                    'inline-flex items-center justify-center bg-blue-gray-500 rounded-full overflow-hidden',
+                    'inline-flex items-center justify-center bg-gray-500 rounded-full overflow-hidden',
                     this.getSize,
                 ];
             },

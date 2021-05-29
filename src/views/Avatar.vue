@@ -28,7 +28,7 @@
     import TWAvatar from '@/components/avatar/TWAvatar';
 
     export default {
-        name: 'Avatars',
+        name: 'Avatar',
 
         components: {
             TWAvatar,
