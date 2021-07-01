@@ -9,7 +9,6 @@
             :name="name"
             :readonly="readonly"
             :required="required"
-            v-model="localValue"
             @change="onChange"
         >
             <slot name="first" />
@@ -18,6 +17,7 @@
                 v-for="(option, index) in standardOptions"
                 :key="`option_${index}`"
                 :value="option.value"
+                :selected="option.selected"
             >
                 {{ option.text }}
             </FormSelectOption>
@@ -138,13 +138,15 @@
                     output = options.map((opt) => {
                         let value = opt;
                         let text = opt;
+                        let selected = opt === this.localValue;
 
                         if (typeof opt === 'object') {
                             value = opt[this.valueField];
                             text = opt[this.textField];
+                            selected = opt[this.valueField] === this.localValue;
                         }
 
-                        return { value, text };
+                        return { value, text, selected };
                     });
                 }
 
