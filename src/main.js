@@ -10,6 +10,7 @@ import alertConfig from '@/components/alert/config';
 import labelConfig from '@/components/form-label/config';
 import helpTextConfig from '@/components/help-text/config';
 import avatarConfig from '@/components/avatar/config';
+import spinnerConfig from '@/components/spinner/config';
 import dropdownConfig from '@/components/dropdown/config';
 import cardConfig from '@/components/card/config';
 import badgeConfig from '@/components/badge/config';
@@ -29,6 +30,7 @@ Vue.prototype.$TWVue = {
     TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
     TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
+    TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     TWCard: merge(cardConfig, options?.TWCard?.extend),
     TWBadge: merge(badgeConfig, options?.TWBadge?.extend),

@@ -1,10 +1,19 @@
 export default {
+    base: 'inline-block',
+    variants: {
+        default: 'text-gray-500',
+        primary: 'text-blue-500',
+        secondary: 'text-gray-800',
+        success: 'text-green-600',
+        danger: 'text-red-500',
+        warning: 'text-yellow-500',
+        info: 'text-cyan-500',
+    },
     sizes: {
-        xs: 'text-xs px-2.5 py-1.5 text-xs rounded',
-        sm: 'text-sm px-3 py-2 leading-4 rounded-md',
-        md: 'text-sm px-4 py-2 rounded-md',
-        lg: 'text-base px-4 py-2 rounded-md',
-        xl: 'text-base px-6 py-3 rounded-md',
-        '2xl': 'text-xl px-8 py-3 rounded-md',
+        xs: 'h-6 w-6',
+        sm: 'h-8 w-8',
+        md: 'h-10 w-10',
+        lg: 'h-12 w-12',
+        xl: 'h-14 w-14',
     },
 };
