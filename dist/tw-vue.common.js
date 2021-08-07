@@ -21196,22 +21196,22 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var TWAlert = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/TWButton.vue?vue&type=template&id=a0d05636&
-var TWButtonvue_type_template_id_a0d05636_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.is,_vm._g({tag:"Component",class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled,"href":_vm.localHref,"to":_vm.to}},_vm.inputListeners),[(_vm.busy)?_c('TWSpinner',{class:_vm.$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined}):_vm._e(),_vm._t("default")],2)}
-var TWButtonvue_type_template_id_a0d05636_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/TWButton.vue?vue&type=template&id=229fb9a4&
+var TWButtonvue_type_template_id_229fb9a4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.is,_vm._g({tag:"Component",class:_vm.classList,attrs:{"type":_vm.type,"disabled":_vm.busy || _vm.disabled,"href":_vm.localHref,"to":_vm.to}},_vm.inputListeners),[(_vm.busy)?_c('TWSpinner',{class:_vm.$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined,attrs:{"size":"xxs"}}):_vm._e(),_vm._t("default")],2)}
+var TWButtonvue_type_template_id_229fb9a4_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/button/TWButton.vue?vue&type=template&id=a0d05636&
+// CONCATENATED MODULE: ./src/components/button/TWButton.vue?vue&type=template&id=229fb9a4&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
 var es_array_join = __webpack_require__("a15b");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=template&id=37baa53a&
-var TWSpinnervue_type_template_id_37baa53a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"animate-spin text-white",attrs:{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24"}},[_c('circle',{staticClass:"opacity-25",attrs:{"cx":"12","cy":"12","r":"10","stroke":"currentColor","stroke-width":"4"}}),_c('path',{staticClass:"opacity-75",attrs:{"fill":"currentColor","d":"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"}})])}
-var TWSpinnervue_type_template_id_37baa53a_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=template&id=393248e8&
+var TWSpinnervue_type_template_id_393248e8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.baseClass},[_c('svg',{staticClass:"animate-spin",attrs:{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24"}},[_c('circle',{staticClass:"opacity-25",attrs:{"cx":"12","cy":"12","r":"10","stroke":"currentColor","stroke-width":"4"}}),_c('path',{staticClass:"opacity-75",attrs:{"fill":"currentColor","d":"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"}})])])}
+var TWSpinnervue_type_template_id_393248e8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/spinner/TWSpinner.vue?vue&type=template&id=37baa53a&
+// CONCATENATED MODULE: ./src/components/spinner/TWSpinner.vue?vue&type=template&id=393248e8&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=script&lang=js&
 //
@@ -21237,8 +21237,36 @@ var TWSpinnervue_type_template_id_37baa53a_staticRenderFns = []
 //
 //
 //
+//
+//
 /* harmony default export */ var TWSpinnervue_type_script_lang_js_ = ({
-  name: 'TWSpinner'
+  name: 'TWSpinner',
+  props: {
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'md'
+    }
+  },
+  computed: {
+    config: function config() {
+      var _this$$TWVue;
+
+      return (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWSpinner) || {};
+    },
+    baseClass: function baseClass() {
+      return [this.config.base, this.getSize, this.getVariant];
+    },
+    getVariant: function getVariant() {
+      return this.config.variants[this.variant];
+    },
+    getSize: function getSize() {
+      return this.config.sizes[this.size];
+    }
+  }
 });
 // CONCATENATED MODULE: ./src/components/spinner/TWSpinner.vue?vue&type=script&lang=js&
  /* harmony default export */ var spinner_TWSpinnervue_type_script_lang_js_ = (TWSpinnervue_type_script_lang_js_); 
@@ -21252,8 +21280,8 @@ var TWSpinnervue_type_template_id_37baa53a_staticRenderFns = []
 
 var TWSpinner_component = normalizeComponent(
   spinner_TWSpinnervue_type_script_lang_js_,
-  TWSpinnervue_type_template_id_37baa53a_render,
-  TWSpinnervue_type_template_id_37baa53a_staticRenderFns,
+  TWSpinnervue_type_template_id_393248e8_render,
+  TWSpinnervue_type_template_id_393248e8_staticRenderFns,
   false,
   null,
   null,
@@ -21264,6 +21292,7 @@ var TWSpinner_component = normalizeComponent(
 /* harmony default export */ var TWSpinner = (TWSpinner_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/TWButton.vue?vue&type=script&lang=js&
 
+//
 //
 //
 //
@@ -21390,8 +21419,8 @@ var TWSpinner_component = normalizeComponent(
 
 var TWButton_component = normalizeComponent(
   button_TWButtonvue_type_script_lang_js_,
-  TWButtonvue_type_template_id_a0d05636_render,
-  TWButtonvue_type_template_id_a0d05636_staticRenderFns,
+  TWButtonvue_type_template_id_229fb9a4_render,
+  TWButtonvue_type_template_id_229fb9a4_staticRenderFns,
   false,
   null,
   null,
@@ -22342,12 +22371,12 @@ var TWFormTextarea_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormTextarea = (TWFormTextarea_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelect.vue?vue&type=template&id=5fa2a272&
-var TWFormSelectvue_type_template_id_5fa2a272_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.localValue),expression:"localValue"}],class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"multiple":_vm.multiple,"name":_vm.name,"readonly":_vm.readonly,"required":_vm.required},on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.localValue=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.onChange]}},[_vm._t("first"),_vm._l((_vm.standardOptions),function(option,index){return _c('FormSelectOption',{key:("option_" + index),attrs:{"value":option.value}},[_vm._v(" "+_vm._s(option.text)+" ")])})],2)])}
-var TWFormSelectvue_type_template_id_5fa2a272_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelect.vue?vue&type=template&id=0415d679&
+var TWFormSelectvue_type_template_id_0415d679_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('select',{class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"multiple":_vm.multiple,"name":_vm.name,"readonly":_vm.readonly,"required":_vm.required},on:{"change":_vm.onChange}},[_vm._t("first"),_vm._l((_vm.standardOptions),function(option,index){return _c('FormSelectOption',{key:("option_" + index),attrs:{"value":option.value,"selected":option.selected}},[_vm._v(" "+_vm._s(option.text)+" ")])})],2)])}
+var TWFormSelectvue_type_template_id_0415d679_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form-select/TWFormSelect.vue?vue&type=template&id=5fa2a272&
+// CONCATENATED MODULE: ./src/components/form-select/TWFormSelect.vue?vue&type=template&id=0415d679&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
 var es_array_from = __webpack_require__("a630");
@@ -22586,15 +22615,18 @@ var TWFormSelectOption_component = normalizeComponent(
         output = options.map(function (opt) {
           var value = opt;
           var text = opt;
+          var selected = opt === _this.localValue;
 
           if (_typeof(opt) === 'object') {
             value = opt[_this.valueField];
             text = opt[_this.textField];
+            selected = opt[_this.valueField] === _this.localValue;
           }
 
           return {
             value: value,
-            text: text
+            text: text,
+            selected: selected
           };
         });
       }
@@ -22633,8 +22665,8 @@ var TWFormSelectOption_component = normalizeComponent(
 
 var TWFormSelect_component = normalizeComponent(
   form_select_TWFormSelectvue_type_script_lang_js_,
-  TWFormSelectvue_type_template_id_5fa2a272_render,
-  TWFormSelectvue_type_template_id_5fa2a272_staticRenderFns,
+  TWFormSelectvue_type_template_id_0415d679_render,
+  TWFormSelectvue_type_template_id_0415d679_staticRenderFns,
   false,
   null,
   null,
@@ -25010,6 +25042,27 @@ var TWModal_component = normalizeComponent(
     xl: 'h-14 w-14'
   }
 });
+// CONCATENATED MODULE: ./src/components/spinner/config.js
+/* harmony default export */ var spinner_config = ({
+  base: 'inline-block',
+  variants: {
+    default: 'text-white',
+    primary: 'text-blue-500',
+    secondary: 'text-gray-500',
+    success: 'text-green-600',
+    danger: 'text-red-500',
+    warning: 'text-yellow-500',
+    info: 'text-cyan-500'
+  },
+  sizes: {
+    xxs: 'h-4 w-4',
+    xs: 'h-6 w-6',
+    sm: 'h-8 w-8',
+    md: 'h-10 w-10',
+    lg: 'h-12 w-12',
+    xl: 'h-14 w-14'
+  }
+});
 // CONCATENATED MODULE: ./src/components/dropdown/config.js
 /* harmony default export */ var dropdown_config = ({
   // button: {
@@ -25142,9 +25195,10 @@ var TWModal_component = normalizeComponent(
 
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
-    var _options$TWButton, _options$TWButtonClos, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWDropdown, _options$TWCard, _options$TWBadge, _options$TWModal;
+    var _options$TWButton, _options$TWButtonClos, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWSpinner, _options$TWDropdown, _options$TWCard, _options$TWBadge, _options$TWModal;
 
     if (this.installed) {
       return;
@@ -25160,6 +25214,7 @@ var TWModal_component = normalizeComponent(
       TWFormLabel: Object(lodash["merge"])(form_label_config, options === null || options === void 0 ? void 0 : (_options$TWFormLabel = options.TWFormLabel) === null || _options$TWFormLabel === void 0 ? void 0 : _options$TWFormLabel.extend),
       TWHelpText: Object(lodash["merge"])(help_text_config, options === null || options === void 0 ? void 0 : (_options$TWHelpText = options.TWHelpText) === null || _options$TWHelpText === void 0 ? void 0 : _options$TWHelpText.extend),
       TWAvatar: Object(lodash["merge"])(avatar_config, options === null || options === void 0 ? void 0 : (_options$TWAvatar = options.TWAvatar) === null || _options$TWAvatar === void 0 ? void 0 : _options$TWAvatar.extend),
+      TWSpinner: Object(lodash["merge"])(spinner_config, options === null || options === void 0 ? void 0 : (_options$TWSpinner = options.TWSpinner) === null || _options$TWSpinner === void 0 ? void 0 : _options$TWSpinner.extend),
       TWDropdown: Object(lodash["merge"])(dropdown_config, options === null || options === void 0 ? void 0 : (_options$TWDropdown = options.TWDropdown) === null || _options$TWDropdown === void 0 ? void 0 : _options$TWDropdown.extend),
       TWCard: Object(lodash["merge"])(card_config, options === null || options === void 0 ? void 0 : (_options$TWCard = options.TWCard) === null || _options$TWCard === void 0 ? void 0 : _options$TWCard.extend),
       TWBadge: Object(lodash["merge"])(badge_config, options === null || options === void 0 ? void 0 : (_options$TWBadge = options.TWBadge) === null || _options$TWBadge === void 0 ? void 0 : _options$TWBadge.extend),
