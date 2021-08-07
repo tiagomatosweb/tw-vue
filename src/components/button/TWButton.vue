@@ -10,6 +10,7 @@
     >
         <TWSpinner
             v-if="busy"
+            size="xxs"
             :class="$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined"
         />
 
