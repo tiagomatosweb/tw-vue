@@ -22434,12 +22434,12 @@ function _typeof(obj) {
 
   return _typeof(obj);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelectOption.vue?vue&type=template&id=cc4e6558&
-var TWFormSelectOptionvue_type_template_id_cc4e6558_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('option',{attrs:{"disabled":_vm.disabled},domProps:{"value":_vm.value}},[_vm._t("default")],2)}
-var TWFormSelectOptionvue_type_template_id_cc4e6558_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelectOption.vue?vue&type=template&id=789dbeda&
+var TWFormSelectOptionvue_type_template_id_789dbeda_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('option',{attrs:{"disabled":_vm.disabled},domProps:{"value":_vm.value}},[_vm._t("default")],2)}
+var TWFormSelectOptionvue_type_template_id_789dbeda_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form-select/TWFormSelectOption.vue?vue&type=template&id=cc4e6558&
+// CONCATENATED MODULE: ./src/components/form-select/TWFormSelectOption.vue?vue&type=template&id=789dbeda&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelectOption.vue?vue&type=script&lang=js&
 
@@ -22456,7 +22456,7 @@ var TWFormSelectOptionvue_type_template_id_cc4e6558_staticRenderFns = []
   name: 'TWFormSelectOption',
   props: {
     value: {
-      type: [String, Number, Object, Array],
+      type: [String, Number, Object, Array, Boolean],
       default: null
     },
     disabled: {
@@ -22477,8 +22477,8 @@ var TWFormSelectOptionvue_type_template_id_cc4e6558_staticRenderFns = []
 
 var TWFormSelectOption_component = normalizeComponent(
   form_select_TWFormSelectOptionvue_type_script_lang_js_,
-  TWFormSelectOptionvue_type_template_id_cc4e6558_render,
-  TWFormSelectOptionvue_type_template_id_cc4e6558_staticRenderFns,
+  TWFormSelectOptionvue_type_template_id_789dbeda_render,
+  TWFormSelectOptionvue_type_template_id_789dbeda_staticRenderFns,
   false,
   null,
   null,

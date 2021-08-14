@@ -5,9 +5,18 @@
             :options="[{ value: { id: 1, name: 'Jose' }, text: 'Option 1', ranking: 1, }, { value: { id: 2, name: 'Jose' }, text: 'Option 2', ranking: 2, }]"
         />
 
+        <br>
+
         <TWFormSelect
             v-model="string"
             :options="['Option1', 'Option2']"
+        />
+
+        <br>
+
+        <TWFormSelect
+            v-model="boolean"
+            :options="[true, false]"
         />
     </div>
 </template>
@@ -26,6 +35,7 @@
             return {
                 array: null,
                 string: null,
+                boolean: true,
             };
         },
 
