@@ -37,7 +37,7 @@
 
         props: {
             value: {
-                type: [String, Number, Object],
+                type: [String, Number, Object, Boolean],
                 default: undefined,
             },
             variant: {
