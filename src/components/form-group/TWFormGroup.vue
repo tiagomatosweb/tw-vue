@@ -1,6 +1,7 @@
 <template>
     <div>
         <TWFormLabel
+            v-if="label"
             :label-for="labelFor"
         >
             {{ label }}
