@@ -24,6 +24,7 @@ import TWModal from '@/components/modal/TWModal';
 import buttonConfig from '@/components/button/config';
 import buttonCloseConfig from '@/components/button-close/config';
 import inputConfig from '@/components/form-input/config';
+import selectConfig from '@/components/form-select/config';
 import alertConfig from '@/components/alert/config';
 import labelConfig from '@/components/form-label/config';
 import helpTextConfig from '@/components/help-text/config';
@@ -46,7 +47,7 @@ export default {
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
             TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
-            TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
+            TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
             TWAlert: merge(alertConfig, options?.TWAlert?.extend),
             TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
