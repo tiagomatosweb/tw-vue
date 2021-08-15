@@ -21955,12 +21955,12 @@ var TWFormGroup_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormGroup = (TWFormGroup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-input/TWFormInput.vue?vue&type=template&id=31aa2256&
-var TWFormInputvue_type_template_id_31aa2256_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('input',_vm._g({class:_vm.classList,attrs:{"autocomplete":_vm.autocomplete,"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"max":_vm.max,"maxlength":_vm.maxlength,"min":_vm.min,"minlength":_vm.minlength,"name":_vm.name,"pattern":_vm.pattern,"placeholder":_vm.placeholder,"readonly":_vm.readonly,"required":_vm.required,"type":_vm.type},domProps:{"value":_vm.value}},_vm.inputListeners))])}
-var TWFormInputvue_type_template_id_31aa2256_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-input/TWFormInput.vue?vue&type=template&id=11bde503&
+var TWFormInputvue_type_template_id_11bde503_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',_vm._g({class:_vm.classList,attrs:{"autocomplete":_vm.autocomplete,"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"max":_vm.max,"maxlength":_vm.maxlength,"min":_vm.min,"minlength":_vm.minlength,"name":_vm.name,"pattern":_vm.pattern,"placeholder":_vm.placeholder,"readonly":_vm.readonly,"required":_vm.required,"type":_vm.type},domProps:{"value":_vm.value}},_vm.inputListeners))}
+var TWFormInputvue_type_template_id_11bde503_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form-input/TWFormInput.vue?vue&type=template&id=31aa2256&
+// CONCATENATED MODULE: ./src/components/form-input/TWFormInput.vue?vue&type=template&id=11bde503&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -22047,8 +22047,6 @@ function _objectSpread2(target) {
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-input/TWFormInput.vue?vue&type=script&lang=js&
 
 
-//
-//
 //
 //
 //
@@ -22207,8 +22205,8 @@ function _objectSpread2(target) {
 
 var TWFormInput_component = normalizeComponent(
   form_input_TWFormInputvue_type_script_lang_js_,
-  TWFormInputvue_type_template_id_31aa2256_render,
-  TWFormInputvue_type_template_id_31aa2256_staticRenderFns,
+  TWFormInputvue_type_template_id_11bde503_render,
+  TWFormInputvue_type_template_id_11bde503_staticRenderFns,
   false,
   null,
   null,
@@ -22380,12 +22378,12 @@ var TWFormTextarea_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormTextarea = (TWFormTextarea_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelect.vue?vue&type=template&id=06b388ba&
-var TWFormSelectvue_type_template_id_06b388ba_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"relative"},[_c('select',{class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"multiple":_vm.multiple,"name":_vm.name,"readonly":_vm.readonly,"required":_vm.required},on:{"change":_vm.onChange}},[_vm._t("first"),_vm._l((_vm.standardOptions),function(option,index){return _c('FormSelectOption',{key:("option_" + index),attrs:{"value":option.value,"selected":option.selected}},[_vm._v(" "+_vm._s(option.text)+" ")])})],2)])}
-var TWFormSelectvue_type_template_id_06b388ba_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-select/TWFormSelect.vue?vue&type=template&id=11083f96&
+var TWFormSelectvue_type_template_id_11083f96_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('select',{class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"multiple":_vm.multiple,"name":_vm.name,"readonly":_vm.readonly,"required":_vm.required},on:{"change":_vm.onChange}},[_vm._t("first"),_vm._l((_vm.standardOptions),function(option,index){return _c('FormSelectOption',{key:("option_" + index),attrs:{"value":option.value,"selected":option.selected}},[_vm._v(" "+_vm._s(option.text)+" ")])})],2)}
+var TWFormSelectvue_type_template_id_11083f96_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/form-select/TWFormSelect.vue?vue&type=template&id=06b388ba&
+// CONCATENATED MODULE: ./src/components/form-select/TWFormSelect.vue?vue&type=template&id=11083f96&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
 var es_array_from = __webpack_require__("a630");
@@ -22494,8 +22492,6 @@ var TWFormSelectOption_component = normalizeComponent(
 
 
 
-//
-//
 //
 //
 //
@@ -22674,8 +22670,8 @@ var TWFormSelectOption_component = normalizeComponent(
 
 var TWFormSelect_component = normalizeComponent(
   form_select_TWFormSelectvue_type_script_lang_js_,
-  TWFormSelectvue_type_template_id_06b388ba_render,
-  TWFormSelectvue_type_template_id_06b388ba_staticRenderFns,
+  TWFormSelectvue_type_template_id_11083f96_render,
+  TWFormSelectvue_type_template_id_11083f96_staticRenderFns,
   false,
   null,
   null,

@@ -1,28 +1,26 @@
 <template>
-    <div class="relative">
-        <select
-            :autofocus="autofocus"
-            :class="classList"
-            :disabled="disabled"
-            :id="id"
-            :multiple="multiple"
-            :name="name"
-            :readonly="readonly"
-            :required="required"
-            @change="onChange"
-        >
-            <slot name="first" />
+    <select
+        :autofocus="autofocus"
+        :class="classList"
+        :disabled="disabled"
+        :id="id"
+        :multiple="multiple"
+        :name="name"
+        :readonly="readonly"
+        :required="required"
+        @change="onChange"
+    >
+        <slot name="first" />
 
-            <FormSelectOption
-                v-for="(option, index) in standardOptions"
-                :key="`option_${index}`"
-                :value="option.value"
-                :selected="option.selected"
-            >
-                {{ option.text }}
-            </FormSelectOption>
-        </select>
-    </div>
+        <FormSelectOption
+            v-for="(option, index) in standardOptions"
+            :key="`option_${index}`"
+            :value="option.value"
+            :selected="option.selected"
+        >
+            {{ option.text }}
+        </FormSelectOption>
+    </select>
 </template>
 
 <script>
