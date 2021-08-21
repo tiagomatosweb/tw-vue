@@ -1,5 +1,15 @@
 <template>
     <div class="home">
+        <br><br>
+
+        <RouterLink to="http://www.google.com">
+            Link
+        </RouterLink>
+
+        <TWDropdownItem tag-name="as">My item</TWDropdownItem>
+        <br><br>
+
+
         modal: {{ openModal }}
         <div @click="openModal = !openModal">
             open/close
@@ -67,11 +77,13 @@
     import Buttons from '@/Buttons';
     import TWModal from '@/components/modal/TWModal';
     import TWButton from '@/components/button/TWButton';
+    import TWDropdownItem from '@/components/dropdown/TWDropdownItem';
 
     export default {
         name: 'Home',
 
         components: {
+            TWDropdownItem,
             TWModal,
             Buttons,
             Cards,

@@ -21,7 +21,7 @@
                 type: String,
                 default: 'button',
                 validator(value) {
-                    return ['button', 'a'].indexOf(value) !== -1;
+                    return ['button', 'a'].includes(value);
                 },
             },
         },
