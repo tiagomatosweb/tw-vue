@@ -20144,6 +20144,35 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 
 /***/ }),
 
+/***/ "b0c0":
+/***/ (function(module, exports, __webpack_require__) {
+
+var DESCRIPTORS = __webpack_require__("83ab");
+var defineProperty = __webpack_require__("9bf2").f;
+
+var FunctionPrototype = Function.prototype;
+var FunctionPrototypeToString = FunctionPrototype.toString;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.github.io/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return FunctionPrototypeToString.call(this).match(nameRE)[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
+
+
+/***/ }),
+
 /***/ "b622":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22254,6 +22283,108 @@ var TWFormInput_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWFormInput = (TWFormInput_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-file/TWFormFile.vue?vue&type=template&id=768e23bc&
+var TWFormFilevue_type_template_id_768e23bc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{class:_vm.baseCLass},[_c('input',{staticClass:"absolute opacity-0",attrs:{"type":"file"},on:{"change":_vm.onChange}}),_c('span',[_vm._v(_vm._s(_vm.fileName || 'Choose a file...'))]),_c('span',{staticClass:"flex bg-gray-200 border border-gray-300 -mr-5 -my-3 px-3 py-2"},[_vm._v(" Browse ")])])}
+var TWFormFilevue_type_template_id_768e23bc_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/form-file/TWFormFile.vue?vue&type=template&id=768e23bc&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__("b0c0");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-file/TWFormFile.vue?vue&type=script&lang=js&
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWFormFilevue_type_script_lang_js_ = ({
+  name: 'TWFormFile',
+  props: {
+    value: undefined,
+    variant: {
+      type: String,
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'md'
+    }
+  },
+  data: function data() {
+    return {
+      fileName: null,
+      TWOptions: {}
+    };
+  },
+  computed: {
+    baseCLass: function baseCLass() {
+      return ['flex items-center justify-between relative overflow-hidden', this.TWOptions.base, this.getVariants, this.getSize];
+    },
+    getVariants: function getVariants() {
+      if (this.disabled) {
+        return this.TWOptions.disabled;
+      }
+
+      if (this.readonly) {
+        return this.TWOptions.readonly;
+      }
+
+      var variants = this.TWOptions.variants;
+      return variants[this.variant];
+    },
+    getSize: function getSize() {
+      var sizes = this.TWOptions.sizes;
+      return sizes[this.size];
+    }
+  },
+  created: function created() {
+    var _this$$TWVue;
+
+    this.TWOptions = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWFormInput) || {};
+  },
+  methods: {
+    onChange: function onChange($evt) {
+      this.fileName = $evt.target.files[0].name;
+      this.$emit('input', $evt.target.files[0]);
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/form-file/TWFormFile.vue?vue&type=script&lang=js&
+ /* harmony default export */ var form_file_TWFormFilevue_type_script_lang_js_ = (TWFormFilevue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/form-file/TWFormFile.vue
+
+
+
+
+
+/* normalize component */
+
+var TWFormFile_component = normalizeComponent(
+  form_file_TWFormFilevue_type_script_lang_js_,
+  TWFormFilevue_type_template_id_768e23bc_render,
+  TWFormFilevue_type_template_id_768e23bc_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWFormFile = (TWFormFile_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/form-textarea/TWFormTextarea.vue?vue&type=template&id=80096314&
 var TWFormTextareavue_type_template_id_80096314_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('textarea',_vm._g({class:_vm.classList,attrs:{"autofocus":_vm.autofocus,"disabled":_vm.disabled,"id":_vm.id,"name":_vm.name,"placeholder":_vm.placeholder,"readonly":_vm.readonly,"required":_vm.required,"rows":_vm.rows,"maxlength":_vm.maxLength,"cols":_vm.cols,"wrap":_vm.wrap},domProps:{"value":_vm.value}},_vm.inputListeners))}
 var TWFormTextareavue_type_template_id_80096314_staticRenderFns = []
@@ -25269,6 +25400,7 @@ var TWModal_component = normalizeComponent(
 
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
     var _options$TWButton, _options$TWButtonClos, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWSpinner, _options$TWDropdown, _options$TWCard, _options$TWBadge, _options$TWModal;
@@ -25298,6 +25430,7 @@ var TWModal_component = normalizeComponent(
     Vue.component('TWButton', TWButton);
     Vue.component('TWFormGroup', TWFormGroup);
     Vue.component('TWFormInput', TWFormInput);
+    Vue.component('TWFormFile', TWFormFile);
     Vue.component('TWFormTextarea', TWFormTextarea);
     Vue.component('TWFormSelect', TWFormSelect);
     Vue.component('TWFormSelectOption', TWFormSelectOption);

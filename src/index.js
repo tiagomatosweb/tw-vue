@@ -7,6 +7,7 @@ import TWCard from '@/components/card/TWCard';
 import TWCardBody from '@/components/card/TWCardBody';
 import TWFormGroup from '@/components/form-group/TWFormGroup';
 import TWFormInput from '@/components/form-input/TWFormInput';
+import TWFormFile from '@/components/form-file/TWFormFile';
 import TWFormTextarea from '@/components/form-textarea/TWFormTextarea';
 import TWFormSelect from '@/components/form-select/TWFormSelect';
 import TWFormSelectOption from '@/components/form-select/TWFormSelectOption';
@@ -64,6 +65,7 @@ export default {
         Vue.component('TWButton', TWButton);
         Vue.component('TWFormGroup', TWFormGroup);
         Vue.component('TWFormInput', TWFormInput);
+        Vue.component('TWFormFile', TWFormFile);
         Vue.component('TWFormTextarea', TWFormTextarea);
         Vue.component('TWFormSelect', TWFormSelect);
         Vue.component('TWFormSelectOption', TWFormSelectOption);
