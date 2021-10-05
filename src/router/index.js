@@ -36,6 +36,11 @@ const routes = [
         name: 'avatar',
         component: () => import(/* webpackChunkName: "about" */ '../views/Avatar.vue'),
     },
+    {
+        path: '/slide-overs',
+        name: 'slideOvers',
+        component: () => import(/* webpackChunkName: "about" */ '../views/SlideOvers.vue'),
+    },
 ];
 
 const router = new VueRouter({

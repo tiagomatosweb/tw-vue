@@ -20,6 +20,10 @@
             <RouterLink :to="{ name: 'avatar' }">
                 Avatar
             </RouterLink>
+
+            <RouterLink :to="{ name: 'slideOvers' }">
+                Slide over
+            </RouterLink>
         </div>
 
         <RouterView />

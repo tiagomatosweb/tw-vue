@@ -1,7 +1,7 @@
 <template>
     <Component
         :is="is"
-        :type="type"
+        :type="localType"
         :disabled="busy || disabled"
         :href="localHref"
         :to="to"
@@ -10,6 +10,7 @@
     >
         <TWSpinner
             v-if="busy"
+            :variant="spinnerVariant"
             size="xxs"
             :class="$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined"
         />
@@ -36,6 +37,10 @@
             variant: {
                 type: String,
                 default: 'default',
+            },
+            spinnerVariant: {
+                type: String,
+                default: 'white',
             },
             size: {
                 type: String,
@@ -118,6 +123,14 @@
                 }
 
                 return 'button';
+            },
+
+            localType() {
+                if (typeof this.to !== 'undefined') {
+                    return undefined;
+                }
+
+                return this.type;
             },
 
             inputListeners() {
