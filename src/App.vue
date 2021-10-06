@@ -1,8 +1,12 @@
 <template>
-    <div id="app">
-        <div id="nav">
+    <div id="app" class="p-10">
+        <div id="nav" class="mb-10">
             <RouterLink to="/">
                 Home
+            </RouterLink>
+
+            <RouterLink :to="{ name: 'button' }">
+                Button
             </RouterLink>
 
             <RouterLink :to="{ name: 'pagination' }">

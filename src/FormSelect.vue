@@ -1,22 +1,24 @@
 <template>
     <div>
-        <TWFormSelect
-            v-model="array"
-            :options="[{ value: { id: 1, name: 'Jose' }, text: 'Option 1', ranking: 1, }, { value: { id: 2, name: 'Jose' }, text: 'Option 2', ranking: 2, }]"
-        />
-
-        <br>
-
+        {{ string }}
         <TWFormSelect
             v-model="string"
-            :options="['Option1', 'Option2']"
+            :options="[{ name: 'Option 3', options: [
+                { value: 2, name: 'Sub Option 3.1' },
+                { value: 3, name: 'Sub Option 3.2' },
+            ] }]"
+            text-field="name"
         />
 
         <br>
 
+        {{ boolean }}
         <TWFormSelect
             v-model="boolean"
-            :options="[true, false]"
+            :options="[
+                { text: 'Sim', value: 1 },
+                { text: 'Não', value: 0 },
+            ]"
         />
     </div>
 </template>
@@ -34,8 +36,8 @@
         data() {
             return {
                 array: null,
-                string: null,
-                boolean: true,
+                string: 3,
+                boolean: 1,
             };
         },
 

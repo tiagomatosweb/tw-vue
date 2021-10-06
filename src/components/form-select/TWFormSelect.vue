@@ -1,37 +1,9 @@
-<template>
-    <select
-        :autofocus="autofocus"
-        :class="classList"
-        :disabled="disabled"
-        :id="id"
-        :multiple="multiple"
-        :name="name"
-        :readonly="readonly"
-        :required="required"
-        @change="onChange"
-    >
-        <slot name="first" />
-
-        <FormSelectOption
-            v-for="(option, index) in standardOptions"
-            :key="`option_${index}`"
-            :value="option.value"
-            :selected="option.selected"
-        >
-            {{ option.text }}
-        </FormSelectOption>
-    </select>
-</template>
-
 <script>
-    import FormSelectOption from './TWFormSelectOption';
+    import TWFormSelectOption from './TWFormSelectOption';
+    import TWFormSelectOptionGroup from './TWFormSelectOptionGroup';
 
     export default {
         name: 'TWFormSelect',
-
-        components: {
-            FormSelectOption,
-        },
 
         props: {
             value: {
@@ -86,6 +58,10 @@
                 type: String,
                 default: 'value',
             },
+            optionsField: {
+                type: String,
+                default: 'options',
+            },
         },
 
         data() {
@@ -102,7 +78,7 @@
         },
 
         computed: {
-            classList() {
+            baseClass() {
                 return [
                     this.TWOptions.base,
                     this.getVariants,
@@ -128,27 +104,8 @@
                 return sizes[this.size];
             },
 
-            standardOptions() {
-                const options = this.options;
-                let output = null;
-
-                if (Array.isArray(options)) {
-                    output = options.map((opt) => {
-                        let value = opt;
-                        let text = opt;
-                        let selected = opt === this.localValue;
-
-                        if (typeof opt === 'object') {
-                            value = opt[this.valueField];
-                            text = opt[this.textField];
-                            selected = opt[this.valueField] === this.localValue;
-                        }
-
-                        return { value, text, selected };
-                    });
-                }
-
-                return output;
+            formOptions() {
+                return this.normalizeOptions(this.options);
             },
         },
 
@@ -157,6 +114,40 @@
         },
 
         methods: {
+            normalizeOptions(options) {
+                let output = null;
+
+                if (Array.isArray(options)) {
+                    output = options.map((opt) => {
+                        let value = opt;
+                        let text = opt;
+
+                        if (typeof opt === 'object') {
+                            let options = opt[this.optionsField];
+                            if (Array.isArray(options) && options.length) {
+                                options = options.map((option) => this.normalizeOption(option));
+
+                                return { ...this.normalizeOption(opt), options };
+                            }
+
+                            return this.normalizeOption(opt);
+                        }
+
+                        return { value, text };
+
+                    });
+                }
+
+                return output;
+            },
+
+            normalizeOption(option) {
+                return {
+                    value: option[this.valueField],
+                    text: option[this.textField],
+                };
+            },
+
             onChange(evt) {
                 const { target } = evt;
                 const selectedValue = Array.from(target.options)
@@ -168,6 +159,43 @@
                 this.$emit('input', this.localValue);
                 this.$emit('change', this.localValue);
             },
+        },
+
+        render(createElement) {
+            const self = this;
+
+            const select = {
+                class: this.baseClass,
+                attrs: {
+                    autofocus: this.autofocus,
+                    disabled: this.disabled,
+                    id: this.id,
+                    multiple: this.multiple,
+                    name: this.name,
+                    readonly: this.readonly,
+                    required: this.required,
+                },
+                domProps: {
+                    value: self.value,
+                },
+                on: {
+                    change: this.onChange,
+                },
+            };
+
+            const options =  this.formOptions.map((option, index) => {
+                const { value, text, options } = option;
+                const key = `option_${index}`;
+
+                return Array.isArray(options)
+                    ? createElement(TWFormSelectOptionGroup, { props: { label: text, options }, key }, text)
+                    : createElement(TWFormSelectOption, { props: { value }, key }, text);
+            });
+
+            return createElement('select', select, [
+                this.$slots.first,
+                options,
+            ]);
         },
     };
 </script>

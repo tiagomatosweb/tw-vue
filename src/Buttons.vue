@@ -62,6 +62,7 @@
                 variant="primary"
                 size="xs"
                 class="mr-1"
+                @click="test"
             >
                 Extra small
             </TwButton>

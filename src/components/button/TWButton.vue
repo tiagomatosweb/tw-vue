@@ -1,33 +1,8 @@
-<template>
-    <Component
-        :is="is"
-        :type="localType"
-        :disabled="busy || disabled"
-        :href="localHref"
-        :to="to"
-        :class="classList"
-        v-on="inputListeners"
-    >
-        <TWSpinner
-            v-if="busy"
-            :variant="spinnerVariant"
-            size="xxs"
-            :class="$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined"
-        />
-
-        <slot />
-    </Component>
-</template>
-
 <script>
     import TWSpinner from '../spinner/TWSpinner';
 
     export default {
         name: 'TWButton',
-
-        components: {
-            TWSpinner,
-        },
 
         props: {
             type: {
@@ -66,6 +41,13 @@
                 type: [String, Object],
                 default: undefined,
             },
+            tagName: {
+                type: String,
+                default: 'button',
+                validator(value) {
+                    return ['button', 'a'].includes(value);
+                },
+            },
         },
 
         data() {
@@ -75,7 +57,7 @@
         },
 
         computed: {
-            classList() {
+            baseClass() {
                 const base = [
                     this.TWOptions.base,
                 ];
@@ -105,41 +87,73 @@
                 return sizes[this.size];
             },
 
-            localHref() {
-                if (typeof this.to !== 'undefined') {
-                    return undefined;
-                }
-
-                return this.href;
+            isRouterLinkComponentAvailable() {
+                return !!(this.$options.components && (this.$options.components.RouterLink || this.$options.components.NuxtLink));
             },
 
-            is() {
-                if (typeof this.to !== 'undefined') {
-                    return 'RouterLink';
+            isARouterLink() {
+                return this.to !== undefined && this.isRouterLinkComponentAvailable;
+            },
+
+            toRender() {
+                if (this.isARouterLink && this.$options.components) {
+                    return this.$options.components.NuxtLink || this.$options.components.RouterLink;
                 }
 
-                if (typeof this.href !== 'undefined') {
+                if (this.href) {
                     return 'a';
                 }
 
-                return 'button';
-            },
-
-            localType() {
-                if (typeof this.to !== 'undefined') {
-                    return undefined;
-                }
-
-                return this.type;
-            },
-
-            inputListeners() {
-                return this.$listeners;
+                return this.tagName;
             },
         },
 
         created() {
             this.TWOptions = this?.$TWVue?.TWButton || {};
+        },
+
+        methods: {
+            routerLinkAttributes() {
+                return {
+                    to: this.to,
+                    tag: this.tagName,
+                };
+            },
+
+            getAttributes() {
+                if (this.isARouterLink) {
+                    return this.routerLinkAttributes();
+                }
+
+                return {
+                    type: this.type,
+                };
+            },
+        },
+
+        render(createElement) {
+            let options;
+
+            if (this.busy) {
+                options = createElement(TWSpinner, {
+                    props: {
+                        variant: this.spinnerVariant,
+                        size: 'xxs',
+                    },
+                    class: {
+                        '-ml-1 mr-3 h-full w-5': !!this.$slots.default,
+                    },
+                });
+            }
+
+            return createElement(this.toRender, {
+                class: this.baseClass,
+                attrs: this.getAttributes(),
+                on: this.$listeners,
+            }, [
+                options,
+                this.$slots.default,
+            ]);
         },
     };
 </script>
