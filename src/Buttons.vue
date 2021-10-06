@@ -4,11 +4,11 @@
             Buttons
         </h3>
 
-        <TWButtonClose size="xxs" />
-        <TWButtonClose size="xs" />
-        <TWButtonClose size="sm" />
-        <TWButtonClose size="md" />
-        <TWButtonClose size="lg" />
+        <TWButtonClose variant="default-rounded" size="xxs" />
+        <TWButtonClose variant="default-rounded" size="xs" />
+        <TWButtonClose variant="success-rounded" size="sm" />
+        <TWButtonClose variant="danger-rounded" size="md" />
+        <TWButtonClose variant="default-rounded" size="lg" />
 
         <div class="grid grid-flow-col auto-cols-max gap-1">
             <TwButton>
