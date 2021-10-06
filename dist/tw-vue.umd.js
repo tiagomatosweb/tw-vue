@@ -21432,27 +21432,6 @@ var TWSpinner_component = normalizeComponent(
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/TWButton.vue?vue&type=script&lang=js&
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ var TWButtonvue_type_script_lang_js_ = ({
   name: 'TWButton',
@@ -22729,31 +22708,6 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
 
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ var TWFormSelectvue_type_script_lang_js_ = ({
@@ -22868,7 +22822,6 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
         output = options.map(function (opt) {
           var value = opt;
           var text = opt;
-          var selected = opt === _this.localValue;
 
           if (_typeof(opt) === 'object') {
             var _options = opt[_this.optionsField];
@@ -22887,8 +22840,7 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
 
           return {
             value: value,
-            text: text,
-            selected: selected
+            text: text
           };
         });
       }
@@ -22898,8 +22850,7 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
     normalizeOption: function normalizeOption(option) {
       return {
         value: option[this.valueField],
-        text: option[this.textField],
-        selected: option[this.valueField] === this.localValue
+        text: option[this.textField]
       };
     },
     onChange: function onChange(evt) {
@@ -22937,7 +22888,6 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
     var options = this.formOptions.map(function (option, index) {
       var value = option.value,
           text = option.text,
-          selected = option.selected,
           options = option.options;
       var key = "option_".concat(index);
       return Array.isArray(options) ? createElement(TWFormSelectOptionGroup, {
@@ -22948,8 +22898,7 @@ var TWFormSelectOptionGroup_component = normalizeComponent(
         key: key
       }, text) : createElement(TWFormSelectOption, {
         props: {
-          value: value,
-          selected: selected
+          value: value
         },
         key: key
       }, text);
@@ -25249,9 +25198,12 @@ var TWModal_component = normalizeComponent(
   base: 'inline-flex p-1.5 focus:outline-none transition ease-in-out duration-150',
   variants: {
     default: 'text-gray-400 hover:text-gray-500',
-    primary: 'text-blue-400 hover:text-blue-500'
+    primary: 'text-blue-400 hover:text-blue-500',
+    danger: 'text-red-400 hover:text-red-500',
+    success: 'text-green-400 hover:text-green-500'
   },
   sizes: {
+    xxs: 'w-3 h-3',
     xs: 'w-4 h-4',
     sm: 'w-5 h-5',
     md: 'w-6 h-6',
@@ -25343,7 +25295,7 @@ var TWModal_component = normalizeComponent(
 });
 // CONCATENATED MODULE: ./src/components/form-label/config.js
 /* harmony default export */ var form_label_config = ({
-  base: 'block text-gray-800 text-sm font-medium mb-2 tracking-wide'
+  base: 'block text-gray-700 text-sm font-medium mb-2 tracking-wide'
 });
 // CONCATENATED MODULE: ./src/components/help-text/config.js
 /* harmony default export */ var help_text_config = ({

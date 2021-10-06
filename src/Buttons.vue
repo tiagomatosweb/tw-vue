@@ -4,6 +4,7 @@
             Buttons
         </h3>
 
+        <TWButtonClose size="xxs" />
         <TWButtonClose size="xs" />
         <TWButtonClose size="sm" />
         <TWButtonClose size="md" />
