@@ -13,13 +13,17 @@
                 type: String,
                 default: 'default',
             },
-            spinnerVariant: {
-                type: String,
-                default: 'white',
-            },
             size: {
                 type: String,
                 default: 'md',
+            },
+            rounded: {
+                type: [String, Boolean],
+                default: 'default',
+            },
+            circle: {
+                type: Boolean,
+                default: false,
             },
             block: {
                 type: Boolean,
@@ -50,16 +54,14 @@
             },
         },
 
-        data() {
-            return {
-                TWOptions: {},
-            };
-        },
-
         computed: {
+            config() {
+                return this?.$TWVue?.TWButton || {};
+            },
+
             baseClass() {
                 const base = [
-                    this.TWOptions.base,
+                    this.config.base,
                 ];
 
                 if (this.block) {
@@ -74,17 +76,35 @@
                     base.join(' '),
                     this.getVariant,
                     this.getSize,
+                    this.getRoundBorder,
                 ];
             },
 
             getVariant() {
-                const variants = this.TWOptions.variants;
+                const variants = this.config.variants;
                 return variants[this.variant];
             },
 
             getSize() {
-                const sizes = this.TWOptions.sizes;
+                if (this.circle) {
+                    return;
+                }
+
+                const sizes = this.config.sizes;
                 return sizes[this.size];
+            },
+
+            getRoundBorder() {
+                if (this.circle) {
+                    return 'rounded-full';
+                }
+
+                if (!this.rounded) {
+                    return '';
+                }
+
+                const rounded = this.config.rounded;
+                return rounded[this.rounded];
             },
 
             isRouterLinkComponentAvailable() {
@@ -108,15 +128,12 @@
             },
         },
 
-        created() {
-            this.TWOptions = this?.$TWVue?.TWButton || {};
-        },
-
         methods: {
             routerLinkAttributes() {
                 return {
                     to: this.to,
                     tag: this.tagName,
+                    disabled: this.busy,
                 };
             },
 
@@ -127,7 +144,18 @@
 
                 return {
                     type: this.type,
+                    disabled: this.busy,
                 };
+            },
+
+            onClick(evt) {
+                if (this.busy) {
+                    evt.stopPropagation();
+                    evt.preventDefault();
+                    return;
+                }
+
+                this.$emit('click', evt);
             },
         },
 
@@ -137,7 +165,6 @@
             if (this.busy) {
                 options = createElement(TWSpinner, {
                     props: {
-                        variant: this.spinnerVariant,
                         size: 'xxs',
                     },
                     class: {
@@ -148,8 +175,15 @@
 
             return createElement(this.toRender, {
                 class: this.baseClass,
+                style: {
+                    width: this.circle && this.config?.circle[this.size] ? `${this.config.circle[this.size]}px` : undefined,
+                    height: this.circle && this.config?.circle[this.size] ? `${this.config.circle[this.size]}px` : undefined,
+                },
                 attrs: this.getAttributes(),
-                on: this.$listeners,
+                on: {
+                    ...this.$listeners,
+                    click: this.onClick,
+                },
             }, [
                 options,
                 this.$slots.default,

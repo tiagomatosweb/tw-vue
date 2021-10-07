@@ -1,6 +1,12 @@
 <template>
-    <div id="app" class="p-10">
-        <div id="nav" class="mb-10">
+    <div
+        id="app"
+        class="p-10"
+    >
+        <div
+            id="nav"
+            class="mb-10"
+        >
             <RouterLink to="/">
                 Home
             </RouterLink>

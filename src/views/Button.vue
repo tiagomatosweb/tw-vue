@@ -10,7 +10,10 @@
             </TWButton>
             <br>
             <br>
-            <TWButton variant="primary" busy>
+            <TWButton
+                variant="primary"
+                busy
+            >
                 Button
             </TWButton>
         </div>

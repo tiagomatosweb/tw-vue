@@ -21336,12 +21336,12 @@ var es_array_includes = __webpack_require__("caad");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
 var es_array_join = __webpack_require__("a15b");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=template&id=393248e8&
-var TWSpinnervue_type_template_id_393248e8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.baseClass},[_c('svg',{staticClass:"animate-spin",attrs:{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24"}},[_c('circle',{staticClass:"opacity-25",attrs:{"cx":"12","cy":"12","r":"10","stroke":"currentColor","stroke-width":"4"}}),_c('path',{staticClass:"opacity-75",attrs:{"fill":"currentColor","d":"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"}})])])}
-var TWSpinnervue_type_template_id_393248e8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=template&id=1f184671&
+var TWSpinnervue_type_template_id_1f184671_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.baseClass},[_c('svg',{staticClass:"animate-spin",attrs:{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24"}},[_c('circle',{staticClass:"opacity-25",attrs:{"cx":"12","cy":"12","r":"10","stroke":"currentColor","stroke-width":"4"}}),_c('path',{staticClass:"opacity-75",attrs:{"fill":"currentColor","d":"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"}})])])}
+var TWSpinnervue_type_template_id_1f184671_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/spinner/TWSpinner.vue?vue&type=template&id=393248e8&
+// CONCATENATED MODULE: ./src/components/spinner/TWSpinner.vue?vue&type=template&id=1f184671&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/spinner/TWSpinner.vue?vue&type=script&lang=js&
 //
@@ -21374,7 +21374,7 @@ var TWSpinnervue_type_template_id_393248e8_staticRenderFns = []
   props: {
     variant: {
       type: String,
-      default: 'default'
+      default: undefined
     },
     size: {
       type: String,
@@ -21391,7 +21391,7 @@ var TWSpinnervue_type_template_id_393248e8_staticRenderFns = []
       return [this.config.base, this.getSize, this.getVariant];
     },
     getVariant: function getVariant() {
-      return this.config.variants[this.variant];
+      return this.variant ? this.config.variants[this.variant] : '';
     },
     getSize: function getSize() {
       return this.config.sizes[this.size];
@@ -21410,8 +21410,8 @@ var TWSpinnervue_type_template_id_393248e8_staticRenderFns = []
 
 var TWSpinner_component = normalizeComponent(
   spinner_TWSpinnervue_type_script_lang_js_,
-  TWSpinnervue_type_template_id_393248e8_render,
-  TWSpinnervue_type_template_id_393248e8_staticRenderFns,
+  TWSpinnervue_type_template_id_1f184671_render,
+  TWSpinnervue_type_template_id_1f184671_staticRenderFns,
   false,
   null,
   null,
@@ -21421,6 +21421,7 @@ var TWSpinner_component = normalizeComponent(
 
 /* harmony default export */ var TWSpinner = (TWSpinner_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/TWButton.vue?vue&type=script&lang=js&
+
 
 
 
@@ -21435,13 +21436,17 @@ var TWSpinner_component = normalizeComponent(
       type: String,
       default: 'default'
     },
-    spinnerVariant: {
-      type: String,
-      default: 'white'
-    },
     size: {
       type: String,
       default: 'md'
+    },
+    rounded: {
+      type: [String, Boolean],
+      default: 'default'
+    },
+    circle: {
+      type: Boolean,
+      default: false
     },
     block: {
       type: Boolean,
@@ -21471,14 +21476,14 @@ var TWSpinner_component = normalizeComponent(
       }
     }
   },
-  data: function data() {
-    return {
-      TWOptions: {}
-    };
-  },
   computed: {
+    config: function config() {
+      var _this$$TWVue;
+
+      return (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWButton) || {};
+    },
     baseClass: function baseClass() {
-      var base = [this.TWOptions.base];
+      var base = [this.config.base];
 
       if (this.block) {
         base.push('w-full justify-center');
@@ -21488,15 +21493,31 @@ var TWSpinner_component = normalizeComponent(
         base.push('opacity-75');
       }
 
-      return [base.join(' '), this.getVariant, this.getSize];
+      return [base.join(' '), this.getVariant, this.getSize, this.getRoundBorder];
     },
     getVariant: function getVariant() {
-      var variants = this.TWOptions.variants;
+      var variants = this.config.variants;
       return variants[this.variant];
     },
     getSize: function getSize() {
-      var sizes = this.TWOptions.sizes;
+      if (this.circle) {
+        return;
+      }
+
+      var sizes = this.config.sizes;
       return sizes[this.size];
+    },
+    getRoundBorder: function getRoundBorder() {
+      if (this.circle) {
+        return 'rounded-full';
+      }
+
+      if (!this.rounded) {
+        return '';
+      }
+
+      var rounded = this.config.rounded;
+      return rounded[this.rounded];
     },
     isRouterLinkComponentAvailable: function isRouterLinkComponentAvailable() {
       return !!(this.$options.components && (this.$options.components.RouterLink || this.$options.components.NuxtLink));
@@ -21516,16 +21537,12 @@ var TWSpinner_component = normalizeComponent(
       return this.tagName;
     }
   },
-  created: function created() {
-    var _this$$TWVue;
-
-    this.TWOptions = (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWButton) || {};
-  },
   methods: {
     routerLinkAttributes: function routerLinkAttributes() {
       return {
         to: this.to,
-        tag: this.tagName
+        tag: this.tagName,
+        disabled: this.busy
       };
     },
     getAttributes: function getAttributes() {
@@ -21534,17 +21551,28 @@ var TWSpinner_component = normalizeComponent(
       }
 
       return {
-        type: this.type
+        type: this.type,
+        disabled: this.busy
       };
+    },
+    onClick: function onClick(evt) {
+      if (this.busy) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        return;
+      }
+
+      this.$emit('click', evt);
     }
   },
   render: function render(createElement) {
+    var _this$config, _this$config2;
+
     var options;
 
     if (this.busy) {
       options = createElement(TWSpinner, {
         props: {
-          variant: this.spinnerVariant,
           size: 'xxs'
         },
         class: {
@@ -21555,8 +21583,14 @@ var TWSpinner_component = normalizeComponent(
 
     return createElement(this.toRender, {
       class: this.baseClass,
+      style: {
+        width: this.circle && (_this$config = this.config) !== null && _this$config !== void 0 && _this$config.circle[this.size] ? "".concat(this.config.circle[this.size], "px") : undefined,
+        height: this.circle && (_this$config2 = this.config) !== null && _this$config2 !== void 0 && _this$config2.circle[this.size] ? "".concat(this.config.circle[this.size], "px") : undefined
+      },
       attrs: this.getAttributes(),
-      on: this.$listeners
+      on: _objectSpread2(_objectSpread2({}, this.$listeners), {}, {
+        click: this.onClick
+      })
     }, [options, this.$slots.default]);
   }
 });
@@ -21602,10 +21636,10 @@ var TWButton_component = normalizeComponent(
   },
   computed: {
     baseClass: function baseClass() {
-      return [this.TWOptions.base, this.getVariant];
+      return [this.TWOptions.base, this.getVariant, this.getSize];
     },
     iconClass: function iconClass() {
-      return [this.getSize];
+      return [];
     },
     getVariant: function getVariant() {
       var variants = this.TWOptions.variants;
@@ -21627,11 +21661,13 @@ var TWButton_component = normalizeComponent(
     if (!child) {
       child = createElement('svg', {
         attrs: {
-          class: this.iconClass,
+          // class: this.iconClass,
+          style: 'width: 100%; height: 100%;',
           xmlns: 'http://www.w3.org/2000/svg',
           viewBox: '0 0 20 20',
           fill: 'currentColor',
-          'aria-hidden': 'true'
+          'aria-hidden': 'true' // preserveAspectRatio: 'none',
+
         },
         slot: 'default'
       }, [createElement('path', {
@@ -25162,40 +25198,65 @@ var TWModal_component = normalizeComponent(
 /* harmony default export */ var TWModal = (TWModal_component.exports);
 // CONCATENATED MODULE: ./src/components/button/config.js
 /* harmony default export */ var config = ({
-  base: 'inline-flex items-center justify-center border border-transparent focus:outline-none transition ease-in-out duration-150',
+  base: 'inline-flex items-center justify-center border focus:outline-none transition ease-in-out duration-150',
   variants: {
-    default: 'text-gray-700 bg-gray-100 hover:bg-gray-200',
-    naked: 'text-gray-700',
-    primary: 'text-white bg-blue-500 hover:bg-blue-600',
-    secondary: 'text-white bg-gray-500 hover:bg-gray-600',
-    success: 'text-white bg-green-600 hover:bg-green-700',
-    danger: 'text-white bg-red-500 hover:bg-red-600',
-    warning: 'text-yellow-900 bg-yellow-400 hover:bg-yellow-500',
-    info: 'text-white bg-cyan-500 hover:bg-cyan-600',
-    light: 'text-gray-400 bg-gray-50 hover:bg-gray-100 border-gray-300',
-    dark: 'text-white bg-gray-700 hover:bg-gray-900'
+    default: 'text-gray-700 bg-white hover:bg-gray-50 border border-gray-300',
+    naked: 'text-gray-700 border-transparent',
+    primary: 'text-white bg-blue-500 hover:bg-blue-600 border-blue-500 hover:border-blue-600',
+    'primary-outline': 'text-blue-500 hover:text-blue-600 border-blue-500 hover:border-blue-600',
+    secondary: 'text-white bg-gray-500 hover:bg-gray-600 border-gray-500 hover:border-gray-600',
+    'secondary-outline': 'text-gray-500 hover:text-gray-600 border-gray-500 hover:border-gray-600',
+    success: 'text-white bg-green-600 hover:bg-green-700 border-green-500 hover:border-green-600',
+    'success-outline': 'text-green-600 hover:text-green-700 border-green-500 hover:border-green-600',
+    danger: 'text-white bg-red-500 hover:bg-red-600 border-red-500 hover:border-red-600',
+    'danger-outline': 'text-red-500 hover:text-red-600 border-red-500 hover:border-red-600',
+    warning: 'text-yellow-900 bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500',
+    'warning-outline': 'text-yellow-500 hover:text-yellow-600 border-yellow-400 hover:border-yellow-500',
+    info: 'text-white bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600',
+    'info-outline': 'text-cyan-500 hover:text-cyan-600 border-cyan-500 hover:border-cyan-600',
+    light: 'text-gray-700 bg-gray-100 hover:bg-gray-200 border-gray-100 hover:border-gray-200',
+    dark: 'text-white bg-gray-700 hover:bg-gray-900',
+    'dark-outline': 'text-gray-700 hover:text-gray-900 border-gray-700 hover:border-gray-900'
+  },
+  rounded: {
+    sm: 'rounded-sm',
+    default: 'rounded',
+    md: 'rounded-md',
+    lg: 'rounded-lg',
+    xl: 'rounded-xl',
+    '2xl': 'rounded-2xl',
+    '3xl': 'rounded-3xl',
+    full: 'rounded-full'
+  },
+  circle: {
+    xs: 30,
+    sm: 34,
+    md: 38,
+    lg: 42,
+    xl: 50,
+    '2xl': 54
   },
   sizes: {
-    xs: 'text-xs px-2.5 py-1.5 rounded',
-    sm: 'text-sm px-3 py-2 leading-4 rounded',
-    md: 'text-sm px-4 py-2 rounded',
-    lg: 'text-base px-4 py-2 rounded',
-    xl: 'text-base px-6 py-3 rounded',
-    '2xl': 'text-xl px-8 py-3 rounded'
+    xs: 'text-xs px-2.5 py-1.5',
+    sm: 'text-sm px-3 py-2 leading-4',
+    md: 'text-sm px-4 py-2',
+    lg: 'text-base px-4 py-2',
+    xl: 'text-base px-6 py-3',
+    '2xl': 'text-xl px-8 py-3'
   }
 });
 // CONCATENATED MODULE: ./src/components/button-close/config.js
 /* harmony default export */ var button_close_config = ({
-  base: 'inline-flex p-1.5 focus:outline-none transition ease-in-out duration-150',
+  base: 'inline-flex items-center justify-center p-1.5 focus:outline-none transition ease-in-out duration-150',
   variants: {
     default: 'text-gray-400 hover:text-gray-500',
-    'default-rounded': 'text-gray-400 hover:text-gray-500 border border-gray-200 rounded-full bg-white p-3',
+    'default-rounded': 'text-gray-400 hover:text-gray-500 border border-gray-200 rounded-full bg-white',
     primary: 'text-blue-400 hover:text-blue-500',
-    'primary-rounded': 'text-blue-400 hover:text-blue-500 border border-blue-200 rounded-full bg-white p-3',
+    'primary-rounded': 'text-blue-400 hover:text-blue-500 border border-blue-200 rounded-full bg-white',
     danger: 'text-red-400 hover:text-red-500',
-    'danger-rounded': 'text-red-400 hover:text-red-500 border border-red-200 rounded-full bg-white p-3',
+    'danger-rounded': 'text-red-400 hover:text-red-500 border border-red-200 rounded-full bg-white',
     success: 'text-green-400 hover:text-green-500',
-    'success-rounded': 'text-green-400 hover:text-green-500 border border-green-200 rounded-full bg-white p-3'
+    'success-rounded': 'text-green-400 hover:text-green-500 border border-green-200 rounded-full bg-white'
   },
   sizes: {
     xxs: 'w-3 h-3',
@@ -25321,13 +25382,14 @@ var TWModal_component = normalizeComponent(
 /* harmony default export */ var spinner_config = ({
   base: 'inline-block',
   variants: {
-    default: 'text-white',
+    white: 'text-white',
     primary: 'text-blue-500',
     secondary: 'text-gray-500',
     success: 'text-green-600',
     danger: 'text-red-500',
     warning: 'text-yellow-500',
-    info: 'text-cyan-500'
+    info: 'text-cyan-500',
+    dark: 'text-gray-800'
   },
   sizes: {
     xxs: 'h-4 w-4',

@@ -30,7 +30,7 @@
         props: {
             variant: {
                 type: String,
-                default: 'default',
+                default: undefined,
             },
             size: {
                 type: String,
@@ -52,7 +52,7 @@
             },
 
             getVariant() {
-                return this.config.variants[this.variant];
+                return this.variant ? this.config.variants[this.variant] : '';
             },
 
             getSize() {

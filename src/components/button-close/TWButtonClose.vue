@@ -24,12 +24,12 @@
                 return [
                     this.TWOptions.base,
                     this.getVariant,
+                    this.getSize,
                 ];
             },
 
             iconClass() {
                 return [
-                    this.getSize,
                 ];
             },
 
@@ -53,11 +53,13 @@
             if (!child) {
                 child = createElement('svg', {
                     attrs: {
-                        class: this.iconClass,
+                        // class: this.iconClass,
+                        style: 'width: 100%; height: 100%;',
                         xmlns: 'http://www.w3.org/2000/svg',
                         viewBox: '0 0 20 20',
                         fill: 'currentColor',
                         'aria-hidden': 'true',
+                        // preserveAspectRatio: 'none',
                     },
                     slot: 'default',
                 }, [

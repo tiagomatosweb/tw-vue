@@ -4,12 +4,6 @@
             Buttons
         </h3>
 
-        <TWButtonClose variant="default-rounded" size="xxs" />
-        <TWButtonClose variant="default-rounded" size="xs" />
-        <TWButtonClose variant="success-rounded" size="sm" />
-        <TWButtonClose variant="danger-rounded" size="md" />
-        <TWButtonClose variant="default-rounded" size="lg" />
-
         <div class="grid grid-flow-col auto-cols-max gap-1">
             <TwButton>
                 Default
@@ -17,6 +11,35 @@
 
             <TwButton variant="naked">
                 Naked
+            </TwButton>
+
+            <TwButton variant="primary-outline">
+                Primary
+            </TwButton>
+
+            <TwButton variant="secondary-outline">
+                Primary
+            </TwButton>
+
+            <TwButton
+                circle
+                variant="success-outline"
+            >
+                P
+            </TwButton>
+
+            <TwButton
+                variant="danger-outline"
+                @click="test"
+            >
+                Primary
+            </TwButton>
+
+            <TwButton variant="info-outline">
+                Primary
+            </TwButton>
+            <TwButton variant="dark-outline">
+                Primary
             </TwButton>
 
             <TwButton variant="primary">
@@ -130,13 +153,11 @@
 
 <script>
     import TwButton from '@/components/button/TWButton';
-    import TWButtonClose from '@/components/button-close/TWButtonClose';
 
     export default {
         name: 'Buttons',
 
         components: {
-            TWButtonClose,
             TwButton,
         },
 
