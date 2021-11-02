@@ -17,6 +17,7 @@ import cardConfig from '@/components/card/config';
 import badgeConfig from '@/components/badge/config';
 import router from './router';
 import modalConfig from '@/components/modal/config';
+import toggleConfig from '@/components/toggle/config';
 
 Vue.config.productionTip = false;
 
@@ -36,6 +37,7 @@ Vue.prototype.$TWVue = {
     TWCard: merge(cardConfig, options?.TWCard?.extend),
     TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
     TWModal: merge(modalConfig, options?.TWModal?.extend),
+    TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
 };
 
 new Vue({

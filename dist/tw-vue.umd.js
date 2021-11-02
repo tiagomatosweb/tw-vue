@@ -25205,6 +25205,100 @@ var TWModal_component = normalizeComponent(
 )
 
 /* harmony default export */ var TWModal = (TWModal_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4df010df-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/toggle/TWToggle.vue?vue&type=template&id=628b2ed7&
+var TWTogglevue_type_template_id_628b2ed7_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{class:_vm.baseClass,attrs:{"type":"button"},on:{"click":_vm.onClick}},[_c('span',{class:_vm.handlerClass})])}
+var TWTogglevue_type_template_id_628b2ed7_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/toggle/TWToggle.vue?vue&type=template&id=628b2ed7&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/toggle/TWToggle.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var TWTogglevue_type_script_lang_js_ = ({
+  name: 'TWToggle',
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
+    variant: {
+      type: String,
+      default: 'default'
+    }
+  },
+  data: function data() {
+    return {
+      localValue: this.value
+    };
+  },
+  computed: {
+    config: function config() {
+      var _this$$TWVue;
+
+      return (this === null || this === void 0 ? void 0 : (_this$$TWVue = this.$TWVue) === null || _this$$TWVue === void 0 ? void 0 : _this$$TWVue.TWToggle) || {};
+    },
+    baseClass: function baseClass() {
+      var isEnabled = this.isEnabled;
+      var variant = this.getVariant;
+      return [this.config.base, isEnabled ? variant.enabled : variant.disabled];
+    },
+    handlerClass: function handlerClass() {
+      var isEnabled = this.isEnabled;
+      return [this.config.handlerBase, isEnabled ? 'translate-x-5' : 'translate-x-0'];
+    },
+    isEnabled: function isEnabled() {
+      return this.localValue;
+    },
+    getVariant: function getVariant() {
+      return this.config.variants[this.variant];
+    },
+    inputListeners: function inputListeners() {
+      return this.$listeners;
+    }
+  },
+  watch: {
+    value: function value(newValue) {
+      this.localValue = newValue;
+    }
+  },
+  methods: {
+    onClick: function onClick() {
+      this.localValue = !this.localValue;
+      this.$emit('input', this.localValue);
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/toggle/TWToggle.vue?vue&type=script&lang=js&
+ /* harmony default export */ var toggle_TWTogglevue_type_script_lang_js_ = (TWTogglevue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/toggle/TWToggle.vue
+
+
+
+
+
+/* normalize component */
+
+var TWToggle_component = normalizeComponent(
+  toggle_TWTogglevue_type_script_lang_js_,
+  TWTogglevue_type_template_id_628b2ed7_render,
+  TWTogglevue_type_template_id_628b2ed7_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var TWToggle = (TWToggle_component.exports);
 // CONCATENATED MODULE: ./src/components/button/config.js
 /* harmony default export */ var config = ({
   base: 'inline-flex items-center justify-center border focus:outline-none transition ease-in-out duration-150',
@@ -25506,7 +25600,20 @@ var TWModal_component = normalizeComponent(
     full: 'sm:w-full'
   }
 });
+// CONCATENATED MODULE: ./src/components/toggle/config.js
+/* harmony default export */ var toggle_config = ({
+  base: 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500',
+  handlerBase: 'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200',
+  variants: {
+    default: {
+      enabled: 'bg-blue-600',
+      disabled: 'bg-gray-200'
+    }
+  }
+});
 // CONCATENATED MODULE: ./src/index.js
+
+
 
 
 
@@ -25547,7 +25654,7 @@ var TWModal_component = normalizeComponent(
 
 /* harmony default export */ var src_0 = ({
   install: function install(Vue, options) {
-    var _options$TWButton, _options$TWButtonClos, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWSpinner, _options$TWDropdown, _options$TWCard, _options$TWBadge, _options$TWModal;
+    var _options$TWButton, _options$TWButtonClos, _options$TWFormInput, _options$TWFormSelect, _options$TWAlert, _options$TWFormLabel, _options$TWHelpText, _options$TWAvatar, _options$TWSpinner, _options$TWDropdown, _options$TWCard, _options$TWBadge, _options$TWModal, _options$TWToggle;
 
     if (this.installed) {
       return;
@@ -25567,7 +25674,8 @@ var TWModal_component = normalizeComponent(
       TWDropdown: Object(lodash["merge"])(dropdown_config, options === null || options === void 0 ? void 0 : (_options$TWDropdown = options.TWDropdown) === null || _options$TWDropdown === void 0 ? void 0 : _options$TWDropdown.extend),
       TWCard: Object(lodash["merge"])(card_config, options === null || options === void 0 ? void 0 : (_options$TWCard = options.TWCard) === null || _options$TWCard === void 0 ? void 0 : _options$TWCard.extend),
       TWBadge: Object(lodash["merge"])(badge_config, options === null || options === void 0 ? void 0 : (_options$TWBadge = options.TWBadge) === null || _options$TWBadge === void 0 ? void 0 : _options$TWBadge.extend),
-      TWModal: Object(lodash["merge"])(modal_config, options === null || options === void 0 ? void 0 : (_options$TWModal = options.TWModal) === null || _options$TWModal === void 0 ? void 0 : _options$TWModal.extend)
+      TWModal: Object(lodash["merge"])(modal_config, options === null || options === void 0 ? void 0 : (_options$TWModal = options.TWModal) === null || _options$TWModal === void 0 ? void 0 : _options$TWModal.extend),
+      TWToggle: Object(lodash["merge"])(toggle_config, options === null || options === void 0 ? void 0 : (_options$TWToggle = options.TWToggle) === null || _options$TWToggle === void 0 ? void 0 : _options$TWToggle.extend)
     };
     Vue.component('TWButton', TWButton);
     Vue.component('TWButtonClose', TWButtonClose);
@@ -25593,6 +25701,7 @@ var TWModal_component = normalizeComponent(
     Vue.component('TWTab', TWTab);
     Vue.component('TWBadge', TWBadge);
     Vue.component('TWModal', TWModal);
+    Vue.component('TWToggle', TWToggle);
   }
 });
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js

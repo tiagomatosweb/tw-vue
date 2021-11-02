@@ -22,6 +22,7 @@ import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
 import TWBadge from '@/components/badge/TWBadge';
 import TWModal from '@/components/modal/TWModal';
+import TWToggle from '@/components/toggle/TWToggle';
 import buttonConfig from '@/components/button/config';
 import buttonCloseConfig from '@/components/button-close/config';
 import inputConfig from '@/components/form-input/config';
@@ -35,6 +36,7 @@ import dropdownConfig from '@/components/dropdown/config';
 import cardConfig from '@/components/card/config';
 import badgeConfig from '@/components/badge/config';
 import modalConfig from '@/components/modal/config';
+import toggleConfig from '@/components/toggle/config';
 
 export default {
     install(Vue, options) {
@@ -58,6 +60,7 @@ export default {
             TWCard: merge(cardConfig, options?.TWCard?.extend),
             TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
             TWModal: merge(modalConfig, options?.TWModal?.extend),
+            TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
         };
 
         Vue.component('TWButton', TWButton);
@@ -84,6 +87,7 @@ export default {
         Vue.component('TWTab', TWTab);
         Vue.component('TWBadge', TWBadge);
         Vue.component('TWModal', TWModal);
+        Vue.component('TWToggle', TWToggle);
     },
 };
 

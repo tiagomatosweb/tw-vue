@@ -3,6 +3,8 @@
         id="app"
         class="p-10"
     >
+        <TWToggle />
+
         <div
             id="nav"
             class="mb-10"
@@ -39,3 +41,11 @@
         <RouterView />
     </div>
 </template>
+
+<script>
+    import TWToggle from '@/components/toggle/TWToggle';
+
+    export default {
+        components: { TWToggle },
+    };
+</script>

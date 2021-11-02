@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import TwToggle from '@/components/TwToggle';
+    import TwToggle from '@/components/toggle/TWToggle';
 
     export default {
         name: 'TwToggles',
