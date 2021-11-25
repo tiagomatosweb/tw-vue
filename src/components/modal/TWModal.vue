@@ -208,6 +208,10 @@
             window.addEventListener('keydown', this.onEsc);
         },
 
+        beforeDestroy() {
+            window.removeEventListener('keydown', this.onEsc);
+        },
+
         methods: {
             initClasses() {
                 this.wrapClassList = [this.TWOptions.wrap, this.getSize];
@@ -234,6 +238,7 @@
                 this.$emit('close');
             },
             onEsc(evt) {
+                console.log('aqui');
                 if (evt.key === 'Escape' && !this.noCloseOnEsc) {
                     this.close();
                 }

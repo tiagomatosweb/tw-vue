@@ -1,5 +1,5 @@
 <template>
-    <div :class="localVariant.wrapper">
+    <div :class="baseClass">
         <div class="flex">
             <div
                 v-if="$slots['icon']"
@@ -8,7 +8,7 @@
                 <slot name="icon" />
             </div>
 
-            <div :class="localVariant.text">
+            <div>
                 <slot />
             </div>
 
@@ -18,7 +18,7 @@
             >
                 <div class="-mx-1.5 -my-1.5">
                     <button
-                        :class="localVariant.buttonClose"
+                        :class="baseButtonCloseClass"
                         @click.stop.prevent="onClose()"
                     >
                         <span class="sr-only">Dismiss</span>
@@ -58,8 +58,27 @@
         },
 
         computed: {
-            localVariant() {
-                const variants = this?.$TWVue?.TWAlert.variants;
+            config() {
+                return this?.$TWVue?.TWAlert || {};
+            },
+
+            baseClass() {
+                return [
+                    this.config.base,
+                    this.getVariant.base,
+                    this.getVariant.text,
+                ];
+            },
+
+            baseButtonCloseClass() {
+                return [
+                    this.config.baseButtonClose,
+                    this.getVariant.buttonClose,
+                ];
+            },
+
+            getVariant() {
+                const variants = this.config.variants;
                 return variants[this.variant];
             },
         },
