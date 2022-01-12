@@ -1,5 +1,7 @@
 <template>
-    <div v-show="is_active">
+    <div 
+        v-show="is_active"
+    >
         <slot />
     </div>
 </template>
@@ -23,6 +25,9 @@
             return {
                 is_active: false,
             };
+        },
+
+        methods: {
         },
     };
 </script>
