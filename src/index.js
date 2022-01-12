@@ -7,6 +7,7 @@ import TWCard from '@/components/card/TWCard';
 import TWCardBody from '@/components/card/TWCardBody';
 import TWFormGroup from '@/components/form-group/TWFormGroup';
 import TWFormInput from '@/components/form-input/TWFormInput';
+import TWFormFile from '@/components/form-file/TWFormFile';
 import TWFormTextarea from '@/components/form-textarea/TWFormTextarea';
 import TWFormSelect from '@/components/form-select/TWFormSelect';
 import TWFormSelectOption from '@/components/form-select/TWFormSelectOption';
@@ -21,17 +22,21 @@ import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
 import TWBadge from '@/components/badge/TWBadge';
 import TWModal from '@/components/modal/TWModal';
-import buttonConfig from '@/utils/button';
-import buttonCloseConfig from '@/utils/buttonClose';
-import inputConfig from '@/utils/inputs';
-import alertConfig from '@/utils/alert';
-import labelConfig from '@/utils/label';
-import helpTextConfig from '@/utils/helpText';
-import avatarConfig from '@/utils/avatar';
-import dropdownConfig from '@/utils/dropdown';
-import cardConfig from '@/utils/card';
-import badgeConfig from '@/utils/badge';
-import modalConfig from '@/utils/modal';
+import TWToggle from '@/components/toggle/TWToggle';
+import buttonConfig from '@/components/button/config';
+import buttonCloseConfig from '@/components/button-close/config';
+import inputConfig from '@/components/form-input/config';
+import selectConfig from '@/components/form-select/config';
+import alertConfig from '@/components/alert/config';
+import labelConfig from '@/components/form-label/config';
+import helpTextConfig from '@/components/help-text/config';
+import avatarConfig from '@/components/avatar/config';
+import spinnerConfig from '@/components/spinner/config';
+import dropdownConfig from '@/components/dropdown/config';
+import cardConfig from '@/components/card/config';
+import badgeConfig from '@/components/badge/config';
+import modalConfig from '@/components/modal/config';
+import toggleConfig from '@/components/toggle/config';
 
 export default {
     install(Vue, options) {
@@ -45,15 +50,17 @@ export default {
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
             TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
-            TWFormSelect: merge(inputConfig, options?.TWFormSelect?.extend),
+            TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
             TWAlert: merge(alertConfig, options?.TWAlert?.extend),
             TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
             TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
+            TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
             TWCard: merge(cardConfig, options?.TWCard?.extend),
             TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
             TWModal: merge(modalConfig, options?.TWModal?.extend),
+            TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
         };
 
         Vue.component('TWButton', TWButton);
@@ -61,6 +68,7 @@ export default {
         Vue.component('TWButton', TWButton);
         Vue.component('TWFormGroup', TWFormGroup);
         Vue.component('TWFormInput', TWFormInput);
+        Vue.component('TWFormFile', TWFormFile);
         Vue.component('TWFormTextarea', TWFormTextarea);
         Vue.component('TWFormSelect', TWFormSelect);
         Vue.component('TWFormSelectOption', TWFormSelectOption);
@@ -79,6 +87,7 @@ export default {
         Vue.component('TWTab', TWTab);
         Vue.component('TWBadge', TWBadge);
         Vue.component('TWModal', TWModal);
+        Vue.component('TWToggle', TWToggle);
     },
 };
 

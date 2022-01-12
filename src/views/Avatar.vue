@@ -4,6 +4,10 @@
             Avatars
         </h3>
 
+        <div class="text-blue-500">
+            <TWSpinner size="xl" />
+        </div>
+
         <TWAvatar
             text="TM"
             size="xs"
@@ -26,12 +30,14 @@
 
 <script>
     import TWAvatar from '@/components/avatar/TWAvatar';
+    import TWSpinner from '@/components/spinner/TWSpinner';
 
     export default {
-        name: 'Avatars',
+        name: 'Avatar',
 
         components: {
             TWAvatar,
+            TWSpinner,
         },
 
         data() {

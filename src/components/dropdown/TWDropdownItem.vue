@@ -1,15 +1,3 @@
-<template>
-    <Component
-        :is="is"
-        :href="localHref"
-        :to="to"
-        :class="classList"
-        @click="onClick"
-    >
-        <slot />
-    </Component>
-</template>
-
 <script>
     export default {
         name: 'TWDropdownItem',
@@ -25,47 +13,70 @@
                 type: String,
                 default: undefined,
             },
-
             to: {
                 type: [String, Object],
                 default: undefined,
             },
+            tagName: {
+                type: String,
+                default: 'button',
+                validator(value) {
+                    return ['button', 'a'].includes(value);
+                },
+            },
         },
 
         computed: {
-            classList() {
+            baseClass() {
                 return [
                     'group flex items-center',
-                    'block w-full px-4 py-2 text-sm leading-5 text-blue-gray-700 hover:text-blue-gray-900 hover:bg-blue-gray-100',
-                    'focus:outline-none focus:bg-blue-gray-100 focus:text-blue-gray-900',
+                    'block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
+                    'focus:outline-none focus:bg-gray-100 focus:text-gray-900',
                 ];
             },
 
-            localHref() {
-                if (typeof this.to !== 'undefined') {
-                    return undefined;
-                }
-
-                return this.href;
+            isRouterLinkComponentAvailable() {
+                return !!(this.$options.components && (this.$options.components.RouterLink || this.$options.components.NuxtLink));
             },
 
-            is() {
-                if (typeof this.to !== 'undefined') {
-                    return 'RouterLink';
+            isARouterLink() {
+                return this.to !== undefined && this.isRouterLinkComponentAvailable;
+            },
+
+            toRender() {
+                if (this.isARouterLink && this.$options.components) {
+                    return this.$options.components.NuxtLink || this.$options.components.RouterLink;
                 }
 
-                if (typeof this.href !== 'undefined') {
+                if (this.href) {
                     return 'a';
                 }
 
-                return 'button';
+                return this.tagName;
             },
         },
 
         methods: {
-            onClick(evt) {
+            routerLinkAttributes() {
+                return {
+                    to: this.to,
+                    tag: this.tagName,
+                };
+            },
+
+            getAttributes() {
+                if (this.isARouterLink) {
+                    return this.routerLinkAttributes();
+                }
+
+                return {
+                    href: this.href,
+                };
+            },
+
+            onClick($evt) {
                 this.closeDropdown();
-                this.$emit('click', evt);
+                this.$emit('click', $evt);
             },
 
             closeDropdown() {
@@ -75,6 +86,17 @@
 
                 this.TWDropdown.close();
             },
+        },
+
+        render(createElement) {
+            return createElement(this.toRender, {
+                class: this.baseClass,
+                attrs: this.getAttributes(),
+                on: {
+                    ...this.$listeners,
+                    click: this.onClick,
+                },
+            }, this.$slots.default);
         },
     };
 </script>

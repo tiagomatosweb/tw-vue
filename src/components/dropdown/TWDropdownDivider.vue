@@ -1,5 +1,5 @@
 <template functional>
-    <div class="border-t my-1 border-blue-gray-100" />
+    <div class="border-t my-1 border-gray-100" />
 </template>
 
 <script>

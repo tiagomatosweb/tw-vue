@@ -1,6 +1,7 @@
 <template>
     <div>
         <TWFormLabel
+            v-if="label"
             :label-for="labelFor"
         >
             {{ label }}
@@ -38,6 +39,7 @@
                 default: undefined,
             },
         },
+
         components: {
             TWFormLabel,
             TWHelpText,

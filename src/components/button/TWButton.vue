@@ -1,31 +1,8 @@
-<template>
-    <Component
-        :is="is"
-        :type="type"
-        :disabled="busy || disabled"
-        :href="localHref"
-        :to="to"
-        :class="classList"
-        v-on="inputListeners"
-    >
-        <TWSpinner
-            v-if="busy"
-            :class="$slots['default'] ? '-ml-1 mr-3 h-full w-5' : undefined"
-        />
-
-        <slot />
-    </Component>
-</template>
-
 <script>
     import TWSpinner from '../spinner/TWSpinner';
 
     export default {
         name: 'TWButton',
-
-        components: {
-            TWSpinner,
-        },
 
         props: {
             type: {
@@ -39,6 +16,14 @@
             size: {
                 type: String,
                 default: 'md',
+            },
+            rounded: {
+                type: [String, Boolean],
+                default: 'default',
+            },
+            circle: {
+                type: Boolean,
+                default: false,
             },
             block: {
                 type: Boolean,
@@ -60,18 +45,23 @@
                 type: [String, Object],
                 default: undefined,
             },
-        },
-
-        data() {
-            return {
-                TWOptions: {},
-            };
+            tagName: {
+                type: String,
+                default: 'button',
+                validator(value) {
+                    return ['button', 'a'].includes(value);
+                },
+            },
         },
 
         computed: {
-            classList() {
+            config() {
+                return this?.$TWVue?.TWButton || {};
+            },
+
+            baseClass() {
                 const base = [
-                    this.TWOptions.base,
+                    this.config.base,
                 ];
 
                 if (this.block) {
@@ -86,46 +76,118 @@
                     base.join(' '),
                     this.getVariant,
                     this.getSize,
+                    this.getRoundBorder,
                 ];
             },
 
             getVariant() {
-                const variants = this.TWOptions.variants;
+                const variants = this.config.variants;
                 return variants[this.variant];
             },
 
             getSize() {
-                const sizes = this.TWOptions.sizes;
+                if (this.circle) {
+                    return;
+                }
+
+                const sizes = this.config.sizes;
                 return sizes[this.size];
             },
 
-            localHref() {
-                if (typeof this.to !== 'undefined') {
-                    return undefined;
+            getRoundBorder() {
+                if (this.circle) {
+                    return 'rounded-full';
                 }
 
-                return this.href;
+                if (!this.rounded) {
+                    return '';
+                }
+
+                const rounded = this.config.rounded;
+                return rounded[this.rounded];
             },
 
-            is() {
-                if (typeof this.to !== 'undefined') {
-                    return 'RouterLink';
+            isRouterLinkComponentAvailable() {
+                return !!(this.$options.components && (this.$options.components.RouterLink || this.$options.components.NuxtLink));
+            },
+
+            isARouterLink() {
+                return this.to !== undefined && this.isRouterLinkComponentAvailable;
+            },
+
+            toRender() {
+                if (this.isARouterLink && this.$options.components) {
+                    return this.$options.components.NuxtLink || this.$options.components.RouterLink;
                 }
 
-                if (typeof this.href !== 'undefined') {
+                if (this.href) {
                     return 'a';
                 }
 
-                return 'button';
-            },
-
-            inputListeners() {
-                return this.$listeners;
+                return this.tagName;
             },
         },
 
-        created() {
-            this.TWOptions = this?.$TWVue?.TWButton || {};
+        methods: {
+            routerLinkAttributes() {
+                return {
+                    to: this.to,
+                    tag: this.tagName,
+                    disabled: this.busy,
+                };
+            },
+
+            getAttributes() {
+                if (this.isARouterLink) {
+                    return this.routerLinkAttributes();
+                }
+
+                return {
+                    type: this.type,
+                    disabled: this.busy,
+                };
+            },
+
+            onClick(evt) {
+                if (this.busy) {
+                    evt.stopPropagation();
+                    evt.preventDefault();
+                    return;
+                }
+
+                this.$emit('click', evt);
+            },
+        },
+
+        render(createElement) {
+            let options;
+
+            if (this.busy) {
+                options = createElement(TWSpinner, {
+                    props: {
+                        size: 'xxs',
+                    },
+                    class: {
+                        '-ml-1 mr-3 h-full w-5': !!this.$slots.default,
+                    },
+                });
+            }
+
+            return createElement(this.toRender, {
+                class: this.baseClass,
+                style: {
+                    width: this.circle && this.config?.circle[this.size] ? `${this.config.circle[this.size]}px` : undefined,
+                    height: this.circle && this.config?.circle[this.size] ? `${this.config.circle[this.size]}px` : undefined,
+                },
+                attrs: this.getAttributes(),
+                on: {
+                    ...this.$listeners,
+                    click: this.onClick,
+                },
+            }, [
+                options,
+                this.$slots.default,
+            ]);
         },
     };
 </script>

@@ -55,11 +55,11 @@
             },
 
             getTextColorClass() {
-                return this.disabled ? 'text-blue-blue-graygray-300 hover:text-blue-blue-graygray-300' : 'text-blue-blue-graygray-400 hover:text-blue-400 active:text-white';
+                return this.disabled ? 'text-blue-graygray-300 hover:text-blue-graygray-300' : 'text-blue-graygray-400 hover:text-blue-400 active:text-white';
             },
 
             getBorderColorClass() {
-                return this.disabled ? 'border-blue-blue-graygray-100' : 'border-blue-blue-graygray-100 hover:border-blue-400';
+                return this.disabled ? 'border-blue-graygray-100' : 'border-blue-graygray-100 hover:border-blue-400';
             },
 
             getBorderRoundClass() {

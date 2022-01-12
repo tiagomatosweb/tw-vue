@@ -9,8 +9,11 @@
                 variant="primary"
                 text="Dropdown1"
             >
-                <TWDropdownItem :to="{ name: 'About' }">
-                    Option 1
+                <TWDropdownItem
+                    :to="{ name: 'alert' }"
+                    tag-name="a"
+                >
+                    Option 2
                 </TWDropdownItem>
                 <TWDropdownItem>Option 2</TWDropdownItem>
                 <TWDropdownDivider />

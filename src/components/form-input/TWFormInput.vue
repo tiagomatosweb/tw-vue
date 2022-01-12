@@ -1,25 +1,23 @@
 <template>
-    <div class="relative">
-        <input
-            :autocomplete="autocomplete"
-            :autofocus="autofocus"
-            :class="classList"
-            :disabled="disabled"
-            :id="id"
-            :max="max"
-            :maxlength="maxlength"
-            :min="min"
-            :minlength="minlength"
-            :name="name"
-            :pattern="pattern"
-            :placeholder="placeholder"
-            :readonly="readonly"
-            :required="required"
-            :type="type"
-            :value="value"
-            v-on="inputListeners"
-        >
-    </div>
+    <input
+        :autocomplete="autocomplete"
+        :autofocus="autofocus"
+        :class="classList"
+        :disabled="disabled"
+        :id="id"
+        :max="max"
+        :maxlength="maxlength"
+        :min="min"
+        :minlength="minlength"
+        :name="name"
+        :pattern="pattern"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
+        :type="type"
+        :value="value"
+        v-on="inputListeners"
+    >
 </template>
 
 <script>

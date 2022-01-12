@@ -6,7 +6,7 @@
     >
         <div
             v-show="isOpen"
-            class="fixed z-10 inset-0 overflow-y-auto"
+            class="fixed z-50 inset-0 overflow-y-auto"
         >
             <div class="flex items-center justify-center min-h-screen p-4 sm:p-0 text-center">
                 <div
@@ -162,7 +162,6 @@
                 TWOptions: {},
                 isOpen: this.value,
                 isInDOM: this.value, // TODO: this is required for transition to be added later on.
-                backdropClassList: [],
                 wrapClassList: [],
                 titleClassList: [],
                 headerClassList: [],
@@ -172,6 +171,14 @@
         },
 
         computed: {
+            backdropClassList() {
+                return [
+                    'absolute inset-0',
+                    this.TWOptions.backdropBackground,
+                    this.TWOptions.backdropOpacity,
+                ];
+            },
+
             getSize() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
@@ -201,9 +208,12 @@
             window.addEventListener('keydown', this.onEsc);
         },
 
+        beforeDestroy() {
+            window.removeEventListener('keydown', this.onEsc);
+        },
+
         methods: {
             initClasses() {
-                this.backdropClassList = [this.TWOptions.backdrop, this.TWOptions.backdropOpacity];
                 this.wrapClassList = [this.TWOptions.wrap, this.getSize];
                 this.titleClassList = this.TWOptions.title;
                 this.headerClassList = this.TWOptions.header;
@@ -214,9 +224,6 @@
                 if (!this.noCloseOnBackdrop) {
                     this.close();
                 }
-            },
-            onButtonCloseClick() {
-                this.close();
             },
             onCancelClick() {
                 this.close();
@@ -231,6 +238,7 @@
                 this.$emit('close');
             },
             onEsc(evt) {
+                console.log('aqui');
                 if (evt.key === 'Escape' && !this.noCloseOnEsc) {
                     this.close();
                 }
