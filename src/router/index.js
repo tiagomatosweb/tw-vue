@@ -16,6 +16,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "alert" */ '../views/Alerts.vue'),
     },
     {
+        path: '/tags',
+        name: 'tags',
+        component: () => import(/* webpackChunkName: "alert" */ '../views/Tags.vue'),
+    },
+    {
         path: '/avatars',
         name: 'avatars',
         component: () => import(/* webpackChunkName: "avatars" */ '../views/Avatars.vue'),

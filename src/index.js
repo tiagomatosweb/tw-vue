@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 import Alert from '@/components/alert/Alert';
 import Avatar from '@/components/avatar/Avatar';
+import Tag from '@/components/tag/Tag';
 
 import TWButton from '@/components/button/TWButton';
 import TWButtonClose from '@/components/button-close/TWButtonClose';
@@ -21,7 +22,6 @@ import TWHelpText from '@/components/help-text/TWHelpText';
 import TWPagination from '@/components/pagination/TWPagination';
 import TWTabs from '@/components/tabs/TWTabs';
 import TWTab from '@/components/tabs/TWTab';
-import TWBadge from '@/components/badge/TWBadge';
 import TWModal from '@/components/modal/TWModal';
 import TWToggle from '@/components/toggle/TWToggle';
 import buttonConfig from '@/components/button/config';
@@ -35,7 +35,7 @@ import avatarConfig from '@/components/avatar/config';
 import spinnerConfig from '@/components/spinner/config';
 import dropdownConfig from '@/components/dropdown/config';
 import cardConfig from '@/components/card/config';
-import badgeConfig from '@/components/badge/config';
+import tagConfig from '@/components/tag/config';
 import modalConfig from '@/components/modal/config';
 import toggleConfig from '@/components/toggle/config';
 
@@ -50,6 +50,7 @@ export default {
         Vue.prototype.$TWVue = {
             Alert: merge(alertConfig, options?.Alert?.extend),
             Avatar: merge(avatarConfig, options?.Avatar?.extend),
+            Tag: merge(tagConfig, options?.Tag?.extend),
 
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
@@ -60,13 +61,13 @@ export default {
             TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
             TWCard: merge(cardConfig, options?.TWCard?.extend),
-            TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
             TWModal: merge(modalConfig, options?.TWModal?.extend),
             TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
         };
 
         Vue.component('TWAlert', Alert);
         Vue.component('TWAvatar', Avatar);
+        Vue.component('TWBadge', Tag);
 
         Vue.component('TWButton', TWButton);
         Vue.component('TWButtonClose', TWButtonClose);
@@ -88,7 +89,6 @@ export default {
         Vue.component('TWPagination', TWPagination);
         Vue.component('TWTabs', TWTabs);
         Vue.component('TWTab', TWTab);
-        Vue.component('TWBadge', TWBadge);
         Vue.component('TWModal', TWModal);
         Vue.component('TWToggle', TWToggle);
     },

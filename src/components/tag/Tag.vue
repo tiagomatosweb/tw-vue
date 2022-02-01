@@ -1,46 +1,32 @@
 <template>
-    <div :class="baseClass">
-        <slot name="content">
-            <div class="flex">
-                <div
-                    v-if="$slots['icon']"
-                    class="flex-shrink-0 mr-3"
-                >
-                    <slot name="icon" />
-                </div>
-
-                <div :class="dismissible ? 'mr-10 ' : null">
-                    <slot />
-                </div>
-            </div>
-        </slot>
+    <span :class="baseClass">
+        <slot />
 
         <button
-            v-if="dismissible"
+            v-if="closable"
+            type="button"
             :class="baseButtonCloseClass"
-            @click.stop.prevent="onClose()"
         >
             <svg
-                class="h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+                class="h-2 w-2"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 8 8"
             >
                 <path
-                    fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-width="1.5"
+                    d="M1 1l6 6m0-6L1 7"
                 />
             </svg>
         </button>
-    </div>
+    </span>
 </template>
 
 <script>
     import Vue from 'vue';
 
-    const config = Vue.prototype.$TWVue.Alert;
+    const config = Vue.prototype.$TWVue.Tag;
 
     const defaultVariant = (config) => {
         if (!config?.variants) {
@@ -54,8 +40,20 @@
         return Object.keys(config.variants)[0];
     };
 
+    const defaultSize = (config) => {
+        if (!config?.sizes) {
+            throw new Error('You have to declare sizes property');
+        }
+
+        if (!!config?.defaultSize && !!config.sizes[config.defaultSize]) {
+            return config?.defaultSize;
+        }
+
+        return Object.keys(config.sizes)[0];
+    };
+
     export default {
-        name: 'Alert',
+        name: 'Tag',
 
         props: {
             variants: {
@@ -66,24 +64,32 @@
                 type: String,
                 default: defaultVariant(config),
             },
-            dismissible: {
-                type: Boolean,
+            sizes: {
+                type: Object,
                 default: undefined,
+            },
+            size: {
+                type: String,
+                default: defaultSize(config),
+            },
+            closable: {
+                type: Boolean,
+                default: false,
             },
         },
 
         computed: {
             baseClass() {
                 return [
-                    'relative',
                     config.base,
+                    this.getSize,
                     this.getVariant.base,
                 ];
             },
 
             baseButtonCloseClass() {
                 return [
-                    'absolute right-4 top-4 ml-auto -mx-1.5 -my-1.5',
+                    'h-4 w-4 ml-1 -mr-2',
                     config.baseButtonClose,
                     this.getVariant.buttonClose,
                 ];
@@ -93,13 +99,10 @@
                 const variants = { ...config.variants, ...this.variants };
                 return variants[this.variant];
             },
-        },
 
-        methods: {
-            onClose() {
-                if (this.dismissible) {
-                    this.$emit('close');
-                }
+            getSize() {
+                const sizes = { ...config.sizes, ...this.sizes };
+                return sizes[this.size];
             },
         },
     };

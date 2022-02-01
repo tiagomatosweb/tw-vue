@@ -14,7 +14,7 @@ import avatarConfig from '@/components/avatar/config';
 import spinnerConfig from '@/components/spinner/config';
 import dropdownConfig from '@/components/dropdown/config';
 import cardConfig from '@/components/card/config';
-import badgeConfig from '@/components/badge/config';
+import tagConfig from '@/components/tag/config';
 import router from './router';
 import modalConfig from '@/components/modal/config';
 import toggleConfig from '@/components/toggle/config';
@@ -26,6 +26,7 @@ const options = {};
 Vue.prototype.$TWVue = {
     Alert: merge(alertConfig, options?.Alert?.extend),
     Avatar: merge(avatarConfig, options?.Avatar?.extend),
+    Tag: merge(tagConfig, options?.Tag?.extend),
 
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
     TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
@@ -36,7 +37,6 @@ Vue.prototype.$TWVue = {
     TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     TWCard: merge(cardConfig, options?.TWCard?.extend),
-    TWBadge: merge(badgeConfig, options?.TWBadge?.extend),
     TWModal: merge(modalConfig, options?.TWModal?.extend),
     TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
 };
