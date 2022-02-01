@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import TWAlert from '@/components/alert/TWAlert';
+import TWAlert from '@/components/alert/Alert';
 import TWButton from '@/components/button/TWButton';
 import TWButtonClose from '@/components/button-close/TWButtonClose';
 import TWAvatar from '@/components/avatar/TWAvatar';
@@ -47,11 +47,12 @@ export default {
         this.installed = true;
 
         Vue.prototype.$TWVue = {
+            Alert: merge(alertConfig, options?.Alert?.extend),
+
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
             TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
             TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
-            TWAlert: merge(alertConfig, options?.TWAlert?.extend),
             TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
             TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
@@ -63,6 +64,8 @@ export default {
             TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
         };
 
+        Vue.component('TWAlert', TWAlert);
+
         Vue.component('TWButton', TWButton);
         Vue.component('TWButtonClose', TWButtonClose);
         Vue.component('TWButton', TWButton);
@@ -72,7 +75,6 @@ export default {
         Vue.component('TWFormTextarea', TWFormTextarea);
         Vue.component('TWFormSelect', TWFormSelect);
         Vue.component('TWFormSelectOption', TWFormSelectOption);
-        Vue.component('TWAlert', TWAlert);
         Vue.component('TWFormLabel', TWFormLabel);
         Vue.component('TWSpinner', TWSpinner);
         Vue.component('TWHelpText', TWHelpText);

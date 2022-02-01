@@ -24,11 +24,12 @@ Vue.config.productionTip = false;
 const options = {};
 
 Vue.prototype.$TWVue = {
+    Alert: merge(alertConfig, options?.Alert?.extend),
+
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
     TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
     TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
     TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
-    TWAlert: merge(alertConfig, options?.TWAlert?.extend),
     TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
     TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
