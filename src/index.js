@@ -1,8 +1,9 @@
 import { merge } from 'lodash';
-import TWAlert from '@/components/alert/Alert';
+import Alert from '@/components/alert/Alert';
+import Avatar from '@/components/avatar/Avatar';
+
 import TWButton from '@/components/button/TWButton';
 import TWButtonClose from '@/components/button-close/TWButtonClose';
-import TWAvatar from '@/components/avatar/TWAvatar';
 import TWCard from '@/components/card/TWCard';
 import TWCardBody from '@/components/card/TWCardBody';
 import TWFormGroup from '@/components/form-group/TWFormGroup';
@@ -48,6 +49,7 @@ export default {
 
         Vue.prototype.$TWVue = {
             Alert: merge(alertConfig, options?.Alert?.extend),
+            Avatar: merge(avatarConfig, options?.Avatar?.extend),
 
             TWButton: merge(buttonConfig, options?.TWButton?.extend),
             TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
@@ -55,7 +57,6 @@ export default {
             TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
             TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
             TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
-            TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
             TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
             TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
             TWCard: merge(cardConfig, options?.TWCard?.extend),
@@ -64,7 +65,8 @@ export default {
             TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
         };
 
-        Vue.component('TWAlert', TWAlert);
+        Vue.component('TWAlert', Alert);
+        Vue.component('TWAvatar', Avatar);
 
         Vue.component('TWButton', TWButton);
         Vue.component('TWButtonClose', TWButtonClose);
@@ -78,7 +80,6 @@ export default {
         Vue.component('TWFormLabel', TWFormLabel);
         Vue.component('TWSpinner', TWSpinner);
         Vue.component('TWHelpText', TWHelpText);
-        Vue.component('TWAvatar', TWAvatar);
         Vue.component('TWDropdown', TWDropdown);
         Vue.component('TWDropdownItem', TWDropdownItem);
         Vue.component('TWDropdownDivider', TWDropdownDivider);

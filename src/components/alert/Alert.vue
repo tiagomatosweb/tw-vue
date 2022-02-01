@@ -44,7 +44,7 @@
 
     const defaultVariant = (config) => {
         if (!config?.variants) {
-            throw new Error('You need to declare variants property');
+            throw new Error('You have to declare variants property');
         }
 
         if (!!config?.defaultVariant && !!config.variants[config.defaultVariant]) {
@@ -58,13 +58,13 @@
         name: 'Alert',
 
         props: {
-            variant: {
-                type: String,
-                default: defaultVariant(config),
-            },
             variants: {
                 type: Object,
                 default: undefined,
+            },
+            variant: {
+                type: String,
+                default: defaultVariant(config),
             },
             dismissible: {
                 type: Boolean,

@@ -25,6 +25,7 @@ const options = {};
 
 Vue.prototype.$TWVue = {
     Alert: merge(alertConfig, options?.Alert?.extend),
+    Avatar: merge(avatarConfig, options?.Avatar?.extend),
 
     TWButton: merge(buttonConfig, options?.TWButton?.extend),
     TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
@@ -32,7 +33,6 @@ Vue.prototype.$TWVue = {
     TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
     TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
     TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
-    TWAvatar: merge(avatarConfig, options?.TWAvatar?.extend),
     TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
     TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     TWCard: merge(cardConfig, options?.TWCard?.extend),

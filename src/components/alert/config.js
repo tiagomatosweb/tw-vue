@@ -21,7 +21,7 @@ export default {
         },
         warning: {
             base: 'text-yellow-700 text-yellow-700 bg-yellow-100',
-            buttonClose: 'bg-yellow-100 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-200',
+            buttonClose: 'bg-yellow-100 text-yellow-600 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-200',
         },
     },
 };

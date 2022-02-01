@@ -5,35 +5,13 @@
             class="mb-10 bg-gray-100"
         >
             <div class="container mx-auto p-4 space-x-3">
-                <RouterLink to="/">
-                    Home
-                </RouterLink>
-
                 <RouterLink
-                    :to="{ name: 'alert' }"
-                    active-class="font-bold text-blue-400"
+                    v-for="nav in menu"
+                    :key="nav.label"
+                    :to="nav.to"
+                    :active-class="nav.to.name === $route.name ? 'font-bold' : null"
                 >
-                    Alert
-                </RouterLink>
-
-                <RouterLink :to="{ name: 'pagination' }">
-                    Pagination
-                </RouterLink>
-
-                <RouterLink :to="{ name: 'form' }">
-                    Form
-                </RouterLink>
-
-                <RouterLink :to="{ name: 'alert' }">
-                    Alert
-                </RouterLink>
-
-                <RouterLink :to="{ name: 'avatar' }">
-                    Avatar
-                </RouterLink>
-
-                <RouterLink :to="{ name: 'slideOvers' }">
-                    Slide over
+                    {{ nav.label }}
                 </RouterLink>
             </div>
         </div>
@@ -45,5 +23,14 @@
 </template>
 
 <script>
-
+    export default {
+        data() {
+            return {
+                menu: [
+                    { label: 'Alerts', to: { name: 'alerts' } },
+                    { label: 'Avatars', to: { name: 'avatars' } },
+                ],
+            };
+        },
+    };
 </script>
