@@ -3,6 +3,9 @@ export default {
     defaultSize: 'md',
     base: 'inline-flex items-center justify-center border focus:outline-none transition ease-in-out rounded-lg duration-150',
     variants: {
+        ghost: {
+            base: 'text-gray-700 bg-white hover:bg-white border-white hover:border-white',
+        },
         primary: {
             base: 'text-white bg-blue-500 hover:bg-blue-600 border-blue-500 hover:border-blue-600',
         },

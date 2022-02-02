@@ -10,7 +10,7 @@
         <TWSpinner
             v-if="busy"
             size="xxs"
-            class="-ml-0.5 mr-2"
+            :class="$slots.default || label ? '-ml-0.5 mr-2' : ''"
         />
         <span v-if="label">{{ label }}</span>
         <span v-else-if="$slots.default">
@@ -91,6 +91,10 @@
                 default: false,
             },
             busy: {
+                type: Boolean,
+                default: false,
+            },
+            hideLabelWhenBusy: {
                 type: Boolean,
                 default: false,
             },

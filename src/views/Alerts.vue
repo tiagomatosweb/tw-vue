@@ -5,6 +5,10 @@
         </h3>
 
         <div>
+            <h4 class="font-semibold text-gray-800 tracking-tight mb-2">
+                Variants
+            </h4>
+
             <TWAlert dismissible>
                 This is a <span class="font-semibold">primary</span> alert!
             </TWAlert>

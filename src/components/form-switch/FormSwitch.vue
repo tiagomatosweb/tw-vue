@@ -1,26 +1,17 @@
 <template>
-    <div
+    <button
+        type="button"
         :class="baseClass"
-        @click.stop.prevent="onClick()"
+        @click="onClick"
     >
-        <slot>
-            <img
-                v-if="src"
-                :src="src"
-                :alt="alt"
-            >
-        </slot>
-
-        <span v-if="text && (!src || $slots['default'])">
-            {{ text }}
-        </span>
-    </div>
+        <span :class="handlerClass" />
+    </button>
 </template>
 
 <script>
     import Vue from 'vue';
 
-    const config = Vue.prototype.$TWVue.Avatar;
+    const config = Vue.prototype.$TWVue.FormSwitch;
 
     const defaultSize = (config) => {
         if (!config?.sizes) {
@@ -47,7 +38,7 @@
     };
 
     export default {
-        name: 'Avatar',
+        name: 'FormSwitch',
         props: {
             variants: {
                 type: Object,
@@ -65,25 +56,22 @@
                 type: String,
                 default: defaultSize(config),
             },
-            src: {
-                type: String,
-                default: undefined,
+            value: {
+                type: [Boolean, Number],
+                default: false,
             },
-            alt: {
-                type: String,
-                default: undefined,
-            },
-            text: {
-                type: String,
-                default: undefined,
-            },
+        },
+        data() {
+            return {
+                localValue: this.value,
+            };
         },
         computed: {
             baseClass() {
                 return [
                     config.base,
-                    this.getSize,
-                    this.getVariant.base,
+                    this.isEnabled ? this.getVariant.base.enabled : this.getVariant.base.disabled,
+                    this.getSize.base,
                 ];
             },
             getVariant() {
@@ -94,10 +82,27 @@
                 const sizes = { ...config.sizes, ...this.sizes };
                 return sizes[this.size];
             },
+            handlerClass() {
+                return [
+                    config.baseHandler,
+                    this.isEnabled ? 'translate-x-full' : 'translate-x-0',
+                    this.isEnabled ? this.getVariant.handler.enabled : this.getVariant.handler.disabled,
+                    this.getSize.handler,
+                ];
+            },
+            isEnabled() {
+                return !!this.localValue;
+            },
+        },
+        watch: {
+            value(newValue) {
+                this.localValue = newValue;
+            },
         },
         methods: {
             onClick() {
-                this.$emit('click');
+                this.localValue = !this.localValue;
+                this.$emit('input', this.localValue);
             },
         },
     };

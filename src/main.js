@@ -7,8 +7,9 @@ import '@/assets/css/tailwind.css';
 import alertConfig from '@/components/alert/config';
 import avatarConfig from '@/components/avatar/config';
 import buttonConfig from '@/components/button/config';
-import tagConfig from '@/components/tag/config';
+import formSwitch from '@/components/form-switch/config';
 import spinnerConfig from '@/components/spinner/config';
+import tagConfig from '@/components/tag/config';
 
 // import buttonCloseConfig from '@/components/button-close/config';
 // import inputConfig from '@/components/form-input/config';
@@ -27,9 +28,10 @@ const options = {};
 Vue.prototype.$TWVue = {
     Alert: merge(alertConfig, options?.Alert?.extend),
     Avatar: merge(avatarConfig, options?.Avatar?.extend),
-    Tag: merge(tagConfig, options?.Tag?.extend),
     Button: merge(buttonConfig, options?.Button?.extend),
+    FormSwitch: merge(formSwitch, options?.FormSwitch?.extend),
     Spinner: merge(spinnerConfig, options?.Spinner?.extend),
+    Tag: merge(tagConfig, options?.Tag?.extend),
 
     // TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
     // TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),

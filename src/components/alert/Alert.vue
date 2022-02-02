@@ -56,7 +56,6 @@
 
     export default {
         name: 'Alert',
-
         props: {
             variants: {
                 type: Object,
@@ -71,7 +70,6 @@
                 default: undefined,
             },
         },
-
         computed: {
             baseClass() {
                 return [
@@ -80,7 +78,6 @@
                     this.getVariant.base,
                 ];
             },
-
             baseButtonCloseClass() {
                 return [
                     'absolute right-4 top-4 ml-auto -mx-1.5 -my-1.5',
@@ -88,13 +85,11 @@
                     this.getVariant.buttonClose,
                 ];
             },
-
             getVariant() {
                 const variants = { ...config.variants, ...this.variants };
                 return variants[this.variant];
             },
         },
-
         methods: {
             onClose() {
                 if (this.dismissible) {

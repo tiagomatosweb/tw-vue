@@ -26,31 +26,36 @@ const routes = [
         component: () => import(/* webpackChunkName: "buttons" */ '../views/Buttons.vue'),
     },
     {
+        path: '/form-switch',
+        name: 'form-switch',
+        component: () => import(/* webpackChunkName: "form-switch" */ '../views/FormSwitch.vue'),
+    },
+    {
         path: '/tags',
         name: 'tags',
         component: () => import(/* webpackChunkName: "tags" */ '../views/Tags.vue'),
     },
-    {
-        path: '/pagination',
-        name: 'pagination',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/Pagination.vue'),
-    },
-    {
-        path: '/form',
-        name: 'form',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/Form.vue'),
-    },
-    {
-        path: '/slide-overs',
-        name: 'slideOvers',
-        component: () => import(/* webpackChunkName: "about" */ '../views/SlideOvers.vue'),
-    },
+    // {
+    //     path: '/pagination',
+    //     name: 'pagination',
+    //     // route level code-splitting
+    //     // this generates a separate chunk (about.[hash].js) for this route
+    //     // which is lazy-loaded when the route is visited.
+    //     component: () => import(/* webpackChunkName: "about" */ '../views/Pagination.vue'),
+    // },
+    // {
+    //     path: '/form',
+    //     name: 'form',
+    //     // route level code-splitting
+    //     // this generates a separate chunk (about.[hash].js) for this route
+    //     // which is lazy-loaded when the route is visited.
+    //     component: () => import(/* webpackChunkName: "about" */ '../views/Form.vue'),
+    // },
+    // {
+    //     path: '/slide-overs',
+    //     name: 'slideOvers',
+    //     component: () => import(/* webpackChunkName: "about" */ '../views/SlideOvers.vue'),
+    // },
 ];
 
 const router = new VueRouter({
