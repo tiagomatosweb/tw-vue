@@ -29,6 +29,7 @@
                 menu: [
                     { label: 'Alerts', to: { name: 'alerts' } },
                     { label: 'Avatars', to: { name: 'avatars' } },
+                    { label: 'Buttons', to: { name: 'buttons' } },
                     { label: 'Tags', to: { name: 'tags' } },
                 ],
             };

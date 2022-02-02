@@ -10,21 +10,25 @@
                     text="TW"
                     size="xs"
                 />
+
                 <TWAvatar
                     variant="secondary"
                     text="TW"
                     size="sm"
                 />
-                <TWAvatar
-                    variant="danger"
-                    text="TW"
-                    size="md"
-                />
+
                 <TWAvatar
                     variant="success"
                     text="TW"
                     size="lg"
                 />
+
+                <TWAvatar
+                    variant="danger"
+                    text="TW"
+                    size="md"
+                />
+
                 <TWAvatar
                     variant="warning"
                     text="TW"

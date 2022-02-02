@@ -79,7 +79,7 @@
 <script>
     import { MountingPortal } from 'portal-vue';
     import TWButtonClose from '../button-close/TWButtonClose';
-    import TWButton from '../button/TWButton';
+    import TWButton from '../button/Button';
 
     export default {
         name: 'TWModal',

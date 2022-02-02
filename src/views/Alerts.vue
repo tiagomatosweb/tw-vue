@@ -17,17 +17,17 @@
             </TWAlert>
 
             <TWAlert
-                variant="danger"
-                dismissible
-            >
-                This is a <span class="font-semibold">danger</span> alert!
-            </TWAlert>
-
-            <TWAlert
                 variant="success"
                 dismissible
             >
                 This is a <span class="font-semibold">success</span> alert!
+            </TWAlert>
+
+            <TWAlert
+                variant="danger"
+                dismissible
+            >
+                This is a <span class="font-semibold">danger</span> alert!
             </TWAlert>
 
             <TWAlert

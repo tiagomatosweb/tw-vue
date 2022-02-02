@@ -1,23 +1,24 @@
 import Vue from 'vue';
 import App from './App.vue';
 import { merge } from 'lodash';
+import router from './router';
 
 import '@/assets/css/tailwind.css';
-import buttonConfig from '@/components/button/config';
-import buttonCloseConfig from '@/components/button-close/config';
-import inputConfig from '@/components/form-input/config';
-import selectConfig from '@/components/form-select/config';
 import alertConfig from '@/components/alert/config';
-import labelConfig from '@/components/form-label/config';
-import helpTextConfig from '@/components/help-text/config';
 import avatarConfig from '@/components/avatar/config';
-import spinnerConfig from '@/components/spinner/config';
-import dropdownConfig from '@/components/dropdown/config';
-import cardConfig from '@/components/card/config';
+import buttonConfig from '@/components/button/config';
 import tagConfig from '@/components/tag/config';
-import router from './router';
-import modalConfig from '@/components/modal/config';
-import toggleConfig from '@/components/toggle/config';
+import spinnerConfig from '@/components/spinner/config';
+
+// import buttonCloseConfig from '@/components/button-close/config';
+// import inputConfig from '@/components/form-input/config';
+// import selectConfig from '@/components/form-select/config';
+// import labelConfig from '@/components/form-label/config';
+// import helpTextConfig from '@/components/help-text/config';
+// import dropdownConfig from '@/components/dropdown/config';
+// import cardConfig from '@/components/card/config';
+// import modalConfig from '@/components/modal/config';
+// import toggleConfig from '@/components/toggle/config';
 
 Vue.config.productionTip = false;
 
@@ -27,18 +28,18 @@ Vue.prototype.$TWVue = {
     Alert: merge(alertConfig, options?.Alert?.extend),
     Avatar: merge(avatarConfig, options?.Avatar?.extend),
     Tag: merge(tagConfig, options?.Tag?.extend),
+    Button: merge(buttonConfig, options?.Button?.extend),
+    Spinner: merge(spinnerConfig, options?.Spinner?.extend),
 
-    TWButton: merge(buttonConfig, options?.TWButton?.extend),
-    TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
-    TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
-    TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
-    TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
-    TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
-    TWSpinner: merge(spinnerConfig, options?.TWSpinner?.extend),
-    TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
-    TWCard: merge(cardConfig, options?.TWCard?.extend),
-    TWModal: merge(modalConfig, options?.TWModal?.extend),
-    TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
+    // TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
+    // TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
+    // TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
+    // TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
+    // TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
+    // TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
+    // TWCard: merge(cardConfig, options?.TWCard?.extend),
+    // TWModal: merge(modalConfig, options?.TWModal?.extend),
+    // TWToggle: merge(toggleConfig, options?.TWToggle?.extend),
 };
 
 new Vue({

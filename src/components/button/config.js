@@ -1,41 +1,38 @@
 export default {
-    base: 'inline-flex items-center justify-center border focus:outline-none transition ease-in-out duration-150',
+    defaultVariant: 'primary',
+    defaultSize: 'md',
+    base: 'inline-flex items-center justify-center border focus:outline-none transition ease-in-out rounded-lg duration-150',
     variants: {
-        default: 'text-gray-700 bg-white hover:bg-gray-50 border border-gray-300',
-        naked: 'text-gray-700 border-transparent',
-        primary: 'text-white bg-blue-500 hover:bg-blue-600 border-blue-500 hover:border-blue-600',
-        'primary-outline': 'text-blue-500 hover:text-blue-600 border-blue-500 hover:border-blue-600',
-        secondary: 'text-white bg-gray-500 hover:bg-gray-600 border-gray-500 hover:border-gray-600',
-        'secondary-outline': 'text-gray-500 hover:text-gray-600 border-gray-500 hover:border-gray-600',
-        success: 'text-white bg-green-600 hover:bg-green-700 border-green-500 hover:border-green-600',
-        'success-outline': 'text-green-600 hover:text-green-700 border-green-500 hover:border-green-600',
-        danger: 'text-white bg-red-500 hover:bg-red-600 border-red-500 hover:border-red-600',
-        'danger-outline': 'text-red-500 hover:text-red-600 border-red-500 hover:border-red-600',
-        warning: 'text-yellow-900 bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500',
-        'warning-outline': 'text-yellow-500 hover:text-yellow-600 border-yellow-400 hover:border-yellow-500',
-        info: 'text-white bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600',
-        'info-outline': 'text-cyan-500 hover:text-cyan-600 border-cyan-500 hover:border-cyan-600',
-        light: 'text-gray-700 bg-gray-100 hover:bg-gray-200 border-gray-100 hover:border-gray-200',
-        dark: 'text-white bg-gray-700 hover:bg-gray-900',
-        'dark-outline': 'text-gray-700 hover:text-gray-900 border-gray-700 hover:border-gray-900',
-    },
-    rounded: {
-        sm: 'rounded-sm',
-        default: 'rounded',
-        md: 'rounded-md',
-        lg: 'rounded-lg',
-        xl: 'rounded-xl',
-        '2xl': 'rounded-2xl',
-        '3xl': 'rounded-3xl',
-        full: 'rounded-full',
-    },
-    circle: {
-        xs: 30,
-        sm: 34,
-        md: 38,
-        lg: 42,
-        xl: 50,
-        '2xl': 54,
+        primary: {
+            base: 'text-white bg-blue-500 hover:bg-blue-600 border-blue-500 hover:border-blue-600',
+        },
+        primaryOutline: {
+            base: 'text-blue-500 hover:text-blue-600 border-blue-500 hover:border-blue-600',
+        },
+        secondary: {
+            base: 'text-gray-700 bg-white hover:bg-gray-50 border-gray-300 hover:border-gray-400',
+        },
+        secondaryOutline: {
+            base: 'text-gray-500 hover:text-gray-600 border-gray-500 hover:border-gray-600',
+        },
+        success: {
+            base: 'text-white bg-green-500 hover:bg-green-600 border-green-500 hover:border-green-600',
+        },
+        successOutline: {
+            base: 'text-green-500 hover:text-green-600 border-green-500 hover:border-green-600',
+        },
+        danger: {
+            base: 'text-white bg-red-500 hover:bg-red-600 border-red-500 hover:border-red-600',
+        },
+        dangerOutline: {
+            base: 'text-red-500 hover:text-red-600 border-red-500 hover:border-red-600',
+        },
+        warning: {
+            base: 'text-yellow-900 bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500',
+        },
+        warningOutline: {
+            base: 'text-yellow-500 hover:text-yellow-600 border-yellow-500 hover:border-yellow-600',
+        },
     },
     sizes: {
         xs: 'text-xs px-2.5 py-1.5',
@@ -43,6 +40,5 @@ export default {
         md: 'text-sm px-4 py-2',
         lg: 'text-base px-4 py-2',
         xl: 'text-base px-6 py-3',
-        '2xl': 'text-xl px-8 py-3',
     },
 };

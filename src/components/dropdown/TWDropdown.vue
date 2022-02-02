@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import TWButton from '../button/TWButton';
+    import TWButton from '../button/Button';
     import { createPopper } from '@popperjs/core/lib/popper-lite.js';
 
     export default {

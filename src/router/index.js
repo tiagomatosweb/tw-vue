@@ -13,17 +13,22 @@ const routes = [
     {
         path: '/alerts',
         name: 'alerts',
-        component: () => import(/* webpackChunkName: "alert" */ '../views/Alerts.vue'),
-    },
-    {
-        path: '/tags',
-        name: 'tags',
-        component: () => import(/* webpackChunkName: "alert" */ '../views/Tags.vue'),
+        component: () => import(/* webpackChunkName: "alerts" */ '../views/Alerts.vue'),
     },
     {
         path: '/avatars',
         name: 'avatars',
         component: () => import(/* webpackChunkName: "avatars" */ '../views/Avatars.vue'),
+    },
+    {
+        path: '/buttons',
+        name: 'buttons',
+        component: () => import(/* webpackChunkName: "buttons" */ '../views/Buttons.vue'),
+    },
+    {
+        path: '/tags',
+        name: 'tags',
+        component: () => import(/* webpackChunkName: "tags" */ '../views/Tags.vue'),
     },
     {
         path: '/pagination',
@@ -40,14 +45,6 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/Form.vue'),
-    },
-    {
-        path: '/button',
-        name: 'button',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/Button.vue'),
     },
     {
         path: '/slide-overs',
