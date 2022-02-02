@@ -8,6 +8,7 @@ import alertConfig from '@/components/alert/config';
 import avatarConfig from '@/components/avatar/config';
 import buttonConfig from '@/components/button/config';
 import formSwitch from '@/components/form-switch/config';
+import helpTextConfig from '@/components/help-text/config';
 import spinnerConfig from '@/components/spinner/config';
 import tagConfig from '@/components/tag/config';
 
@@ -15,7 +16,6 @@ import tagConfig from '@/components/tag/config';
 // import inputConfig from '@/components/form-input/config';
 // import selectConfig from '@/components/form-select/config';
 // import labelConfig from '@/components/form-label/config';
-// import helpTextConfig from '@/components/help-text/config';
 // import dropdownConfig from '@/components/dropdown/config';
 // import cardConfig from '@/components/card/config';
 // import modalConfig from '@/components/modal/config';
@@ -32,12 +32,12 @@ Vue.prototype.$TWVue = {
     FormSwitch: merge(formSwitch, options?.FormSwitch?.extend),
     Spinner: merge(spinnerConfig, options?.Spinner?.extend),
     Tag: merge(tagConfig, options?.Tag?.extend),
+    HelpText: merge(helpTextConfig, options?.HelpText?.extend),
 
     // TWButtonClose: merge(buttonCloseConfig, options?.TWButtonClose?.extend),
     // TWFormInput: merge(inputConfig, options?.TWFormInput?.extend),
     // TWFormSelect: merge({ ...inputConfig, ...selectConfig }, options?.TWFormSelect?.extend),
     // TWFormLabel: merge(labelConfig, options?.TWFormLabel?.extend),
-    // TWHelpText: merge(helpTextConfig, options?.TWHelpText?.extend),
     // TWDropdown: merge(dropdownConfig, options?.TWDropdown?.extend),
     // TWCard: merge(cardConfig, options?.TWCard?.extend),
     // TWModal: merge(modalConfig, options?.TWModal?.extend),

@@ -1,14 +1,21 @@
 export default {
+    defaultVariant: 'primary',
     base: 'block text-xs m-0 py-1',
     variants: {
-        default: 'text-gray-400',
-        primary: 'text-blue-400',
-        secondary: 'text-gray-500',
-        success: 'text-green-400',
-        danger: 'text-red-400',
-        warning: 'text-yellow-400',
-        info: 'text-cyan-400',
-        light: 'text-gray-300',
-        dark: 'text-gray-800',
+        primary: {
+            base: 'text-blue-400',
+        },
+        secondary: {
+            base: 'text-gray-500',
+        },
+        success: {
+            base: 'text-green-400',
+        },
+        danger: {
+            base: 'text-red-400',
+        },
+        warning: {
+            base: 'text-yellow-400',
+        },
     },
 };

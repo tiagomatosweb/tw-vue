@@ -21,7 +21,6 @@ import tagConfig from '@/components/tag/config';
 // import TWDropdown from '@/components/dropdown/TWDropdown';
 // import TWDropdownItem from '@/components/dropdown/TWDropdownItem';
 // import TWDropdownDivider from '@/components/dropdown/TWDropdownDivider';
-// import TWHelpText from '@/components/help-text/TWHelpText';
 // import TWPagination from '@/components/pagination/TWPagination';
 // import TWTabs from '@/components/tabs/TWTabs';
 // import TWTab from '@/components/tabs/TWTab';

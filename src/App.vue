@@ -31,6 +31,7 @@
                     { label: 'Avatars', to: { name: 'avatars' } },
                     { label: 'Buttons', to: { name: 'buttons' } },
                     { label: 'Form switch', to: { name: 'form-switch' } },
+                    { label: 'Help text', to: { name: 'help-text' } },
                     { label: 'Tags', to: { name: 'tags' } },
                 ],
             };

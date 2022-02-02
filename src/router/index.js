@@ -31,6 +31,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "form-switch" */ '../views/FormSwitch.vue'),
     },
     {
+        path: '/help-text',
+        name: 'help-text',
+        component: () => import(/* webpackChunkName: "tags" */ '../views/HelpTexts.vue'),
+    },
+    {
         path: '/tags',
         name: 'tags',
         component: () => import(/* webpackChunkName: "tags" */ '../views/Tags.vue'),
