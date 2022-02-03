@@ -75,13 +75,7 @@
 </template>
 
 <script>
-    import TWAvatar from '@/components/avatar/Avatar';
-
     export default {
-        components: {
-            TWAvatar,
-        },
-
         data() {
             return {
             };

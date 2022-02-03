@@ -1,9 +1,6 @@
 <template>
     <div id="app">
-        <div
-            id="nav"
-            class="mb-10 bg-gray-100"
-        >
+        <div class="mb-10 bg-gray-100">
             <div class="container mx-auto p-4 space-x-3">
                 <RouterLink
                     v-for="nav in menu"
@@ -27,13 +24,8 @@
         data() {
             return {
                 menu: [
-                    { label: 'Alerts', to: { name: 'alerts' } },
-                    { label: 'Avatars', to: { name: 'avatars' } },
-                    { label: 'Buttons', to: { name: 'buttons' } },
-                    { label: 'Buttons close', to: { name: 'buttons-close' } },
-                    { label: 'Form switch', to: { name: 'form-switch' } },
-                    { label: 'Help text', to: { name: 'help-text' } },
-                    { label: 'Tags', to: { name: 'tags' } },
+                    { label: 'Home', to: '/' },
+                    { label: 'Documentation', to: '/documentation' },
                 ],
             };
         },

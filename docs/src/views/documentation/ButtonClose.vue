@@ -49,13 +49,3 @@
         </div>
     </div>
 </template>
-
-<script>
-    import TWButtonClose from '@/components/button-close/ButtonClose';
-
-    export default {
-        components: {
-            TWButtonClose,
-        },
-    };
-</script>

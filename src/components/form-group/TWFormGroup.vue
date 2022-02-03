@@ -19,8 +19,8 @@
 </template>
 
 <script>
-    import TWFormLabel from '@/components/form-label/TWFormLabel';
-    import TWHelpText from '@/components/help-text/HelpText';
+    import TWFormLabel from '../form-label/TWFormLabel';
+    import TWHelpText from '../help-text/HelpText';
 
     export default {
         name: 'TWFormGroup',

@@ -19,120 +19,68 @@
     </Component>
 </template>
 <script>
-    import Vue from 'vue';
-    import TWSpinner from '@/components/spinner/Spinner';
+import TWSpinner from '../spinner/Spinner';
+import VariantMixin from '../../utils/VariantMixin';
+import SizeMixin from '../../utils/SizeMixin';
 
-    const config = Vue.prototype.$TWVue.Button;
-
-    const defaultSize = (config) => {
-        if (!config?.sizes) {
-            throw new Error('You have to declare sizes property');
-        }
-
-        if (!!config?.defaultSize && !!config.sizes[config.defaultSize]) {
-            return config?.defaultSize;
-        }
-
-        return Object.keys(config.sizes)[0];
-    };
-
-    const defaultVariant = (config) => {
-        if (!config?.variants) {
-            throw new Error('You have to declare variants property');
-        }
-
-        if (!!config?.defaultVariant && !!config.variants[config.defaultVariant]) {
-            return config?.defaultVariant;
-        }
-
-        return Object.keys(config.variants)[0];
-    };
-
-    export default {
-        name: 'Button',
-        inheritAttrs: false,
-        components: {
-            TWSpinner,
+export default {
+    name: 'TWButton',
+    mixins: [VariantMixin, SizeMixin],
+    inheritAttrs: false,
+    components: {
+        TWSpinner,
+    },
+    props: {
+        label: {
+            type: String,
+            default: '',
         },
-        props: {
-            variants: {
-                type: Object,
-                default: undefined,
-            },
-            variant: {
-                type: String,
-                default: defaultVariant(config),
-            },
-            sizes: {
-                type: Object,
-                default: undefined,
-            },
-            size: {
-                type: String,
-                default: defaultSize(config),
-            },
-            label: {
-                type: String,
-                default: '',
-            },
-            type: {
-                type: String,
-                default: 'button',
-                validator: (value) => {
-                    return [
-                        'button',
-                        'submit',
-                        'reset',
-                    ].includes(value);
-                },
-            },
-            block: {
-                type: Boolean,
-                default: false,
-            },
-            busy: {
-                type: Boolean,
-                default: false,
-            },
-            hideLabelWhenBusy: {
-                type: Boolean,
-                default: false,
-            },
-            tag: {
-                type: String,
-                default: 'button',
-            },
-        },
-        computed: {
-            computedTag() {
-                if (this.$attrs.disabled !== undefined && this.$attrs.disabled !== false) {
-                    return 'button';
-                }
-                return this.tag;
-            },
-            baseClass() {
+        type: {
+            type: String,
+            default: 'button',
+            validator: (value) => {
                 return [
-                    config.base,
-                    this.getSize,
-                    this.getVariant.base,
-                    this.getOpacity,
-                    this.getBlock,
-                ];
-            },
-            getVariant() {
-                const variants = { ...config.variants, ...this.variants };
-                return variants[this.variant];
-            },
-            getSize() {
-                const sizes = { ...config.sizes, ...this.sizes };
-                return sizes[this.size];
-            },
-            getOpacity() {
-                return this.busy || this.$attrs.disabled ? 'opacity-75' : '';
-            },
-            getBlock() {
-                return this.block ? 'w-full justify-center' : '';
+                    'button',
+                    'submit',
+                    'reset',
+                ].includes(value);
             },
         },
-    };
+        block: Boolean,
+        busy: Boolean,
+        hideLabelWhenBusy: Boolean,
+        tag: {
+            type: String,
+            default: 'button',
+        },
+    },
+    data() {
+        return {
+            config: this.$TWVue.Button,
+        };
+    },
+    computed: {
+        computedTag() {
+            if (this.$attrs.disabled !== undefined && this.$attrs.disabled !== false) {
+                return 'button';
+            }
+            return this.tag;
+        },
+        baseClass() {
+            return [
+                this.config.base,
+                this.getSize,
+                this.getVariant.base,
+                this.getOpacity,
+                this.getBlock,
+            ];
+        },
+        getOpacity() {
+            return this.busy || this.$attrs.disabled ? 'opacity-75' : '';
+        },
+        getBlock() {
+            return this.block ? 'w-full justify-center' : '';
+        },
+    },
+};
 </script>

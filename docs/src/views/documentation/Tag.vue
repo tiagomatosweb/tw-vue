@@ -69,20 +69,3 @@
         </div>
     </div>
 </template>
-
-<script>
-    import TWTag from '@/components/tag/Tag';
-
-    export default {
-        components: {
-            TWTag,
-        },
-
-        data() {
-            return {
-            };
-        },
-
-        methods: {},
-    };
-</script>

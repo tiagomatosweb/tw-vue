@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import TWCardBody from '@/components/card/TWCardBody';
+    import TWCardBody from '../card/TWCardBody';
 
     export default {
         name: 'TWCard',

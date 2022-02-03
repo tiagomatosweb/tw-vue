@@ -38,64 +38,44 @@
 </template>
 
 <script>
-    import Vue from 'vue';
+import VariantMixin from '../../utils/VariantMixin';
 
-    const config = Vue.prototype.$TWVue.Alert;
 
-    const defaultVariant = (config) => {
-        if (!config?.variants) {
-            throw new Error('You have to declare variants property');
-        }
-
-        if (!!config?.defaultVariant && !!config.variants[config.defaultVariant]) {
-            return config?.defaultVariant;
-        }
-
-        return Object.keys(config.variants)[0];
-    };
-
-    export default {
-        name: 'Alert',
-        props: {
-            variants: {
-                type: Object,
-                default: undefined,
-            },
-            variant: {
-                type: String,
-                default: defaultVariant(config),
-            },
-            dismissible: {
-                type: Boolean,
-                default: undefined,
-            },
+export default {
+    name: 'TWAlert',
+    mixins: [VariantMixin],
+    props: {
+        variants: Object,
+        variant: String,
+        dismissible: Boolean,
+    },
+    data() {
+        return {
+            config: this.$TWVue.Alert,
+        };
+    },
+    computed: {
+        baseClass() {
+            return [
+                'relative',
+                this.config.base,
+                this.getVariant.base,
+            ];
         },
-        computed: {
-            baseClass() {
-                return [
-                    'relative',
-                    config.base,
-                    this.getVariant.base,
-                ];
-            },
-            baseButtonCloseClass() {
-                return [
-                    'absolute right-4 top-4 ml-auto -mx-1.5 -my-1.5',
-                    config.baseButtonClose,
-                    this.getVariant.buttonClose,
-                ];
-            },
-            getVariant() {
-                const variants = { ...config.variants, ...this.variants };
-                return variants[this.variant];
-            },
+        baseButtonCloseClass() {
+            return [
+                'absolute right-4 top-4 ml-auto -mx-1.5 -my-1.5',
+                this.config.baseButtonClose,
+                this.getVariant.buttonClose,
+            ];
         },
-        methods: {
-            onClose() {
-                if (this.dismissible) {
-                    this.$emit('close');
-                }
-            },
+    },
+    methods: {
+        onClose() {
+            if (this.dismissible) {
+                this.$emit('close');
+            }
         },
-    };
+    },
+};
 </script>

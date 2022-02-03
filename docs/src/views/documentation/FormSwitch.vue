@@ -59,13 +59,7 @@
 </template>
 
 <script>
-    import TWFormSwitch from '@/components/form-switch/FormSwitch';
-
     export default {
-        components: {
-            TWFormSwitch,
-        },
-
         data() {
             return {
                 toggle: 1,

@@ -35,13 +35,3 @@
         </div>
     </div>
 </template>
-
-<script>
-    import TWHelpText from '@/components/help-text/HelpText';
-
-    export default {
-        components: {
-            TWHelpText,
-        },
-    };
-</script>

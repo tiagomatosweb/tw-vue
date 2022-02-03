@@ -24,86 +24,35 @@
 </template>
 
 <script>
-    import Vue from 'vue';
+import VariantMixin from '../../utils/VariantMixin';
+import SizeMixin from '../../utils/SizeMixin';
 
-    const config = Vue.prototype.$TWVue.Tag;
-
-    const defaultVariant = (config) => {
-        if (!config?.variants) {
-            throw new Error('You have to declare variants property');
-        }
-
-        if (!!config?.defaultVariant && !!config.variants[config.defaultVariant]) {
-            return config?.defaultVariant;
-        }
-
-        return Object.keys(config.variants)[0];
-    };
-
-    const defaultSize = (config) => {
-        if (!config?.sizes) {
-            throw new Error('You have to declare sizes property');
-        }
-
-        if (!!config?.defaultSize && !!config.sizes[config.defaultSize]) {
-            return config?.defaultSize;
-        }
-
-        return Object.keys(config.sizes)[0];
-    };
-
-    export default {
-        name: 'Tag',
-
-        props: {
-            variants: {
-                type: Object,
-                default: undefined,
-            },
-            variant: {
-                type: String,
-                default: defaultVariant(config),
-            },
-            sizes: {
-                type: Object,
-                default: undefined,
-            },
-            size: {
-                type: String,
-                default: defaultSize(config),
-            },
-            closable: {
-                type: Boolean,
-                default: false,
-            },
+export default {
+    name: 'TWTag',
+    mixins: [VariantMixin, SizeMixin],
+    props: {
+        closable: Boolean,
+    },
+    data() {
+        return {
+            config: this.$TWVue.Tag,
+        };
+    },
+    computed: {
+        baseClass() {
+            return [
+                this.config.base,
+                this.getSize,
+                this.getVariant.base,
+            ];
         },
-
-        computed: {
-            baseClass() {
-                return [
-                    config.base,
-                    this.getSize,
-                    this.getVariant.base,
-                ];
-            },
-
-            baseButtonCloseClass() {
-                return [
-                    'h-4 w-4 ml-1 -mr-2',
-                    config.baseButtonClose,
-                    this.getVariant.buttonClose,
-                ];
-            },
-
-            getVariant() {
-                const variants = { ...config.variants, ...this.variants };
-                return variants[this.variant];
-            },
-
-            getSize() {
-                const sizes = { ...config.sizes, ...this.sizes };
-                return sizes[this.size];
-            },
+        baseButtonCloseClass() {
+            return [
+                'h-4 w-4 ml-1 -mr-2',
+                this.config.baseButtonClose,
+                this.getVariant.buttonClose,
+            ];
         },
-    };
+    },
+};
 </script>

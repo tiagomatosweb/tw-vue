@@ -45,11 +45,6 @@
 </template>
 
 <script>
-    import TWAlert from '@/components/alert/Alert';
-
     export default {
-        components: {
-            TWAlert,
-        },
     };
 </script>

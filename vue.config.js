@@ -1,22 +1,18 @@
+const path = require('path');
+
 module.exports = {
-    pluginOptions: {
-        lintStyleOnBuild: true,
-        stylelint: {
-            fix: false,
+    pages: {
+        index: {
+            entry: 'docs/src/main.js',
+            template: 'docs/public/index.html',
         },
     },
 
-    // configureWebpack: {
-    //     externals: {
-    //         'portal-vue': 'portal-vue',
-            // 'lodash': 'lodash',
-            // '@popperjs': '@popperjs',
-        // },
-    // },
-
-    // chainWebpack: config => {
-    //     config.externals({
-    //         'portal-vue': 'portal-vue',
-    //     })
-    // }
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, 'docs/src'),
+            },
+        },
+    },
 };

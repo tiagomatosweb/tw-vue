@@ -142,13 +142,3 @@
         </div>
     </div>
 </template>
-
-<script>
-    import TWButton from '@/components/button/Button';
-
-    export default {
-        components: {
-            TWButton,
-        },
-    };
-</script>
