@@ -104,6 +104,12 @@
             },
         },
         computed: {
+            computedTag() {
+                if (this.$attrs.disabled !== undefined && this.$attrs.disabled !== false) {
+                    return 'button';
+                }
+                return this.tag;
+            },
             baseClass() {
                 return [
                     config.base,
@@ -120,12 +126,6 @@
             getSize() {
                 const sizes = { ...config.sizes, ...this.sizes };
                 return sizes[this.size];
-            },
-            computedTag() {
-                if (this.$attrs.disabled !== undefined && this.$attrs.disabled !== false) {
-                    return 'button';
-                }
-                return this.tag;
             },
             getOpacity() {
                 return this.busy || this.$attrs.disabled ? 'opacity-75' : '';

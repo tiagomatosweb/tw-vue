@@ -30,6 +30,7 @@
                     { label: 'Alerts', to: { name: 'alerts' } },
                     { label: 'Avatars', to: { name: 'avatars' } },
                     { label: 'Buttons', to: { name: 'buttons' } },
+                    { label: 'Buttons close', to: { name: 'buttons-close' } },
                     { label: 'Form switch', to: { name: 'form-switch' } },
                     { label: 'Help text', to: { name: 'help-text' } },
                     { label: 'Tags', to: { name: 'tags' } },

@@ -26,6 +26,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "buttons" */ '../views/Buttons.vue'),
     },
     {
+        path: '/buttons-close',
+        name: 'buttons-close',
+        component: () => import(/* webpackChunkName: "buttons" */ '../views/ButtonsClose.vue'),
+    },
+    {
         path: '/form-switch',
         name: 'form-switch',
         component: () => import(/* webpackChunkName: "form-switch" */ '../views/FormSwitch.vue'),
