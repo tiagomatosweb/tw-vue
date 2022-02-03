@@ -6,9 +6,6 @@ module.exports = {
     parserOptions: {
         parser: 'babel-eslint',
     },
-    // settings: {
-    //     'import/resolver': 'webpack',
-    // },
     extends: [
         'plugin:vue/essential',
         'eslint:recommended'
