@@ -1,21 +1,18 @@
-import Component from './Tag';
+import Tag from './Tag';
 import { merge } from 'lodash';
 import config from './config';
-
-const pluginName = Component.name.substr(2);
-const componentName = Component.name;
 
 const Plugin = {
     install(Vue, options = {}) {
         if (!Vue.prototype.$TWVue) { Vue.prototype.$TWVue = {}; }
-        Vue.prototype.$TWVue[pluginName] = merge(config, options);
+        Vue.prototype.$TWVue.Tag = merge(config, options);
 
-        Vue.component(componentName, Component);
+        Vue.component('TWTag', Tag);
     },
 };
 
 export default Plugin;
 
 export {
-    Component as componentName,
+    Tag as TWTag,
 };

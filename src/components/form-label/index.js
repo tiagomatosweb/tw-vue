@@ -1,21 +1,18 @@
-import Component from './FormLabel';
+import FormLabel from './FormLabel';
 import { merge } from 'lodash';
 import config from './config';
-
-const pluginName = Component.name.substr(2);
-const componentName = Component.name;
 
 const Plugin = {
     install(Vue, options = {}) {
         if (!Vue.prototype.$TWVue) { Vue.prototype.$TWVue = {}; }
-        Vue.prototype.$TWVue[pluginName] = merge(config, options);
+        Vue.prototype.$TWVue.FormLabel = merge(config, options);
 
-        Vue.component(componentName, Component);
+        Vue.component('TWFormLabel', FormLabel);
     },
 };
 
 export default Plugin;
 
 export {
-    Component as componentName,
+    FormLabel as TWFormLabel,
 };

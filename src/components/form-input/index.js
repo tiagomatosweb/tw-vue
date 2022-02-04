@@ -1,21 +1,18 @@
-import Component from './FormInput';
+import FormInput from './FormInput';
 import { merge } from 'lodash';
 import config from './config';
-
-const pluginName = Component.name.substr(2);
-const componentName = Component.name;
 
 const Plugin = {
     install(Vue, options = {}) {
         if (!Vue.prototype.$TWVue) { Vue.prototype.$TWVue = {}; }
-        Vue.prototype.$TWVue[pluginName] = merge(config, options);
+        Vue.prototype.$TWVue.FormInput = merge(config, options);
 
-        Vue.component(componentName, Component);
+        Vue.component('TWFormInput', FormInput);
     },
 };
 
 export default Plugin;
 
 export {
-    Component as componentName,
+    FormInput as TWFormInput,
 };

@@ -1,21 +1,18 @@
-import Component from './Spinner';
+import Spinner from './Spinner';
 import { merge } from 'lodash';
 import config from './config';
-
-const pluginName = Component.name.substr(2);
-const componentName = Component.name;
 
 const Plugin = {
     install(Vue, options = {}) {
         if (!Vue.prototype.$TWVue) { Vue.prototype.$TWVue = {}; }
-        Vue.prototype.$TWVue[pluginName] = merge(config, options);
+        Vue.prototype.$TWVue.Spinner = merge(config, options);
 
-        Vue.component(componentName, Component);
+        Vue.component('TWSpinner', Spinner);
     },
 };
 
 export default Plugin;
 
 export {
-    Component as componentName,
+    Spinner as TWSpinner,
 };

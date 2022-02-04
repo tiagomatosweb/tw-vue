@@ -1,21 +1,18 @@
-import Component from './FormTextarea';
+import FormTextarea from './FormTextarea';
 import { merge } from 'lodash';
 import config from '../form-input/config';
-
-const pluginName = Component.name.substr(2);
-const componentName = Component.name;
 
 const Plugin = {
     install(Vue, options = {}) {
         if (!Vue.prototype.$TWVue) { Vue.prototype.$TWVue = {}; }
-        Vue.prototype.$TWVue[pluginName] = merge(config, options);
+        Vue.prototype.$TWVue.FormTextarea = merge(config, options);
 
-        Vue.component(componentName, Component);
+        Vue.component('TWFormTextarea', FormTextarea);
     },
 };
 
 export default Plugin;
 
 export {
-    Component as componentName,
+    FormTextarea as TWFormTextarea,
 };
