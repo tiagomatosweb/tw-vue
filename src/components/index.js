@@ -11,6 +11,7 @@ import FormSwitch from './form-switch';
 import FormTextarea from './form-textarea';
 import HelpText from './help-text';
 import Spinner from './spinner';
+import Tabs from './tabs';
 import Tag from './tag';
 
 export {
@@ -27,5 +28,6 @@ export {
     FormTextarea,
     HelpText,
     Spinner,
+    Tabs,
     Tag,
 };

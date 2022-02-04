@@ -27,6 +27,7 @@ const router = new VueRouter({
                 buildRoute('card', 'documentation/Card'),
                 buildRoute('form', 'documentation/Form'),
                 buildRoute('help-text', 'documentation/HelpText'),
+                buildRoute('tab', 'documentation/Tab'),
                 buildRoute('tag', 'documentation/Tag'),
             ]
         }

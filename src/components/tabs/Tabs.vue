@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <div class="border-b border-gray-200">
-            <nav class="-mb-px flex space-x-8">
+    <div :class="baseClass">
+        <div :class="navWrapClass">
+            <nav :class="navClass">
                 <a
                     v-for="(tab, index) in tabs"
                     :key="tab.id"
                     href="#"
-                    class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
-                    :class="{ 'border-blue-500 text-blue-600': tab.is_active, 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300': !tab.is_active }"
+                    :class="[
+                        linkClass,
+                        tab.is_active ? activeLinkClass : inactiveLinkClass
+                    ]"
                     @click.stop.prevent="activateTabByIndex(index)"
                 >
                     {{ tab.header }}
@@ -22,22 +24,61 @@
 </template>
 
 <script>
+    import VariantMixin from '../../utils/VariantMixin';
+
     export default {
         name: 'TWTabs',
-
+        mixins: [VariantMixin],
         props: {
             defaultTab: {
                 type: Number,
-                default: 0,
+                default: 0
             },
         },
-
+        provide() {
+            return {
+                Tabs: this,
+            };
+        },
         data() {
             return {
                 tabs: [],
+                config: this.$TWVue.Tab,
             };
         },
-
+        computed: {
+            baseClass() {
+                return [
+                    this.config.base,
+                    this.getVariant.base,
+                ];
+            },
+            navWrapClass() {
+                return [
+                    this.getVariant.navWrap,
+                ];
+            },
+            navClass() {
+                return [
+                    this.getVariant.baseNav,
+                ];
+            },
+            linkClass() {
+                return [
+                    this.getVariant.baseLink,
+                ];
+            },
+            activeLinkClass() {
+                return [
+                    this.getVariant.activeLink,
+                ];
+            },
+            inactiveLinkClass() {
+                return [
+                    this.getVariant.inactiveLink,
+                ];
+            },
+        },
         methods: {
             createTab(tab) {
                 tab.id = this.tabs.length + 1;
@@ -48,7 +89,6 @@
                     this.activateTabByIndex(index);
                 }
             },
-
             activateTabByIndex(index) {
                 this.tabs.forEach((tab, idx) => {
                     tab.is_active = idx === parseInt(index, 0);
@@ -56,11 +96,9 @@
 
                 this.onActivateTab();
             },
-
             getActivatedTab() {
                 return this.tabs.find(o => o.is_active);
             },
-
             onActivateTab() {
                 const tab = this.getActivatedTab();
                 this.$emit('activate-tab', tab);

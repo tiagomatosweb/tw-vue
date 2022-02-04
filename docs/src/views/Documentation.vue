@@ -35,6 +35,7 @@
                     { label: 'Card', to: '/documentation/card'  },
                     { label: 'Form', to: '/documentation/form'  },
                     { label: 'Help text', to: '/documentation/help-text'  },
+                    { label: 'Tab', to: '/documentation/tab'  },
                     { label: 'Tag', to: '/documentation/tag'  },
                 ],
             };

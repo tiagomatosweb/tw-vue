@@ -1,33 +1,30 @@
 <template>
-    <div 
-        v-show="is_active"
-    >
+    <div v-show="is_active">
         <slot />
     </div>
 </template>
 
 <script>
     export default {
-        name: 'TWTab',
-
+        name: 'TWTabItem',
         props: {
             header: {
                 type: String,
                 required: true,
             },
         },
-
-        mounted() {
-            this.$parent.createTab(this);
+        inject: {
+            'Tabs': {
+                default: undefined,
+            },
         },
-
+        mounted() {
+            this.Tabs.createTab(this);
+        },
         data() {
             return {
                 is_active: false,
             };
-        },
-
-        methods: {
         },
     };
 </script>
