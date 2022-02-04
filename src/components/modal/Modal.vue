@@ -14,21 +14,21 @@
                     class="fixed inset-0 transition-opacity"
                     @click="onBackdropClick()"
                 >
-                    <div :class="backdropClassList" />
+                    <div :class="backdropClass" />
                 </div>
 
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
-                <div :class="wrapClassList">
+                <div :class="wrapClass">
                     <div
                         v-if="!hideHeader"
-                        :class="headerClassList"
+                        :class="headerClass"
                     >
                         <slot name="header">
                             <slot name="header-title">
                                 <Component
                                     :is="titleTag"
-                                    :class="titleClassList"
+                                    :class="titleClass"
                                 >
                                     {{ title }}
                                 </Component>
@@ -46,13 +46,13 @@
                         </slot>
                     </div>
 
-                    <div :class="bodyClassList">
+                    <div :class="bodyClass">
                         <slot />
                     </div>
 
                     <div
                         v-if="!hideFooter"
-                        :class="footerClassList"
+                        :class="footerClass"
                     >
                         <TWButton
                             v-if="!hideCancel"
@@ -80,10 +80,11 @@
     import { MountingPortal } from 'portal-vue';
     import TWButtonClose from '../button-close/ButtonClose';
     import TWButton from '../button/Button';
+    import SizeMixin from '../../utils/SizeMixin';
 
     export default {
         name: 'TWModal',
-
+        mixins: [SizeMixin],
         props: {
             value: {
                 type: Boolean,
@@ -150,41 +151,53 @@
                 default: 'OK',
             },
         },
-
         components: {
             MountingPortal,
             TWButtonClose,
             TWButton,
         },
-
         data() {
             return {
-                TWOptions: {},
+                config: this.$TWVue.Modal,
                 isOpen: this.value,
                 isInDOM: this.value, // TODO: this is required for transition to be added later on.
-                wrapClassList: [],
-                titleClassList: [],
-                headerClassList: [],
-                bodyClassList: [],
-                footerClassList: [],
             };
         },
-
         computed: {
-            backdropClassList() {
+            backdropClass() {
                 return [
                     'absolute inset-0',
-                    this.TWOptions.backdropBackground,
-                    this.TWOptions.backdropOpacity,
+                    this.config.backdropBackground,
+                    this.config.backdropOpacity,
                 ];
             },
-
-            getSize() {
-                const sizes = this.TWOptions.sizes;
-                return sizes[this.size];
+            wrapClass() {
+                return [
+                    this.config.wrap,
+                    this.getSize
+                ];
+            },
+            titleClass() {
+                return [
+                    this.config.title,
+                ];
+            },
+            headerClass() {
+                return [
+                    this.config.header,
+                ];
+            },
+            bodyClass() {
+                return [
+                    this.config.body,
+                ];
+            },
+            footerClass() {
+                return [
+                    this.config.footer,
+                ];
             },
         },
-
         watch: {
             value(vl) {
                 this.isInDOM = vl;
@@ -200,11 +213,7 @@
                 }
             },
         },
-
         created() {
-            this.TWOptions = this?.$TWVue?.TWModal || {};
-            this.initClasses();
-
             window.addEventListener('keydown', this.onEsc);
         },
 
@@ -213,13 +222,6 @@
         },
 
         methods: {
-            initClasses() {
-                this.wrapClassList = [this.TWOptions.wrap, this.getSize];
-                this.titleClassList = this.TWOptions.title;
-                this.headerClassList = this.TWOptions.header;
-                this.bodyClassList = this.TWOptions.body;
-                this.footerClassList = this.TWOptions.footer;
-            },
             onBackdropClick() {
                 if (!this.noCloseOnBackdrop) {
                     this.close();
@@ -238,7 +240,6 @@
                 this.$emit('close');
             },
             onEsc(evt) {
-                console.log('aqui');
                 if (evt.key === 'Escape' && !this.noCloseOnEsc) {
                     this.close();
                 }

@@ -36,7 +36,7 @@ export default {
         baseClass() {
             return [
                 this.config.base,
-                this.getVariant.base,
+                // this.getVariant.base,
                 this.getSize,
             ];
         },

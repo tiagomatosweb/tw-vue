@@ -1,4 +1,5 @@
 export default {
+    defaultSize: 'md',
     zIndex: 'z-50',
     backdropBackground: 'bg-gray-900',
     backdropOpacity: 'opacity-75',
@@ -8,11 +9,9 @@ export default {
     body: 'bg-white p-6',
     footer: 'bg-gray-50 py-3 px-6 flex flex-col sm:flex-row sm:space-x-3 sm:justify-end',
     sizes: {
-        xs: 'sm:w-full sm:max-w-xs',
-        sm: 'sm:w-full sm:max-w-md',
-        md: 'sm:w-full sm:max-w-lg',
-        lg: 'sm:w-full sm:max-w-3xl',
-        xl: 'sm:w-full sm:max-w-6xl',
+        sm: 'sm:w-full sm:max-w-sm',
+        md: 'sm:w-full sm:max-w-xl',
+        lg: 'sm:w-full sm:max-w-6xl',
         full: 'sm:w-full',
     },
 };
