@@ -44,8 +44,8 @@
 </template>
 
 <script>
-    import TWPaginatorArrow from './TWPaginatorArrow';
-    import TWPaginatorPage from './TWPaginatorPage';
+    import TWPaginatorArrow from './PaginatorArrow';
+    import TWPaginatorPage from './PaginatorPage';
 
     export default {
         name: 'TWPagination',

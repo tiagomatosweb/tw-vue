@@ -76,13 +76,6 @@
 
 <script>
     export default {
-        name: 'TWSlideOver',
-
-        data() {
-            return {
-            };
-        },
-
-        methods: {},
+        name: 'TWDrawer',
     };
 </script>

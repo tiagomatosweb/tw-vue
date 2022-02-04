@@ -1,13 +1,19 @@
 <template>
     <div>
-        <RouterLink
-            v-for="nav in menu"
-            :key="nav.label"
-            :to="nav.to"
-            :active-class="nav.to.name === $route.name ? 'font-bold' : null"
-        >
-            {{ nav.label }}
-        </RouterLink>
+        <div class="space-x-4 text-sm">
+            <RouterLink
+                v-for="nav in menu"
+                :key="nav.label"
+                :to="nav.to"
+                class="border-b-2 p-1"
+                :class="{
+                    'font-medium border-blue-600': nav.to === $route.fullPath,
+                    'border-white': nav.to !== $route.fullPath,
+                }"
+            >
+                {{ nav.label }}
+            </RouterLink>
+        </div>
 
         <br><br>
 
@@ -32,7 +38,5 @@
                 ],
             };
         },
-
-        methods: {},
     };
 </script>

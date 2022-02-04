@@ -6,7 +6,6 @@
                     v-for="nav in menu"
                     :key="nav.label"
                     :to="nav.to"
-                    :active-class="nav.to.name === $route.name ? 'font-bold' : null"
                 >
                     {{ nav.label }}
                 </RouterLink>

@@ -17,7 +17,6 @@
 <script>
     export default {
         name: 'TWFormFile',
-
         props: {
             value: undefined,
             variant: {

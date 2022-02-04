@@ -99,6 +99,7 @@
                 />
 
                 <TWFormSelect
+                    v-model="multiple"
                     multiple
                     placeholder="Select soccer teams"
                     :options="['Bahia', 'Palmeiras', 'Flamengo']"
@@ -143,8 +144,7 @@
 export default {
     data() {
         return {
-            selected1: null,
-            selected2: 'bb',
+            multiple: [],
         }
     },
 }
