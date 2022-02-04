@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-lg font-bold mb-3">
-            Buttons close
+            Button close
         </h3>
 
         <div class="space-y-6">

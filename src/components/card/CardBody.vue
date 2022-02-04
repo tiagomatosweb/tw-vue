@@ -1,5 +1,5 @@
 <template>
-    <div :class="TWOptions.body">
+    <div :class="baseClass">
         <slot />
     </div>
 </template>
@@ -7,15 +7,15 @@
 <script>
     export default {
         name: 'TWCardBody',
-
-        data() {
-            return {
-                TWOptions: {},
-            };
+        inject: {
+            'Card': {
+                default: undefined,
+            },
         },
-
-        created() {
-            this.TWOptions = this?.$TWVue?.TWCard || {};
+        computed: {
+            baseClass() {
+                return this.Card.config.baseBody;
+            },
         },
     };
 </script>

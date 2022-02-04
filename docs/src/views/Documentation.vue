@@ -32,6 +32,7 @@
                     { label: 'Avatar', to: '/documentation/avatar' },
                     { label: 'Button', to: '/documentation/button' },
                     { label: 'Button close', to: '/documentation/button-close'  },
+                    { label: 'Card', to: '/documentation/card'  },
                     { label: 'Form', to: '/documentation/form'  },
                     { label: 'Help text', to: '/documentation/help-text'  },
                     { label: 'Tag', to: '/documentation/tag'  },

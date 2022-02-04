@@ -2,6 +2,7 @@ import Alert from './alert';
 import Avatar from './avatar';
 import Button from './button'
 import ButtonClose from './button-close';
+import Card from './card';
 import FormGroup from './form-group';
 import FormInput from './form-input';
 import FormLabel from './form-label';
@@ -17,6 +18,7 @@ export {
     Avatar,
     Button,
     ButtonClose,
+    Card,
     FormGroup,
     FormInput,
     FormLabel,

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-lg font-bold mb-3">
-            Alerts
+            Alert
         </h3>
 
         <div>

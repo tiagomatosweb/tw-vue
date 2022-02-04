@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-xl font-medium mb-3">
-            Tags
+            Tag
         </h3>
 
         <div class="space-y-6">

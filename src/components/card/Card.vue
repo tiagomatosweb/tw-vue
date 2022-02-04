@@ -1,54 +1,45 @@
 <template>
-    <div :class="classList">
-        <Component :is="noBody ? 'div' : 'TWCardBody'">
+    <div :class="baseClass">
+        <Component :is="computedBodyTag">
             <slot />
         </Component>
     </div>
 </template>
 
 <script>
-    import TWCardBody from '../card/CardBody';
+    import CardBody from '../card/CardBody';
+    import VariantMixin from '../../utils/VariantMixin';
 
     export default {
         name: 'TWCard',
-
+        mixins: [VariantMixin],
         props: {
-            variant: {
-                type: String,
-                default: 'default',
-            },
-            noBody: {
-                type: Boolean,
-                default: false,
-            },
+            noBody: Boolean
         },
-
-        components: {
-            TWCardBody,
-        },
-
-        data() {
+        provide() {
             return {
-                TWOptions: {},
+                Card: this,
             };
         },
-
+        components: {
+            CardBody,
+        },
+        data() {
+            return {
+                config: this.$TWVue.Card,
+            };
+        },
         computed: {
-            classList() {
+            baseClass() {
                 return [
-                    this.TWOptions.base,
-                    this.getVariant,
+                    this.config.base,
+                    this.getVariant.base,
                 ];
             },
 
-            getVariant() {
-                const variants = this.TWOptions.variants;
-                return variants[this.variant];
+            computedBodyTag() {
+                return this.noBody ? 'div' : 'CardBody';
             },
-        },
-
-        created() {
-            this.TWOptions = this?.$TWVue?.TWCard || {};
         },
     };
 </script>
