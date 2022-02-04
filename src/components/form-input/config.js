@@ -1,7 +1,7 @@
 export default {
     defaultVariation: 'primary',
     defaultSize: 'md',
-    base: 'block w-full transition ease-in-out focus:outline-none shadow-sm duration-150 disabled:bg-gray-100',
+    base: 'block w-full transition ease-in-out focus:outline-none shadow-sm duration-150 disabled:bg-gray-100 rounded-lg',
     variants: {
         primary: {
             base: 'text-gray-800 bg-white placeholder-gray-400 border border-gray-300 focus:border-blue-300 focus:ring focus:ring-opacity-50 focus:ring-blue-200',
@@ -17,8 +17,8 @@ export default {
         },
     },
     sizes: {
-        sm: 'text-sm px-3 py-2 leading-4 rounded',
-        md: 'text-sm px-4 py-2 rounded',
-        lg: 'text-base px-4 py-3 rounded',
+        sm: 'text-sm px-3 py-2 leading-4',
+        md: 'text-sm px-4 py-2',
+        lg: 'text-base px-4 py-3',
     },
 };
