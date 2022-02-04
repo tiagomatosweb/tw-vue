@@ -1,6 +1,9 @@
 <template>
     <small :class="baseClass">
-        <slot />
+        <template v-if="text">{{ text }}</template>
+        <template v-else-if="$slots.default">
+            <slot />
+        </template>
     </small>
 </template>
 
@@ -10,6 +13,9 @@ import VariantMixin from '../../utils/VariantMixin';
 export default {
     name: 'TWHelpText',
     mixins: [VariantMixin],
+    props: {
+        text: String,
+    },
     data() {
         return {
             config: this.$TWVue.HelpText,

@@ -28,6 +28,12 @@ module.exports = {
             },
         },
     },
+    variants: {
+        extend: {
+            opacity: ['disabled'],
+            backgroundColor: ['disabled'],
+        },
+    },
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/aspect-ratio'),

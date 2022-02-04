@@ -1,6 +1,6 @@
 export default {
     defaultVariant: 'primary',
-    base: 'block text-xs m-0 py-1',
+    base: 'block text-sm m-0 py-1',
     variants: {
         primary: {
             base: 'text-blue-400',

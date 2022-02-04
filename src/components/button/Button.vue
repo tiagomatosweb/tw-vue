@@ -12,10 +12,10 @@
             size="xxs"
             :class="$slots.default || label ? '-ml-0.5 mr-2' : ''"
         />
-        <span v-if="label">{{ label }}</span>
-        <span v-else-if="$slots.default">
+        <template v-if="label">{{ label }}</template>
+        <template v-else-if="$slots.default">
             <slot />
-        </span>
+        </template>
     </Component>
 </template>
 <script>
