@@ -1,5 +1,5 @@
 <template>
-    <div :class="baseClass">
+    <div :class="rootClass">
         <Component :is="computedBodyTag">
             <slot />
         </Component>
@@ -7,39 +7,39 @@
 </template>
 
 <script>
-    import CardBody from '../card/CardBody';
-    import VariantMixin from '../../utils/VariantMixin';
+import FixedMixin from '../../utils/FixedMixin';
+import VariantMixin from '../../utils/VariantMixin';
+import CardBody from '../card/CardBody';
 
-    export default {
-        name: 'TWCard',
-        mixins: [VariantMixin],
-        props: {
-            noBody: Boolean
+export default {
+    name: 'TWCard',
+    mixins: [FixedMixin, VariantMixin],
+    props: {
+        noBody: Boolean
+    },
+    provide() {
+        return {
+            Card: this,
+        };
+    },
+    components: {
+        CardBody,
+    },
+    data() {
+        return {
+            config: this.$TWVue.Card,
+        };
+    },
+    computed: {
+        rootClass() {
+            return [
+                this.fixedClass.root,
+                this.variantClass.root,
+            ];
         },
-        provide() {
-            return {
-                Card: this,
-            };
+        computedBodyTag() {
+            return this.noBody ? 'div' : 'CardBody';
         },
-        components: {
-            CardBody,
-        },
-        data() {
-            return {
-                config: this.$TWVue.Card,
-            };
-        },
-        computed: {
-            baseClass() {
-                return [
-                    this.config.base,
-                    this.getVariant.base,
-                ];
-            },
-
-            computedBodyTag() {
-                return this.noBody ? 'div' : 'CardBody';
-            },
-        },
-    };
+    },
+};
 </script>

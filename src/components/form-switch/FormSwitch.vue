@@ -1,7 +1,7 @@
 <template>
     <button
         type="button"
-        :class="baseClass"
+        :class="rootClass"
         @click="onClick"
     >
         <span :class="handlerClass" />
@@ -9,12 +9,13 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 import SizeMixin from '../../utils/SizeMixin';
 
 export default {
     name: 'TWFormSwitch',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, VariantMixin, SizeMixin],
     props: {
         value: [Boolean, Number],
     },
@@ -25,19 +26,19 @@ export default {
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.isEnabled ? this.getVariant.base.enabled : this.getVariant.base.disabled,
-                this.getSize.base,
+                this.fixedClass.root,
+                this.isEnabled ? this.variantClass.root.enabled : this.variantClass.root.disabled,
+                this.sizeClass.root,
             ];
         },
         handlerClass() {
             return [
-                this.config.baseHandler,
+                this.fixedClass.handler,
                 this.isEnabled ? 'translate-x-full' : 'translate-x-0',
-                this.isEnabled ? this.getVariant.handler.enabled : this.getVariant.handler.disabled,
-                this.getSize.handler,
+                this.isEnabled ? this.variantClass.handler.enabled : this.variantClass.handler.disabled,
+                this.sizeClass.handler,
             ];
         },
         isEnabled() {

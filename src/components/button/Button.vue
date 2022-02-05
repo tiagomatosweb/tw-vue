@@ -1,7 +1,7 @@
 <template>
     <Component
         :is="computedTag"
-        :class="baseClass"
+        :class="rootClass"
         :type="type"
         :disabled="$attrs.disabled || busy"
         v-bind="$attrs"
@@ -18,14 +18,16 @@
         </template>
     </Component>
 </template>
+
 <script>
-import TWSpinner from '../spinner/Spinner';
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 import SizeMixin from '../../utils/SizeMixin';
+import TWSpinner from '../spinner/Spinner';
 
 export default {
     name: 'TWButton',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, VariantMixin, SizeMixin],
     inheritAttrs: false,
     components: {
         TWSpinner,
@@ -66,11 +68,11 @@ export default {
             }
             return this.tag;
         },
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getSize,
-                this.getVariant.base,
+                this.fixedClass.root,
+                this.variantClass.root,
+                this.sizeClass,
                 this.getOpacity,
                 this.getBlock,
             ];

@@ -1,22 +1,29 @@
 export default {
     defaultVariant: 'secondary',
-    base: 'w-full shadow-lg rounded-lg',
-    baseBody: 'p-6',
+    fixed: {
+        root: 'w-full shadow-lg rounded-lg',
+        body: 'p-6',
+    },
     variants: {
         primary: {
-            base: 'text-white bg-blue-500',
+            root: 'text-white bg-blue-500',
+            body: '',
         },
         secondary: {
-            base: 'text-gray-700 bg-gray-50',
+            root: 'text-gray-700 bg-gray-50',
+            body: '',
         },
         success: {
-            base: 'text-white bg-green-500',
+            root: 'text-white bg-green-500',
+            body: '',
         },
         danger: {
-            base: 'text-white bg-red-500',
+            root: 'text-white bg-red-500',
+            body: '',
         },
         warning: {
-            base: 'text-yellow-900 bg-yellow-400',
+            root: 'text-yellow-900 bg-yellow-400',
+            body: '',
         },
     },
 };

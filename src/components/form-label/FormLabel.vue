@@ -1,6 +1,6 @@
 <template>
     <label
-        :class="baseClass"
+        :class="rootClass"
         v-bind="$attrs"
     >
         <template v-if="label">{{ label }}</template>
@@ -11,26 +11,27 @@
 </template>
 
 <script>
-    import VariantMixin from '../../utils/VariantMixin';
+import FixedMixin from '../../utils/FixedMixin';
+import VariantMixin from '../../utils/VariantMixin';
 
-    export default {
-        name: 'TWFormLabel',
-        inheritAttrs: false,
-        mixins: [VariantMixin],
-        props: {
-            label: String,
+export default {
+    name: 'TWFormLabel',
+    inheritAttrs: false,
+    mixins: [FixedMixin, VariantMixin],
+    props: {
+        label: String,
+    },
+    data() {
+        return {
+            config: this.$TWVue.FormLabel,
+        };
+    },
+    computed: {
+        rootClass() {
+            return [
+                this.fixedClass.root,
+            ];
         },
-        data() {
-            return {
-                config: this.$TWVue.FormLabel,
-            };
-        },
-        computed: {
-            baseClass() {
-                return [
-                    this.config.base,
-                ];
-            },
-        },
-    };
+    },
+};
 </script>

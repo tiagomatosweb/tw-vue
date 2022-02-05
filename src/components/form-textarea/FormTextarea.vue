@@ -2,7 +2,7 @@
     <textarea
         v-bind="$attrs"
         :value="value"
-        :class="baseClass"
+        :class="rootClass"
         v-on="inputListeners"
     />
 </template>
@@ -30,11 +30,11 @@ export default {
         },
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getVariant.base,
-                this.getSize,
+                this.fixedClass.root,
+                this.variantClass.root,
+                this.sizeClass,
             ];
         },
         inputListeners() {

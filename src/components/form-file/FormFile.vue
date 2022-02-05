@@ -42,7 +42,7 @@
                     'flex items-center justify-between relative overflow-hidden',
                     this.TWOptions.base,
                     this.getVariants,
-                    this.getSize,
+                    this.sizeClass,
                 ];
             },
 
@@ -59,7 +59,7 @@
                 return variants[this.variant];
             },
 
-            getSize() {
+            sizeClass() {
                 const sizes = this.TWOptions.sizes;
                 return sizes[this.size];
             },

@@ -1,21 +1,24 @@
 <template>
-    <div :class="baseClass">
+    <div :class="bodyClass">
         <slot />
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'TWCardBody',
-        inject: {
-            'Card': {
-                default: undefined,
-            },
+export default {
+    name: 'TWCardBody',
+    inject: {
+        'Card': {
+            default: undefined,
         },
-        computed: {
-            baseClass() {
-                return this.Card.config.baseBody;
-            },
+    },
+    computed: {
+        bodyClass() {
+            return [
+                this.Card.fixedClass.body,
+                this.Card.variantClass.body,
+            ];
         },
-    };
+    },
+};
 </script>

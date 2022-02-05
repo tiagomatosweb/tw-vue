@@ -1,11 +1,13 @@
 export default {
     defaultVariant: 'primary',
     defaultSize: 'md',
-    base: 'relative inline-flex flex-shrink-0 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none',
-    baseHandler: 'pointer-events-none inline-block rounded-full shadow transform ring-0 transition ease-in-out duration-200',
+    fixed: {
+        root: 'relative inline-flex flex-shrink-0 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none',
+        handler: 'pointer-events-none inline-block rounded-full shadow transform ring-0 transition ease-in-out duration-200',
+    },
     variants: {
         primary: {
-            base: {
+            root: {
                 enabled: 'bg-blue-600',
                 disabled: 'bg-gray-200',
             },
@@ -15,7 +17,7 @@ export default {
             },
         },
         secondary: {
-            base: {
+            root: {
                 enabled: 'bg-gray-400',
                 disabled: 'bg-gray-200',
             },
@@ -25,7 +27,7 @@ export default {
             },
         },
         success: {
-            base: {
+            root: {
                 enabled: 'bg-green-500',
                 disabled: 'bg-gray-200',
             },
@@ -35,7 +37,7 @@ export default {
             },
         },
         danger: {
-            base: {
+            root: {
                 enabled: 'bg-red-500',
                 disabled: 'bg-gray-200',
             },
@@ -45,7 +47,7 @@ export default {
             },
         },
         warning: {
-            base: {
+            root: {
                 enabled: 'bg-yellow-500',
                 disabled: 'bg-gray-200',
             },
@@ -57,15 +59,15 @@ export default {
     },
     sizes: {
         sm: {
-            base: 'h-5 w-9',
+            root: 'h-5 w-9',
             handler: 'h-4 w-4',
         },
         md: {
-            base: 'h-6 w-11',
+            root: 'h-6 w-11',
             handler: 'h-5 w-5',
         },
         lg: {
-            base: 'h-8 w-15',
+            root: 'h-8 w-15',
             handler: 'h-7 w-7',
         },
     },

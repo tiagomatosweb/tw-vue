@@ -6,7 +6,7 @@
     >
         <div
             v-show="isOpen"
-            class="fixed z-50 inset-0 overflow-y-auto"
+            :class="rootClass"
         >
             <div class="flex items-center justify-center min-h-screen p-4 sm:p-0 text-center">
                 <div
@@ -40,6 +40,7 @@
                             >
                                 <TWButtonClose
                                     size="sm"
+                                    :class="buttonCloseClass"
                                     @click="close()"
                                 />
                             </div>
@@ -55,19 +56,19 @@
                         :class="footerClass"
                     >
                         <TWButton
-                            v-if="!hideCancel"
-                            :variant="cancelVariant"
+                            v-if="!hideBtnCancel"
+                            :variant="btnCancelVariant"
                             @click="onCancelClick()"
                         >
-                            {{ cancelTitle }}
+                            {{ btnCancelText }}
                         </TWButton>
 
                         <TWButton
-                            v-if="!hideOk"
-                            :variant="okVariant"
+                            v-if="!hideBtnOk"
+                            :variant="btnOkVariant"
                             @click="onOkClick()"
                         >
-                            {{ okTitle }}
+                            {{ btnOkText }}
                         </TWButton>
                     </div>
                 </div>
@@ -77,173 +78,153 @@
 </template>
 
 <script>
-    import { MountingPortal } from 'portal-vue';
-    import TWButtonClose from '../button-close/ButtonClose';
-    import TWButton from '../button/Button';
-    import SizeMixin from '../../utils/SizeMixin';
+import { MountingPortal } from 'portal-vue';
+import FixedMixin from '../../utils/FixedMixin';
+import SizeMixin from '../../utils/SizeMixin';
+import TWButton from '../button/Button';
+import TWButtonClose from '../button-close/ButtonClose';
 
-    export default {
-        name: 'TWModal',
-        mixins: [SizeMixin],
-        props: {
-            value: {
-                type: Boolean,
-                default: false,
-            },
-            size: {
-                type: String,
-                default: 'md',
-            },
-            title: {
-                type: String,
-                default: 'Modal title',
-            },
-            titleTag: {
-                type: String,
-                default: 'h5',
-            },
-            hideHeader: {
-                type: Boolean,
-                default: false,
-            },
-            hideHeaderClose: {
-                type: Boolean,
-                default: false,
-            },
-            hideFooter: {
-                type: Boolean,
-                default: false,
-            },
-            hideBackdrop: {
-                type: Boolean,
-                default: false,
-            },
-            noCloseOnBackdrop: {
-                type: Boolean,
-                default: false,
-            },
-            noCloseOnEsc: {
-                type: Boolean,
-                default: false,
-            },
-            cancelVariant: {
-                type: String,
-                default: 'danger',
-            },
-            hideCancel: {
-                type: Boolean,
-                default: false,
-            },
-            cancelTitle: {
-                type: String,
-                default: 'Cancel',
-            },
-            okVariant: {
-                type: String,
-                default: 'primary',
-            },
-            hideOk: {
-                type: Boolean,
-                default: false,
-            },
-            okTitle: {
-                type: String,
-                default: 'OK',
-            },
+export default {
+    name: 'TWModal',
+    mixins: [FixedMixin, SizeMixin],
+    props: {
+        value: {
+            type: Boolean,
+            default: false,
         },
-        components: {
-            MountingPortal,
-            TWButtonClose,
-            TWButton,
+        size: String,
+        title: {
+            type: String,
+            default: 'Modal title',
         },
-        data() {
-            return {
-                config: this.$TWVue.Modal,
-                isOpen: this.value,
-                isInDOM: this.value, // TODO: this is required for transition to be added later on.
-            };
+        titleTag: {
+            type: String,
+            default: 'h5',
         },
-        computed: {
-            backdropClass() {
-                return [
-                    'absolute inset-0',
-                    this.config.backdropBackground,
-                    this.config.backdropOpacity,
-                ];
-            },
-            wrapClass() {
-                return [
-                    this.config.wrap,
-                    this.getSize
-                ];
-            },
-            titleClass() {
-                return [
-                    this.config.title,
-                ];
-            },
-            headerClass() {
-                return [
-                    this.config.header,
-                ];
-            },
-            bodyClass() {
-                return [
-                    this.config.body,
-                ];
-            },
-            footerClass() {
-                return [
-                    this.config.footer,
-                ];
-            },
+        hideHeader: Boolean,
+        hideHeaderClose: Boolean,
+        hideFooter: Boolean,
+        hideBackdrop: Boolean,
+        noCloseOnBackdrop: Boolean,
+        noCloseOnEsc: Boolean,
+        btnCancelVariant: {
+            type: String,
+            default: 'danger',
         },
-        watch: {
-            value(vl) {
-                this.isInDOM = vl;
-                this.isOpen = vl;
-            },
-
-            isOpen(vl) {
-                const body = document.body;
-                if (vl) {
-                    body.classList.add('overflow-hidden');
-                } else {
-                    body.classList.remove('overflow-hidden');
-                }
-            },
+        hideBtnCancel: Boolean,
+        btnCancelText: {
+            type: String,
+            default: 'Cancel',
         },
-        created() {
-            window.addEventListener('keydown', this.onEsc);
+        btnOkVariant: {
+            type: String,
+            default: 'primary',
+        },
+        hideBtnOk: Boolean,
+        btnOkText: {
+            type: String,
+            default: 'OK',
+        },
+    },
+    components: {
+        MountingPortal,
+        TWButtonClose,
+        TWButton,
+    },
+    data() {
+        return {
+            config: this.$TWVue.Modal,
+            isOpen: this.value,
+            isInDOM: this.value, // TODO: this is required for transition to be added later on.
+        };
+    },
+    computed: {
+        rootClass() {
+            return [
+                this.fixedClass.root,
+            ];
+        },
+        backdropClass() {
+            return [
+                this.fixedClass.backdrop,
+            ];
+        },
+        wrapClass() {
+            return [
+                this.fixedClass.wrap,
+                this.sizeClass
+            ];
+        },
+        titleClass() {
+            return [
+                this.fixedClass.title,
+            ];
+        },
+        headerClass() {
+            return [
+                this.fixedClass.header,
+            ];
+        },
+        bodyClass() {
+            return [
+                this.fixedClass.body,
+            ];
+        },
+        footerClass() {
+            return [
+                this.fixedClass.footer,
+            ];
+        },
+        buttonCloseClass() {
+            return [
+                this.fixedClass.btnClose,
+            ];
+        },
+    },
+    watch: {
+        value(vl) {
+            this.isInDOM = vl;
+            this.isOpen = vl;
         },
 
-        beforeDestroy() {
-            window.removeEventListener('keydown', this.onEsc);
+        isOpen(vl) {
+            const body = document.body;
+            if (vl) {
+                body.classList.add('overflow-hidden');
+            } else {
+                body.classList.remove('overflow-hidden');
+            }
         },
-
-        methods: {
-            onBackdropClick() {
-                if (!this.noCloseOnBackdrop) {
-                    this.close();
-                }
-            },
-            onCancelClick() {
+    },
+    created() {
+        window.addEventListener('keydown', this.onEsc);
+    },
+    beforeDestroy() {
+        window.removeEventListener('keydown', this.onEsc);
+    },
+    methods: {
+        onBackdropClick() {
+            if (!this.noCloseOnBackdrop) {
                 this.close();
-                this.$emit('cancel');
-            },
-            onOkClick() {
-                this.close();
-                this.$emit('ok');
-            },
-            close() {
-                this.$emit('input', false);
-                this.$emit('close');
-            },
-            onEsc(evt) {
-                if (evt.key === 'Escape' && !this.noCloseOnEsc) {
-                    this.close();
-                }
-            },
+            }
         },
-    };
+        onCancelClick() {
+            this.close();
+            this.$emit('cancel');
+        },
+        onOkClick() {
+            this.close();
+            this.$emit('ok');
+        },
+        close() {
+            this.$emit('input', false);
+            this.$emit('close');
+        },
+        onEsc(evt) {
+            if (evt.key === 'Escape' && !this.noCloseOnEsc) {
+                this.close();
+            }
+        },
+    },
+};
 </script>

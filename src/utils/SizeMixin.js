@@ -9,7 +9,7 @@ export default {
         localSize() {
             return this.size || getDefaultSize(this.config);
         },
-        getSize() {
+        sizeClass() {
             const sizes = { ...this.config.sizes, ...this.sizes };
             return sizes[this.localSize];
         },

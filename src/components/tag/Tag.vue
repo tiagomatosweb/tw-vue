@@ -1,11 +1,11 @@
 <template>
-    <span :class="baseClass">
+    <span :class="rootClass">
         <slot />
 
         <button
             v-if="closable"
             type="button"
-            :class="baseButtonCloseClass"
+            :class="btnCloseClass"
         >
             <svg
                 class="h-2 w-2"
@@ -24,12 +24,13 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 import SizeMixin from '../../utils/SizeMixin';
 
 export default {
     name: 'TWTag',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, VariantMixin, SizeMixin],
     props: {
         closable: Boolean,
     },
@@ -39,18 +40,18 @@ export default {
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getSize,
-                this.getVariant.base,
+                this.fixedClass.root,
+                this.variantClass.root,
+                this.sizeClass,
             ];
         },
-        baseButtonCloseClass() {
+        btnCloseClass() {
             return [
                 'h-4 w-4 ml-1 -mr-2',
-                this.config.baseButtonClose,
-                this.getVariant.buttonClose,
+                this.fixedClass.btnClose,
+                this.variantClass.buttonClose,
             ];
         },
     },

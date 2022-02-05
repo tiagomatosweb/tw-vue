@@ -9,7 +9,7 @@ export default {
         localVariant() {
             return this.variant || getDefaultVariant(this.config);
         },
-        getVariant() {
+        variantClass() {
             const variants = { ...this.config.variants, ...this.variants };
             return variants[this.localVariant];
         },

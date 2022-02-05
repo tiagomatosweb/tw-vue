@@ -1,6 +1,8 @@
 export default {
     defaultSize: 'sm',
-    base: 'inline-block',
+    fixed: {
+        root: 'inline-block',
+    },
     sizes: {
         xxs: 'h-4 w-4',
         xs: 'h-6 w-6',

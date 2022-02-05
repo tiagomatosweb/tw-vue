@@ -1,5 +1,5 @@
 <template>
-    <small :class="baseClass">
+    <small :class="rootClass">
         <template v-if="text">{{ text }}</template>
         <template v-else-if="$slots.default">
             <slot />
@@ -8,11 +8,12 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 
 export default {
     name: 'TWHelpText',
-    mixins: [VariantMixin],
+    mixins: [FixedMixin, VariantMixin],
     props: {
         text: String,
     },
@@ -22,11 +23,11 @@ export default {
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
                 'relative',
-                this.config.base,
-                this.getVariant.base,
+                this.fixedClass.root,
+                this.variantClass.root,
             ];
         },
     },

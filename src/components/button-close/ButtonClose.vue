@@ -2,7 +2,7 @@
     <button
         type="button"
         v-on="$listeners"
-        :class="baseClass"
+        :class="rootClass"
     >
         <svg
             style=" height: 100%; width: 100%;"
@@ -21,23 +21,22 @@
     </button>
 </template>
 <script>
-import VariantMixin from '../../utils/VariantMixin';
+import FixedMixin from '../../utils/FixedMixin';
 import SizeMixin from '../../utils/SizeMixin';
 
 export default {
     name: 'TWButtonClose',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, SizeMixin],
     data() {
         return {
             config: this.$TWVue.ButtonClose,
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                // this.getVariant.base,
-                this.getSize,
+                this.fixedClass.root,
+                this.sizeClass,
             ];
         },
     },

@@ -1,5 +1,5 @@
 <template>
-    <div :class="baseClass">
+    <div :class="rootClass">
         <slot name="content">
             <div class="flex">
                 <div
@@ -17,7 +17,7 @@
 
         <button
             v-if="dismissible"
-            :class="baseButtonCloseClass"
+            :class="btnCloseClass"
             @click.stop.prevent="onClose()"
         >
             <svg
@@ -38,12 +38,12 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
-
 
 export default {
     name: 'TWAlert',
-    mixins: [VariantMixin],
+    mixins: [FixedMixin, VariantMixin],
     props: {
         variants: Object,
         variant: String,
@@ -55,18 +55,18 @@ export default {
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
                 'relative',
-                this.config.base,
-                this.getVariant.base,
+                this.fixedClass.root,
+                this.variantClass.root,
             ];
         },
-        baseButtonCloseClass() {
+        btnCloseClass() {
             return [
                 'absolute right-4 top-4 ml-auto -mx-1.5 -my-1.5',
-                this.config.baseButtonClose,
-                this.getVariant.buttonClose,
+                this.fixedClass.btnClose,
+                this.variantClass.btnClose,
             ];
         },
     },

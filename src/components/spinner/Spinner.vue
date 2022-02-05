@@ -1,5 +1,5 @@
 <template>
-    <div :class="baseClass">
+    <div :class="rootClass">
         <svg
             class="animate-spin"
             xmlns="http://www.w3.org/2000/svg"
@@ -24,22 +24,23 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import SizeMixin from '../../utils/SizeMixin';
 
 export default {
     name: 'TWSpinner',
     inheritAttrs: false,
-    mixins: [SizeMixin],
+    mixins: [FixedMixin, SizeMixin],
     data() {
         return {
             config: this.$TWVue.Spinner,
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getSize,
+                this.fixedClass.root,
+                this.sizeClass,
             ];
         },
     },

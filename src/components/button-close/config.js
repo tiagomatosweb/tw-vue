@@ -1,22 +1,24 @@
 export default {
     defaultVariant: 'primary',
     defaultSize: 'md',
-    base: 'inline-flex items-center justify-center p-1.5 focus:outline-none transition ease-in-out duration-150',
+    fixed: {
+        root: 'inline-flex items-center justify-center p-1.5 rounded-lg focus:outline-none focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150',
+    },
     variants: {
         primary: {
-            base: 'text-blue-500 hover:text-blue-600',
+            root: 'text-blue-500 hover:text-blue-600',
         },
         secondary: {
-            base: 'text-gray-400 hover:text-gray-500',
+            root: 'text-gray-400 hover:text-gray-500',
         },
         danger: {
-            base: 'text-red-400 hover:text-red-500',
+            root: 'text-red-400 hover:text-red-500',
         },
         success: {
-            base: 'text-green-400 hover:text-green-500',
+            root: 'text-green-400 hover:text-green-500',
         },
         warning: {
-            base: 'text-yellow-400 hover:text-yellow-500',
+            root: 'text-yellow-400 hover:text-yellow-500',
         },
     },
     sizes: {

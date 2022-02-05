@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="baseClass"
+        :class="rootClass"
         @click.stop.prevent="onClick()"
     >
         <slot>
@@ -18,12 +18,13 @@
 </template>
 
 <script>
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 import SizeMixin from '../../utils/SizeMixin';
 
 export default {
     name: 'TWAvatar',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, VariantMixin, SizeMixin],
     props: {
         src: String,
         alt: String,
@@ -35,11 +36,11 @@ export default {
         };
     },
     computed: {
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getSize,
-                this.getVariant.base,
+                this.fixedClass.root,
+                this.variantClass.root,
+                this.sizeClass,
             ];
         },
     },

@@ -27,7 +27,7 @@
         },
 
         computed: {
-            baseClass() {
+            rootClass() {
                 return [
                     'group flex items-center',
                     'block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
@@ -90,7 +90,7 @@
 
         render(createElement) {
             return createElement(this.toRender, {
-                class: this.baseClass,
+                class: this.rootClass,
                 attrs: this.getAttributes(),
                 on: {
                     ...this.$listeners,

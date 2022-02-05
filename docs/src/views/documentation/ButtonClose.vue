@@ -11,7 +11,7 @@
                 </h4>
 
                 <div class="flex items-center space-x-4">
-                    <TWButtonClose variant="primary">
+                    <TWButtonClose variant="primary" class="text-red-50">
                         Primary
                     </TWButtonClose>
 

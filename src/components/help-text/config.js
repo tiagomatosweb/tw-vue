@@ -1,21 +1,23 @@
 export default {
     defaultVariant: 'primary',
-    base: 'block text-sm m-0 py-1',
+    fixed: {
+        root: 'block text-sm m-0 py-1',
+    },
     variants: {
         primary: {
-            base: 'text-blue-400',
+            root: 'text-blue-400',
         },
         secondary: {
-            base: 'text-gray-500',
+            root: 'text-gray-500',
         },
         success: {
-            base: 'text-green-400',
+            root: 'text-green-400',
         },
         danger: {
-            base: 'text-red-400',
+            root: 'text-red-400',
         },
         warning: {
-            base: 'text-yellow-400',
+            root: 'text-yellow-400',
         },
     },
 };

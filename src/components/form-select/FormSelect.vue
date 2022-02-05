@@ -2,7 +2,7 @@
     <select
         v-model="computedValue"
         v-bind="$attrs"
-        :class="baseClass"
+        :class="rootClass"
         @blur="$emit('blur', $event)"
         @focus="$emit('focus', $event)"
     >
@@ -24,14 +24,15 @@
 </template>
 
 <script>
-import FormSelectOption from './FormSelectOption';
-import FormSelectOptionGroup from './FormSelectOptionGroup';
+import FixedMixin from '../../utils/FixedMixin';
 import VariantMixin from '../../utils/VariantMixin';
 import SizeMixin from '../../utils/SizeMixin';
+import FormSelectOption from './FormSelectOption';
+import FormSelectOptionGroup from './FormSelectOptionGroup';
 
 export default {
     name: 'TWFormSelect',
-    mixins: [VariantMixin, SizeMixin],
+    mixins: [FixedMixin, VariantMixin, SizeMixin],
     components: {
         FormSelectOption,
         FormSelectOptionGroup,
@@ -80,11 +81,11 @@ export default {
                 this.$emit('input', value)
             }
         },
-        baseClass() {
+        rootClass() {
             return [
-                this.config.base,
-                this.getVariant.base,
-                this.getSize,
+                this.fixedClass.root,
+                this.variantClass.root,
+                this.sizeClass,
             ];
         },
         formOptions() {

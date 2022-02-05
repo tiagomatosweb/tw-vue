@@ -1,7 +1,8 @@
 <template>
-    <div v-show="is_active">
-        <slot />
-    </div>
+    <div
+        v-show="is_active"
+        :class="itemClass"
+    ><slot /></div>
 </template>
 
 <script>
@@ -18,8 +19,16 @@
                 default: undefined,
             },
         },
-        mounted() {
+        created() {
             this.Tabs.createTab(this);
+        },
+        computed: {
+            itemClass() {
+                return [
+                    this.Tabs.fixedClass.tabItem,
+                    this.Tabs.variantClass.tabItem,
+                ];
+            },
         },
         data() {
             return {
