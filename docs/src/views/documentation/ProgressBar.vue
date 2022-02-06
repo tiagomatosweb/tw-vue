@@ -133,7 +133,21 @@
                             direction="bottom"
                         />
                     </li>
-                    
+
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 py-12">
+            <div>
+                <ul class="flex flex-col gap-4">
+                    <li class="flex flex-col gap-1">
+                        <h1 class="text-3xl font-bold">Seu XP!</h1>
+                        <TWProgressBar variant="secondary" percentage="50" tooltip="Seu XP!"/>
+                    </li>
+                    <li class="flex flex-col gap-1">
+                        <h1 class="text-3xl font-bold">Seu Level!</h1>
+                        <TWProgressBar variant="success" percentage="85" tooltip="Seu Level!!"/>
+                    </li>
                 </ul>
             </div>
         </div>
