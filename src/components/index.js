@@ -3,6 +3,7 @@ import Avatar from './avatar';
 import Button from './button'
 import ButtonClose from './button-close';
 import Card from './card';
+import Drawer from './drawer';
 import FormGroup from './form-group';
 import FormInput from './form-input';
 import FormLabel from './form-label';
@@ -21,6 +22,7 @@ export {
     Button,
     ButtonClose,
     Card,
+    Drawer,
     FormGroup,
     FormInput,
     FormLabel,
