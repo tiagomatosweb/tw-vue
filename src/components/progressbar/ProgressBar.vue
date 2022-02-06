@@ -1,13 +1,26 @@
 <template>
-    <div v-bind:class="rootClass" @mouseover="activeToolTip = true" @mouseleave="activeToolTip = false">
+    <div
+        :class="rootClass"
+        @mouseover="activeToolTip = true"
+        @mouseleave="activeToolTip = false"
+    >
+
         <div
-            v-bind:class="[percentageClass, getPercentageBarSize]"
-            v-bind:style="`width: ${percentage}%`"
-        ></div>
-        <div v-show="activeToolTip == true" v-bind:class="getToolTipClass">
-            <p v-bind:class="getPercentageBarSize">{{ percentage }}%</p>
+            :class="[percentageClass, percentageBarClass]"
+            :style="`width: ${percentage}%`"
+        >
+            <div :class="toolTipContainerClass">
+                <span v-show="activeToolTip & directionData == 'mt'" :class="getToolTipClass">
+                    {{tooltip}}
+                </span>
+               <p :class="percentageTextClass">{{ percentage }}% </p>
+               <span v-show="activeToolTip & directionData == 'mb'" :class="getToolTipClass">
+                    {{tooltip}}
+                </span>
+
+            </div>
+
         </div>
-        <span v-bind:class="getPercentageText">{{ percentage }}%</span>
     </div>
 </template>
 
@@ -21,12 +34,13 @@ export default {
     data() {
         return {
             config: this.$TWVue.Progressbar,
-            activeToolTip: false
+            activeToolTip: true,
+            directionData: 'mt'
         };
     },
     props: {
         percentage: {
-            type: String,
+            type: [String, Number],
             require: true
         },
         direction: {
@@ -37,24 +51,54 @@ export default {
             validator(value) {
                 return ["bottom", "top"].indexOf(value) !== -1;
             }
+        },
+        tooltip: {
+            type: [String, Number],
+            default(){
+                return `${this.percentage}%`
+            }
         }
     },
-    computed: {
-        rootClass() {
+    methods:{
+        checkDirection(){
+            if(this.direction == 'top'){
+                this.directionData = 'mt'
+            }else{
+                this.directionData = 'mb'
+            }
+
+        }
+    },
+    computed:{
+        rootClass(){
             return [this.fixedClass.root];
         },
         percentageClass(){
+
             return [this.fixedClass.percentage, this.variantClass.root];
+
         },
-        getToolTipClass() {
-            return [`-${this.direction}-8`, this.fixedClass.tooltip, this.variantClass.tooltip];
+        getToolTipClass(){
+
+            return [
+                `-${this.directionData}-${this.sizeClass.tooltip}`,
+                this.sizeClass.text,
+                this.fixedClass.tooltip,
+                this.variantClass.tooltip,
+            ];
         },
-        getPercentageBarSize() {
-            return [this.sizeClass];
+        percentageBarClass(){
+                return [this.sizeClass.bar];
         },
-        getPercentageText() {
-            return [this.sizeClass, this.fixedClass.percentageText];
+        percentageTextClass(){
+            return [this.sizeClass.text, this.fixedClass.percentageText];
+        },
+        toolTipContainerClass(){
+            return this.fixedClass.tooltipContainer
         }
+    },
+    created(){
+        this.checkDirection()
     }
 };
 </script>
