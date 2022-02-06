@@ -17,7 +17,7 @@
     "@tailwindcss/typography": "^0.3.1",
     "core-js": "^3.6.5",
     "gsap": "^3.9.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "portal-vue": "^2.1.7",
     "tailwindcss": "^2.0.1-compat",
     "velocity-animate": "^1.5.2",
