@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
@@ -7,33 +7,33 @@ const buildRoute = (path, component) => {
     return {
         path,
         name: path,
-        component: () => import(`@/views/${component}`),
+        component: () => import(`@/views/${component}`)
     };
 };
 
-
 const router = new VueRouter({
-    mode: 'history',
+    mode: "history",
     base: process.env.BASE_URL,
     routes: [
-        buildRoute('/', 'Home'),
+        buildRoute("/", "Home"),
         {
-           ...buildRoute('/documentation', 'Documentation'),
+            ...buildRoute("/documentation", "Documentation"),
             children: [
-                buildRoute('alert', 'documentation/Alert'),
-                buildRoute('avatar', 'documentation/Avatar'),
-                buildRoute('button', 'documentation/Button'),
-                buildRoute('button-close', 'documentation/ButtonClose'),
-                buildRoute('card', 'documentation/Card'),
-                buildRoute('form', 'documentation/Form'),
-                buildRoute('help-text', 'documentation/HelpText'),
-                buildRoute('modal', 'documentation/Modal'),
-                buildRoute('spinner', 'documentation/Spinner'),
-                buildRoute('tab', 'documentation/Tab'),
-                buildRoute('tag', 'documentation/Tag'),
+                buildRoute("alert", "documentation/Alert"),
+                buildRoute("avatar", "documentation/Avatar"),
+                buildRoute("button", "documentation/Button"),
+                buildRoute("button-close", "documentation/ButtonClose"),
+                buildRoute("card", "documentation/Card"),
+                buildRoute("form", "documentation/Form"),
+                buildRoute("help-text", "documentation/HelpText"),
+                buildRoute("modal", "documentation/Modal"),
+                buildRoute("spinner", "documentation/Spinner"),
+                buildRoute("tab", "documentation/Tab"),
+                buildRoute("tag", "documentation/Tag"),
+                buildRoute("ProgressBar", "documentation/ProgressBar")
             ]
         }
-    ],
+    ]
 });
 
 export default router;
