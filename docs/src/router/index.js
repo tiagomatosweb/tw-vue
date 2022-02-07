@@ -31,7 +31,6 @@ const router = new VueRouter({
                 buildRoute("spinner", "documentation/Spinner"),
                 buildRoute("tab", "documentation/Tab"),
                 buildRoute("tag", "documentation/Tag"),
-
             ]
         }
     ]

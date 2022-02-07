@@ -88,10 +88,7 @@ export default {
     name: 'TWModal',
     mixins: [FixedMixin, SizeMixin],
     props: {
-        value: {
-            type: Boolean,
-            default: false,
-        },
+        value: Boolean,
         size: String,
         title: {
             type: String,
@@ -186,7 +183,6 @@ export default {
             this.isInDOM = vl;
             this.isOpen = vl;
         },
-
         isOpen(vl) {
             const body = document.body;
             if (vl) {
