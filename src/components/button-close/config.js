@@ -2,7 +2,7 @@ export default {
     defaultVariant: 'primary',
     defaultSize: 'md',
     fixed: {
-        root: 'inline-flex items-center justify-center p-1.5 rounded-lg focus:outline-none focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150',
+        root: 'inline-flex items-center justify-center p-1 rounded-lg focus:outline-none focus:outline-none focus:ring-2 focus:ring-offset-2',
     },
     variants: {
         primary: {

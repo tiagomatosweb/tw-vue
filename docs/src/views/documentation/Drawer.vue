@@ -12,14 +12,18 @@
 
                 <div class="flex items-center space-x-4">
                     <div>
-                        {{ drawer.sm }}
                         <TWButton @click="drawer.sm = true">Small</TWButton>
-                        <div ref="gsap">GSAP</div>
                         <TWDrawer
                             v-model="drawer.sm"
+                            title="Drawer"
+                            description="Lorem, ipsum dolor sit amet consectetur adipisicing elit aliquam ad hic recusandae soluta."
                             size="sm"
+                            variant="secondary"
                         >
                             Drawer
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis nulla quas quia quibusdam reprehenderit sapiente suscipit! Ab ad alias deleniti ipsum iure iusto libero odio qui quibusdam similique!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis nulla quas quia quibusdam reprehenderit sapiente suscipit! Ab ad alias deleniti ipsum iure iusto libero odio qui quibusdam similique!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis facilis nulla quas quia quibusdam reprehenderit sapiente suscipit! Ab ad alias deleniti ipsum iure iusto libero odio qui quibusdam similique!</p>
                         </TWDrawer>
                     </div>
                 </div>
