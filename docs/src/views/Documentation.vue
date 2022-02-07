@@ -36,10 +36,10 @@ export default {
                 { label: "Form", to: "/documentation/form" },
                 { label: "Help text", to: "/documentation/help-text" },
                 { label: "Modal", to: "/documentation/modal" },
+                { label: "Progress Bar", to: "/documentation/ProgressBar" },
                 { label: "Spinner", to: "/documentation/spinner" },
                 { label: "Tab", to: "/documentation/tab" },
                 { label: "Tag", to: "/documentation/tag" },
-                { label: "Progress Bar", to: "/documentation/ProgressBar" }
             ]
         };
     }
