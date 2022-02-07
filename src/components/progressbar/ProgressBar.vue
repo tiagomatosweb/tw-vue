@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             config: this.$TWVue.Progressbar,
-            activeToolTip: true,
+            activeToolTip: false,
             directionData: 'mt'
         };
     },
