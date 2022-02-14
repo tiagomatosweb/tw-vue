@@ -4,6 +4,7 @@ import Button from './button'
 import ButtonClose from './button-close';
 import Card from './card';
 import Drawer from './drawer';
+import DataTable from './data-table';
 import FormGroup from './form-group';
 import FormInput from './form-input';
 import FormLabel from './form-label';
@@ -24,6 +25,7 @@ export {
     ButtonClose,
     Card,
     Drawer,
+    DataTable,
     FormGroup,
     FormInput,
     FormLabel,
