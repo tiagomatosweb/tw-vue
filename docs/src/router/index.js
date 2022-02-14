@@ -25,6 +25,7 @@ const router = new VueRouter({
                 buildRoute("button-close", "documentation/ButtonClose"),
                 buildRoute("card", "documentation/Card"),
                 buildRoute("form", "documentation/Form"),
+                buildRoute("data-table/:id?", "documentation/DataTable"),
                 buildRoute("help-text", "documentation/HelpText"),
                 buildRoute("modal", "documentation/Modal"),
                 buildRoute("ProgressBar", "documentation/ProgressBar"),

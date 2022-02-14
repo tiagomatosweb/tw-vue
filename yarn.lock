@@ -1674,6 +1674,11 @@ ajv@^6.10.0:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+alga-js@^0.1.0-wood-2:
+  version "0.1.0-wood-2"
+  resolved "https://registry.yarnpkg.com/alga-js/-/alga-js-0.1.0-wood-2.tgz#fe9cf6e52549129f61a32d4388eb4e60f0458011"
+  integrity sha512-F5mZ4VV/DOCQkUyXi24Fgdu2EG+8bsH1PPFKJAcX4G6uHnIV2lCL5TqOKfg7NwNxYj0xZhHdSqQpaKL5ichpIw==
+
 alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
